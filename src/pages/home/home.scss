@@ -28,7 +28,7 @@ page-home {
             width: 25px;
             bottom: 0px;
             right: 4px;
-            padding: 4px 4px 4px 4px !important;
+            padding: 6px 6px 6px 6px;
         }
         .row-custom {
             flex-wrap: inherit !important;
@@ -36,5 +36,20 @@ page-home {
     }
     img {
         object-fit: cover !important;
+    }
+}
+
+@media only screen and (min-width: 500px) {
+    ion-badge {
+        position: absolute;
+        border-radius: 100%;
+        height: 50px !important;
+        width: 50px !important;
+        bottom: 0px;
+        right: 4px;
+        padding: 10px 10px 10px 10px !important;
+    }
+    ion-icon {
+        font-size: 30px !important;
     }
 }
