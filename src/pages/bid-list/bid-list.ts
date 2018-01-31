@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { BidProvider } from '../../providers/bid/bid';
+import { BidModel } from '../../models/bid.model';
 
 /**
  * Generated class for the BidListPage page.
@@ -15,11 +17,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class BidListPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  bidData:BidModel = new BidModel();
+  isBidCheck:boolean = true;
+
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public bid:BidProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad BidListPage');
+    this.bidLoadData();
+  }
+
+  bidLoadData(){
+    this.bid.getBidService().then((res)=>{
+      this.bidData = res;
+      console.log(this.bidData);
+    })
   }
 
 }

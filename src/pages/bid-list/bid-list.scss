@@ -1,3 +1,33 @@
 page-bid-list {
+    ion-card-content{
+        padding: 5px 5px 5px 5px !important;
+    }
+    .buttun-hammer{
+        height: 7vw !important ;
+        margin-top: 8vw !important;
+        margin-bottom: 8px !important;
+    }
+    .buttun-first{
+        height: 10vw !important ;
+        margin-top: 15px !important;
+        margin-bottom: 8px !important;
+    }
+    .col-red{
+        color: red;
+    }
+    .card{
+        box-shadow: none !important;
+        -webkit-box-shadow:none !important;
+        border: 1px solid;
+        color: $app;
+        height: 95%;
+        border-radius: 7px !important;
+        img{
+            border-radius: 7px !important;
+        }
+    }
+    .col-grid{
+        padding: 0px 0px 0px 0px !important;
+        }
 
 }
