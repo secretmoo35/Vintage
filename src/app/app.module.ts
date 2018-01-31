@@ -12,6 +12,7 @@ import { AuthProvider } from '../providers/auth/auth';
 import { LoadingProvider } from '../providers/loading/loading';
 import { SearchKeywordProvider } from '../components/search-input/search-input.service';
 import { HomeProvider } from '../providers/home/home';
+import { BidProvider } from '../providers/bid/bid';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { HomeProvider } from '../providers/home/home';
     AuthProvider,
     LoadingProvider,
     SearchKeywordProvider,
-    HomeProvider
+    HomeProvider,
+    BidProvider
   ]
 })
 export class AppModule { }

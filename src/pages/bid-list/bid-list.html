@@ -1,9 +1,3 @@
-<!--
-  Generated template for the BidListPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar color="app">
@@ -13,6 +7,58 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+
+  <ion-grid *ngIf="bidData && bidData.items">
+    <ion-row>
+      <ion-col col-6 col-md-4 col-lg-4 class="col-grid" *ngFor="let item of bidData.items">
+        <ion-card>
+          <ion-card-content>
+            <img src="{{item.image}}" alt="imgErr">
+          </ion-card-content>
+          <div *ngIf="item.isBid">
+            <ion-row>
+              <ion-col col-6 class="col-red" text-center>
+                {{item.timeleft}}
+              </ion-col>
+              <ion-col col-6 text-center>
+                {{ item.price | number}} ฿
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-2></ion-col>
+              <ion-col col-8>
+                <button ion-button block small class="buttun-hammer" color="app">
+                  <ion-icon ios="ios-hammer" md="md-hammer"></ion-icon>&nbsp; ประมูล
+                </button>
+              </ion-col>
+              <ion-col col-2></ion-col>
+            </ion-row>
+          </div>
+          <div *ngIf="!item.isBid">
+            <p text-center>วัน-เวลาที่เริ่มประมูล</p>
+            <ion-row no-padding>
+              <ion-col col-12 class="col-red" no-padding text-center>
+                {{ item.datestart | date:'dd/MM/yy - HH:mm' }}
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-12 no-padding padding-left text-left>
+                <p>ราคาเริ่มต้น :
+                  <span class="price-no-bid">{{ item.pricestart | number }} ฿</span>
+                </p>
+                <p>
+                  <b>เคาะ :
+                    <span class="price-no-bid">{{ item.pricebid | number }} ฿</span>
+                  </b>
+                </p>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
 
 </ion-content>

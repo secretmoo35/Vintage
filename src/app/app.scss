@@ -1,6 +1,4 @@
 // http://ionicframework.com/docs/theming/
-
-
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -15,9 +13,24 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 @import url('https://fonts.googleapis.com/css?family=Kanit');
-
 ion-app {
     font-family: 'Kanit', sans-serif !important;
+}
+
+.toolbar-background {
+    background: #ffffff !important;
+}
+
+.toolbar-title {
+    color: $app !important;
+}
+
+.header-md::after {
+    background-image: none !important;
+}
+
+.header-ios .toolbar-ios:last-child .toolbar-background-ios {
+    border-width: 0px !important;
 }
 
 .tabs-ios .tab-button {
@@ -27,6 +40,7 @@ ion-app {
 .scroll-content {
     overflow: auto !important;
 }
+
 ion-footer {
     .toolbar-md {
         padding: 0px !important;

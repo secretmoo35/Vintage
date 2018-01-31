@@ -1,0 +1,63 @@
+{
+  "items": [{
+      "image": "https://www.supersport.com.my/image/bag21outlet/image/cache/data/all_product_images/product-580/adidas-yeezy-350-v2-peach-2_iqpjh2-1000x1000.jpg",
+      "time": "00:00:00",
+      "price": "3000",
+      "isBid": true,
+      "pricestart": 10,
+      "pricebid": 5,
+      "datestart": "Wed Jan 31 2018 16:21:38 GMT+0700 (SE Asia Standard Time)",
+      "dateend": "Thu Feb 01 2018 18:00:00 GMT+0700 (SE Asia Standard Time)"
+    },
+    {
+      "image": "https://sport.mthai.com/app/uploads/2015/08/20-Kits-And-Patterns-Concept-Kits-11.jpg",
+      "time": "00:00:00",
+      "price": "1500",
+      "isBid": true,
+      "pricestart": 7,
+      "pricebid": 5,
+      "datestart": "Wed Jan 31 2018 16:21:38 GMT+0700 (SE Asia Standard Time)",
+      "dateend": "Thu Feb 01 2018 04:00:00 GMT+0700 (SE Asia Standard Time)"
+    },
+    {
+      "image": "https://i.pinimg.com/originals/a2/93/8e/a2938ecf9c990dd3d5cda0a0a387f749.jpg",
+      "time": "00:00:00",
+      "price": "599",
+      "isBid": true,
+      "pricestart": 100,
+      "pricebid": 50,
+      "datestart": "Wed Jan 31 2018 16:21:38 GMT+0700 (SE Asia Standard Time)",
+      "dateend": "Thu Feb 01 2018 16:21:38 GMT+0700 (SE Asia Standard Time)"
+    },
+    {
+      "image": "https://www.nirofashion.com/images/sugar-cane-mens-vintage-cut-non-wash-raw-selvedge-denim-jeans-with-button-fly-sc41945n-p2595-21045_zoom.jpg",
+      "time": "00:30:56",
+      "price": "499",
+      "isBid": false,
+      "pricestart": 100,
+      "pricebid": 90,
+      "datestart": "Wed Jan 31 2018 16:21:38 GMT+0700 (SE Asia Standard Time)",
+      "dateend": "Wed Jan 31 2018 16:21:38 GMT+0700 (SE Asia Standard Time)"
+    },
+    {
+      "image": "https://fidella.org/media/image/product/7874/lg/new-size-fly-tai-mei-tai-baby-carrier-paperclips-vintage-vibes~2.jpg",
+      "time": "01:30:45",
+      "price": "890",
+      "isBid": false,
+      "pricestart": 20,
+      "pricebid": 10,
+      "datestart": "Wed Jan 31 2018 16:21:38 GMT+0700 (SE Asia Standard Time)",
+      "dateend": "Wed Jan 31 2018 16:21:38 GMT+0700 (SE Asia Standard Time)"
+    },
+    {
+      "image": "http://img1.11thcdn.com/g/5/8/2/8/1/1/7/0/0/0/5828117_B_V54.jpg",
+      "time": "00:45:07",
+      "price": "8900",
+      "isBid": false,
+      "pricestart": 200,
+      "pricebid": 150,
+      "datestart": "Wed Jan 31 2018 16:21:38 GMT+0700 (SE Asia Standard Time)",
+      "dateend": "Wed Jan 31 2018 16:21:38 GMT+0700 (SE Asia Standard Time)"
+    }
+  ]
+}
