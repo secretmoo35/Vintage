@@ -1,0 +1,7 @@
+<ion-tabs color="bite" #tabs>
+  <ion-tab [root]="root1" tabTitle="{{ 'HOME' | translate }}" tabIcon="home" (ionSelect)="onSelectChange('0')"></ion-tab>
+  <ion-tab [root]="root2" tabTitle="{{ 'SHOP' | translate }}" tabIcon="ribbon" (ionSelect)="onSelectChange('1')"></ion-tab>
+  <ion-tab [root]="root3" tabTitle="{{ 'BID' | translate }}" tabIcon="hammer" (ionSelect)="onSelectChange('2')"></ion-tab>
+  <ion-tab [root]="root4" tabTitle="{{ 'CART' | translate }}" tabIcon="basket" (ionSelect)="onSelectChange('3')"></ion-tab>
+  <ion-tab [root]="root5" tabTitle="{{ 'MORE' | translate }}" tabIcon="more" (ionSelect)="onSelectChange('4')"></ion-tab>
+</ion-tabs>
