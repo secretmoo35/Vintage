@@ -4,7 +4,6 @@ import { tokenNotExpired } from 'angular2-jwt';
 import 'rxjs/add/operator/toPromise';
 import { TranslateService } from '@ngx-translate/core';
 import { Constants } from '../../app/app.constants';
-import { AlertProvider } from '../alert/alert';
 
 /*
   Generated class for the AuthProvider provider.
@@ -21,7 +20,6 @@ export class AuthProvider {
 
   constructor(
     public http: HttpClient,
-    private alert: AlertProvider,
     private translate: TranslateService
   ) {
 
@@ -71,36 +69,14 @@ export class AuthProvider {
     console.log('logout');
   }
 
-  getDailyWelcome() {
-    let header = this.setHeader();
-    return this.http.get(this.API_URL + "/api/customer/todaywelcome", { headers: header })
-      .toPromise()
-      .then(response => this.showDailyWelcome(response))
-      .catch(this.handleError);
-    // this.showDailyWelcome(null)
+  private updateSuccess(res) {
+    window.localStorage.setItem('user@' + this.API_URL, JSON.stringify(res));
+    return res;
   }
 
   private loginSuccess(res) {
     window.localStorage.setItem('user@' + this.API_URL, JSON.stringify(res));
     window.localStorage.setItem('token', res.loginToken);
-    return res;
-  }
-
-  private showDailyWelcome(dailywelcome) {
-    if (dailywelcome.title) {
-      if (this.translate.currentLang === 'th') {
-        // this.alert.onDailyWelcomeAlert(dailywelcome.image, dailywelcome.title, dailywelcome.description, dailywelcome.remark, 'ยืนยัน');
-        this.alert.onDailyWelcomeAlertGif('./assets/icon/gift/gift-box-open.png', 'เกมประจำวัน', 'หมายเหตุ: 1 ครั้ง ต่อวัน', 'ออก', 'เล่นเกม');
-      } else {
-        // this.alert.onDailyWelcomeAlert(dailywelcome.image, dailywelcome.title, dailywelcome.description, dailywelcome.remark, 'OK');
-        this.alert.onDailyWelcomeAlertGif('./assets/icon/gift/gift-box-open.png', 'Daily game', 'Remark: One time a day.', 'Exit', 'Play');
-      }
-    }
-    return;
-  }
-
-  private updateSuccess(res) {
-    window.localStorage.setItem('user@' + this.API_URL, JSON.stringify(res));
     return res;
   }
 
