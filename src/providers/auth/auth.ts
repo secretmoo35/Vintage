@@ -2,7 +2,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { tokenNotExpired } from 'angular2-jwt';
 import 'rxjs/add/operator/toPromise';
-import { TranslateService } from '@ngx-translate/core';
 import { Constants } from '../../app/app.constants';
 
 /*
@@ -19,8 +18,7 @@ export class AuthProvider {
   _credentials: any = {};
 
   constructor(
-    public http: HttpClient,
-    private translate: TranslateService
+    public http: HttpClient
   ) {
 
   }

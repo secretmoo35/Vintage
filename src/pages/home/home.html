@@ -7,5 +7,39 @@
 </ion-header>
 
 <ion-content>
+  <div class="bid">
+    <!-- <ion-grid>
+      <ion-row>
+        <ion-col col-6 text-left>
+          <b>{{ 'BID' | translate }}</b>
+        </ion-col>
+      </ion-row>
+    </ion-grid> -->
+    <ion-scroll scrollX="true" *ngIf="homeItem && homeItem.bid">
+      <ion-row class="row-custom">
+        <ion-col col-3 col-md-2 col-lg-2 *ngFor="let item of homeItem.bid;" (click)="doBid(item)">
+          <preload-image class="{{ item.isBid ? 'preload-image-true' : 'preload-image-false'}}" [ratio]="{w:1, h:1}" [src]="item.image"
+            title="bid"></preload-image>
+          <ion-badge color="danger" *ngIf="item.isBid">
+            <ion-icon name="hammer"></ion-icon>
+          </ion-badge>
+          <ion-badge color="primary" *ngIf="!item.isBid">
+            <ion-icon name="md-cube" class="alarm"></ion-icon>
+          </ion-badge>
+        </ion-col>
+      </ion-row>
+    </ion-scroll>
+  </div>
+
+  <div *ngIf="homeItem && homeItem.bid">
+    <!-- <ion-grid>
+      <ion-row>
+        <ion-col col-6 text-left>
+          <b>{{ 'PRODUCTS' | translate }}</b>
+        </ion-col>
+      </ion-row>
+    </ion-grid> -->
+    <grid-special [items]="homeItem.items"></grid-special>
+  </div>
 
 </ion-content>

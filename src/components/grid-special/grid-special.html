@@ -1,0 +1,94 @@
+<div>
+  <ion-grid>
+    <div *ngFor="let item of useItems">
+      <!-- 0 -->
+      <ion-row *ngIf="item[0] && item[0].length === 3">
+        <ion-col col-8>
+          <div class="bg-image">
+            <preload-image [ratio]="{w:1, h:1}" [src]="item[0][0].image" title="product"></preload-image>
+          </div>
+        </ion-col>
+        <ion-col col-4 no-padding>
+          <ion-row>
+            <ion-col col-12>
+              <div class="bg-image">
+                <preload-image [ratio]="{w:1, h:1}" [src]="item[0][1].image" title="product"></preload-image>
+              </div>
+            </ion-col>
+            <ion-col col-12>
+              <div class="bg-image">
+                <preload-image [ratio]="{w:1, h:1}" [src]="item[0][2].image" title="product"></preload-image>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="item[0] && item[0].length < 3">
+        <ion-col col-4 *ngFor="let item of item[0]">
+          <div class="bg-image">
+            <preload-image [ratio]="{w:1, h:1}" [src]="item.image" title="product"></preload-image>
+          </div>
+        </ion-col>
+      </ion-row>
+      <!-- 1,2 -->
+      <ion-row *ngIf="item[1]">
+        <ion-col col-4 *ngFor="let item of item[1]">
+          <div class="bg-image">
+            <preload-image [ratio]="{w:1, h:1}" [src]="item.image" title="product"></preload-image>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="item[2]">
+        <ion-col col-4 *ngFor="let item of item[2]">
+          <div class="bg-image">
+            <preload-image [ratio]="{w:1, h:1}" [src]="item.image" title="product"></preload-image>
+          </div>
+        </ion-col>
+      </ion-row>
+      <!-- 3 -->
+      <ion-row *ngIf="item[3] && item[3].length === 3">
+        <ion-col col-4 no-padding>
+          <ion-row>
+            <ion-col col-12>
+              <div class="bg-image">
+                <preload-image [ratio]="{w:1, h:1}" [src]="item[3][0].image" title="product"></preload-image>
+              </div>
+            </ion-col>
+            <ion-col col-12>
+              <div class="bg-image">
+                <preload-image [ratio]="{w:1, h:1}" [src]="item[3][1].image" title="product"></preload-image>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col col-8>
+          <div class="bg-image">
+            <preload-image [ratio]="{w:1, h:1}" [src]="item[3][2].image" title="product"></preload-image>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="item[3] && item[3].length < 3">
+        <ion-col col-4 *ngFor="let item of item[3]">
+          <div class="bg-image">
+            <preload-image [ratio]="{w:1, h:1}" [src]="item.image" title="product"></preload-image>
+          </div>
+        </ion-col>
+      </ion-row>
+      <!-- 4,5 -->
+      <ion-row *ngIf="item[4]">
+        <ion-col col-4 *ngFor="let item of item[4]">
+          <div class="bg-image">
+            <preload-image [ratio]="{w:1, h:1}" [src]="item.image" title="product"></preload-image>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="item[5]">
+        <ion-col col-4 *ngFor="let item of item[5]">
+          <div class="bg-image">
+            <preload-image [ratio]="{w:1, h:1}" [src]="item.image" title="product"></preload-image>
+          </div>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-grid>
+</div>

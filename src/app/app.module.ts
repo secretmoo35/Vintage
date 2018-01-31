@@ -11,6 +11,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AuthProvider } from '../providers/auth/auth';
 import { LoadingProvider } from '../providers/loading/loading';
 import { SearchKeywordProvider } from '../components/search-input/search-input.service';
+import { HomeProvider } from '../providers/home/home';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { SearchKeywordProvider } from '../components/search-input/search-input.s
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     AuthProvider,
     LoadingProvider,
-    SearchKeywordProvider
+    SearchKeywordProvider,
+    HomeProvider
   ]
 })
 export class AppModule { }

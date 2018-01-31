@@ -7,12 +7,14 @@ import { Ionic2RatingModule } from 'ionic2-rating';
 import { SearchInputComponent } from './search-input/search-input';
 import { ListProductComponent } from './list-product/list-product';
 import { PipesModule } from '../pipes/pipes.module';
+import { GridSpecialComponent } from './grid-special/grid-special';
 @NgModule({
 	declarations: [
 		PreloadImageComponent,
 		GridShopYComponent,
     SearchInputComponent,
-    ListProductComponent
+    ListProductComponent,
+    GridSpecialComponent
 	],
 	imports: [
 		IonicModule,
@@ -24,7 +26,8 @@ import { PipesModule } from '../pipes/pipes.module';
 		PreloadImageComponent,
 		GridShopYComponent,
     SearchInputComponent,
-    ListProductComponent
+    ListProductComponent,
+    GridSpecialComponent
 	]
 })
 export class ComponentsModule { }

@@ -20,7 +20,7 @@ export class LoadingProvider {
       spinner: 'hide',
       content: `<div class="lds-css ng-scope">
       <div style="width:100%;height:100%" class="lds-eclipse">
-        <img src="./assets/icon/loading/foods-icon.png" class="loading-img"/>
+        <img src="./assets/icon/loading/loading.png" class="loading-img"/>
         <div></div>
       </div>`
     });
