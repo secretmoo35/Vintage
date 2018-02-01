@@ -75,4 +75,21 @@ export class ProfilePage {
     // }
   }
 
+  profileSettings(){
+    this.navCtrl.push('MorePage');
+  }
+
+  profileCreate(){
+    alert("sssss");
+  }
+
+  profileNotifications(){
+    alert("sssss");
+  }
+
+  selectProduct(event){
+    console.log(event);
+    this.navCtrl.push('ProductDetailPage',{ productId: event._id })
+  }
+
 }
