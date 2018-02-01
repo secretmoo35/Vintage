@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { ShopListModel } from '../../models/shop-list.model';
 import 'rxjs/add/operator/toPromise';
 import { AuthProvider } from '../auth/auth';
+import { ShopModel } from '../../models/shop.model';
 
 /*
   Generated class for the ShopListProvider provider.
@@ -21,6 +22,13 @@ export class ShopListProvider {
     return this.http.get(this.auth.API_URL + '/api/getshoplist')
       .toPromise()
       .then(response => response as Array<ShopListModel>)
+      .catch(this.handleError);
+  }
+  
+  getShopDetail(shopId): Promise<ShopModel> {
+    return this.http.get(this.auth.API_URL + '/api/customershopdetail/' + shopId)
+      .toPromise()
+      .then(response => response as ShopModel)
       .catch(this.handleError);
   }
 
