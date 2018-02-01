@@ -19,6 +19,7 @@ page-product-detail {
     }
     .count {
         margin-top: 14px;
+        margin-bottom: 50px;
         .count-radias {
             border-radius: 1000px;
             height: 45px;
@@ -74,5 +75,15 @@ page-product-detail {
             height: 100vw !important;
             object-fit: cover;
         }
+    }
+    .name {
+        margin-left: 43px !important;
+    }
+    .favorite {
+        padding: 0px !important;
+        height: 29px !important;
+        margin-top: -12px;
+        font-size: 1.2em;
+        color: #e0dd13;
     }
 }

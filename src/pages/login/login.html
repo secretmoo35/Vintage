@@ -1,0 +1,46 @@
+<ion-content padding-top>
+  <ion-grid class="login">
+    <ion-row>
+      <ion-col col-12 class="col-logo">
+        <img src="./assets/imgs/logo/logo.png" class="image-logo">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12 padding>
+        <ion-list>
+          <ion-item>
+            <ion-label floating>{{ 'E_MAIL' | translate}}</ion-label>
+            <ion-input type="email" [(ngModel)]="credentials.username"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>{{ 'PASSWORD' | translate}}</ion-label>
+            <ion-input type="password" [(ngModel)]="credentials.password"></ion-input>
+          </ion-item>
+        </ion-list>
+        <button ion-button no-shadow block color="app" (click)="onLogin(credentials)" [disabled]="!credentials.username || credentials.username === '' || !credentials.password || credentials.password === ''">{{ 'LOGIN' | translate}}</button>
+        <hr>
+        <button ion-button outline block color="dark" (click)="onFacebook()">
+          <ion-grid>
+            <ion-row>
+              <ion-col col-2>
+                <img src="./assets/icon/button/facebook.png" class="social-icon-fb">
+              </ion-col>
+              <ion-col col-8 align-self-center>
+                {{ 'LOGIN_VIA_FACEBOOK' | translate}}
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </button>
+        <ion-row>
+          <ion-col col-6 text-left class="col-btn-bottom">
+            <button ion-button no-shadow clear color="dark" (click)="goRegister()">{{ 'REGISTER' | translate}}</button>
+          </ion-col>
+          <ion-col col-6 text-right class="col-btn-bottom">
+            <button ion-button no-shadow clear color="dark" (click)="goForgotPassword()">{{ 'FORGOT_PASSWORD' | translate}}</button>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

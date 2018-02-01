@@ -64,6 +64,15 @@
   "CURRENT_BID": "ราคาประมูล",
   "PLACE_BID": "ครั้งละ",
   "CHECK_OUT": "สั่งซื้อสินค้า",
-  "CART_NO_ITEM": "ไม่มีสินค้าในตระกร้า"
-
+  "CART_NO_ITEM": "ไม่มีสินค้าในตระกร้า",
+  "FORGOT_TEXT": "รีเซ็ตรหัสผ่านบัญชีทางอีเมล์",
+  "RESET_PASSWORD": "รีเซ็ตรหัสผ่าน",
+  "FAVORITE": "ชื่นชอบ",
+  "ORDER": "ออเดอร์",
+  "HISTORY": "ประวัติ",
+  "CHANGE_PASSWORD": "เปลี่ยนรหัสผ่าน",
+  "BENEFIT": "สิทธิประโยชน์",
+  "SERVICE_CHARGE": "ค่าบริการ",
+  "QUESTIONS_&_ANSWERS": "คำถามที่พบบ่อย",
+  "SETTINGS": "ตั้งค่า"
 }

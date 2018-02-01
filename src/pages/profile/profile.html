@@ -1,58 +1,52 @@
-<!--
-  Generated template for the ProfilePage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header no-border>
-  <ion-navbar transparent color="bite">
-    <ion-title>profile</ion-title>
-    <ion-buttons right >
-      <button ion-button icon-only (click)="profileSettings()">
-        <ion-icon name="md-settings"></ion-icon>
-      </button>
-    </ion-buttons>
-    <ion-buttons right>
-      <button ion-button icon-only (click)="profileCreate()">
-        <ion-icon name="md-create"></ion-icon>
-      </button>
-    </ion-buttons>
+  <ion-navbar>
     <ion-buttons left>
       <button ion-button icon-only (click)="profileNotifications()">
         <ion-icon name="md-notifications"></ion-icon>
       </button>
     </ion-buttons>
+    <ion-title>{{ 'PROFILE' | translate}}</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only (click)="profileEdit()">
+        <ion-icon name="md-create"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons right>
+      <button ion-button icon-only (click)="profileSettings()">
+        <ion-icon name="md-settings"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
-
-<ion-content fullscreen>
+<ion-content>
 
   <div>
     <ion-grid>
       <ion-row>
         <ion-col col-12 text-center>
-          <img src="https://scontent.fbkk5-4.fna.fbcdn.net/v/t1.0-9/26113868_1510506722360290_3705041190320730329_n.jpg?oh=0b39d0004db4854a1fb968b67b1f59a0&oe=5AE28484"
-            class="arvatar">
+          <img src="{{ user.profileImageURL }}" class="arvatar">
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col col-12 class="text-name" text-center>
-          <h4>Amonrat Chantawon</h4>
+        <ion-col col-12 text-center>
+          <h4 class="text-name">
+            <b>{{ user.displayName }}</b>
+          </h4>
         </ion-col>
       </ion-row>
     </ion-grid>
 
     <ion-segment mode="md" [(ngModel)]="segment" color="app" (ionChange)="segmentChanged($event)">
       <ion-segment-button value="favorte">
-        favorte
+        {{ 'FAVORITE' | translate }}
+        <span *ngIf="productFavarite.length > 0">({{productFavarite.length}})</span>
       </ion-segment-button>
-      <ion-segment-button value="oder">
-        oder
+      <ion-segment-button value="order">
+        {{ 'ORDER' | translate }}
       </ion-segment-button>
       <ion-segment-button value="history">
-        history
+        {{ 'HISTORY' | translate }}
       </ion-segment-button>
     </ion-segment>
 

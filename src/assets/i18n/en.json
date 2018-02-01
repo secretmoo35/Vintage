@@ -64,5 +64,15 @@
   "CURRENT_BID": "Current bid",
   "PLACE_BID": "Place bid",
   "CHECK_OUT": "Check out",
-  "CART_NO_ITEM": "Cart empty"
+  "CART_NO_ITEM": "Cart empty",
+  "FORGOT_TEXT": "Reset your account password by email.",
+  "RESET_PASSWORD": "Reset password",
+  "FAVORITE": "Favorite",
+  "ORDER": "Order",
+  "HISTORY": "History",
+  "CHANGE_PASSWORD": "Change password",
+  "BENEFIT": "Benefit",
+  "SERVICE_CHARGE": "Service charge",
+  "QUESTIONS_&_ANSWERS": "Questions & Answers",
+  "SETTINGS": "Settings"
 }
