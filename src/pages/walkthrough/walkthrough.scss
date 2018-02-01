@@ -1,0 +1,26 @@
+page-walkthrough {
+    .scroll-content {
+        overflow-y: auto !important;
+    }
+    .button {
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        z-index: 999;
+    }
+    .text {
+        color: $app;
+    }
+    .swiper-pagination-bullet-active {
+        background: $app;
+        opacity: 1;
+    }
+    .bg-slide-1 {
+        margin-top: -20px;
+        background-image: url("../assets/imgs/greeting/step1.png");
+        background-size: cover;
+    }
+    .scroll-content {
+        padding-bottom: 0px !important;
+    }
+}
