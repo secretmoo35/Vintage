@@ -5,5 +5,9 @@
   "CART": "Cart",
   "MORE": "More",
   "SEARCH": "Search shop/product",
-  "PRODUCTS": "Products"
+  "PRODUCTS": "Products",
+  "SKIP": "skip",
+  "ACCEPT": "Accept",
+  "TERMS_CONDITIONS": "Terms & Conditions",
+  "AGREEMENT": "Agreement"
 }
