@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ShopListProvider } from '../../providers/shop-list/shop-list';
 
 /**
  * Generated class for the ShopListPage page.
@@ -15,11 +16,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ShopListPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public shopList:ShopListProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ShopListPage');
+    this.getListShop();
+  }
+
+  getListShop(){
+    this.shopList.getShop().then(res=>{
+      console.log(res);
+    })
   }
 
 }

@@ -13,6 +13,7 @@ import { LoadingProvider } from '../providers/loading/loading';
 import { SearchKeywordProvider } from '../components/search-input/search-input.service';
 import { HomeProvider } from '../providers/home/home';
 import { BidProvider } from '../providers/bid/bid';
+import { ShopListProvider } from '../providers/shop-list/shop-list';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { BidProvider } from '../providers/bid/bid';
     LoadingProvider,
     SearchKeywordProvider,
     HomeProvider,
-    BidProvider
+    BidProvider,
+    ShopListProvider
   ]
 })
 export class AppModule { }
