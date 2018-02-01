@@ -7,19 +7,18 @@
 <ion-header no-border>
   <ion-navbar transparent color="bite">
     <ion-title>profile</ion-title>
-    <!-- <ion-title>{{ 'PROFILE' | translate}}</ion-title> -->
-    <ion-buttons right>
-      <button ion-button icon-only (click)="ProfileEditPage()">
+    <ion-buttons right >
+      <button ion-button icon-only (click)="profileSettings()">
         <ion-icon name="md-settings"></ion-icon>
       </button>
     </ion-buttons>
     <ion-buttons right>
-      <button ion-button icon-only (click)="ProfileEditPage()">
+      <button ion-button icon-only (click)="profileCreate()">
         <ion-icon name="md-create"></ion-icon>
       </button>
     </ion-buttons>
     <ion-buttons left>
-      <button ion-button icon-only (click)="ProfileEditPage()">
+      <button ion-button icon-only (click)="profileNotifications()">
         <ion-icon name="md-notifications"></ion-icon>
       </button>
     </ion-buttons>
