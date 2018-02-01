@@ -1,0 +1,54 @@
+page-register-profile {
+    .scroll-content {
+        overflow-y: auto !important;
+    }
+    .profile-image {
+        width: 150px;
+        border-radius: 100%;
+    }
+    .col-input {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+    .gender-selected {
+        margin-top: 10px;
+    }
+    .label-md[floating] {
+        margin-top: 10px !important;
+    }
+    .item {
+        padding-right: 6px !important;
+        padding-left: 6px !important;
+    }
+    .list-ios>.item-block:first-child {
+        border-top: none !important;
+    }
+    .danger {
+        color: #F44336 !important;
+    }
+    preload-image {
+        border-radius: 100% !important;
+    }
+    .datetime-birthday{
+        z-index: 9999;
+        height: 49px;
+        margin-top: 8px;
+        margin-bottom: 8px;
+        p{
+            // color: #999 !important;
+            font-size: 15px !important;
+        }
+    }
+    ion-datetime {
+        padding: 18px 8px 0px 16px !important;
+        .item-cover {
+            display: none !important;
+        }
+    }
+    .footer-agreement {
+        .toolbar {
+            min-height: 40px !important;
+            max-height: 40px !important;
+        }
+    }
+}
