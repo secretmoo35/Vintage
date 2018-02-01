@@ -1,7 +1,8 @@
 page-home {
     .bid {
         ion-scroll {
-            height: 28vw;
+            height: 27vw;
+            max-height: 190px;
         }
         .preload-image-true {
             border-radius: 100%;

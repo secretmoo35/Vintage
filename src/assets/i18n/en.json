@@ -62,5 +62,7 @@
   "BID_SUB": "Bid",
   "START_PRICE": "Start price",
   "CURRENT_BID": "Current bid",
-  "PLACE_BID": "Place bid"
+  "PLACE_BID": "Place bid",
+  "CHECK_OUT": "Check out",
+  "CART_NO_ITEM": "Cart empty"
 }
