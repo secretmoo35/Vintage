@@ -1,5 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, Tabs, Platform } from 'ionic-angular';
+import { IonicPage, NavController, Tabs, Platform, ToastController } from 'ionic-angular';
+import { TranslateService } from '@ngx-translate/core';
+import { CartProvider } from '../../providers/cart/cart';
 
 /**
  * Generated class for the NavtabsPage tabs.
@@ -25,7 +27,9 @@ export class NavtabsPage {
   constructor(
     public navCtrl: NavController,
     private platform: Platform,
-    // private toastCtrl: ToastController,
+    private toastCtrl: ToastController,
+    private translate: TranslateService,
+    private cart: CartProvider
   ) {
     platform.ready().then(() => {
       //back button handle
@@ -38,20 +42,20 @@ export class NavtabsPage {
         if (new Date().getTime() - lastTimeBackPress < timePeriodToExit) {
           this.platform.exitApp(); //Exit from app
         } else {
-          // let language = this.translate.currentLang;
-          // let message = '';
-          // if (language === 'th') {
-          //   message = 'กดปุ่มย้อนกลับอีกครั้ง เพื่อออกจากแอปพลิเคชัน';
-          // } else if (language === 'en') {
-          //   message = 'Press back again to exit App?'
-          // }
-          // let toast = this.toastCtrl.create({
-          //   message: message,
-          //   duration: 3000,
-          //   position: 'bottom'
-          // });
-          // toast.present();
-          // lastTimeBackPress = new Date().getTime();
+          let language = this.translate.currentLang;
+          let message = '';
+          if (language === 'th') {
+            message = 'กดปุ่มย้อนกลับอีกครั้ง เพื่อออกจากแอปพลิเคชัน';
+          } else if (language === 'en') {
+            message = 'Press back again to exit App?'
+          }
+          let toast = this.toastCtrl.create({
+            message: message,
+            duration: 3000,
+            position: 'bottom'
+          });
+          toast.present();
+          lastTimeBackPress = new Date().getTime();
         }
       });
     });
@@ -73,5 +77,9 @@ export class NavtabsPage {
     } else if (e === '4') {
       window.localStorage.setItem('current_page_for_login', 'HomePage');
     }
+  }
+
+  getBadge() {
+    return this.cart.getCount();
   }
 }

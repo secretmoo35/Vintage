@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
-// import { CartProvider } from '../../providers/cart/cart';
-// import { ProductProvider } from '../../providers/product/product';
+import { CartProvider } from '../../providers/cart/cart';
 import { LoadingProvider } from '../../providers/loading/loading';
 import { ProductDetailModel } from '../../models/product-detail.model';
 import { ProductProvider } from '../../providers/product/product';
@@ -22,7 +21,7 @@ export class ProductDetailPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private viewCtrl: ViewController,
-    // private cartProvider: CartProvider,
+    private cartProvider: CartProvider,
     private productProvider: ProductProvider,
     private loading: LoadingProvider
   ) {
@@ -65,13 +64,13 @@ export class ProductDetailPage {
   }
 
   addToCart() {
-    // let product = {
-    //   product: this.productData,
-    //   remark: this.remark,
-    //   qty: this.numberCount,
-    //   amount: this.amount
-    // };
-    // this.cartProvider.addToCart(product);
+    let product = {
+      product: this.productData,
+      // remark: this.remark,
+      qty: this.numberCount,
+      amount: this.amount
+    };
+    this.cartProvider.addToCart(product);
     this.viewCtrl.dismiss();
   }
 }

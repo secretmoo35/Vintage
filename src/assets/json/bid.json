@@ -2,7 +2,7 @@
   "items": [{
       "image": "https://www.supersport.com.my/image/bag21outlet/image/cache/data/all_product_images/product-580/adidas-yeezy-350-v2-peach-2_iqpjh2-1000x1000.jpg",
       "time": "00:00:00",
-      "price": "3000",
+      "price": "300",
       "isBid": true,
       "pricestart": 10,
       "pricebid": 5,
@@ -12,9 +12,9 @@
     {
       "image": "https://sport.mthai.com/app/uploads/2015/08/20-Kits-And-Patterns-Concept-Kits-11.jpg",
       "time": "00:00:00",
-      "price": "1500",
+      "price": "405",
       "isBid": true,
-      "pricestart": 7,
+      "pricestart": 20,
       "pricebid": 5,
       "datestart": "Wed Jan 31 2018 16:21:38 GMT+0700 (SE Asia Standard Time)",
       "dateend": "Thu Feb 02 2018 04:00:00 GMT+0700 (SE Asia Standard Time)"
@@ -22,7 +22,7 @@
     {
       "image": "https://i.pinimg.com/originals/a2/93/8e/a2938ecf9c990dd3d5cda0a0a387f749.jpg",
       "time": "00:00:00",
-      "price": "599",
+      "price": "1250",
       "isBid": true,
       "pricestart": 100,
       "pricebid": 50,

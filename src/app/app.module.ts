@@ -21,6 +21,7 @@ import { ShopListProvider } from '../providers/shop-list/shop-list';
 import * as ionicGalleryModal from 'ionic-gallery-modal';
 import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { ProductProvider } from '../providers/product/product';
+import { CartProvider } from '../providers/cart/cart';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { ProductProvider } from '../providers/product/product';
     BidProvider,
     AlertProvider,
     ShopListProvider,
-    ProductProvider
+    ProductProvider,
+    CartProvider
   ]
 })
 export class AppModule { }

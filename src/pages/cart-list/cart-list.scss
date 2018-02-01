@@ -1,3 +1,77 @@
 page-cart-list {
-
+    .content {
+        background-color: #f4f4f4;
+    }
+    .scroll-content {
+        overflow: auto;
+    }
+    .count-radias {
+        height: 32px;
+        width: 26px;
+        border-radius: 81px;
+    }
+    .shop-title {
+        margin-bottom: 10px;
+    }
+    .searchbar-ios .searchbar-input {
+        background-color: #eeeded !important;
+        border-radius: 15px !important;
+    }
+    .searchbar-ios {
+        background: white !important;
+        text-align: center;
+        border-bottom: none !important;
+        padding: 0px !important;
+        margin-top: 10px;
+    }
+    .searchbar-input-container {
+        margin-top: 12px;
+    }
+    .searchbar-ios .searchbar-search-icon {
+        background-image: none;
+    }
+    .footer-cart {
+        .toolbar {
+            min-height: 40px !important;
+            max-height: 40px !important;
+        }
+    }
+    .product-name {
+        width: 60vw;
+    }
+    .price-name {
+        color: rgb(168, 168, 168);
+    }
+    .icon-cart {
+        font-size: 18px !important;
+        height: 36px !important;
+        right: 0px;
+    }
+    .icon-trash {
+        position: absolute;
+        right: 0px;
+        top: 2px;
+        font-size: 16px !important;
+        z-index: 9999;
+    }
+    .counter {
+        text-align: right;
+        position: absolute;
+        right: 0px;
+        top: 34px;
+        width: 100%;
+        z-index: 9999;
+    }
+    .list-item {
+        margin: 0px;
+    }
+    .label-md[stacked] {
+        color: #000;
+    }
+    .item {
+        padding-left: 6px !important;
+    }
+    .input-cover {
+        height: 0px;
+    }
 }

@@ -56,5 +56,11 @@
   "PROMOTION": "Promotion",
   "RECOMMEND": "Recommend",
   "POPULAR": "Popular",
-  "PROFILE_PAGE":"Profile"
+  "PROFILE_PAGE": "Profile",
+  "TIME_LEFT": "Time left",
+  "TIME_BID": "Start bid",
+  "BID_SUB": "Bid",
+  "START_PRICE": "Start price",
+  "CURRENT_BID": "Current bid",
+  "PLACE_BID": "Place bid"
 }

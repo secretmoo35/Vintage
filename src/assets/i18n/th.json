@@ -56,5 +56,11 @@
   "PROMOTION": "โปรโมชั่น",
   "RECOMMEND": "แนะนำ",
   "POPULAR": "ยอดนิยม",
-  "PROFILE_PAGE":"โปรไฟล์"
+  "PROFILE_PAGE": "โปรไฟล์",
+  "TIME_LEFT": "เวลาคงเหลือ",
+  "TIME_BID": "วัน-เวลาที่เริ่มประมูล",
+  "BID_SUB": "ประมูล",
+  "START_PRICE": "ราคาเริ่มต้น",
+  "CURRENT_BID": "ราคาประมูล",
+  "PLACE_BID": "ครั้งละ"
 }
