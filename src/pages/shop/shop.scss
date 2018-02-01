@@ -60,6 +60,14 @@ page-shop {
     }
     .category {
         margin-left: 6px !important;
+        .ion-col-active {
+            border: 3px solid $app !important;
+            margin-top: 0px !important;
+            img {
+                opacity: 1 !important;
+                object-fit: cover;
+            }
+        }
     }
     .category-title {
         margin: 0px !important;
@@ -75,12 +83,6 @@ page-shop {
         width: auto;
         ion-icon {
             padding: 0px !important;
-        }
-    }
-    .selectedCategory {
-        img {
-            opacity: 1 !important;
-            object-fit: cover;
         }
     }
     .categories-image {

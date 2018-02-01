@@ -61,8 +61,9 @@
 
     <ion-scroll scrollX="true" class="category">
       <ion-row class="row-custom">
-        <ion-col col-3 *ngFor="let cate of shopData.categories; let ii = index;" class="col-imgpromote" (click)="selectCate(ii + 1,cate)">
-          <preload-image class="categories-image" [ratio]="{w:1, h:1}" [src]="cate.image" [ngClass]="cate._id === selectedCateId ? 'selectedCategory' : ''"></preload-image>
+        <ion-col col-3 *ngFor="let cate of shopData.categories; let ii = index;" [ngClass]="cate._id === selectedCateId ? 'ion-col-active' : ''"
+          class="col-imgpromote" (click)="selectCate(ii + 1,cate)">
+          <preload-image class="categories-image" [ratio]="{w:1, h:1}" [src]="cate.image"></preload-image>
           <p class="cate-order">{{cate.name}}</p>
         </ion-col>
       </ion-row>
