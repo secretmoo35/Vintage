@@ -18,6 +18,9 @@ import { BidProvider } from '../providers/bid/bid';
 import { AlertProvider } from '../providers/alert/alert';
 import { ShopListProvider } from '../providers/shop-list/shop-list';
 
+import * as ionicGalleryModal from 'ionic-gallery-modal';
+import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+
 @NgModule({
   declarations: [
     MyApp
@@ -25,6 +28,7 @@ import { ShopListProvider } from '../providers/shop-list/shop-list';
   imports: [
     BrowserModule,
     HttpClientModule,
+    ionicGalleryModal.GalleryModalModule,
     IonicModule.forRoot(MyApp, {
       backButtonText: '',
     }),
@@ -45,6 +49,10 @@ import { ShopListProvider } from '../providers/shop-list/shop-list';
     SplashScreen,
     Facebook,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
+    {
+      provide: HAMMER_GESTURE_CONFIG,
+      useClass: ionicGalleryModal.GalleryModalHammerConfig,
+    },
     AuthProvider,
     LoadingProvider,
     SearchKeywordProvider,
