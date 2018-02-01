@@ -7,6 +7,7 @@ import { ShopModel } from '../../models/shop.model';
 import { ShopListProvider } from '../../providers/shop-list/shop-list';
 
 import { GalleryModal } from 'ionic-gallery-modal';
+import { AlertProvider } from '../../providers/alert/alert';
 
 
 @IonicPage()
@@ -28,7 +29,7 @@ export class ShopPage {
     private modalCtrl: ModalController,
     private loading: LoadingProvider,
     private translate: TranslateService,
-    // private alert: AlertProvider,
+    private alert: AlertProvider,
     // private cartProvider: CartProvider
   ) {
   }
@@ -57,9 +58,9 @@ export class ShopPage {
       this.navCtrl.pop();
       let language = this.translate.currentLang;
       if (language === 'th') {
-        // this.alert.onAlert('ร้านค้า', 'โหลดข้อมูลร้านค้าล้มเหลว', 'ตกลง');
+        this.alert.onAlert('ร้านค้า', 'โหลดข้อมูลร้านค้าล้มเหลว', 'ตกลง');
       } else if (language === 'en') {
-        // this.alert.onAlert('Restaurant', 'Error loading restaurant.', 'OK');
+        this.alert.onAlert('Restaurant', 'Error loading restaurant.', 'OK');
       }
     });
   }

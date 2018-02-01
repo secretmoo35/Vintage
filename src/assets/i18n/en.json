@@ -6,6 +6,7 @@
   "MORE": "More",
   "SEARCH": "Search shop/product",
   "PRODUCTS": "Products",
+  "PRODUCT_CATEGORY": "Product category",
   "SKIP": "skip",
   "ACCEPT": "Accept",
   "TERMS_CONDITIONS": "Terms & Conditions",
@@ -42,5 +43,7 @@
   "ADDRESS": "Address",
   "WEBSITE": "Website",
   "FEMALE": "female",
-  "MALE": "male"
+  "MALE": "male",
+  "SEE_ALL": "See all",
+  "ADD_TO_CART": "Add to cart"
 }
