@@ -4,15 +4,62 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
-
-  <ion-navbar>
+<ion-header no-border>
+  <ion-navbar transparent color="bite">
     <ion-title>profile</ion-title>
+    <!-- <ion-title>{{ 'PROFILE' | translate}}</ion-title> -->
+    <ion-buttons right>
+      <button ion-button icon-only (click)="ProfileEditPage()">
+        <ion-icon name="md-settings"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons right>
+      <button ion-button icon-only (click)="ProfileEditPage()">
+        <ion-icon name="md-create"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons left>
+      <button ion-button icon-only (click)="ProfileEditPage()">
+        <ion-icon name="md-notifications"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content fullscreen>
+
+  <div>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12 text-center>
+          <img src="https://scontent.fbkk5-4.fna.fbcdn.net/v/t1.0-9/26113868_1510506722360290_3705041190320730329_n.jpg?oh=0b39d0004db4854a1fb968b67b1f59a0&oe=5AE28484"
+            class="arvatar">
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12 class="text-name" text-center>
+          <h4>Amonrat Chantawon</h4>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-segment mode="md" [(ngModel)]="segment" color="app" (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="favorte">
+        favorte
+      </ion-segment-button>
+      <ion-segment-button value="oder">
+        oder
+      </ion-segment-button>
+      <ion-segment-button value="history">
+        history
+      </ion-segment-button>
+    </ion-segment>
+
+    <div [ngSwitch]="segment">
+        <list-product [items]="productFavarite" [selectedCateId]="''" (clickItem)="selectProduct($event)"></list-product>
+    </div>
+  </div>
 
 </ion-content>

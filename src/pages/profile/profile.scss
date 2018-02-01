@@ -1,3 +1,20 @@
 page-profile {
+   .arvatar{
+    width: 40vw !important;
+    border-radius: 100%;
+    height: 40vw;
+    object-fit: cover;
+   }
+   img{
+     max-width: none !important;
+   }
 
+   .segment-md-light .segment-button.segment-activated {
+    border: none;
+    background-color: #b3222f;
+    opacity: 1;
+    }
+    .segment-button {
+    font-size: medium !important;
+    }
 }
