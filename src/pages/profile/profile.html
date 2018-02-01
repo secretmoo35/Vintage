@@ -58,7 +58,9 @@
     </ion-segment>
 
     <div [ngSwitch]="segment">
+      <ion-list *ngSwitchCase="'favorte'">
         <list-product [items]="productFavarite" [selectedCateId]="''" (clickItem)="selectProduct($event)"></list-product>
+      </ion-list>
     </div>
   </div>
 
