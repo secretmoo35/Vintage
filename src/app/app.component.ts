@@ -3,17 +3,18 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TranslateService } from '@ngx-translate/core';
+import { Constants } from './app.constants';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   // rootPage:any = 'NavtabsPage';
-  rootPage:any = 'WalkthroughPage';
+  rootPage: any = 'WalkthroughPage';
 
   constructor(
-    platform: Platform, 
-    statusBar: StatusBar, 
+    platform: Platform,
+    statusBar: StatusBar,
     splashScreen: SplashScreen,
     translate: TranslateService
   ) {
@@ -22,6 +23,13 @@ export class MyApp {
     translate.setDefaultLang('en');
     const browserLang = translate.getBrowserLang();
     translate.use(browserLang.match(/en|th/) ? browserLang : 'en');
+
+    let agr = JSON.parse(window.localStorage.getItem('Agreement@' + Constants.URL));
+    if (agr && agr.status) {
+      this.rootPage = 'NavtabsPage';
+    } else {
+      this.rootPage = 'WalkthroughPage';
+    }
 
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.

@@ -1,13 +1,7 @@
 <ion-header>
 
-  <ion-navbar color="app">
+  <ion-navbar>
     <ion-title>{{shopData.name}}</ion-title>
-    <ion-buttons end (click)="goToCart()" *ngIf="shopData.products">
-      <button ion-button icon-only class="icon-cart">
-        <ion-icon name="cart"></ion-icon>
-      </button>
-      <ion-badge color="primary" class="badge-count" item-end *ngIf="getBadge() > 0"> {{ getBadge() }} </ion-badge>
-    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -17,29 +11,7 @@
   <search-input></search-input>
 
   <div *ngIf="shopData.products">
-    <preload-image [ratio]="{w:21, h:12}" [src]="shopData.coverimage" [isIcon]="true">
-      <!-- <ion-grid class="shop-detail">
-        <ion-row>
-          <ion-col col-12>
-            <ion-row>
-              <label class="shop-title">{{shopData.name}}</label>
-            </ion-row>
-            <ion-row>
-              <label class="shop-title">{{shopData.detail}}</label>
-            </ion-row>
-            <ion-row>
-              <label class="shop-title" *ngIf="shopData.address.addressdetail">{{shopData.address.addressdetail}}&nbsp;</label>
-              <ion-badge class="icon-ads" item-end color="bite" [ngClass]="{'open': shopData.isopen}">{{isO | translate}}</ion-badge>
-            </ion-row>
-
-            <button ion-button icon-left clear large class="favorite" (click)="onFavorite()">
-              <ion-icon *ngIf="!shopData.isFavorite" name="md-star-outline"></ion-icon>
-              <ion-icon *ngIf="shopData.isFavorite" name="md-star"></ion-icon>
-            </button>
-          </ion-col>
-        </ion-row>
-      </ion-grid> -->
-    </preload-image>
+    <preload-image [ratio]="{w:21, h:12}" [src]="shopData.coverimage" [isIcon]="true"></preload-image>
     <ion-grid class="shop-detail">
       <ion-row>
         <ion-col col-12>

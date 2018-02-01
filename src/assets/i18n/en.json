@@ -45,5 +45,16 @@
   "FEMALE": "female",
   "MALE": "male",
   "SEE_ALL": "See all",
-  "ADD_TO_CART": "Add to cart"
+  "ADD_TO_CART": "Add to cart",
+  "CANCEL": "Cancel",
+  "OK": "OK",
+  "NEXT": "Next",
+  "OPEN": "Open",
+  "CLOSE": "Close",
+  "PRODUCT_LIST": "Product list",
+  "THB": "THB",
+  "PROMOTION": "Promotion",
+  "RECOMMEND": "Recommend",
+  "POPULAR": "Popular",
+  "PROFILE_PAGE":"Profile"
 }

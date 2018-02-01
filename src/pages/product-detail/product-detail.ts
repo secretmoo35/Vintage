@@ -65,13 +65,12 @@ export class ProductDetailPage {
   }
 
   addToCart() {
-    let product = {
-      product: this.productData,
-      remark: this.remark,
-      qty: this.numberCount,
-      amount: this.amount
-
-    };
+    // let product = {
+    //   product: this.productData,
+    //   remark: this.remark,
+    //   qty: this.numberCount,
+    //   amount: this.amount
+    // };
     // this.cartProvider.addToCart(product);
     this.viewCtrl.dismiss();
   }

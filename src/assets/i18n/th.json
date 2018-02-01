@@ -6,7 +6,7 @@
   "MORE": "อื่น",
   "SEARCH": "ค้นหาร้าน/สินค้า",
   "PRODUCTS": "สินค้า",
-  "PRODUCT_CATEGORY": "ประเภทอาหาร",
+  "PRODUCT_CATEGORY": "ประเภทสินค้า",
   "SKIP": "ข้าม",
   "ACCEPT": "ยอมรับ",
   "TERMS_CONDITIONS": "ข้อตกลงและเงื่อนไข",
@@ -45,5 +45,16 @@
   "FEMALE": "หญิง",
   "MALE": "ชาย",
   "SEE_ALL": "ดูทั้งหมด",
-  "ADD_TO_CART": "เพิ่มสินค้าลงตะกร้า"
+  "ADD_TO_CART": "เพิ่มสินค้าลงตะกร้า",
+  "CANCEL": "ยกเลิก",
+  "OK": "ตกลง",
+  "NEXT": "ถัดไป",
+  "OPEN": "เปิด",
+  "CLOSE": "ปิด",
+  "PRODUCT_LIST": "รายการสินค้า",
+  "THB": "บาท",
+  "PROMOTION": "โปรโมชั่น",
+  "RECOMMEND": "แนะนำ",
+  "POPULAR": "ยอดนิยม",
+  "PROFILE_PAGE":"โปรไฟล์"
 }

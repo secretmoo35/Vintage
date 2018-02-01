@@ -14,8 +14,8 @@
 
 
 <ion-content>
-    <search-input></search-input>
-<div class="content">
-  <preload-image *ngFor="let item of shopData" [ratio]="{w:19, h:8}" [src]="item.coverimage" (click)=shopListId(item)></preload-image>
-</div>
+  <search-input></search-input>
+  <div class="content">
+    <preload-image *ngFor="let item of shopData" [ratio]="{w:19, h:8}" [src]="item.coverimage" (click)=shopListId(item)></preload-image>
+  </div>
 </ion-content>

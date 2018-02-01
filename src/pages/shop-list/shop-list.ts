@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ShopListProvider } from '../../providers/shop-list/shop-list';
 import { ShopListModel } from '../../models/shop-list.model';
+import { LoadingProvider } from '../../providers/loading/loading';
 
 /**
  * Generated class for the ShopListPage page.
@@ -17,24 +18,32 @@ import { ShopListModel } from '../../models/shop-list.model';
 })
 export class ShopListPage {
 
-  shopData:Array<ShopListModel>;
+  shopData: Array<ShopListModel>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public shopList:ShopListProvider) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public shopList: ShopListProvider,
+    private loading: LoadingProvider
+  ) {
   }
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
     console.log('ionViewDidLoad ShopListPage');
     this.getListShop();
   }
 
-  getListShop(){
-    this.shopList.getShop().then(res=>{
-      console.log(res);
+  getListShop() {
+    this.loading.onLoading();
+    this.shopList.getShop().then(res => {
+      this.loading.dismiss();
       this.shopData = res;
+    }, (err) => {
+      this.loading.dismiss();
     })
   }
 
-  shopListId(item){
+  shopListId(item) {
     this.navCtrl.push('ShopPage', item._id);
   }
 

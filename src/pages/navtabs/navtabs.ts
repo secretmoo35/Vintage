@@ -20,7 +20,7 @@ export class NavtabsPage {
   root2 = 'ShopListPage';
   root3 = 'BidListPage';
   root4 = 'CartListPage';
-  root5 = 'MorePage';
+  root5 = 'ProfilePage';
 
   constructor(
     public navCtrl: NavController,
