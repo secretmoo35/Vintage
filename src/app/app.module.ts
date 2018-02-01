@@ -8,11 +8,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { Facebook } from '@ionic-native/facebook';
+
 import { AuthProvider } from '../providers/auth/auth';
 import { LoadingProvider } from '../providers/loading/loading';
 import { SearchKeywordProvider } from '../components/search-input/search-input.service';
 import { HomeProvider } from '../providers/home/home';
 import { BidProvider } from '../providers/bid/bid';
+import { AlertProvider } from '../providers/alert/alert';
 import { ShopListProvider } from '../providers/shop-list/shop-list';
 
 import * as ionicGalleryModal from 'ionic-gallery-modal';
@@ -44,6 +47,7 @@ import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
   providers: [
     StatusBar,
     SplashScreen,
+    Facebook,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     {
       provide: HAMMER_GESTURE_CONFIG,
@@ -54,6 +58,7 @@ import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
     SearchKeywordProvider,
     HomeProvider,
     BidProvider,
+    AlertProvider,
     ShopListProvider
   ]
 })

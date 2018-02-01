@@ -1,0 +1,17 @@
+.alert-message {
+    img {
+        width: 50% !important;
+    }
+}
+
+.alert-ios .alert-message {
+    max-height: 90%;
+    overflow-y: auto !important;
+}
+.confirm{
+    font-weight: bold !important;
+}
+.cancel{
+    color: $app !important;
+    font-weight: 100 !important;
+}
