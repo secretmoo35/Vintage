@@ -8,11 +8,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { Facebook } from '@ionic-native/facebook';
+
 import { AuthProvider } from '../providers/auth/auth';
 import { LoadingProvider } from '../providers/loading/loading';
 import { SearchKeywordProvider } from '../components/search-input/search-input.service';
 import { HomeProvider } from '../providers/home/home';
 import { BidProvider } from '../providers/bid/bid';
+import { AlertProvider } from '../providers/alert/alert';
 
 @NgModule({
   declarations: [
@@ -39,12 +42,14 @@ import { BidProvider } from '../providers/bid/bid';
   providers: [
     StatusBar,
     SplashScreen,
+    Facebook,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     AuthProvider,
     LoadingProvider,
     SearchKeywordProvider,
     HomeProvider,
-    BidProvider
+    BidProvider,
+    AlertProvider
   ]
 })
 export class AppModule { }

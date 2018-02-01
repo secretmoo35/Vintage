@@ -85,4 +85,8 @@
     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.11" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <engine name="android" spec="~6.4.0" />
+    <plugin name="cordova-plugin-facebook4" spec="^1.9.1">
+        <variable name="APP_ID" value="277183306145425" />
+        <variable name="APP_NAME" value="App_authen" />
+    </plugin>
 </widget>
