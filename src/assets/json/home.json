@@ -1,6 +1,5 @@
 {
-  "bid": [
-    {
+  "bid": [{
       "_id": "1",
       "image": "https://i.pinimg.com/236x/a2/c1/19/a2c119e14c661540dfe97dedc3efdc00--gentleman-style-fashion-styles.jpg",
       "isBid": true
@@ -51,10 +50,12 @@
       "isBid": false
     }
   ],
-  "items": [
-    {
+  "items": [{
       "_id": "1",
-      "image": "https://i.pinimg.com/736x/e8/4e/4e/e84e4e96cadec625d9a03025190d2bf3--coffee-machines-vintage-coffee.jpg"
+      "image": "https://i.pinimg.com/736x/e8/4e/4e/e84e4e96cadec625d9a03025190d2bf3--coffee-machines-vintage-coffee.jpg",
+      "imagecount": 3,
+      "isvideo": false,
+      "type": "product"
     },
     {
       "_id": "2",
