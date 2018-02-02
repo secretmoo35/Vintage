@@ -19,6 +19,7 @@
   "price": 300,
   "pricestart": 10,
   "pricebid": 5,
+  "isBid": true,
   "currentuser": {
     "_id": "user1",
     "name": "Sarayut Kungsaranuwat",
