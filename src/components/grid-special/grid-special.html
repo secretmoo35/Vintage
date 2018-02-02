@@ -6,6 +6,8 @@
         <ion-col col-8>
           <div class="bg-image">
             <preload-image [ratio]="{w:1, h:1}" [src]="item[0][0].image" title="product"></preload-image>
+            <img *ngIf="item[0][0].isvideo" class="icon-play-lg" src="https://daks2k3a4ib2z.cloudfront.net/594a5ccb9407cf4ccfd5d32c/595d1d01117a9e1fbb9c4fce_video-play-icon.png">
+            <img *ngIf="item[0][0].imagecount > 1" class="icon-image-lg" src="https://cdn2.iconfinder.com/data/icons/photo-and-video/500/Landscape_moon_mountains_multiple_photo_photograph_pictury_sun-512.png">
           </div>
         </ion-col>
         <ion-col col-4 no-padding>
@@ -13,11 +15,15 @@
             <ion-col col-12>
               <div class="bg-image">
                 <preload-image [ratio]="{w:1, h:1}" [src]="item[0][1].image" title="product"></preload-image>
+                <img *ngIf="item[0][1].isvideo" class="icon-play-sm" src="https://daks2k3a4ib2z.cloudfront.net/594a5ccb9407cf4ccfd5d32c/595d1d01117a9e1fbb9c4fce_video-play-icon.png">
+                <img *ngIf="item[0][1].imagecount > 1" class="icon-image-sm" src="https://cdn2.iconfinder.com/data/icons/photo-and-video/500/Landscape_moon_mountains_multiple_photo_photograph_pictury_sun-512.png">
               </div>
             </ion-col>
             <ion-col col-12>
               <div class="bg-image">
                 <preload-image [ratio]="{w:1, h:1}" [src]="item[0][2].image" title="product"></preload-image>
+                <img *ngIf="item[0][2].isvideo" class="icon-play-sm" src="https://daks2k3a4ib2z.cloudfront.net/594a5ccb9407cf4ccfd5d32c/595d1d01117a9e1fbb9c4fce_video-play-icon.png">
+                <img *ngIf="item[0][2].imagecount > 1" class="icon-image-sm" src="https://cdn2.iconfinder.com/data/icons/photo-and-video/500/Landscape_moon_mountains_multiple_photo_photograph_pictury_sun-512.png">
               </div>
             </ion-col>
           </ion-row>
@@ -27,6 +33,8 @@
         <ion-col col-4 *ngFor="let item of item[0]">
           <div class="bg-image">
             <preload-image [ratio]="{w:1, h:1}" [src]="item.image" title="product"></preload-image>
+            <img *ngIf="item.isvideo" class="icon-play-sm" src="https://daks2k3a4ib2z.cloudfront.net/594a5ccb9407cf4ccfd5d32c/595d1d01117a9e1fbb9c4fce_video-play-icon.png">
+            <img *ngIf="item.imagecount > 1" class="icon-image-sm" src="https://cdn2.iconfinder.com/data/icons/photo-and-video/500/Landscape_moon_mountains_multiple_photo_photograph_pictury_sun-512.png">
           </div>
         </ion-col>
       </ion-row>
@@ -35,6 +43,8 @@
         <ion-col col-4 *ngFor="let item of item[1]">
           <div class="bg-image">
             <preload-image [ratio]="{w:1, h:1}" [src]="item.image" title="product"></preload-image>
+            <img *ngIf="item.isvideo" class="icon-play-sm" src="https://daks2k3a4ib2z.cloudfront.net/594a5ccb9407cf4ccfd5d32c/595d1d01117a9e1fbb9c4fce_video-play-icon.png">
+            <img *ngIf="item.imagecount > 1" class="icon-image-sm" src="https://cdn2.iconfinder.com/data/icons/photo-and-video/500/Landscape_moon_mountains_multiple_photo_photograph_pictury_sun-512.png">
           </div>
         </ion-col>
       </ion-row>
@@ -42,6 +52,8 @@
         <ion-col col-4 *ngFor="let item of item[2]">
           <div class="bg-image">
             <preload-image [ratio]="{w:1, h:1}" [src]="item.image" title="product"></preload-image>
+            <img *ngIf="item.isvideo" class="icon-play-sm" src="https://daks2k3a4ib2z.cloudfront.net/594a5ccb9407cf4ccfd5d32c/595d1d01117a9e1fbb9c4fce_video-play-icon.png">
+            <img *ngIf="item.imagecount > 1" class="icon-image-sm" src="https://cdn2.iconfinder.com/data/icons/photo-and-video/500/Landscape_moon_mountains_multiple_photo_photograph_pictury_sun-512.png">
           </div>
         </ion-col>
       </ion-row>
@@ -52,11 +64,15 @@
             <ion-col col-12>
               <div class="bg-image">
                 <preload-image [ratio]="{w:1, h:1}" [src]="item[3][0].image" title="product"></preload-image>
+                <img *ngIf="item[3][0].isvideo" class="icon-play-sm" src="https://daks2k3a4ib2z.cloudfront.net/594a5ccb9407cf4ccfd5d32c/595d1d01117a9e1fbb9c4fce_video-play-icon.png">
+                <img *ngIf="item[3][0].imagecount > 1" class="icon-image-sm" src="https://cdn2.iconfinder.com/data/icons/photo-and-video/500/Landscape_moon_mountains_multiple_photo_photograph_pictury_sun-512.png">
               </div>
             </ion-col>
             <ion-col col-12>
               <div class="bg-image">
                 <preload-image [ratio]="{w:1, h:1}" [src]="item[3][1].image" title="product"></preload-image>
+                <img *ngIf="item[3][1].isvideo" class="icon-play-sm" src="https://daks2k3a4ib2z.cloudfront.net/594a5ccb9407cf4ccfd5d32c/595d1d01117a9e1fbb9c4fce_video-play-icon.png">
+                <img *ngIf="item[3][1].imagecount > 1" class="icon-image-sm" src="https://cdn2.iconfinder.com/data/icons/photo-and-video/500/Landscape_moon_mountains_multiple_photo_photograph_pictury_sun-512.png">
               </div>
             </ion-col>
           </ion-row>
@@ -64,6 +80,8 @@
         <ion-col col-8>
           <div class="bg-image">
             <preload-image [ratio]="{w:1, h:1}" [src]="item[3][2].image" title="product"></preload-image>
+            <img *ngIf="item[3][2].isvideo" class="icon-play-lg" src="https://daks2k3a4ib2z.cloudfront.net/594a5ccb9407cf4ccfd5d32c/595d1d01117a9e1fbb9c4fce_video-play-icon.png">
+            <img *ngIf="item[3][2].imagecount > 1" class="icon-image-lg" src="https://cdn2.iconfinder.com/data/icons/photo-and-video/500/Landscape_moon_mountains_multiple_photo_photograph_pictury_sun-512.png">
           </div>
         </ion-col>
       </ion-row>
@@ -71,6 +89,8 @@
         <ion-col col-4 *ngFor="let item of item[3]">
           <div class="bg-image">
             <preload-image [ratio]="{w:1, h:1}" [src]="item.image" title="product"></preload-image>
+            <img *ngIf="item.isvideo" class="icon-play-sm" src="https://daks2k3a4ib2z.cloudfront.net/594a5ccb9407cf4ccfd5d32c/595d1d01117a9e1fbb9c4fce_video-play-icon.png">
+            <img *ngIf="item.imagecount > 1" class="icon-image-sm" src="https://cdn2.iconfinder.com/data/icons/photo-and-video/500/Landscape_moon_mountains_multiple_photo_photograph_pictury_sun-512.png">
           </div>
         </ion-col>
       </ion-row>
@@ -79,6 +99,8 @@
         <ion-col col-4 *ngFor="let item of item[4]">
           <div class="bg-image">
             <preload-image [ratio]="{w:1, h:1}" [src]="item.image" title="product"></preload-image>
+            <img *ngIf="item.isvideo" class="icon-play-sm" src="https://daks2k3a4ib2z.cloudfront.net/594a5ccb9407cf4ccfd5d32c/595d1d01117a9e1fbb9c4fce_video-play-icon.png">
+            <img *ngIf="item.imagecount > 1" class="icon-image-sm" src="https://cdn2.iconfinder.com/data/icons/photo-and-video/500/Landscape_moon_mountains_multiple_photo_photograph_pictury_sun-512.png">
           </div>
         </ion-col>
       </ion-row>
@@ -86,6 +108,8 @@
         <ion-col col-4 *ngFor="let item of item[5]">
           <div class="bg-image">
             <preload-image [ratio]="{w:1, h:1}" [src]="item.image" title="product"></preload-image>
+            <img *ngIf="item.isvideo" class="icon-play-sm" src="https://daks2k3a4ib2z.cloudfront.net/594a5ccb9407cf4ccfd5d32c/595d1d01117a9e1fbb9c4fce_video-play-icon.png">
+            <img *ngIf="item.imagecount > 1" class="icon-image-sm" src="https://cdn2.iconfinder.com/data/icons/photo-and-video/500/Landscape_moon_mountains_multiple_photo_photograph_pictury_sun-512.png">
           </div>
         </ion-col>
       </ion-row>

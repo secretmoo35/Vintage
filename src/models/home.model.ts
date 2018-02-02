@@ -12,4 +12,7 @@ export class HomeBidModel {
 export class HomeItemsModel {
     _id: string;
     image: string;
+    imagecount: number;
+    isvideo: Boolean;
+    type: string;
 }
