@@ -74,4 +74,19 @@ page-product-detail {
         font-size: 1.2em;
         color: #e0dd13;
     }
+
+    .position-star{
+        position: absolute;
+        margin-top: -15vw;
+        z-index: 1;
+        background-color: rgba(46, 43, 43, 0.451);
+        width: 100%;
+        height: 15vw;
+    }
+    .favorite{
+        position: absolute;
+        z-index: 1;
+        margin-top:-60px;
+        right: 10px;
+    }
 }
