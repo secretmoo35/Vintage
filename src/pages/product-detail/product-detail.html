@@ -14,6 +14,7 @@
       <preload-image class="slide-product" [ratio]="{w:1, h:1}" [src]="item" title="ads"></preload-image>
     </ion-slide>
   </ion-slides>
+  <p class="position-star"></p>
   <h2 padding-left padding-right text-center>{{productData.name}}
     <button ion-button icon-left clear large *ngIf="user" class="favorite" (click)="onFavorite()">
       <ion-icon *ngIf="!productData.isFavorite" name="md-star-outline"></ion-icon>
