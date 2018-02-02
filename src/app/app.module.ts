@@ -22,6 +22,9 @@ import * as ionicGalleryModal from 'ionic-gallery-modal';
 import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { ProductProvider } from '../providers/product/product';
 import { CartProvider } from '../providers/cart/cart';
+import { OrderProvider } from '../providers/order/order';
+import { GoogleMaps } from '@ionic-native/google-maps';
+import { NativeGeocoder } from '@ionic-native/native-geocoder';
 
 @NgModule({
   declarations: [
@@ -50,6 +53,8 @@ import { CartProvider } from '../providers/cart/cart';
     StatusBar,
     SplashScreen,
     Facebook,
+    GoogleMaps,
+    NativeGeocoder,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     {
       provide: HAMMER_GESTURE_CONFIG,
@@ -63,7 +68,8 @@ import { CartProvider } from '../providers/cart/cart';
     AlertProvider,
     ShopListProvider,
     ProductProvider,
-    CartProvider
+    CartProvider,
+    OrderProvider
   ]
 })
 export class AppModule { }

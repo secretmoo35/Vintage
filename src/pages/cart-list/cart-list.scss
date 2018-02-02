@@ -38,6 +38,9 @@ page-cart-list {
     }
     .product-name {
         width: 60vw;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     .price-name {
         color: rgb(168, 168, 168);
