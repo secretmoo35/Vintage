@@ -43,6 +43,11 @@ export class ShopListPage {
     })
   }
 
+  doRefresh(refresher) {
+    this.getListShop();
+    refresher.complete();
+  }
+
   shopListId(item) {
     this.navCtrl.push('ShopPage', item._id);
   }

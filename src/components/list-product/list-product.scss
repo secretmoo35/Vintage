@@ -14,6 +14,11 @@ list-product {
     }
     .label {
         margin: 13px 0px 13px 0 !important;
+        h2 {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
     }
     ion-badge {
         padding: 6px 8px;

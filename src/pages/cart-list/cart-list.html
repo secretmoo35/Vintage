@@ -1,7 +1,8 @@
 <ion-header>
 
   <ion-navbar color="app">
-    <ion-title>{{ 'CART' | translate }} <span *ngIf="cartData && cartData.qty > 0">({{cartData.qty}})</span>
+    <ion-title>{{ 'CART' | translate }}
+      <span *ngIf="cartData && cartData.qty > 0">({{cartData.qty}})</span>
     </ion-title>
   </ion-navbar>
 
@@ -51,7 +52,7 @@
 
 <ion-footer class="footer-cart" *ngIf="cartData && cartData.items && cartData.items.length">
   <ion-toolbar>
-    <button ion-button block color="app">
+    <button ion-button block color="app" (click)="checkOut()">
       <ion-grid>
         <ion-row>
           <ion-col col-12>

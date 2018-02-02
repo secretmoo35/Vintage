@@ -32,6 +32,11 @@ export class HomePage {
     });
   }
 
+  doRefresh(refresher) {
+    this.loadData();
+    refresher.complete();
+  }
+
   doBid(item) {
 
   }

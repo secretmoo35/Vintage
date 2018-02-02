@@ -2,20 +2,8 @@ page-product-detail {
     ion-slides {
         height: auto !important;
     }
-    .searchbar-ios .searchbar-input {
-        background-color: #eeeded !important;
-        border-radius: 15px !important;
-    }
-    .searchbar-ios {
-        background: white !important;
-        text-align: center;
-        border-bottom: none !important;
-    }
-    .searchbar-input-container {
-        margin-top: 6px;
-    }
-    .searchbar-ios .searchbar-search-icon {
-        background-image: none;
+    .fixed {
+        position: fixed;
     }
     .count {
         margin-top: 14px;
@@ -81,7 +69,7 @@ page-product-detail {
     }
     .favorite {
         padding: 0px !important;
-        height: 29px !important;
+        height: 32px !important;
         margin-top: -12px;
         font-size: 1.2em;
         color: #e0dd13;

@@ -1,5 +1,5 @@
 <ion-content *ngIf="productData && productData.name">
-  <ion-header>
+  <ion-header class="fixed">
     <ion-navbar>
       <ion-buttons end>
         <button ion-button color="drak" large (click)="close()" class="close-close">
@@ -14,12 +14,15 @@
       <preload-image class="slide-product" [ratio]="{w:1, h:1}" [src]="item" title="ads"></preload-image>
     </ion-slide>
   </ion-slides>
-  <h2 text-center class="{{ user ? 'name' : ''}}">{{productData.name}}
+  <h2 padding-left padding-right text-center>{{productData.name}}
     <button ion-button icon-left clear large *ngIf="user" class="favorite" (click)="onFavorite()">
       <ion-icon *ngIf="!productData.isFavorite" name="md-star-outline"></ion-icon>
       <ion-icon *ngIf="productData.isFavorite" name="md-star"></ion-icon>
     </button>
   </h2>
+  <p padding-left padding-right>
+    {{ productData.detail }}
+  </p>
   <div text-center class="count">
     <button ion-button outline color="bite" class="count-radias" (click)="countDelete()">-</button>
     <button ion-button round color="bite" class="count-radiascenter">{{numberCount}}</button>
@@ -28,7 +31,7 @@
 
 </ion-content>
 
-<ion-footer class="footer-product">
+<ion-footer class="footer-product" *ngIf="productData && productData.name">
   <ion-toolbar>
     <button ion-button block color="app" class="btn-add-cart" (click)="addToCart()">
       <ion-grid>

@@ -3,6 +3,10 @@
 </ion-header>
 
 <ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-down" pullingText="{{ 'PULL_TO_REFRESH' | translate }}" refreshingSpinner="dots"
+      refreshingText="{{ 'REFRESHING' | translate }}"></ion-refresher-content>
+  </ion-refresher>
   <div class="bid">
     <!-- <ion-grid>
       <ion-row>
@@ -16,10 +20,10 @@
         <ion-col col-3 col-md-2 col-lg-2 *ngFor="let item of homeItem.bid;" (click)="doBid(item)">
           <preload-image class="{{ item.isBid ? 'preload-image-true' : 'preload-image-false'}}" [ratio]="{w:1, h:1}" [src]="item.image"
             title="bid"></preload-image>
-          <ion-badge color="danger" *ngIf="item.isBid">
+          <ion-badge color="danger" class="ion-badge-status" *ngIf="item.isBid">
             <ion-icon name="hammer"></ion-icon>
           </ion-badge>
-          <ion-badge color="primary" *ngIf="!item.isBid">
+          <ion-badge color="primary" class="ion-badge-status" *ngIf="!item.isBid">
             <ion-icon name="md-cube" class="alarm"></ion-icon>
           </ion-badge>
         </ion-col>
