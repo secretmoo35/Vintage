@@ -16,7 +16,9 @@
   },
   "datestart": "Wed Jan 31 2018 16:21:38 GMT+0700 (SE Asia Standard Time)",
   "dateend": "Thu Feb 06 2018 18:00:00 GMT+0700 (SE Asia Standard Time)",
-  "price": "300",
+  "price": 300,
+  "pricestart": 10,
+  "pricebid": 5,
   "currentuser": {
     "_id": "user1",
     "name": "Sarayut Kungsaranuwat",
