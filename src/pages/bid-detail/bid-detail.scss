@@ -1,55 +1,90 @@
 page-bid-detail {
-
     .arvatar {
         width: 15vw !important;
         border-radius: 100%;
         height: 15vw;
         object-fit: cover;
+        border: 2px solid $app;
     }
     img {
-        max-width: none !important;
+        object-fit: cover;
     }
-    h4{
-        position: initial;
-        margin-left: -5vw;
+    .bid-name {
+        margin-top: 0px !important;
+        color: $app;
     }
-    .arvatar-slide{
+    .arvatar-slide {
         object-fit: cover;
         width: 50vw !important;
         height: 50vw;
         padding: 3px
     }
-    .slides-border{
+    .slides-border {
         border: 1px solid;
         border-radius: 10px;
         color: $app;
     }
-    .card-header{
+    .card-header {
         padding: 10px !important;
-        background-color: map-get($colors , app);
+        background-color: map-get($colors, app);
         color: rgb(225, 228, 231);
     }
-    .card-content{
+    .card-content {
         padding: 0px 16px;
         max-height: 0px;
+        border: 1px solid;
+        color: $app;
     }
     .card {
         box-shadow: none !important;
-        -webkit-box-shadow: none !important;
-        border: 1px solid;
-        color: $app;
         height: 95%;
-        border-radius: 7px !important;
-        // margin-left: 0px !important;
-        // margin-right: 0px !important;
+        margin: 4px 0px 0px 0px !important;
+        width: 100%;
     }
-    .color-time{
-        color: red;
+    .color-time {
+        color: #F44336;
         border: 1px solid;
     }
-    .time-magin{
-        margin-top: -2vw;
-        margin-bottom: -1vw;
+    .time-magin {
+        margin-top: 0px;
     }
-    
+    .swiper-pagination-bullet-active {
+        background: $app;
+        opacity: 1;
+    }
+    .list-custom {
+        width: 200px !important;
+        position: absolute !important;
+        left: 50% !important;
+        margin-left: -100px !important;
+        border: 2px solid $app;
+        border-radius: 100px;
+        height: 65px !important;
+        .item {
+            border-radius: 100px;
+            height: 60px !important;
+            padding: 0px 0px 0px 4px !important;
+        }
+        .item-inner {
+            text-align: center;
+            margin-left: -4px !important;
+        }
+        img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+        }
+    }
+    .btn-radiascenter {
+        margin-top: 80px;
+        height: 70px;
+        width: 70px;
+        .button-inner {
+            font-size: 25px !important;
+            flex-flow: column;
+        }
+        span{
+            margin-top: -30px;
+        }
+    }
 }

@@ -1,39 +1,40 @@
-<!--
-  Generated template for the BidDetailPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
-    <ion-title>bidDetail</ion-title>
+    <ion-title>การประมูล</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
   <div>
     <ion-grid>
       <ion-row>
-        <ion-col col-3>
-          <img src="https://scontent.fbkk5-4.fna.fbcdn.net/v/t1.0-9/26113868_1510506722360290_3705041190320730329_n.jpg?oh=0b39d0004db4854a1fb968b67b1f59a0&oe=5AE28484"
-            class="arvatar">
+        <ion-col col-12>
+          <ion-list>
+            <ion-item>
+              <ion-avatar item-start>
+                <img src="https://www.sinthanee.com/image/cache/product/2016-11-21/camera/nikon/coolpix%20s6900-1000x1000.jpg">
+              </ion-avatar>
+              <p>
+                <b>Camera shop</b>
+              </p>
+            </ion-item>
+          </ion-list>
         </ion-col>
-        <ion-col col-8 align-self-center>
-          <h4>amonrat chantawon</h4>
+        <ion-col col-12 text-center>
+          <h2 class="bid-name">Sensor Exmor™</h2>
         </ion-col>
       </ion-row>
-      <ion-row>
-        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+      <ion-row padding-left padding-right>
         <ion-slides pager class="slides-border">
           <ion-slide *ngFor="let item of image">
             <img src="{{item}}" alt="" class="arvatar-slide">
           </ion-slide>
         </ion-slides>
       </ion-row>
-      <ion-row>
+      <ion-row padding-left padding-right>
         <ion-card>
           <ion-card-header (click)="toggleAddccoding()">
             ดูรายละเอียดสินค้า
@@ -44,28 +45,32 @@
           </ion-card-content>
         </ion-card>
       </ion-row>
-      <ion-row class="color-time">
-        <ion-col col-12 text-center>
-          <h5>เหลือเวลาประมูล</h5>
-          <h2 class="time-magin">00:00:00</h2>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col col-12 text-center>
-          <ion-item >
-            <ion-avatar item-left>
-              <img src="https://scontent.fbkk5-4.fna.fbcdn.net/v/t1.0-9/26113868_1510506722360290_3705041190320730329_n.jpg?oh=0b39d0004db4854a1fb968b67b1f59a0&oe=5AE28484">
-            </ion-avatar>
-            <h2>ddddddddddd</h2>
-            <p>wwwwwwwwwww</p>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col col-12 text-center>
-          <button ion-button ><ion-icon name="hammer"></ion-icon><p>200THB</p> </button>
-        </ion-col>
-      </ion-row>
+      <div>
+        <ion-row padding>
+          <ion-col col-12 text-center class="color-time">
+            <h2 padding-top>เหลือเวลาประมูล</h2>
+            <h2 class="time-magin">00:00:00</h2>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-12 text-center>
+            <ion-list class="list-custom">
+              <ion-item>
+                <ion-avatar item-left>
+                  <img src="https://scontent.fbkk5-4.fna.fbcdn.net/v/t1.0-9/26113868_1510506722360290_3705041190320730329_n.jpg?oh=0b39d0004db4854a1fb968b67b1f59a0&oe=5AE28484">
+                </ion-avatar>
+                <h2>การประมูลล่าสุด</h2>
+                <p>150 บาท</p>
+              </ion-item>
+            </ion-list>
+            <button ion-button round color="app" class="btn-radiascenter">
+              <ion-icon name="hammer"></ion-icon>
+              <br>
+              <span> 200 บาท</span>
+            </button>
+          </ion-col>
+        </ion-row>
+      </div>
     </ion-grid>
   </div>
 
