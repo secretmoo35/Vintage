@@ -1,0 +1,72 @@
+<!--
+  Generated template for the BidDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>bidDetail</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-3>
+          <img src="https://scontent.fbkk5-4.fna.fbcdn.net/v/t1.0-9/26113868_1510506722360290_3705041190320730329_n.jpg?oh=0b39d0004db4854a1fb968b67b1f59a0&oe=5AE28484"
+            class="arvatar">
+        </ion-col>
+        <ion-col col-8 align-self-center>
+          <h4>amonrat chantawon</h4>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <ion-slides pager class="slides-border">
+          <ion-slide *ngFor="let item of image">
+            <img src="{{item}}" alt="" class="arvatar-slide">
+          </ion-slide>
+        </ion-slides>
+      </ion-row>
+      <ion-row>
+        <ion-card>
+          <ion-card-header (click)="toggleAddccoding()">
+            ดูรายละเอียดสินค้า
+          </ion-card-header>
+          <ion-card-content #cc>
+            Sensor Exmor™ CMOS ขนาด APS-C ความละเอียด 24.3 megapixel Processor BIONZ X ระบบออโต้โฟกัส Fast Hybrid AF พร้อมจุดโฟกัส 179
+            จุด หน้าจอที่พับปรับได้ 180 องศาสำหรับการถ่ายภาพตัวเอง Builtin wifi และ NFC บันทึก Video Full HD
+          </ion-card-content>
+        </ion-card>
+      </ion-row>
+      <ion-row class="color-time">
+        <ion-col col-12 text-center>
+          <h5>เหลือเวลาประมูล</h5>
+          <h2 class="time-magin">00:00:00</h2>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12 text-center>
+          <ion-item >
+            <ion-avatar item-left>
+              <img src="https://scontent.fbkk5-4.fna.fbcdn.net/v/t1.0-9/26113868_1510506722360290_3705041190320730329_n.jpg?oh=0b39d0004db4854a1fb968b67b1f59a0&oe=5AE28484">
+            </ion-avatar>
+            <h2>ddddddddddd</h2>
+            <p>wwwwwwwwwww</p>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12 text-center>
+          <button ion-button ><ion-icon name="hammer"></ion-icon><p>200THB</p> </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+</ion-content>

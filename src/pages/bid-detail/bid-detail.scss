@@ -1,0 +1,55 @@
+page-bid-detail {
+
+    .arvatar {
+        width: 15vw !important;
+        border-radius: 100%;
+        height: 15vw;
+        object-fit: cover;
+    }
+    img {
+        max-width: none !important;
+    }
+    h4{
+        position: initial;
+        margin-left: -5vw;
+    }
+    .arvatar-slide{
+        object-fit: cover;
+        width: 50vw !important;
+        height: 50vw;
+        padding: 3px
+    }
+    .slides-border{
+        border: 1px solid;
+        border-radius: 10px;
+        color: $app;
+    }
+    .card-header{
+        padding: 10px !important;
+        background-color: map-get($colors , app);
+        color: rgb(225, 228, 231);
+    }
+    .card-content{
+        padding: 0px 16px;
+        max-height: 0px;
+    }
+    .card {
+        box-shadow: none !important;
+        -webkit-box-shadow: none !important;
+        border: 1px solid;
+        color: $app;
+        height: 95%;
+        border-radius: 7px !important;
+        // margin-left: 0px !important;
+        // margin-right: 0px !important;
+    }
+    .color-time{
+        color: red;
+        border: 1px solid;
+    }
+    .time-magin{
+        margin-top: -2vw;
+        margin-bottom: -1vw;
+    }
+    
+}

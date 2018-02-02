@@ -62,5 +62,8 @@ export class BidListPage {
     });
   }
 
+  toBidDetail(){
+    this.navCtrl.push('BidDetailPage');
+  }
 
 }
