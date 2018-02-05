@@ -1,28 +1,28 @@
 <ion-header no-border>
   <ion-navbar>
-    <ion-buttons left>
+    <ion-buttons left *ngIf="user">
       <button ion-button icon-only (click)="profileNotifications()">
         <ion-icon name="md-notifications"></ion-icon>
       </button>
     </ion-buttons>
     <ion-title>{{ 'PROFILE' | translate}}</ion-title>
-    <ion-buttons right>
+    <ion-buttons right *ngIf="user">
       <button ion-button icon-only (click)="profileEdit()">
         <ion-icon name="md-create"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-buttons right>
+    <!-- <ion-buttons right>
       <button ion-button icon-only (click)="profileSettings()">
         <ion-icon name="md-settings"></ion-icon>
       </button>
-    </ion-buttons>
+    </ion-buttons> -->
   </ion-navbar>
 </ion-header>
 
 <ion-content>
 
   <div>
-    <ion-grid>
+    <ion-grid *ngIf="user">
       <ion-row>
         <ion-col col-12 text-center>
           <img src="{{ user.profileImageURL }}" class="arvatar">
@@ -37,7 +37,7 @@
       </ion-row>
     </ion-grid>
 
-    <ion-segment mode="md" [(ngModel)]="segment" color="app" (ionChange)="segmentChanged($event)">
+    <!-- <ion-segment mode="md" [(ngModel)]="segment" color="app" (ionChange)="segmentChanged($event)">
       <ion-segment-button value="favorte">
         {{ 'FAVORITE' | translate }}
         <span *ngIf="productFavarite.length > 0">({{productFavarite.length}})</span>
@@ -48,13 +48,60 @@
       <ion-segment-button value="history">
         {{ 'HISTORY' | translate }}
       </ion-segment-button>
-    </ion-segment>
+    </ion-segment> -->
 
-    <div [ngSwitch]="segment">
+    <!-- <div [ngSwitch]="segment">
       <ion-list *ngSwitchCase="'favorte'">
         <list-product [items]="productFavarite" [selectedCateId]="''" (clickItem)="selectProduct($event)"></list-product>
       </ion-list>
-    </div>
+    </div> -->
+
+    <ion-list>
+      <button ion-item item-start (click)="myPurchases()">
+        <ion-icon name="md-document" item-start></ion-icon>
+        {{ 'MY_PURCHASES' | translate }}
+        <ion-badge item-end color="danger">
+          1
+        </ion-badge>
+      </button>
+      <button ion-item item-start (click)="login()" *ngIf="!user">
+        <ion-icon name="md-log-in" item-start></ion-icon>
+        {{ 'LOGIN' | translate }}
+      </button>
+      <button ion-item item-start (click)="favorite()">
+        <ion-icon name="md-heart-outline" item-start></ion-icon>
+        {{ 'FAVORITE' | translate }}
+        <ion-badge item-end color="danger">
+          <span *ngIf="productFavarite.length > 0">{{productFavarite.length}}</span>
+        </ion-badge>
+      </button>
+      <!-- <button ion-item item-start (click)="onBenefit()">
+        <ion-icon name="md-ribbon" item-start></ion-icon>
+        {{ 'BENEFIT' | translate }}
+      </button> -->
+      <button ion-item item-start (click)="changePassword()">
+          <ion-icon name="md-key" item-start></ion-icon>
+          {{ 'CHANGE_PASSWORD' | translate }}
+        </button>
+      <!-- <button ion-item item-start (click)="onServiceCharge()">
+        <ion-icon name="md-card" item-start></ion-icon>
+        {{ 'SERVICE_CHARGE' | translate }}
+      </button> -->
+      <button ion-item item-start (click)="onQA()">
+        <ion-icon name="md-help" item-start></ion-icon>
+        {{ 'QUESTIONS_&_ANSWERS' | translate }}
+      </button>
+      <button ion-item item-start (click)="onSetting()">
+        <ion-icon name="md-settings" item-start></ion-icon>
+        {{ 'SETTINGS' | translate }}
+      </button>
+    </ion-list>
+    <ion-list *ngIf="user && user.username">
+      <button ion-item item-start (click)="logout()">
+        <ion-icon name="md-log-out" item-start></ion-icon>
+        {{ 'LOGOUT' | translate }}
+      </button>
+    </ion-list>
   </div>
 
 </ion-content>

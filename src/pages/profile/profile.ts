@@ -6,6 +6,8 @@ import { UserModel } from '../../models/user.model';
 import { ModalController } from 'ionic-angular/components/modal/modal-controller';
 import { ItemProductModel } from '../../models/shop.model';
 import { ProductProvider } from '../../providers/product/product';
+import { TranslateService } from '@ngx-translate/core';
+import { AlertProvider } from '../../providers/alert/alert';
 
 /**
  * Generated class for the ProfilePage page.
@@ -29,18 +31,21 @@ export class ProfilePage {
     public navParams: NavParams,
     private auth: AuthProvider,
     private modalCtrl: ModalController,
-    private productProvider: ProductProvider
+    private productProvider: ProductProvider,
+    private translate: TranslateService,
+    private alertCtrl: AlertProvider
   ) {
   }
 
   ionViewWillEnter() {
+    this.user = JSON.parse(window.localStorage.getItem('user@' + Constants.URL));
     console.log('ionViewDidLoad ProfilePage');
     this.auth.authenticated().then((res) => {
       if (res) {
         this.user = JSON.parse(window.localStorage.getItem('user@' + Constants.URL));
         this.getProductFavarite();
       } else {
-        this.navCtrl.push('LoginPage');
+        // this.navCtrl.push('LoginPage');
       }
     });
   }
@@ -49,9 +54,9 @@ export class ProfilePage {
     console.log(e);
   }
 
-  profileSettings() {
-    this.navCtrl.push('MorePage');
-  }
+  // profileSettings() {
+  //   this.navCtrl.push('MorePage');
+  // }
 
   profileEdit() {
     // alert("sssss");
@@ -73,6 +78,48 @@ export class ProfilePage {
     modal1.onDidDismiss(() => {
       this.getProductFavarite();
     });
+  }
+
+  //more
+  logout() {
+    this.auth.logout();
+    let language = this.translate.currentLang;
+    if (language === 'th') {
+      this.alertCtrl.onAlert('ลงชื่อออก สำเร็จ', '', 'ตกลง');
+    } else if (language === 'en') {
+      this.alertCtrl.onAlert('Logout Success.', '', 'Ok');
+    }
+    this.user = null;
+  }
+  changePassword(){
+    
+  }
+
+  onSetting() {
+    this.navCtrl.push('SettingDetailPage');
+  }
+
+  onBenefit() {
+    // this.navCtrl.push('BenefitPage');
+  }
+
+  onServiceCharge() {
+    // this.navCtrl.push('ServiceChargePage');
+  }
+
+  onQA() {
+    // this.navCtrl.push('QuestionAnswerPage');
+  }
+
+  login(){
+    this.navCtrl.push('LoginPage');
+  }
+
+  favorite(){
+    this.navCtrl.push('FavoriteProductPage');
+  }
+  myPurchases(){
+    this.navCtrl.push('MyPurchasesPage');
   }
 
 }
