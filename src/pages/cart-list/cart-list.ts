@@ -73,7 +73,7 @@ export class CartListPage {
     this.updateCart();
     this.auth.authenticated().then((res) => {
       if (res) {
-        this.navCtrl.push('OrderPage');
+        this.navCtrl.push('StepOrderPage');
       } else {
         this.navCtrl.push('LoginPage');
       }
