@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { AdsDetailModel } from '../../models/ads.model';
 import { AdsProvider } from '../../providers/ads/ads';
 import { TranslateService } from '@ngx-translate/core';
@@ -26,7 +26,6 @@ export class AdsVideoPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private viewCtrl: ViewController,
-    private modalCtrl: ModalController,
     private ads: AdsProvider,
     private translate: TranslateService,
     private alert: AlertProvider,
