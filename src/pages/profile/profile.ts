@@ -116,7 +116,10 @@ export class ProfilePage {
   }
 
   favorite(){
-    
+    this.navCtrl.push('FavoriteProductPage');
+  }
+  myPurchases(){
+    this.navCtrl.push('MyPurchasesPage');
   }
 
 }

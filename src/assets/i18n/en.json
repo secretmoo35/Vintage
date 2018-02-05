@@ -99,5 +99,6 @@
   "SEARCH_LOCATION": "Search place",
   "USER_ID": "ID",
   "VIEW_DETAIL": "View product detail",
-  "BID_CURRENT": "Current"
+  "BID_CURRENT": "Current",
+  "MY_PURCHASES":"My purchases"
 }
