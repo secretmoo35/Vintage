@@ -15,10 +15,11 @@ import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
 })
 export class MyPurchasesPage {
   @ViewChild('pageSlider') pageSlider: Slides;
-  @ViewChild('pageNav') pageNav: Slides;
-  public tabs: any = '0';
-  pages: string = '0';
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  tabs: any = '0';
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams
+  ) {
 
   }
 
@@ -28,19 +29,44 @@ export class MyPurchasesPage {
 
   selectTab(index) {
     this.pageSlider.slideTo(index);
-    this.pageNav.slideTo(index);
   }
 
-  changeWillSlide($event) {
-    // this.tabs = $event._snapIndex.toString();
-    this.tabs = this.pages;
+  ionSlidePrevStart($event) {
+    let page = parseInt(this.tabs)
+    let pageNumber = $event._snapIndex;
+    if (page > pageNumber) {
+      this.tabs = pageNumber.toString();
+      let scroll = document.getElementById('scroll');
+      page--;
+      let sum = 100 * page;
+      let o_scrollLeft = 0;
+      let delay = setInterval(() => {
+        o_scrollLeft = scroll.scrollLeft;
+        scroll.scrollLeft -= 5;
+        if (scroll.scrollLeft <= sum || scroll.scrollLeft === o_scrollLeft) {
+          clearInterval(delay);
+        }
+      }, 10);
+    }
+  }
+
+  ionSlideNextStart($event) {
     let page = parseInt(this.tabs)
     let pageNumber = $event._snapIndex;
     if (page < pageNumber) {
-      page++;
-      this.pages = page.toString();
+      this.tabs = pageNumber.toString();
       let scroll = document.getElementById('scroll');
-      scroll.scrollLeft = 100 * page;
+      page++;
+      let sum = 100 * page;
+      let o_scrollLeft = 0;
+      scroll.scrollLeft = sum - 100;
+      let delay = setInterval(() => {
+        o_scrollLeft = scroll.scrollLeft;
+        scroll.scrollLeft += 5;
+        if (scroll.scrollLeft === sum || scroll.scrollLeft === o_scrollLeft) {
+          clearInterval(delay);
+        }
+      }, 10);
     }
   }
 
