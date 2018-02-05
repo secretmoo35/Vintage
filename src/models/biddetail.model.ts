@@ -9,6 +9,7 @@ export class BidDetailModel {
     pricebid: number;
     isBid: boolean;
     currentuser: CurrentuserBidModel = new CurrentuserBidModel();
+    timeleft: string;
 }
 
 export class ShopBidModel {

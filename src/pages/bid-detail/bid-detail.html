@@ -15,10 +15,10 @@
           <ion-list>
             <ion-item>
               <ion-avatar item-start>
-                <img src="{{bidDetailData.currentuser.profileImageURL}}">
+                <img src="{{bidDetailData.shop.image}}">
               </ion-avatar>
               <p>
-                <b>{{bidDetailData.currentuser.name}}</b>
+                <b>{{bidDetailData.shop.name}}</b>
               </p>
             </ion-item>
           </ion-list>
@@ -49,7 +49,7 @@
         <ion-row padding>
           <ion-col col-12 text-center class="color-time">
             <h2 padding-top>เหลือเวลาประมูล</h2>
-            <h2 class="time-magin">00:00:00</h2>
+            <h2 class="time-magin">{{bidDetailData.timeleft}}</h2>
           </ion-col>
         </ion-row>
         <ion-row>
@@ -57,16 +57,16 @@
             <ion-list class="list-custom">
               <ion-item>
                 <ion-avatar item-left>
-                  <img src="https://scontent.fbkk5-4.fna.fbcdn.net/v/t1.0-9/26113868_1510506722360290_3705041190320730329_n.jpg?oh=0b39d0004db4854a1fb968b67b1f59a0&oe=5AE28484">
+                  <img src="{{bidDetailData.currentuser.profileImageURL}}">
                 </ion-avatar>
                 <h2>การประมูลล่าสุด</h2>
-                <p>150 บาท</p>
+                <p>{{ bidDetailData.price | number}} บาท</p>
               </ion-item>
             </ion-list>
             <button ion-button round color="app" class="btn-radiascenter">
               <ion-icon name="hammer"></ion-icon>
               <br>
-              <span>{{bidDetailData.price}}</span>
+              <span>{{bidDetailData.price + bidDetailData.pricebid}}</span>
             </button>
           </ion-col>
         </ion-row>
@@ -102,7 +102,7 @@
         </ion-grid>
       </div>
       <div>
-        
+
       </div>
     </ion-grid>
   </div>

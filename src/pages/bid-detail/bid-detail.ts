@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { BidProvider } from '../../providers/bid/bid';
 import { BidDetailModel } from '../../models/biddetail.model';
 import { AuthProvider } from '../../providers/auth/auth';
+import moment from 'moment';
+import { LoadingProvider } from '../../providers/loading/loading';
 
 /**
  * Generated class for the BidDetailPage page.
@@ -22,25 +24,21 @@ export class BidDetailPage implements OnInit {
 
   accordion = false
   @ViewChild('cc') cardContent: any;
-  image = [
-    "https://www.sinthanee.com/image/cache/product/2016-11-21/camera/sony/a5100-1000x1000.jpg",
-    "https://www.sinthanee.com/image/cache/product/2016-11-21/camera/canon/m10-1000x1000.jpg",
-    "https://www.sinthanee.com/image/cache/product/2016-11-21/camera/nikon/coolpix%20s6900-1000x1000.jpg"
-  ]
-
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public renderer: Renderer,
-    public bidProvider: BidProvider,
-    private auth: AuthProvider) {
+    private renderer: Renderer,
+    private bidProvider: BidProvider,
+    private auth: AuthProvider,
+    private loading: LoadingProvider
+  ) {
   }
 
   ngOnInit() {
     // if (this.cardContent && this.cardContent.nativeElement !== "undefined") {
-      //   console.log(this.cardContent.nativeElement);
-      //   this.renderer.setElementStyle(this.cardContent.nativeElement, "webkitTransition", "max-height 300ms, padding 300ms");
-      // }
+    //   console.log(this.cardContent.nativeElement);
+    //   this.renderer.setElementStyle(this.cardContent.nativeElement, "webkitTransition", "max-height 300ms, padding 300ms");
+    // }
   }
 
   ionViewDidLoad() {
@@ -71,15 +69,34 @@ export class BidDetailPage implements OnInit {
   }
 
   getBiddetail() {
+    this.loading.onLoading();
     this.bidProvider.getBidDetail().then(res => {
-      console.log(res);
+      this.loading.dismiss();
       this.bidDetailData = res;
-
-      // if (this.cardContent && this.cardContent.nativeElement !== "undefined") {
-      //   console.log(this.cardContent.nativeElement);
-      //   this.renderer.setElementStyle(this.cardContent.nativeElement, "webkitTransition", "max-height 300ms, padding 300ms");
-      // }
+      this.bidDetailData.timeleft = '';
+      this.startTimer();
+    }, (err) => {
+      this.loading.dismiss();
+      this.navCtrl.pop();
     })
+  }
+
+  startTimer() {
+    let data = this.bidDetailData;
+    let eventTime: any = new Date(data.dateend);
+    let currentTime: any = new Date();
+    let leftTime = eventTime - currentTime;
+    let duration = moment.duration(leftTime, 'milliseconds');
+    let interval = 1000;
+
+    let intervalId = setInterval(function () {
+      if (duration.asSeconds() <= 0) {
+        clearInterval(intervalId);
+      }
+      duration = moment.duration(duration.asSeconds() - 1, 'seconds');
+      //  duration.days() + ':' + 
+      data.timeleft = ((duration.hours() > 9) ? duration.hours() : '0' + duration.hours()) + ':' + ((duration.minutes() > 9) ? duration.minutes() : '0' + duration.minutes()) + ':' + ((duration.seconds() > 9) ? duration.seconds() : '0' + duration.seconds());
+    }, interval);
   }
 
 }

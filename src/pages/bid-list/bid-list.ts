@@ -4,7 +4,6 @@ import moment from 'moment';
 import { BidProvider } from '../../providers/bid/bid';
 import { BidModel } from '../../models/bid.model';
 import { LoadingProvider } from '../../providers/loading/loading';
-import { AuthProvider } from '../../providers/auth/auth';
 // declare let moment;
 /**
  * Generated class for the BidListPage page.
