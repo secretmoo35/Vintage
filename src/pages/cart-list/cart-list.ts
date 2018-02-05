@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 import { CartProvider } from '../../providers/cart/cart';
 import { CartModel } from '../../models/cart.model';
 import { AuthProvider } from '../../providers/auth/auth';
@@ -22,7 +22,8 @@ export class CartListPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private cartProvider: CartProvider,
-    private auth : AuthProvider
+    private auth: AuthProvider,
+    private app: App
   ) {
   }
 
@@ -73,7 +74,8 @@ export class CartListPage {
     this.updateCart();
     this.auth.authenticated().then((res) => {
       if (res) {
-        this.navCtrl.push('StepOrderPage');
+        // this.navCtrl.push('StepOrderPage');
+        this.app.getRootNav().push('StepOrderPage');
       } else {
         this.navCtrl.push('LoginPage');
       }

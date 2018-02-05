@@ -18,8 +18,8 @@
         </ion-thumbnail>
         <ion-label stacked>
           <h2 class="product-name">{{item.product.name}}</h2>
-          <p class="price-name"> ({{item.product.price | number:'0.2-2'}} {{ 'THB' | translate}}) </p>
-          <p>{{item.amount | number:'0.2-2'}} {{ 'THB' | translate}}</p>
+          <!-- <p class="price-name"> ({{item.product.price | number:'0.2-2'}} {{ 'THB' | translate}}) </p> -->
+          <p>{{item.product.price | number:'0.2-2'}} {{ 'THB' | translate}}</p>
         </ion-label>
 
         <button ion-button icon-only item-right clear color="dark" class="icon-trash" (click)="removeItem(i)">

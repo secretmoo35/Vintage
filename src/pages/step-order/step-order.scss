@@ -1,3 +1,171 @@
 page-step-order {
-
+    .header-segment {
+        height: 90px !important;
+        .segment-ios .segment-button {
+            border-top-left-radius: 100% !important;
+            border-top-right-radius: 100% !important;
+            border-bottom-right-radius: 100% !important;
+            border-bottom-left-radius: 100% !important;
+            opacity: 1 !important;
+            background-color: rgb(248, 248, 248);
+            padding: 8px;
+        }
+        .toolbar-ios .segment-ios {
+            position: inherit !important;
+        }
+        .segment-ios-light .segment-button.segment-activated {
+            color: #fff !important;
+            background-color: $app !important;
+            border-color: $app;
+        }
+        .segment-ios-light .segment-button {
+            border: 1px solid;
+            line-height: 2rem !important;
+            color: $app;
+        }
+        .segment-md .segment-button {
+            border-top-left-radius: 100%;
+            border-top-right-radius: 100%;
+            border-bottom-right-radius: 100%;
+            border-bottom-left-radius: 100%;
+            opacity: 1 !important;
+            background-color: rgb(248, 248, 248);
+        }
+        .segment-md-light .segment-button.segment-activated {
+            color: #fff;
+            background-color: $app !important;
+            border-color: $app;
+        }
+        .segment-md-light .segment-button {
+            border-color: $app;
+            border: 1px solid;
+            color: $app;
+        }
+        .active {
+            background-color: $app !important;
+            border: 1px solid !important;
+            border-color: $app !important;
+            color: #fff !important;
+            opacity: 1 !important;
+        }
+        ion-segment {
+            width: 45px !important;
+            height: 45px !important;
+            margin: 0 auto !important;
+            p {
+                display: block;
+                position: absolute;
+                font-size: 11px;
+                width: 100%;
+                left: 0px;
+                bottom: -30px;
+            }
+        }
+        ion-segment-button {
+            width: 45px !important;
+            height: 45px !important;
+            font-size: 11px !important;
+            z-index: 999 !important;
+        }
+    }
+    ion-col {
+        text-align: center !important;
+        .lines {
+            margin-top: 18px !important;
+            left: -50%;
+            width: 200%;
+            border: rgba(60, 98, 51, 0.48) 2px solid;
+            position: absolute;
+        }
+        .active-lines {
+            margin-top: 18px !important;
+            left: -50%;
+            width: 200%;
+            border: $app 2px solid;
+            position: absolute;
+        }
+    }
+    ion-slides {
+        display: block;
+        width: 100%;
+        height: calc(100vh - 146px) !important;
+    }
+    ion-slide {
+        height: calc(100vh - 146px) !important;
+        background-color: #f8f8f8 !important;
+        align-items: flex-start !important;
+    }
+    ion-scroll {
+        position: inherit;
+        display: block;
+        height: 100vh;
+    }
+    .checkout-address {
+        background-color: #f8f8f8 !important;
+        padding: 8px;
+        ion-list {
+            margin: 8px 0px 50px 0px !important;
+        }
+        ion-item {
+            color: #6d6d6d !important;
+            padding: 0px !important;
+            ion-label {
+                margin-left: 18px !important;
+                word-break: break-all;
+                white-space: normal;
+                p {
+                    margin-bottom: 2px !important;
+                }
+            }
+        }
+        .item-cover {
+            padding: 0px !important;
+        }
+    }
+    .checkout-product-shipping {
+        background-color: #f8f8f8 !important;
+        padding: 8px;
+        margin-bottom: 30px;
+        .product {
+            margin-top: -7px;
+            .product-name {
+                width: 100%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .list-item {
+                margin: 10px 0px 0px 0px;
+            }
+            .label-md[stacked] {
+                color: #000;
+            }
+            .item {
+                padding-left: 6px !important;
+            }
+            .input-cover {
+                height: 0px;
+            }
+            ion-select {
+                max-width: 70% !important;
+            }
+            .shipping {
+                .item {
+                    background-color: #e2fbdc;
+                }
+            }
+        }
+    }
+    .checkout-payment {
+        background-color: #f8f8f8 !important;
+    }
+    .checkout-confirm {
+        background-color: #f8f8f8 !important;
+    }
+    .footer-order {
+        .toolbar {
+            min-height: 40px !important;
+            max-height: 40px !important;
+        }
+    }
 }

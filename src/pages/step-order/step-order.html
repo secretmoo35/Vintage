@@ -1,12 +1,149 @@
 <ion-header>
 
-  <ion-navbar color="app">
-    <ion-title>step-order</ion-title>
+  <ion-navbar>
+    <ion-title>การสั่งซื้อ</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+  <ion-grid class="header-segment">
+    <ion-row>
+      <ion-col text-center>
+        <ion-segment color="light" class="md" [(ngModel)]="tabs">
+          <ion-segment-button [ngClass]="tabs >= 0 ? 'active' : '' ">
+            <ion-icon name="ios-pin-outline"></ion-icon>
+          </ion-segment-button>
+          <p>ที่อยู่จัดส่ง</p>
+        </ion-segment>
+      </ion-col>
+      <ion-col text-center>
+        <div class="lines" [ngClass]="tabs >= 1 ? 'active-lines' : '' "></div>
+      </ion-col>
+      <ion-col text-center>
+        <ion-segment color="light" [(ngModel)]="tabs">
+          <ion-segment-button [ngClass]="tabs >= 1 ? 'active' : '' ">
+            <ion-icon name="ios-document-outline"></ion-icon>
+          </ion-segment-button>
+          <p>การจัดส่ง</p>
+        </ion-segment>
+      </ion-col>
+      <ion-col text-center>
+        <div class="lines" [ngClass]="tabs >= 2 ? 'active-lines' : '' "></div>
+      </ion-col>
+      <ion-col text-center>
+        <ion-segment color="light" [(ngModel)]="tabs">
+          <ion-segment-button [ngClass]="tabs >= 2 ? 'active' : '' ">
+            <ion-icon name="ios-card-outline"></ion-icon>
+          </ion-segment-button>
+          <p>ชำระเงิน</p>
+        </ion-segment>
+      </ion-col>
+      <ion-col text-center>
+        <div class="lines" [ngClass]="tabs >= 3 ? 'active-lines' : '' "></div>
+      </ion-col>
+      <ion-col text-center>
+        <ion-segment color="light" [(ngModel)]="tabs">
+          <ion-segment-button [ngClass]="tabs >= 3 ? 'active' : '' ">
+            <ion-icon name="ios-checkmark-outline"></ion-icon>
+          </ion-segment-button>
+          <p>คอนเฟิร์ม</p>
+        </ion-segment>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!-- slides -->
+  <ion-slides #formWizard (ionSlideWillChange)="changeWillSlide($event)">
+    <!-- 1 -->
+    <ion-slide>
+      <ion-scroll scrollY>
+        <div class="checkout-address">
+          <ion-grid no-padding>
+            <ion-row no-padding>
+              <ion-col col-12 no-padding>
+                <button ion-button color="app" block small clear>
+                  <ion-icon name="md-add"></ion-icon> &nbsp;
+                  <b>เพิ่มที่อยู่ใหม่</b>
+                </button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+          <ion-list radio-group>
+            <ion-item *ngFor="let item of [1]">
+              <ion-label>
+                <p>John doe</p>
+                <p>711-2880 Nulla St. Mankato, Mississippi United States, 96522, (257) 563-7401</p>
+              </ion-label>
+              <ion-radio [value]="item"></ion-radio>
+            </ion-item>
+          </ion-list>
+        </div>
+      </ion-scroll>
+      <ion-footer class="footer-order">
+        <ion-toolbar>
+          <button class="login-button" color="app" ion-button block (click)="slideNext()">ไปหน้าวิธีจัดส่ง</button>
+        </ion-toolbar>
+      </ion-footer>
+    </ion-slide>
+    <!-- 2 -->
+    <ion-slide>
+      <ion-scroll scrollY>
+        <div class="checkout-product-shipping">
+          <div class="product" *ngFor="let item of [1,2,3,4,5]">
+            <ion-list class="list-item">
+              <ion-item>
+                <ion-thumbnail item-start>
+                  <img src="https://firebasestorage.googleapis.com/v0/b/green-vintage.appspot.com/o/images%2F1517541306.png?alt=media&token=de229681-1257-4849-9e7b-cb84a54bf063"
+                    alt="">
+                  <!-- <preload-image class="products-image" [ratio]="{w:1, h:1}" [src]="item.product.images[0]"></preload-image> -->
+                </ion-thumbnail>
+                <ion-label stacked>
+                  <h2 class="product-name">กระโปรงผ้าแวนวาส ลายริ้ว สีดำ แต่งกระดุม ยางยืดหลัง เอว 38 ยืดได้ 48 สะโพก 52 ตัวยาว 31 นิ้ว</h2>
+                  <p>1,500 บาท</p>
+                  <p>จำนวน: 2</p>
+                </ion-label>
+              </ion-item>
+            </ion-list>
+            <ion-list class="shipping">
+              <ion-item>
+                <ion-label>วิธีการจัดส่ง</ion-label>
+                <ion-select placeholder="กรุณาเลือกวิธีจัดส่ง">
+                  <ion-option value="free">ส่งฟรี</ion-option>
+                  <ion-option value="kerry">ส่งโดย Kerry(30 บาท)</ion-option>
+                </ion-select>
+              </ion-item>
+            </ion-list>
+          </div>
+        </div>
+      </ion-scroll>
+      <ion-footer class="footer-order">
+        <ion-toolbar>
+          <ion-row no-padding>
+            <ion-col col-6 no-padding>
+              <button ion-button full color="danger" (click)="slidePrev()">ที่อยู่จัดส่ง</button>
+            </ion-col>
+            <ion-col col-6 no-padding>
+              <button class="login-button" color="app" ion-button block (click)="slideNext()">ไปหน้าชำระเงิน</button>
+            </ion-col>
+          </ion-row>
+        </ion-toolbar>
+      </ion-footer>
+    </ion-slide>
+    <!-- 3 -->
+    <ion-slide>
+      <div class="checkout-payment" padding>
+        <button class="login-button" color="app" ion-button block (click)="slideNext()">Confirm</button>
+        <button ion-button full color="danger" (click)="slidePrev()">Back</button>
+      </div>
+    </ion-slide>
+    <!-- 4 -->
+    <ion-slide>
+      <div class="checkout-payment" padding>
+        <button class="login-button" color="app" ion-button block (click)="clickConfirmed()">Confirmed</button>
+        <button ion-button full color="danger" (click)="slidePrev()">Back</button>
+      </div>
+    </ion-slide>
+  </ion-slides>
 
 </ion-content>
