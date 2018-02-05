@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { HomeProvider } from '../../providers/home/home';
 import { LoadingProvider } from '../../providers/loading/loading';
 import { HomeModel } from '../../models/home.model';
@@ -14,7 +14,8 @@ export class HomePage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private home: HomeProvider,
-    private loading: LoadingProvider
+    private loading: LoadingProvider,
+    private modalCtrl: ModalController
   ) {
   }
 
@@ -39,6 +40,22 @@ export class HomePage {
 
   doBid(item) {
 
+  }
+
+  selected(e) {
+    console.log(e);
+    if (e.type === 'ads') {
+      if (e.isvideo) {
+        let profileModal = this.modalCtrl.create('AdsVideoPage', { _id: e._id });
+        profileModal.present();
+      } else {
+        let profileModal = this.modalCtrl.create('AdsImagePage', { _id: e._id });
+        profileModal.present();
+      }
+    } else {
+      let modal1 = this.modalCtrl.create('ProductDetailPage', { productId: e._id });
+      modal1.present();
+    }
   }
 
 }
