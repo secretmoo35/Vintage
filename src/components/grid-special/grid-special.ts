@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 /**
  * Generated class for the GridSpecialComponent component.
@@ -13,6 +13,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class GridSpecialComponent implements OnInit {
 
   @Input('items') items: Array<any>;
+  @Output() callbackItem: EventEmitter<any> = new EventEmitter();
   useItems: Array<any> = [];
 
   constructor() {
@@ -55,6 +56,10 @@ export class GridSpecialComponent implements OnInit {
     this.useItems = subTwo;
     console.log(this.useItems);
 
+  }
+
+  selectItem(item) {
+    this.callbackItem.emit(item);
   }
 
 }

@@ -25,6 +25,7 @@ import { CartProvider } from '../providers/cart/cart';
 import { OrderProvider } from '../providers/order/order';
 import { GoogleMaps } from '@ionic-native/google-maps';
 import { NativeGeocoder } from '@ionic-native/native-geocoder';
+import { AdsProvider } from '../providers/ads/ads';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { NativeGeocoder } from '@ionic-native/native-geocoder';
     ShopListProvider,
     ProductProvider,
     CartProvider,
-    OrderProvider
+    OrderProvider,
+    AdsProvider
   ]
 })
 export class AppModule { }
