@@ -1,3 +1,51 @@
 page-my-purchases {
+    $num-of-tabs: 3;     
+    @mixin tabs {
+      @for $i from 1 through $num-of-tabs {
+        &:nth-of-type(#{$i}) {
+          &.segment-activated {
+            ~ .slide {
+              left: calc((100% / #{$num-of-tabs}) * #{$i - 1});
+            }
+          }
+        }
+      }
+    }
 
+    .segment-button {
+        border: 0 !important;
+        @include tabs;
+      }
+    .slide {
+        background: dodgerblue;
+        width: calc(100% / #{$num-of-tabs});
+        height: 4px;
+        position: absolute;
+        left: 0;
+        top: calc(100% - 4px);
+        transition: left 0.3s ease-out;
+       }  
+
+       ion-segment {
+        display: block;
+        white-space: nowrap !important;
+        overflow-x: scroll !important;
+        background-color: #ffffff !important;
+        height: 45px !important; // margin-top: -4px !important;
+        .segment-button {
+            display: inline-block !important;
+            min-width: auto !important;
+            padding-left: 40px !important;
+            // padding-right: 40px !important;
+            width: auto !important;
+            border: 0 !important;
+            color: #607D8B !important;
+            font-size: 14px !important;
+        }
+        .segment-button.active-page {
+            color: red !important;
+            border-bottom: 4px solid !important;
+            width: auto !important;
+        }
+    }
 }
