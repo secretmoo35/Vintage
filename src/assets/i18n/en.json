@@ -97,5 +97,7 @@
   "SELECT_ADDRESS": "Tap to search for your address",
   "CONFIRM_LOCATION": "Confirm this location",
   "SEARCH_LOCATION": "Search place",
-  "USER_ID":"ID"
+  "USER_ID": "ID",
+  "VIEW_DETAIL": "View product detail",
+  "BID_CURRENT": "Current"
 }
