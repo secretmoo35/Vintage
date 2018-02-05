@@ -4,6 +4,7 @@ import moment from 'moment';
 import { BidProvider } from '../../providers/bid/bid';
 import { BidModel } from '../../models/bid.model';
 import { LoadingProvider } from '../../providers/loading/loading';
+import { AuthProvider } from '../../providers/auth/auth';
 // declare let moment;
 /**
  * Generated class for the BidListPage page.
@@ -25,7 +26,7 @@ export class BidListPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private bid: BidProvider,
-    private loading: LoadingProvider
+    private loading: LoadingProvider,
   ) {
   }
 
@@ -62,8 +63,7 @@ export class BidListPage {
     });
   }
 
-  toBidDetail(){
+  toBidDetail() {
     this.navCtrl.push('BidDetailPage');
   }
-
 }
