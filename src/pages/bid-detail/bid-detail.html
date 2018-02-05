@@ -8,28 +8,28 @@
 
 
 <ion-content>
-  <div>
+  <div *ngIf="bidDetailData.product.name">
     <ion-grid>
       <ion-row>
         <ion-col col-12 class="col-shop">
           <ion-list>
             <ion-item>
               <ion-avatar item-start>
-                <img src="https://www.sinthanee.com/image/cache/product/2016-11-21/camera/nikon/coolpix%20s6900-1000x1000.jpg">
+                <img src="{{bidDetailData.currentuser.profileImageURL}}">
               </ion-avatar>
               <p>
-                <b>Camera shop</b>
+                <b>{{bidDetailData.currentuser.name}}</b>
               </p>
             </ion-item>
           </ion-list>
         </ion-col>
         <ion-col col-12 text-center>
-          <h2 class="bid-name">Sensor Exmor™</h2>
+          <h2 class="bid-name">{{bidDetailData.product.name}}</h2>
         </ion-col>
       </ion-row>
       <ion-row padding-left padding-right>
         <ion-slides pager class="slides-border">
-          <ion-slide *ngFor="let item of image">
+          <ion-slide *ngFor="let item of bidDetailData.product.images">
             <img src="{{item}}" alt="" class="arvatar-slide">
           </ion-slide>
         </ion-slides>
@@ -40,13 +40,12 @@
             ดูรายละเอียดสินค้า
           </ion-card-header>
           <ion-card-content #cc>
-            Sensor Exmor™ CMOS ขนาด APS-C ความละเอียด 24.3 megapixel Processor BIONZ X ระบบออโต้โฟกัส Fast Hybrid AF พร้อมจุดโฟกัส 179
-            จุด หน้าจอที่พับปรับได้ 180 องศาสำหรับการถ่ายภาพตัวเอง Builtin wifi และ NFC บันทึก Video Full HD
+            {{bidDetailData.product.detail}}
           </ion-card-content>
         </ion-card>
       </ion-row>
       <!-- is:true -->
-      <div>
+      <div *ngIf="bidDetailData.isBid">
         <ion-row padding>
           <ion-col col-12 text-center class="color-time">
             <h2 padding-top>เหลือเวลาประมูล</h2>
@@ -67,40 +66,43 @@
             <button ion-button round color="app" class="btn-radiascenter">
               <ion-icon name="hammer"></ion-icon>
               <br>
-              <span> 200 บาท</span>
+              <span>{{bidDetailData.price}}</span>
             </button>
           </ion-col>
         </ion-row>
       </div>
       <!-- is:false -->
-      <div>
+      <div *ngIf="!bidDetailData.isBid">
         <ion-grid>
           <ion-row padding>
             <ion-col col-12 text-center class="color-time">
               <h2 padding-top>วันเวลาที่เริ่มประมูล</h2>
               <ion-row>
                 <ion-col col-6>
-                  <h2 class="time-magin">01/01/61</h2>
+                  <h2 class="time-magin">{{bidDetailData.datestart | date: 'dd/MM/yy'}}</h2>
                 </ion-col>
                 <ion-col col-6>
-                  <h2 class="time-magin">10:00 - 11:30</h2>
+                  <h2 class="time-magin">{{bidDetailData.datestart | date: 'hh:mm'}}-{{bidDetailData.dateend | date: 'hh:mm'}}</h2>
                 </ion-col>
               </ion-row>
             </ion-col>
             <ion-col col-6 class="col-left">
               <div class="div-border ">
                 <p class="magin-p">ราคาเริ่มมต้น</p>
-                <h3 class="magin-p">50 บาท</h3>
+                <h3 class="magin-p">{{bidDetailData.pricestart}} บาท</h3>
               </div>
             </ion-col>
             <ion-col col-6 class="col-right">
               <div class="div-border ">
                 <p class="magin-p">ครั้งละ</p>
-                <h3 class="magin-p">10 บาท</h3>
+                <h3 class="magin-p">{{bidDetailData.pricebid}} บาท</h3>
               </div>
             </ion-col>
           </ion-row>
         </ion-grid>
+      </div>
+      <div>
+        
       </div>
     </ion-grid>
   </div>
