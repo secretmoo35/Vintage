@@ -133,8 +133,88 @@
     <!-- 3 -->
     <ion-slide>
       <div class="checkout-payment" padding>
-        <button class="login-button" color="app" ion-button block (click)="slideNext()">Confirm</button>
-        <button ion-button full color="danger" (click)="slidePrev()">Back</button>
+        <ion-row radio-group [(ngModel)]="binding" (ionChange)="selectMetthod(binding)">
+          <ion-col col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4>
+            <ion-item text-center>
+              <ion-label>
+                <div class="color"></div>
+                <img src="./assets/imgs/logo/sign-check-icon.png" *ngIf="binding === '0'" [ngClass]="{cssClass: binding === '0'}">
+                <img src="./assets/imgs/logo/credit-card.png" class="img-size">
+                <br>
+                <span class="font-payment">บัตร</span>
+              </ion-label>
+              <ion-radio value="0"></ion-radio>
+            </ion-item>
+          </ion-col>
+          <ion-col col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4>
+            <ion-item text-center>
+              <ion-label>
+                <div class="color"></div>
+                <img src="./assets/imgs/logo/sign-check-icon.png" *ngIf="binding === '1'" [ngClass]="{cssClass: binding === '1'}">
+                <img src="./assets/imgs/logo/credit-card.png" class="img-size">
+                <br>
+                <span class="font-payment">บัญชีธนาคาร</span>
+              </ion-label>
+              <ion-radio value="1"></ion-radio>
+            </ion-item>
+          </ion-col>
+          <!-- <ion-col col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4>
+            <ion-item text-center>
+              <ion-label>
+                <div class="color"></div>
+                <img src="./assets/imgs/logo/sign-check-icon.png" *ngIf="binding === '2'" [ngClass]="{cssClass: binding === '2'}">
+                <img src="./assets/imgs/logo/credit-card.png" alt="">
+                <br>
+                <span class="font-payment">ชำระปลายทาง</span>
+              </ion-label>
+              <ion-radio value="2"></ion-radio>
+            </ion-item>
+          </ion-col> -->
+        </ion-row>
+        
+        <ion-list *ngIf="binding === '0'">
+            <ion-item-divider color="light">
+                <h2 text-left>
+                  <b>กรุณากรอกให้ครบ</b>
+                </h2>
+              </ion-item-divider>
+          <ion-item>
+            <ion-label floating>{{ 'CARD_NUMBER' | translate }}</ion-label>
+            <ion-input type="number" (ionChange)="creditFormat()"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>{{ 'CARD_HOLDER' | translate }}</ion-label>
+            <ion-input type="text"></ion-input>
+          </ion-item>
+          <ion-row no-padding>
+            <ion-col col-6 no-padding>
+              <ion-item>
+                <ion-label floating>{{ 'EXPIRED_DATE' | translate }}(01/18)</ion-label>
+                <ion-input type="text" (ionChange)="creditFormat()"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col col-6 no-padding>
+              <ion-item>
+                <ion-label floating>CVC</ion-label>
+                <ion-input type="number" (ionChange)="creditFormat()"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-list>
+
+        <ion-footer class="footer-order">
+          <ion-toolbar>
+            <ion-row no-padding>
+              <ion-col col-6 no-padding>
+                <button ion-button full color="danger" (click)="slidePrev()">การจัดส่ง</button>
+              </ion-col>
+              <ion-col col-6 no-padding>
+                <button class="login-button" color="app" ion-button block (click)="slideNext()">ไปหน้ายืนยัน</button>
+              </ion-col>
+            </ion-row>
+          </ion-toolbar>
+        </ion-footer>
+
       </div>
     </ion-slide>
     <!-- 4 -->

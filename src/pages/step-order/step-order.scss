@@ -158,6 +158,45 @@ page-step-order {
     }
     .checkout-payment {
         background-color: #f8f8f8 !important;
+        
+        .img-size{
+            max-width: 50%;
+        }
+        .font-payment {
+            font-size: 3vw;
+            margin: 0px 0px 0px 0px !important;
+            padding: 0px 0px 0px 0px !important
+        }
+        .radio-icon {
+            display: none !important;
+        }
+        .item-inner {
+            border: none !important;
+            padding-right: 0px !important;
+            font-weight: 600 !important;
+        }
+        .item-radio-checked.item ion-label.size {
+            color: $app;
+        }
+        .item-radio-checked.item {
+            .item-cover {
+                border: 1px solid $app;
+            }
+        }
+        .color {
+            width: 22px !important;
+            height: 22px !important;
+            position: absolute;
+        }
+        .label {
+            margin: 8px 0px 8px 0 !important;
+        }
+        .cssClass {
+            position: absolute;
+            z-index: 1;
+            height: 18vw;
+            opacity: 1.0;
+        }
     }
     .checkout-confirm {
         background-color: #f8f8f8 !important;
