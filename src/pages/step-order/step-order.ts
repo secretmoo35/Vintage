@@ -16,6 +16,25 @@ import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
 export class StepOrderPage {
   @ViewChild('formWizard') formWizard: Slides;
   tabs: any = '0';
+
+  balnk = [
+    {
+      name:"BAY",
+      image:"./assets/imgs/Internet Banking/krungsri.png"
+    },
+    {
+      name:"BBL",
+      image:"./assets/imgs/Internet Banking/Bualuang.png"
+    },
+    {
+      name:"KTB",
+      image:"./assets/imgs/Internet Banking/ktb.png"
+    },
+    {
+      name:"SCB",
+      image:"./assets/imgs/Internet Banking/scb.png"
+    }
+  ]
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -48,5 +67,9 @@ export class StepOrderPage {
 
   selectMetthod(e){
     console.log(e);
+  }
+
+  selectBanking(banking){
+    console.log(banking);
   }
 }
