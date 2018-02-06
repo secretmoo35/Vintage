@@ -158,26 +158,14 @@
               <ion-radio value="1"></ion-radio>
             </ion-item>
           </ion-col>
-          <!-- <ion-col col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4>
-            <ion-item text-center>
-              <ion-label>
-                <div class="color"></div>
-                <img src="./assets/imgs/logo/sign-check-icon.png" *ngIf="binding === '2'" [ngClass]="{cssClass: binding === '2'}">
-                <img src="./assets/imgs/logo/credit-card.png" alt="">
-                <br>
-                <span class="font-payment">ชำระปลายทาง</span>
-              </ion-label>
-              <ion-radio value="2"></ion-radio>
-            </ion-item>
-          </ion-col> -->
         </ion-row>
-        
+
         <ion-list *ngIf="binding === '0'">
-            <ion-item-divider color="light">
-                <h2 text-left>
-                  <b>กรุณากรอกให้ครบ</b>
-                </h2>
-              </ion-item-divider>
+          <ion-item-divider color="light">
+            <h2 text-left>
+              <b>กรุณากรอกให้ครบ</b>
+            </h2>
+          </ion-item-divider>
           <ion-item>
             <ion-label floating>{{ 'CARD_NUMBER' | translate }}</ion-label>
             <ion-input type="number" (ionChange)="creditFormat()"></ion-input>
@@ -201,6 +189,25 @@
             </ion-col>
           </ion-row>
         </ion-list>
+
+        <div *ngIf="binding === '1'">
+          <ion-grid>
+            <ion-row radio-group [(ngModel)]="banking" (ionChange)="selectBanking(banking)">
+              <ion-col col-4 *ngFor="let item of balnk; let i = index">
+                <ion-item text-center class="banking-padding">
+                  <ion-label>
+                    <div class="color"></div>
+                    <img src="./assets/imgs/logo/sign-check-icon.png" *ngIf="banking === i" [ngClass]="{bankingcssClass: banking === i}">
+                    <img src="{{item.image}}" class="img-banking">
+                    <br>
+                    <span>{{item.name}}</span>
+                    <ion-radio [value]="i"></ion-radio>
+                  </ion-label>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
 
         <ion-footer class="footer-order">
           <ion-toolbar>
