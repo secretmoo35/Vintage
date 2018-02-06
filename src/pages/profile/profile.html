@@ -70,9 +70,9 @@
           <img src="./assets/icon/more/purchase.png" width="30">
         </ion-icon>
         {{ 'MY_PURCHASES' | translate }}
-        <ion-badge item-end color="danger">
+        <!-- <ion-badge item-end color="danger">
           1
-        </ion-badge>
+        </ion-badge> -->
       </button>
       <button ion-item item-start (click)="favorite()">
         <!-- <ion-icon name="md-heart-outline" item-start></ion-icon> -->
@@ -80,9 +80,9 @@
           <img src="./assets/icon/more/favorite.png" width="30">
         </ion-icon>
         {{ 'FAVORITE' | translate }}
-        <ion-badge item-end color="danger" *ngIf="productFavarite.length > 0">
+        <!-- <ion-badge item-end color="danger" *ngIf="productFavarite.length > 0">
           <span>{{productFavarite.length}}</span>
-        </ion-badge>
+        </ion-badge> -->
       </button>
       <!-- <button ion-item item-start (click)="onBenefit()">
         <ion-icon name="md-ribbon" item-start></ion-icon>

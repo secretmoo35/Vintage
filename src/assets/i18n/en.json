@@ -100,8 +100,19 @@
   "USER_ID": "ID",
   "VIEW_DETAIL": "View product detail",
   "BID_CURRENT": "Current",
-  "MY_PURCHASES":"My purchases",
+  "MY_PURCHASES": "My purchases",
   "CARD_HOLDER": "Card holder",
   "EXPIRED_DATE": "Expired date",
-  "CARD_NUMBER": "Card number"
+  "CARD_NUMBER": "Card number",
+  "WAIT_SEND": "To Ship",
+  "WAIT_RECEIPT": "To Receive",
+  "RECEIPT": "Completed",
+  "ON_RECEIPT": "Order Receipt",
+  "QTY": "Qty",
+  "SHIPPING_TYPE": "Shipping type",
+  "SHIPPING_DATE": "Shipping date",
+  "RECEIPT_DATE": "Ship time",
+  "CANCEL_DATE": "Cancel time",
+  "CANCEL_RECEIPT": "Refunded",
+  "CANCEL_RECEIPT_NOT": "No Refunded"
 }

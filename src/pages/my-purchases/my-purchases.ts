@@ -24,7 +24,7 @@ export class MyPurchasesPage {
     public navParams: NavParams,
     public platform: Platform
   ) {
-    this.tabs = ["รอการจัดส่ง", "รอรับสินค้า", "รับแล้ว", "ยกเลิก"];
+    this.tabs = ["WAIT_SEND", "WAIT_RECEIPT", "RECEIPT", "CANCEL"];
     console.log('Width: ' + platform.width());
     this.screenWidth_px = platform.width();
 
@@ -104,6 +104,11 @@ export class MyPurchasesPage {
     if (!this.isRight && !this.isLeft)
       this.SwipedTabsIndicator.style.width = this.tabTitleWidthArray[this.SwipedTabsSlider.getActiveIndex()] + "px";
 
+  }
+
+  selectPurchases(item){
+    console.log(item);
+    this.navCtrl.push('PurchasesDetailPage');
   }
 
 }

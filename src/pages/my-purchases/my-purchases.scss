@@ -20,6 +20,7 @@ page-my-purchases {
         background-color: white!important;
         padding-left: 20px !important;
         padding-right: 20px !important;
+        text-transform: capitalize !important;
     }
     .SwipedTabs-tabs ion-segment-button.SwipedTabs-activeTab {
         color: $app !important;
@@ -117,7 +118,7 @@ page-my-purchases {
     page-my-purchases {
         .SwipedTabs-indicatorSegment {
             position: relative;
-            top: 44px !important;
+            top: 40px !important;
         }
     }
 }

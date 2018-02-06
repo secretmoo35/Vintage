@@ -100,8 +100,19 @@
   "USER_ID": "รหัสสมาชิก",
   "VIEW_DETAIL": "ดูรายละเอียดสินค้า",
   "BID_CURRENT": "การประมูลล่าสุด",
-  "MY_PURCHASES":"รายการสั้งซื้อของฉัน",
+  "MY_PURCHASES": "รายการสั่งซื้อของฉัน",
   "CARD_NUMBER": "เลขที่บัตร",
   "CARD_HOLDER": "ชื่อผู้ถือบัตร",
-  "EXPIRED_DATE": "วันหมดอายุ"
+  "EXPIRED_DATE": "วันหมดอายุ",
+  "WAIT_SEND": "รอการจัดส่ง",
+  "WAIT_RECEIPT": "รอรับสินค้า",
+  "RECEIPT": "รับแล้ว",
+  "ON_RECEIPT": "ได้รับสินค้าแล้ว",
+  "QTY": "จำนวน",
+  "SHIPPING_TYPE": "วิธีการจัดส่ง",
+  "SHIPPING_DATE": "วันที่จัดส่ง",
+  "RECEIPT_DATE": "วันที่รับสินค้า",
+  "CANCEL_DATE": "วันที่ยกเลิกสินค้า",
+  "CANCEL_RECEIPT": "ได้รับคืนเงินแล้ว",
+  "CANCEL_RECEIPT_NOT": "ยังไม่ได้รับคืนเงิน"
 }
