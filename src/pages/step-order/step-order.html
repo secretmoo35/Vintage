@@ -192,7 +192,7 @@
                     <img src="{{item.image}}" class="img-banking">
                   </ion-avatar>
                   <ion-label>
-                    <p>{{item.name}}</p>
+                    <p>{{item.name | translate}}</p>
                   </ion-label>
                   <ion-radio [value]="i"></ion-radio>
                   <img src="./assets/imgs/logo/sign-check-icon.png" *ngIf="banking === i" item-end [ngClass]="{bankingcssClass: banking === i}">

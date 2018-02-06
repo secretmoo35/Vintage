@@ -115,5 +115,9 @@
   "RECEIPT_DATE": "Ship time",
   "CANCEL_DATE": "Cancel time",
   "CANCEL_RECEIPT": "Refunded",
-  "CANCEL_RECEIPT_NOT": "No Refunded"
+  "CANCEL_RECEIPT_NOT": "No Refunded",
+  "BAY":"Krung Thai Bank",
+  "BBL":"Bangkok Bank",
+  "KTB":"Kasikornbank",
+  "SCB":"Siam Commercial Bank"
 }
