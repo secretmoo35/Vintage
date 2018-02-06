@@ -5,4 +5,15 @@ export class ProductDetailModel {
     images: Array<string>;
     price: number;
     isFavorite: Boolean;
+    shippings: Array<ShippingModel>;
+}
+
+export class ShippingModel {
+    ref: ShippingRefModel = new ShippingRefModel();
+    price: number;
+}
+
+export class ShippingRefModel {
+    name: string;
+    detail: string;
 }

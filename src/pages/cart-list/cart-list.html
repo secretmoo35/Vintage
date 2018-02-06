@@ -11,7 +11,7 @@
 <ion-content>
 
   <div *ngIf="cartData && cartData.items && cartData.items.length">
-    <ion-list class="list-item">
+    <ion-list mode="md" class="list-item">
       <ion-item *ngFor="let item of cartData.items; let i = index;">
         <ion-thumbnail item-start>
           <preload-image class="products-image" [ratio]="{w:1, h:1}" [src]="item.product.images[0]"></preload-image>

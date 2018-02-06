@@ -25,12 +25,24 @@
   <p padding-left padding-right>
     {{ productData.detail }}
   </p>
+  <ion-item-divider color="light">
+    <ion-icon name="pin"></ion-icon>
+    <b>{{ 'SHIPPING_TYPE' | translate }}</b>
+  </ion-item-divider>
+  <ion-list>
+    <ion-item *ngFor="let item of productData.shippings">
+      <h2>{{item.ref.name}}
+      </h2>
+      <p>{{item.ref.detail}}</p>
+      <p *ngIf="item.price && item.price > 0">{{'PRICE' | translate}} {{item.price}} {{'THB' | translate}}</p>
+    </ion-item>
+  </ion-list>
+
   <div text-center class="count">
     <button ion-button outline color="bite" class="count-radias" (click)="countDelete()">-</button>
     <button ion-button round color="bite" class="count-radiascenter">{{numberCount}}</button>
     <button ion-button outline color="bite" class="count-radias" (click)="countPlus()">+</button>
   </div>
-
 </ion-content>
 
 <ion-footer class="footer-product" *ngIf="productData && productData.name">
