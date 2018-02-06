@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { LoadingProvider } from '../../providers/loading/loading';
 
 /**
  * Generated class for the SearchResultPage page.
@@ -14,16 +15,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'search-result.html',
 })
 export class SearchResultPage {
-  type: string = 'RESTAURANT';
+  type: string = 'SHOP';
   search: any;
   title: string;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    private loading : LoadingProvider
+  ) {
     this.search = this.navParams.get('items');
     this.title = this.navParams.get('keyword');
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SearchResultPage');
+  }
+
+  selectTabs(){
+    this.loading.onLoading();
+    this.loading.dismiss();
   }
 
   goToDetail(e) {

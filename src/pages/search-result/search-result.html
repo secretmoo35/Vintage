@@ -15,18 +15,18 @@
 
 <ion-content>
   <div padding>
-    <ion-segment mode="ios" color="app" [(ngModel)]="type">
-      <ion-segment-button value="RESTAURANT">
+    <ion-segment mode="ios" color="app" [(ngModel)]="type" (ionChange)="selectTabs()">
+      <ion-segment-button value="SHOP">
         {{ 'SHOP' | translate }} ({{search.shops.length}})
       </ion-segment-button>
-      <ion-segment-button value="FOOD">
+      <ion-segment-button value="PRODUCT">
         {{ 'PRODUCTS' | translate }} ({{search.products.length}})
       </ion-segment-button>
     </ion-segment>
   </div>
 
   <div [ngSwitch]="type">
-    <div *ngSwitchCase="'RESTAURANT'">
+    <div *ngSwitchCase="'SHOP'">
       <div class="shops">
         <ion-row>
           <ion-col col-6 col-md-4 col-lg-4 *ngFor="let item of search.shops" (click)="goToDetail(item)">
@@ -46,7 +46,7 @@
 
     </div>
 
-    <div *ngSwitchCase="'FOOD'">
+    <div *ngSwitchCase="'PRODUCT'">
       <ion-list class="products">
         <button ion-item *ngFor="let productitem of search.products">
           <ion-thumbnail item-start>

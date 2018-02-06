@@ -24,7 +24,7 @@ export class SearchInputComponent {
         this.loading.onLoading();
         this.loading.dismiss();
         this.search.searchKeyword(this.searchText).then((res) => {
-          this.app.getRootNav().push('SearchResultPage', { keyword: this.searchText, items: res })
+          this.app.getRootNav().push('SearchResultPage', { keyword: this.searchText, items: res });
           this.searchText = '';
           this.loading.dismiss();
         }, (err) => {
