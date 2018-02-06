@@ -158,7 +158,7 @@ page-step-order {
     }
     .checkout-payment {
         background-color: #f8f8f8 !important;
-        .bankingcssClass{
+        .bankingcssClass {
             position: absolute;
             z-index: 1;
             height: 10vw;
@@ -166,13 +166,13 @@ page-step-order {
             top: 0;
             right: 0;
         }
-        .banking-padding{
+        .banking-padding {
             padding-left: 0px !important;
-            .img-banking{
+            .img-banking {
                 width: 15vw;
             }
         }
-        .img-size{
+        .img-size {
             max-width: 50%;
         }
         .font-payment {
@@ -218,13 +218,24 @@ page-step-order {
             max-height: 40px !important;
         }
     }
-    .checkout-confiram{
-        .confirm-bank{
+    .checkout-confiram {
+        .payment{
+            margin-bottom: 8px !important;
+        }
+        .confirm-bank {
             width: 45%;
+        }
+        .total {
+            ion-item {
+                padding: 0px 0px 30px 6px;
+            }
+            .item-inner {
+                padding: 0px !important;
+            }
         }
         .address {
             ion-list {
-                margin: 0px 0px 16px 0px !important;
+                margin: 0px 0px 8px 0px !important;
             }
             ion-item {
                 padding: 0px !important;
@@ -247,6 +258,7 @@ page-step-order {
             }
             .item-product {
                 margin-top: -16px;
+                margin-bottom: 8px;
             }
             .product-name {
                 width: 100%;
