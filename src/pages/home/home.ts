@@ -38,10 +38,6 @@ export class HomePage {
     refresher.complete();
   }
 
-  doBid(item) {
-
-  }
-
   selected(e) {
     console.log(e);
     if (e.type === 'ads') {
@@ -56,6 +52,10 @@ export class HomePage {
       let modal1 = this.modalCtrl.create('ProductDetailPage', { productId: e._id });
       modal1.present();
     }
+  }
+
+  toBidDetail() {
+    this.navCtrl.push('BidDetailPage');
   }
 
 }
