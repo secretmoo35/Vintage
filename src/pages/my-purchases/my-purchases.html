@@ -1,110 +1,39 @@
-<!-- <ion-header>
-
-  <ion-navbar>
-    <ion-title>myPurchases</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content>
-  <ion-navbar>
-    <ion-segment id="scroll" [(ngModel)]="tabs">
-      <ion-segment-button *ngFor="let item of [0,1,2,3,4,5,6]" (click)="selectTab(item)" value="{{item}}">tab{{item}}
-      </ion-segment-button>
-      <div id="slide" class="slide"></div>
-    </ion-segment>
-  </ion-navbar>
-
-  <ion-slides #pageSlider (ionSlidePrevStart)="ionSlidePrevStart($event)" (ionSlideNextStart)="ionSlideNextStart($event)">
-    <ion-slide>
-      <h1>ContentTab 1</h1>
-    </ion-slide>
-    <ion-slide>
-      <h1>ContentTab 2</h1>
-    </ion-slide>
-    <ion-slide>
-      <h1>ContentTab 3</h1>
-    </ion-slide>
-    <ion-slide>
-      <h1>ContentTab 4</h1>
-    </ion-slide>
-    <ion-slide>
-      <h1>ContentTab 5</h1>
-    </ion-slide>
-    <ion-slide>
-      <h1>ContentTab 6</h1>
-    </ion-slide>
-    <ion-slide>
-      <h1>ContentTab 7</h1>
-    </ion-slide>
-  </ion-slides>
-
-</ion-content> -->
-
-
 <ion-header>
 
   <ion-navbar>
-    <ion-title>googleplayTabs</ion-title>
+    <ion-title>การสั่งซื้อของฉัน</ion-title>
   </ion-navbar>
-   <ion-toolbar>
-      <ion-content  #MultiItemsScrollingTabs class="tabsContent">
-        <ion-segment  class="SwipedTabs-tabs"  >
-          <ion-segment-button *ngFor='let tab of tabs ; let i = index ' id="tabTitle{{i}}" value="IngoreMe" (click)="selectTab(i)"
-          [ngClass]='{ "SwipedTabs-activeTab" : ( this.SwipedTabsSlider  && ( this.SwipedTabsSlider.getActiveIndex() === i || (  tabs.length -1 === i&& this.SwipedTabsSlider.isEnd()))) }'   >
+  <ion-toolbar>
+    <ion-content #MultiItemsScrollingTabs class="tabsContent">
+      <ion-segment class="SwipedTabs-tabs">
+        <ion-segment-button *ngFor='let tab of tabs ; let i = index ' id="tabTitle{{i}}" value="IngoreMe" (click)="selectTab(i)"
+          [ngClass]='{ "SwipedTabs-activeTab" : ( this.SwipedTabsSlider  && ( this.SwipedTabsSlider.getActiveIndex() === i || (  tabs.length -1 === i&& this.SwipedTabsSlider.isEnd()))) }'>
           {{tab}}
         </ion-segment-button>
       </ion-segment>
-      <!-- here is our dynamic line  "indicator"-->
       <div id='indicator' class="SwipedTabs-indicatorSegment"></div>
     </ion-content>
   </ion-toolbar>
 
 </ion-header>
 
-
 <ion-content padding>
-<ion-slides #SwipedTabsSlider  (ionSlideDrag)="animateIndicator($event)"
-    (ionSlideDidChange)="updateIndicatorPosition()"
-    (ionSlideWillChange)="scrollIndicatiorTab()"
-    (panend)="updateIndicatorPositionOnTouchEnd()"
-    [pager]="false">
-          <ion-slide>
-              <h1>Page 0 </h1>
-          </ion-slide>
-          <ion-slide>
-             <h1>Page 1 </h1>
-          </ion-slide>
-          <ion-slide>
-             <h1>Page 2 </h1>
-          </ion-slide>
-          <ion-slide>
-            <h1>Page 3 </h1>
-          </ion-slide>
-          <ion-slide>
-            <h1>Page 4 </h1>
-          </ion-slide>
-          <ion-slide>
-            <h1>Page 5 </h1>
-          </ion-slide>
-          <ion-slide>
-            <h1>Page 6 </h1>
-          </ion-slide>
-          <ion-slide>
-            <h1>Page 7 </h1>
-          </ion-slide>
-          <ion-slide>
-            <h1>Page 8 </h1>
-          </ion-slide>
-          <ion-slide>
-            <h1>Page 9 </h1>
-          </ion-slide>
-
-
-          <ion-slide>
-            <h1> page For tutorual </h1>
-          </ion-slide>
-
-    </ion-slides>
+  <ion-slides #SwipedTabsSlider (ionSlideDrag)="animateIndicator($event)" (ionSlideDidChange)="updateIndicatorPosition()" (ionSlideWillChange)="scrollIndicatiorTab()"
+    (panend)="updateIndicatorPositionOnTouchEnd()" [pager]="false">
+    <ion-slide>
+      <h1>ยังไม่ชำระ</h1>
+    </ion-slide>
+    <ion-slide>
+      <h1>รอการจัดส่ง</h1>
+    </ion-slide>
+    <ion-slide>
+      <h1>รอรับสินค้า</h1>
+    </ion-slide>
+    <ion-slide>
+      <h1>รับแล้ว</h1>
+    </ion-slide>
+    <ion-slide>
+      <h1>ยกเลิก</h1>
+    </ion-slide>
+  </ion-slides>
 </ion-content>

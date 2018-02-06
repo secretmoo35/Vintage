@@ -57,22 +57,31 @@
     </div> -->
 
     <ion-list>
+      <button ion-item item-start (click)="login()" *ngIf="!user">
+        <!-- <ion-icon name="md-log-in" item-start></ion-icon> -->
+        <ion-icon item-start>
+          <img src="./assets/icon/more/login.png" width="30">
+        </ion-icon>
+        <span>{{ 'LOGIN' | translate }}</span>
+      </button>
       <button ion-item item-start (click)="myPurchases()">
-        <ion-icon name="md-document" item-start></ion-icon>
+        <!-- <ion-icon name="md-document" item-start></ion-icon> -->
+        <ion-icon item-start>
+          <img src="./assets/icon/more/purchase.png" width="30">
+        </ion-icon>
         {{ 'MY_PURCHASES' | translate }}
         <ion-badge item-end color="danger">
           1
         </ion-badge>
       </button>
-      <button ion-item item-start (click)="login()" *ngIf="!user">
-        <ion-icon name="md-log-in" item-start></ion-icon>
-        {{ 'LOGIN' | translate }}
-      </button>
       <button ion-item item-start (click)="favorite()">
-        <ion-icon name="md-heart-outline" item-start></ion-icon>
+        <!-- <ion-icon name="md-heart-outline" item-start></ion-icon> -->
+        <ion-icon item-start>
+          <img src="./assets/icon/more/favorite.png" width="30">
+        </ion-icon>
         {{ 'FAVORITE' | translate }}
-        <ion-badge item-end color="danger">
-          <span *ngIf="productFavarite.length > 0">{{productFavarite.length}}</span>
+        <ion-badge item-end color="danger" *ngIf="productFavarite.length > 0">
+          <span>{{productFavarite.length}}</span>
         </ion-badge>
       </button>
       <!-- <button ion-item item-start (click)="onBenefit()">
@@ -80,19 +89,28 @@
         {{ 'BENEFIT' | translate }}
       </button> -->
       <button ion-item item-start (click)="changePassword()">
-          <ion-icon name="md-key" item-start></ion-icon>
-          {{ 'CHANGE_PASSWORD' | translate }}
-        </button>
+        <!-- <ion-icon name="md-key" item-start></ion-icon> -->
+        <ion-icon item-start>
+          <img src="./assets/icon/more/key.png" width="30">
+        </ion-icon>
+        {{ 'CHANGE_PASSWORD' | translate }}
+      </button>
       <!-- <button ion-item item-start (click)="onServiceCharge()">
         <ion-icon name="md-card" item-start></ion-icon>
         {{ 'SERVICE_CHARGE' | translate }}
       </button> -->
       <button ion-item item-start (click)="onQA()">
-        <ion-icon name="md-help" item-start></ion-icon>
+        <!-- <ion-icon name="md-help" item-start></ion-icon> -->
+        <ion-icon item-start>
+          <img src="./assets/icon/more/question.png" width="30">
+        </ion-icon>
         {{ 'QUESTIONS_&_ANSWERS' | translate }}
       </button>
       <button ion-item item-start (click)="onSetting()">
-        <ion-icon name="md-settings" item-start></ion-icon>
+        <!-- <ion-icon name="md-settings" item-start></ion-icon> -->
+        <ion-icon item-start>
+          <img src="./assets/icon/more/settings.png" width="30">
+        </ion-icon>
         {{ 'SETTINGS' | translate }}
       </button>
     </ion-list>

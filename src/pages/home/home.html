@@ -17,7 +17,7 @@
     </ion-grid> -->
     <ion-scroll scrollX="true" *ngIf="homeItem && homeItem.bid">
       <ion-row class="row-custom">
-        <ion-col col-3 col-md-2 col-lg-2 *ngFor="let item of homeItem.bid;" (click)="doBid(item)">
+        <ion-col col-3 col-md-2 col-lg-2 *ngFor="let item of homeItem.bid;" (click)="toBidDetail(item)">
           <preload-image class="{{ item.isBid ? 'preload-image-true' : 'preload-image-false'}}" [ratio]="{w:1, h:1}" [src]="item.image"
             title="bid"></preload-image>
           <ion-badge color="danger" class="ion-badge-status" *ngIf="item.isBid">
