@@ -161,7 +161,7 @@ page-step-order {
         .bankingcssClass {
             position: absolute;
             z-index: 1;
-            height: 10vw;
+            height: 30px;
             opacity: 1;
             top: 0;
             right: 0;
@@ -191,7 +191,7 @@ page-step-order {
         }
         .item-radio-checked.item {
             .item-cover {
-                border: 1px solid $app;
+                // border: 1px solid $app;
             }
         }
         .color {
@@ -208,6 +208,10 @@ page-step-order {
             height: 18vw;
             opacity: 0.7;
         }
+        .payment-type {
+            padding: 0px !important;
+            margin-bottom: 16px;
+        }
     }
     .checkout-confirm {
         background-color: #f8f8f8 !important;
@@ -219,7 +223,7 @@ page-step-order {
         }
     }
     .checkout-confiram {
-        .payment{
+        .payment {
             margin-bottom: 8px !important;
         }
         .confirm-bank {

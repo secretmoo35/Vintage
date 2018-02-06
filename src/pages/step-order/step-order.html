@@ -134,10 +134,9 @@
     <ion-slide>
       <div class="checkout-payment" padding>
         <ion-row radio-group [(ngModel)]="binding" (ionChange)="selectMetthod(binding)">
-          <ion-col col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4>
+          <ion-col col-6 class="payment-type">
             <ion-item text-center>
               <ion-label>
-                <div class="color"></div>
                 <img src="./assets/imgs/logo/sign-check-icon.png" *ngIf="binding === '0'" [ngClass]="{cssClass: binding === '0'}">
                 <img src="./assets/imgs/bookbank/credit-card1.png" class="img-size">
                 <br>
@@ -146,10 +145,9 @@
               <ion-radio value="0"></ion-radio>
             </ion-item>
           </ion-col>
-          <ion-col col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4>
+          <ion-col col-6 class="payment-type">
             <ion-item text-center>
               <ion-label>
-                <div class="color"></div>
                 <img src="./assets/imgs/logo/sign-check-icon.png" *ngIf="binding === '1'" [ngClass]="{cssClass: binding === '1'}">
                 <img src="./assets/imgs/bookbank/bank (2).png" class="img-size">
                 <br>
@@ -161,49 +159,59 @@
         </ion-row>
 
         <ion-list *ngIf="binding === '0'">
-          <ion-item-divider color="light">
-            <h2 text-left>
-              <b>กรุณากรอกให้ครบ</b>
-            </h2>
-          </ion-item-divider>
           <ion-item>
             <ion-label floating>{{ 'CARD_NUMBER' | translate }}</ion-label>
-            <ion-input type="number" (ionChange)="creditFormat()"></ion-input>
+            <ion-input type="number" [(ngModel)]="paymentDetail.creditno" (ionChange)="creditFormat()"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label floating>{{ 'CARD_HOLDER' | translate }}</ion-label>
-            <ion-input type="text"></ion-input>
+            <ion-input type="text" [(ngModel)]="paymentDetail.creditname"></ion-input>
           </ion-item>
           <ion-row no-padding>
             <ion-col col-6 no-padding>
               <ion-item>
                 <ion-label floating>{{ 'EXPIRED_DATE' | translate }}(01/18)</ion-label>
-                <ion-input type="text" (ionChange)="creditFormat()"></ion-input>
+                <ion-input type="text" [(ngModel)]="paymentDetail.expdate" (ionChange)="creditFormat()"></ion-input>
               </ion-item>
             </ion-col>
             <ion-col col-6 no-padding>
               <ion-item>
                 <ion-label floating>CVC</ion-label>
-                <ion-input type="number" (ionChange)="creditFormat()"></ion-input>
+                <ion-input type="number" [(ngModel)]="paymentDetail.creditcvc" (ionChange)="creditFormat()"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
         </ion-list>
 
         <div *ngIf="binding === '1'">
-          <ion-grid>
+          <ion-grid no-padding>
             <ion-row radio-group [(ngModel)]="banking" (ionChange)="selectBanking(banking)">
-              <ion-col col-4 *ngFor="let item of balnk; let i = index">
-                <ion-item text-center class="banking-padding">
-                  <ion-label>
-                    <div class="color"></div>
-                    <img src="./assets/imgs/logo/sign-check-icon.png" *ngIf="banking === i" [ngClass]="{bankingcssClass: banking === i}">
+              <ion-col col-12 *ngFor="let item of bankData; let i = index">
+                <ion-item>
+                  <ion-avatar item-left>
                     <img src="{{item.image}}" class="img-banking">
-                    <br>
-                    <span>{{item.name}}</span>
-                    <ion-radio [value]="i"></ion-radio>
+                  </ion-avatar>
+                  <ion-label>
+                    <p>{{item.name}}</p>
                   </ion-label>
+                  <ion-radio [value]="i"></ion-radio>
+                  <img src="./assets/imgs/logo/sign-check-icon.png" *ngIf="banking === i" item-end [ngClass]="{bankingcssClass: banking === i}">
                 </ion-item>
+                <!--  [ngClass]="{bankingcssClass: banking === i}" -->
+                <!-- <ion-item text-center class="banking-padding">
+                  <ion-label>
+                    <ion-row>
+                      <ion-col col-4>
+                        <img src="{{item.image}}" class="img-banking">
+                      </ion-col>
+                      <ion-col col-8>
+                        <img src="./assets/imgs/logo/sign-check-icon.png" *ngIf="banking === i" [ngClass]="{bankingcssClass: banking === i}">
+                        <span>{{item.name}}</span>
+                        <ion-radio [value]="i"></ion-radio>
+                      </ion-col>
+                    </ion-row>
+                  </ion-label>
+                </ion-item> -->
               </ion-col>
             </ion-row>
           </ion-grid>
@@ -353,7 +361,7 @@
               <button ion-button full color="danger" (click)="slidePrev()">ชำระเงิน</button>
             </ion-col>
             <ion-col col-6 no-padding>
-              <button class="login-button" color="app" ion-button block (click)="slideNext()">ยืนยันการสั้งซื้อ</button>
+              <button class="login-button" color="app" ion-button block (click)="clickConfirmed()">ยืนยันการสั้งซื้อ</button>
             </ion-col>
           </ion-row>
         </ion-toolbar>
