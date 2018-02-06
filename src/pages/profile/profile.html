@@ -116,7 +116,10 @@
     </ion-list>
     <ion-list *ngIf="user && user.username">
       <button ion-item item-start (click)="logout()">
-        <ion-icon name="md-log-out" item-start></ion-icon>
+        <!-- <ion-icon name="md-log-out" item-start></ion-icon> -->
+        <ion-icon item-start>
+          <img src="./assets/icon/more/logout.png" width="30">
+        </ion-icon>
         {{ 'LOGOUT' | translate }}
       </button>
     </ion-list>

@@ -1,4 +1,11 @@
 page-profile {
+    .toolbar-background {
+        background: #f7f7f7 !important;
+    }
+    .content {
+        color: #000;
+        background-color: #f7f7f7;
+    }
     .arvatar {
         width: 30vw !important;
         border-radius: 100%;
@@ -18,5 +25,8 @@ page-profile {
     }
     .text-name {
         color: $app;
+    }
+    .item-inner {
+        margin-left: 8px !important;
     }
 }

@@ -24,7 +24,7 @@ export class MyPurchasesPage {
     public navParams: NavParams,
     public platform: Platform
   ) {
-    this.tabs = ["ยังไม่ชำระ", "รอการจัดส่ง", "รอรับสินค้า", "รับแล้ว", "ยกเลิก"];
+    this.tabs = ["รอการจัดส่ง", "รอรับสินค้า", "รับแล้ว", "ยกเลิก"];
     console.log('Width: ' + platform.width());
     this.screenWidth_px = platform.width();
 
