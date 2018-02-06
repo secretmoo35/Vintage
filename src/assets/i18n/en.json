@@ -100,5 +100,8 @@
   "USER_ID": "ID",
   "VIEW_DETAIL": "View product detail",
   "BID_CURRENT": "Current",
-  "MY_PURCHASES":"My purchases"
+  "MY_PURCHASES":"My purchases",
+  "CARD_HOLDER": "Card holder",
+  "EXPIRED_DATE": "Expired date",
+  "CARD_NUMBER": "Card number"
 }

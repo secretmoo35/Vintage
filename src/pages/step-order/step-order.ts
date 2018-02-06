@@ -45,4 +45,8 @@ export class StepOrderPage {
   clickConfirmed() {
     
   }
+
+  selectMetthod(e){
+    console.log(e);
+  }
 }
