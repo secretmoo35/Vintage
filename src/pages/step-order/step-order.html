@@ -139,7 +139,7 @@
               <ion-label>
                 <div class="color"></div>
                 <img src="./assets/imgs/logo/sign-check-icon.png" *ngIf="binding === '0'" [ngClass]="{cssClass: binding === '0'}">
-                <img src="./assets/imgs/logo/credit-card.png" class="img-size">
+                <img src="./assets/imgs/bookbank/credit-card1.png" class="img-size">
                 <br>
                 <span class="font-payment">บัตร</span>
               </ion-label>
@@ -151,7 +151,7 @@
               <ion-label>
                 <div class="color"></div>
                 <img src="./assets/imgs/logo/sign-check-icon.png" *ngIf="binding === '1'" [ngClass]="{cssClass: binding === '1'}">
-                <img src="./assets/imgs/logo/credit-card.png" class="img-size">
+                <img src="./assets/imgs/bookbank/bank (2).png" class="img-size">
                 <br>
                 <span class="font-payment">บัญชีธนาคาร</span>
               </ion-label>
@@ -226,10 +226,99 @@
     </ion-slide>
     <!-- 4 -->
     <ion-slide>
-      <div class="checkout-payment" padding>
-        <button class="login-button" color="app" ion-button block (click)="clickConfirmed()">Confirmed</button>
-        <button ion-button full color="danger" (click)="slidePrev()">Back</button>
-      </div>
+      <ion-scroll scrollY>
+        <div class="checkout-confiram">
+          <div class="address">
+            <ion-list>
+              <ion-item>
+                <ion-label>
+                  <h2>
+                    <b>ที่อยู่จัดส่ง</b>
+                  </h2>
+                  <p>John doe</p>
+                  <p>711-2880 Nulla St. Mankato, Mississippi United States, 96522, (257) 563-7401</p>
+                </ion-label>
+              </ion-item>
+            </ion-list>
+          </div>
+
+          <div class="product-list">
+            <ion-list mode="md">
+              <ion-item>
+                <ion-label>
+                  <h2>
+                    <b>รายการสินค้า</b>
+                  </h2>
+                </ion-label>
+              </ion-item>
+            </ion-list>
+
+            <ion-list class="item-product" mode="md">
+              <ion-item *ngFor="let item of [1,2]">
+                <ion-thumbnail item-start>
+                  <img src="https://firebasestorage.googleapis.com/v0/b/green-vintage.appspot.com/o/images%2F1517541306.png?alt=media&token=de229681-1257-4849-9e7b-cb84a54bf063"
+                    alt="">
+                  <!-- <preload-image class="products-image" [ratio]="{w:1, h:1}" [src]="item.product.images[0]"></preload-image> -->
+                </ion-thumbnail>
+                <ion-label stacked class="label-margin">
+                  <h2 class="product-name">กระโปรงผ้าแวนวาส ลายริ้ว สีดำ แต่งกระดุม ยางยืดหลัง เอว 38 ยืดได้ 48 สะโพก 52 ตัวยาว 31 นิ้ว</h2>
+                  <p>1,500 {{ 'THB' | translate }}</p>
+                  <p>{{ 'QTY' | translate }}: 2</p>
+                  <p>{{ 'SHIPPING_TYPE' | translate }}: ส่งฟรี</p>
+                </ion-label>
+              </ion-item>
+            </ion-list>
+          </div>
+          <div>
+            <ion-list>
+              <ion-item>
+                <ion-label>
+                  <h2>
+                    <b>การชำระเงิน</b>
+                  </h2>
+                  <ion-row>
+                    <ion-col col-12 text-cenetr>
+                      <ion-item>
+                        <ion-avatar item-left>
+                          <img src="./assets/imgs/Internet Banking/Bualuang.png">
+                        </ion-avatar>
+                        <p>Bualuang iBanking</p>
+                      </ion-item>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col col-9>
+                      <ion-item>
+                        <ion-input type="text" placeholder="คูปอง"></ion-input>
+                      </ion-item>
+                    </ion-col>
+                    <ion-col col-3>
+                      <button ion-button block>ยืนยัน</button>
+                    </ion-col>
+                  </ion-row>
+                </ion-label>
+              </ion-item>
+            </ion-list>
+          </div>
+          <ion-list >
+            <ion-item >
+              
+            </ion-item>
+          </ion-list>
+        </div>
+      </ion-scroll>
+      <ion-footer class="footer-order">
+        <ion-toolbar>
+          <ion-row no-padding>
+            <ion-col col-6 no-padding>
+              <button ion-button full color="danger" (click)="slidePrev()">ชำระเงิน</button>
+            </ion-col>
+            <ion-col col-6 no-padding>
+              <button class="login-button" color="app" ion-button block (click)="slideNext()">ยืนยันการสั้งซื้อ</button>
+            </ion-col>
+          </ion-row>
+        </ion-toolbar>
+      </ion-footer>
     </ion-slide>
   </ion-slides>
 
