@@ -165,12 +165,6 @@ export class GoogleMapsPage {
       .catch((error: any) => console.log('error ' + error));
   }
 
-  doConfirm() {
-    window.localStorage.setItem('native_map_address_detail', this.address);
-    window.localStorage.setItem('native_map_location', JSON.stringify(this.location));
-    this.navCtrl.pop();
-  }
-
   updateAddress() {
     let language = this.translate.currentLang;
     let title = '';
@@ -202,6 +196,68 @@ export class GoogleMapsPage {
           handler: data => {
             if (data.address) {
               this.address = data.address;
+            } else {
+              // invalid login
+              return false;
+            }
+          }
+        },
+        {
+          text: cancel,
+          role: 'cancel',
+          cssClass: 'cancel',
+          handler: data => {
+
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+
+  doConfirm() {
+    let language = this.translate.currentLang;
+    let title = '';
+    let cancel = '';
+    let ok = '';
+
+    if (language === 'th') {
+      title = "ผู้ติดต่อ"
+      cancel = 'ยกเลิก'
+      ok = 'ยืนยัน'
+    } else if (language === 'en') {
+      title = "Contact"
+      cancel = 'Cancal'
+      ok = 'Confirm'
+    }
+
+    let alert = this.alertCtrl.create({
+      title: title,
+      mode: 'ios',
+      inputs: [
+        {
+          name: 'name',
+          placeholder: 'Name*'
+        }, {
+          name: 'tel',
+          placeholder: 'Tel*'
+        }
+      ],
+      buttons: [
+        {
+          text: ok,
+          handler: data => {
+            if (data.name && data.tel) {
+              let addressData = {
+                name: data.name,
+                tel: data.tel,
+                address: this.address,
+                location: this.location
+              };
+              let shippingAddress = window.localStorage.getItem('native_map_address_obj') ? JSON.parse(window.localStorage.getItem('native_map_address_obj')) : [];
+              shippingAddress.push(addressData);
+              window.localStorage.setItem('native_map_address_obj', JSON.stringify(shippingAddress));
+              this.navCtrl.pop();
             } else {
               // invalid login
               return false;

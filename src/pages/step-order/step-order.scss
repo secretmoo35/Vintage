@@ -71,14 +71,14 @@ page-step-order {
     ion-col {
         text-align: center !important;
         .lines {
-            margin-top: 18px !important;
+            margin-top: 20px !important;
             left: -50%;
             width: 200%;
             border: rgba(60, 98, 51, 0.48) 2px solid;
             position: absolute;
         }
         .active-lines {
-            margin-top: 18px !important;
+            margin-top: 20px !important;
             left: -50%;
             width: 200%;
             border: $app 2px solid;
@@ -151,18 +151,19 @@ page-step-order {
             }
             .shipping {
                 .item {
-                    background-color: #e2fbdc;
+                    background-color: #f5f5f5;
                 }
             }
         }
     }
     .checkout-payment {
         background-color: #f8f8f8 !important;
+        padding: 8px !important;
         .bankingcssClass {
             position: absolute;
             z-index: 1;
             height: 30px;
-            opacity: 1;
+            opacity: 0.7;
             top: 0;
             right: 0;
         }
@@ -176,7 +177,11 @@ page-step-order {
             max-width: 50%;
         }
         .font-payment {
-            font-size: 3vw;
+            font-size: 4vw;
+            margin-left: -4px;
+        }
+        .radio {
+            margin: 0px !important;
         }
         .radio-icon {
             display: none !important;
@@ -205,29 +210,48 @@ page-step-order {
         .cssClass {
             position: absolute;
             z-index: 1;
-            height: 18vw;
+            height: 10vw;
             opacity: 0.7;
+            top: 2px;
+            right: 2px;
         }
         .payment-type {
-            padding: 0px !important;
-            margin-bottom: 16px;
+            padding: 0px 0px 0px 0px !important;
+            margin: 0px 0px 8px 0px !important;
+            .item {
+                padding: 0px !important;
+            }
+        }
+        .left {
+            padding-right: 4px !important;
+        }
+        .right {
+            padding-left: 4px !important;
         }
     }
     .checkout-confirm {
         background-color: #f8f8f8 !important;
-    }
-    .footer-order {
-        .toolbar {
-            min-height: 40px !important;
-            max-height: 40px !important;
-        }
-    }
-    .checkout-confiram {
-        .payment {
-            margin-bottom: 8px !important;
-        }
         .confirm-bank {
             width: 45%;
+        }
+        .payment {
+            margin-bottom: 8px !important;
+            .list {
+                margin: 0px !important;
+            }
+            .item-detail{
+                padding: 0px !important;
+            }
+        }
+        .coupon {
+            margin-bottom: 8px !important;
+            .list {
+                margin: 0px !important;
+            }
+        }
+        .btn-coupon {
+            display: flex !important;
+            align-items: flex-end !important;
         }
         .total {
             ion-item {

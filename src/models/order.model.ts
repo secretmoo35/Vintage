@@ -1,26 +1,25 @@
-import { ShopCartModel, ItemCartModel } from "./cart.model";
+import { ItemCartModel } from "./cart.model";
 
 export class OrderModel {
     _id: string;
-    shop: ShopCartModel = new ShopCartModel();
     items: Array<ItemCartModel>;
     shippingAddress: ShippingAddressModel = new ShippingAddressModel();
     coupon: CouponModel = new CouponModel();
     payment: PaymentModel = new PaymentModel();
-    estimateprice: EstimatePriceModel = new EstimatePriceModel();
+    // estimateprice: EstimatePriceModel = new EstimatePriceModel();
     omiseToken: string;
     qty: number;
     amount: number;
-    netamount: number;
-    discount: number;
-    distance: number;
+    shippingamount: number;
+    discountamount: number;
+    totalamount: number;
+    omiseresponse: any;
 }
 
 export class ShippingAddressModel {
     name: string;
     tel: string;
     address: string;
-    addressDetail: string;
     location: LocationModel = new LocationModel();
 }
 
@@ -42,12 +41,12 @@ export class PaymentModel {
     creditcvc: string;
 }
 
-export class EstimatePriceModel {
-    tripDuration: number;
-    normalPrice: number;
-    netPrice: number;
-    discount: number;
-    distance: number;
-    responseCode: string;
-    responseDesc: string;
-}
+// export class EstimatePriceModel {
+//     tripDuration: number;
+//     normalPrice: number;
+//     netPrice: number;
+//     discount: number;
+//     distance: number;
+//     responseCode: string;
+//     responseDesc: string;
+// }

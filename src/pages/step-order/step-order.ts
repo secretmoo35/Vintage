@@ -1,5 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
+import { OrderModel } from '../../models/order.model';
+import { CartProvider } from '../../providers/cart/cart';
 
 /**
  * Generated class for the StepOrderPage page.
@@ -15,14 +17,15 @@ import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
 })
 export class StepOrderPage {
   @ViewChild('formWizard') formWizard: Slides;
+  order: OrderModel = new OrderModel();
   tabs: any = '0';
-  paymentDetail: any = {
-    paymenttype: '',
-    creditno: '',
-    creditname: '',
-    expdate: '',
-    creditcvc: null
-  };
+  // 1
+  shippingAddress: any;
+  // 2
+  isSelectShipping: Boolean = true;
+  // 3
+  paymentType: string = '1';
+  bankingType: string = '';
   bankData = [
     {
       name: "BAY",
@@ -40,12 +43,25 @@ export class StepOrderPage {
       name: "SCB",
       image: "./assets/imgs/Internet Banking/scb.png"
     }
-  ]
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  ];
+  paymentDetail: any = {
+    paymenttype: '',
+    creditno: '',
+    creditname: '',
+    expdate: '',
+    creditcvc: null
+  };
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private cart: CartProvider
+  ) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad StepOrderPage');
+  ionViewWillEnter() {
+    this.isSelectShipping = true;
+    this.loadShippingAddress();
+    this.loadItems();
   }
   changeWillSlide($event) {
     this.tabs = $event._snapIndex.toString();
@@ -59,12 +75,35 @@ export class StepOrderPage {
     this.formWizard.lockSwipes(false);
     this.formWizard.slidePrev();
     this.formWizard.lockSwipes(true);
+    // console.log(this.order);
   }
 
   slideNext() {
     this.formWizard.lockSwipes(false);
     this.formWizard.slideNext();
     this.formWizard.lockSwipes(true);
+
+    if (this.formWizard._activeIndex === 3) {
+      if (this.paymentType === '1') {
+        this.order.payment = {
+          paymenttype: 'Credit card',
+          creditno: this.paymentDetail.creditno,
+          creditname: this.paymentDetail.creditname,
+          expdate: this.paymentDetail.expdate,
+          creditcvc: this.paymentDetail.creditcvc
+        };
+      } else if (this.paymentType === '2') {
+        this.order.payment = {
+          paymenttype: 'Internet banking',
+          creditno: '',
+          creditname: '',
+          expdate: '',
+          creditcvc: ''
+        };
+      }
+      this.orderSummary();
+    }
+    // console.log(this.order);
   }
 
   creditFormat() {
@@ -102,16 +141,55 @@ export class StepOrderPage {
     }
   }
 
-  selectMetthod(e) {
-    console.log(e);
+
+  // step 1
+  loadShippingAddress() {
+    this.shippingAddress = window.localStorage.getItem('native_map_address_obj') ? JSON.parse(window.localStorage.getItem('native_map_address_obj')) : [];
   }
 
-  selectBanking(banking) {
-    console.log(banking);
+  openGoogleMap() {
+    this.navCtrl.push('GoogleMapsPage');
+  }
+  // step 1
+  // step 2
+  loadItems() {
+    this.order.items = this.cart.getCart().items;
   }
 
+  checkSelectShipping() {
+    if (this.order.items && this.order.items.length > 0) {
+      for (let i = 0; i < this.order.items.length; i++) {
+        const element = this.order.items[i];
+        if (!element.shipping) {
+          this.isSelectShipping = true;
+          return;
+        }
+      }
+      this.isSelectShipping = false;
+    } else {
+      this.isSelectShipping = true;
+    }
+  }
+  // step 2
+  // step 3
+  orderSummary() {
+    this.order.amount = 0;
+    this.order.shippingamount = 0;
+    this.order.discountamount = 0;
+    this.order.totalamount = 0;
+
+    this.order.items.forEach((item) => {
+      this.order.amount += item.amount;
+      this.order.shippingamount += item.shipping.price;
+      this.order.totalamount = this.order.amount + this.order.shippingamount;
+    });
+  }
+  // step 3
+  // step 4
   clickConfirmed() {
 
+    console.log(this.order);
   }
+  // step 4
 
 }

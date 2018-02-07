@@ -1,5 +1,4 @@
 export class CartModel {
-    shop: ShopCartModel = new ShopCartModel();
     items: Array<ItemCartModel>;
     qty: number;
     amount: number;
@@ -7,6 +6,7 @@ export class CartModel {
 
 export class ItemCartModel {
     product: ProductCartModel = new ProductCartModel();
+    shipping: ShippingModel = new ShippingModel();
     remark: string;
     qty: number;
     amount: number;
@@ -15,20 +15,14 @@ export class ItemCartModel {
 export class ProductCartModel {
     name: string;
     price: number;
+    shipping: Array<any>;
 }
 
-export class ShopCartModel {
-    _id: string;
-    name: string;
-    detail: string;
-    address: AddressCartModel = new AddressCartModel();
+export class ShippingModel {
+    ref: ShippingItemModel = new ShippingItemModel();
+    price: number;
 }
 
-export class AddressCartModel {
-    address: string;
-    district: string;
-    subdistrict: string;
-    province: string;
-    postcode: string;
-    remark: string;
+export class ShippingItemModel {
+    name: string
 }

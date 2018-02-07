@@ -48,21 +48,26 @@ export class MyPurchasesPage {
   }
 
   calculateDistanceToSpnd(index) {
-    var result = 0;
-    for (var _i = 0; _i < index; _i++) {
+    let result = 0;
+    for (let _i = 0; _i < index; _i++) {
       result = result + this.tabTitleWidthArray[_i];
     }
     return result;
   }
 
   updateIndicatorPosition() {
-    var index = this.SwipedTabsSlider.getActiveIndex();
-    if (this.SwipedTabsSlider.length() == index)
+    let index = this.SwipedTabsSlider.getActiveIndex();
+    if (index >= this.tabs.length) {
+      this.SwipedTabsSlider.slideTo(index - 1);
+      return;
+    }
+
+    if (this.SwipedTabsSlider.length() == index) {
       index = index - 1;
+    }
 
     this.SwipedTabsIndicator.style.width = this.tabTitleWidthArray[index] + "px";
     this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (this.calculateDistanceToSpnd(index)) + 'px,0,0)';
-
   }
 
   updateIndicatorPositionOnTouchEnd() {
@@ -70,10 +75,9 @@ export class MyPurchasesPage {
   }
 
   animateIndicator($event) {
-
     this.isLeft = false;
     this.isRight = false;
-    var currentSliderCenterProgress = (1 / (this.SwipedTabsSlider.length() - 1)) * this.SwipedTabsSlider.getActiveIndex();
+    let currentSliderCenterProgress = (1 / (this.SwipedTabsSlider.length() - 1)) * this.SwipedTabsSlider.getActiveIndex();
     if ($event.progress < currentSliderCenterProgress) {
       this.isLeft = true;
       this.isRight = false;
@@ -106,7 +110,7 @@ export class MyPurchasesPage {
 
   }
 
-  selectPurchases(item){
+  selectPurchases(item) {
     console.log(item);
     this.navCtrl.push('PurchasesDetailPage');
   }

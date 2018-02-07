@@ -50,9 +50,9 @@
 
 </ion-content>
 
-<ion-footer class="footer-cart" *ngIf="cartData && cartData.items && cartData.items.length">
+<ion-footer>
   <ion-toolbar>
-    <button ion-button block color="app" (click)="checkOut()">
+    <button ion-button block color="app" (click)="checkOut()" *ngIf="cartData && cartData.items && cartData.items.length">
       <ion-grid>
         <ion-row>
           <ion-col col-12>

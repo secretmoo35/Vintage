@@ -30,12 +30,6 @@ page-cart-list {
     .searchbar-ios .searchbar-search-icon {
         background-image: none;
     }
-    .footer-cart {
-        .toolbar {
-            min-height: 40px !important;
-            max-height: 40px !important;
-        }
-    }
     .product-name {
         width: 60vw;
         white-space: nowrap;
@@ -77,5 +71,10 @@ page-cart-list {
     }
     .input-cover {
         height: 0px;
+    }
+    ion-footer {
+        .toolbar-background {
+            background-color: #f4f4f4 !important;
+        }
     }
 }
