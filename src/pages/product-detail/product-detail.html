@@ -14,14 +14,20 @@
       <preload-image class="slide-product" [ratio]="{w:1, h:1}" [src]="item" title="ads"></preload-image>
     </ion-slide>
   </ion-slides>
-  <div class="favorite-btn">
-    <button ion-button icon-left clear large *ngIf="user" class="favorite" (click)="onFavorite()">
-      <ion-icon *ngIf="!productData.isFavorite" name="md-star-outline"></ion-icon>
-      <ion-icon *ngIf="productData.isFavorite" name="md-star"></ion-icon>
-    </button>
-  </div>
-  <h2 padding-left padding-right text-center>{{productData.name}}
-  </h2>
+  <ion-row>
+    <ion-col col-10>
+      <h2 padding-left text-left>{{productData.name}}
+      </h2>
+    </ion-col>
+    <ion-col col-2>
+      <!-- <div class="favorite-btn"> -->
+        <button ion-button icon-left clear large *ngIf="user" class="favorite" (click)="onFavorite()">
+          <ion-icon *ngIf="!productData.isFavorite" name="md-star-outline"></ion-icon>
+          <ion-icon *ngIf="productData.isFavorite" name="md-star"></ion-icon>
+        </button>
+      <!-- </div> -->
+    </ion-col>
+  </ion-row>
   <p padding-left padding-right>
     {{ productData.detail }}
   </p>
