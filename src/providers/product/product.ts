@@ -55,11 +55,13 @@ export class ProductProvider {
     if (favorite) {
       let productItem = favorite.filter((obj) => obj._id === product._id);
       if (productItem && productItem.length > 0) {
-        favorite.splice(favorite.filter((obj, i) => {
+        let index;
+        favorite.forEach((obj, i) => {
           if (obj._id === product._id) {
-            return i;
+            index = i;
           }
-        }), 1);
+        });
+        favorite.splice(index, 1);
         res = false;
       } else {
         product.image = product.images[0];

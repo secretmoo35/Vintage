@@ -73,7 +73,10 @@
             <ion-item *ngFor="let address of shippingAddress">
               <ion-label>
                 <p>{{ address.name }}</p>
-                <p>{{ address.address }}</p>
+                <p>
+                  {{ address.address }} {{ address.district }} {{ address.subdistrict
+                  }} {{ address.province }} {{ address.postcode }}
+                </p>
                 <p>{{ address.tel }}</p>
               </ion-label>
               <ion-radio [value]="address"></ion-radio>
@@ -243,7 +246,10 @@
                     <b>ที่อยู่จัดส่ง</b>
                   </h2>
                   <p>{{ order.shippingAddress.name }}</p>
-                  <p>{{ order.shippingAddress.address }}</p>
+                  <p>
+                    {{ order.shippingAddress.address.address }} {{ order.shippingAddress.address.district }} {{ order.shippingAddress.address.subdistrict
+                    }} {{ order.shippingAddress.address.province }} {{ order.shippingAddress.address.postcode }}
+                  </p>
                   <p>{{ order.shippingAddress.tel }}</p>
                 </ion-label>
               </ion-item>

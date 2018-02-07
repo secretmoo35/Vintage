@@ -19,8 +19,16 @@ export class OrderModel {
 export class ShippingAddressModel {
     name: string;
     tel: string;
-    address: string;
+    address: AddressModel = new AddressModel();
     location: LocationModel = new LocationModel();
+}
+
+export class AddressModel {
+    address: string;
+    district: string;
+    subdistrict: string;
+    province:string;
+    postcode:string;
 }
 
 export class LocationModel {

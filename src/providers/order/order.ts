@@ -36,6 +36,11 @@ export class OrderProvider {
       .catch(this.handleError);
   }
 
+
+// /api/getcouponbycode
+// (POST) 
+
+// body { code: code }
   private handleError(error: any): Promise<any> {
     // this.log.errorService('An error occurred', error);
     return Promise.reject(error.message || error);

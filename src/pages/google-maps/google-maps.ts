@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { IonicPage, NavController, NavParams, Platform, LoadingController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform, LoadingController, AlertController, ToastController, Events } from 'ionic-angular';
 import { GoogleMaps, GoogleMap, LatLng, GoogleMapsEvent } from '@ionic-native/google-maps';
 import { NativeGeocoder, NativeGeocoderReverseResult } from '@ionic-native/native-geocoder';
 import { TranslateService } from '@ngx-translate/core';
@@ -18,16 +18,18 @@ export class GoogleMapsPage {
   @ViewChild('places', { read: ElementRef }) places: ElementRef;
   private map: GoogleMap;
   private location: LatLng;
-  private address: string = '';
+  private address: any = {};
   constructor(
     public navCtrl: NavController,
     public navParam: NavParams,
+    public events: Events,
     private platform: Platform,
     private googleMaps: GoogleMaps,
     private nativeGeocoder: NativeGeocoder,
     private loadingCtrl: LoadingController,
     private alertCtrl: AlertController,
     private translate: TranslateService,
+    private toastCtrl: ToastController
     // private loading: LoadingProvider
   ) {
   }
@@ -145,15 +147,24 @@ export class GoogleMapsPage {
   reverseGeocode() {
     this.nativeGeocoder.reverseGeocode(this.location.lat, this.location.lng)
       .then((result: NativeGeocoderReverseResult) => {
-        this.address = '';
-        this.address += (result.subThoroughfare ? result.subThoroughfare + ' ' : '');
-        this.address += (result.thoroughfare ? result.thoroughfare + ' ' : '')
-        this.address += (result.locality ? result.locality + ' ' : '')
-        this.address += (result.subLocality ? result.subLocality + ' ' : '')
-        this.address += (result.subAdministrativeArea ? result.subAdministrativeArea + ' ' : '')
-        this.address += (result.administrativeArea ? result.administrativeArea + ' ' : '')
-        this.address += (result.postalCode ? result.postalCode + ' ' : '')
-        this.address += (result.countryName ? result.countryName : '');
+        // this.address = '';
+        // this.address += (result.subThoroughfare ? result.subThoroughfare + ' ' : '');
+        // this.address += (result.thoroughfare ? result.thoroughfare + ' ' : '')
+        // this.address += (result.locality ? result.locality + ' ' : '')
+        // this.address += (result.subLocality ? result.subLocality + ' ' : '')
+        // this.address += (result.subAdministrativeArea ? result.subAdministrativeArea + ' ' : '')
+        // this.address += (result.administrativeArea ? result.administrativeArea + ' ' : '')
+        // this.address += (result.postalCode ? result.postalCode + ' ' : '')
+        // this.address += (result.countryName ? result.countryName : '');
+        alert(JSON.stringify(result));
+        this.address = {
+          address: (result.subThoroughfare ? result.subThoroughfare + ' ' : ''),
+          district: (result.subAdministrativeArea ? result.subAdministrativeArea + ' ' : ''),
+          subdistrict: (result.locality ? result.locality + ' ' : ''),
+          province: (result.administrativeArea ? result.administrativeArea + ' ' : ''),
+          postcode: (result.postalCode ? result.postalCode + ' ' : '')
+        };
+
         let loading = this.loadingCtrl.create({
           // spinner: 'hide',
           cssClass: 'loading-hide',
@@ -222,7 +233,7 @@ export class GoogleMapsPage {
     let ok = '';
 
     if (language === 'th') {
-      title = "ผู้ติดต่อ"
+      title = "ข้อมูลการจัดส่ง"
       cancel = 'ยกเลิก'
       ok = 'ยืนยัน'
     } else if (language === 'en') {
@@ -234,32 +245,65 @@ export class GoogleMapsPage {
     let alert = this.alertCtrl.create({
       title: title,
       mode: 'ios',
+      enableBackdropDismiss: false,
       inputs: [
         {
           name: 'name',
-          placeholder: 'Name*'
+          placeholder: 'ชื่อ*'
         }, {
           name: 'tel',
-          placeholder: 'Tel*'
+          placeholder: 'เบอร์โทร*'
+        }, {
+          name: 'address',
+          placeholder: 'ที่อยู่*',
+          value: this.address.address
+        }, {
+          name: 'district',
+          placeholder: 'เขต/อำเภอ*',
+          value: this.address.district
+        }, {
+          name: 'subdistrict',
+          placeholder: 'แขวง/ตำบล*',
+          value: this.address.subdistrict
+        }, {
+          name: 'province',
+          placeholder: 'จังหวัด*',
+          value: this.address.province
+        }, {
+          name: 'postcode',
+          placeholder: 'รหัสไปรษณีย์*',
+          value: this.address.postcode
         }
       ],
       buttons: [
         {
           text: ok,
           handler: data => {
-            if (data.name && data.tel) {
+            if (data.name && data.tel && data.address && data.district && data.subdistrict && data.province && data.postcode) {
               let addressData = {
                 name: data.name,
                 tel: data.tel,
-                address: this.address,
+                address: {
+                  address: data.address,
+                  district: data.district,
+                  subdistrict: data.subdistrict,
+                  province: data.province,
+                  postcode: data.postcode
+                },
                 location: this.location
               };
               let shippingAddress = window.localStorage.getItem('native_map_address_obj') ? JSON.parse(window.localStorage.getItem('native_map_address_obj')) : [];
               shippingAddress.push(addressData);
               window.localStorage.setItem('native_map_address_obj', JSON.stringify(shippingAddress));
+              this.events.publish('user:map', addressData);
               this.navCtrl.pop();
             } else {
-              // invalid login
+              let toast = this.toastCtrl.create({
+                message: 'คุณกรอกข้อมูลไม่ครบถ้วน',
+                duration: 3000,
+                position: 'bottom'
+              });
+              toast.present();
               return false;
             }
           }

@@ -16,10 +16,12 @@
 
 <ion-content>
   <div #map class="map">
-    <button ion-item text-wrap text-center class="info-item" *ngIf="address" (click)="updateAddress()">
-      <p>{{address}}</p>
+    <!-- (click)="updateAddress()" -->
+    <button ion-item text-wrap text-center class="info-item" *ngIf="address.province">
+      <p>{{ address.address }} {{ address.district }} {{ address.subdistrict }} {{ address.province }} {{ address.postcode }}
+      </p>
     </button>
-    <div class="arrow-down" *ngIf="address"></div>
+    <div class="arrow-down" *ngIf="address.province"></div>
   </div>
-  <button ion-button color="danger" class="btn-cf" (click)="doConfirm()" [disabled]="!address || address ===''">{{ 'CONFIRM_LOCATION' | translate }}</button>
+  <button ion-button color="danger" class="btn-cf" (click)="doConfirm()" [disabled]="!address.province || address.province ===''">{{ 'CONFIRM_LOCATION' | translate }}</button>
 </ion-content>

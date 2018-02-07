@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Slides, Events } from 'ionic-angular';
 import { OrderModel } from '../../models/order.model';
 import { CartProvider } from '../../providers/cart/cart';
 
@@ -54,11 +54,12 @@ export class StepOrderPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
+    public events: Events,
     private cart: CartProvider
   ) {
   }
 
-  ionViewWillEnter() {
+  ionViewDidLoad() {
     this.isSelectShipping = true;
     this.loadShippingAddress();
     this.loadItems();
@@ -148,6 +149,10 @@ export class StepOrderPage {
   }
 
   openGoogleMap() {
+    this.events.unsubscribe('user:map');
+    this.events.subscribe('user:map', (data) => {
+      this.shippingAddress.push(data);
+    });
     this.navCtrl.push('GoogleMapsPage');
   }
   // step 1

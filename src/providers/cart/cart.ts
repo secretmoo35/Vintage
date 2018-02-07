@@ -53,13 +53,10 @@ export class CartProvider {
   }
 
   getCount() {
-    let shop = JSON.parse(window.localStorage.getItem('select_shop@' + Constants.URL));
     let badge = 0;
-    if (shop) {
-      let cart = JSON.parse(window.localStorage.getItem('cart@' + Constants.URL));
-      if (cart && cart.items && cart.items.length > 0) {
-        badge = cart.qty;
-      }
+    let cart = window.localStorage.getItem('cart@' + Constants.URL) ? JSON.parse(window.localStorage.getItem('cart@' + Constants.URL)) : {};
+    if (cart && cart.items && cart.items.length > 0) {
+      badge = cart.qty;
     }
     return badge;
   }
