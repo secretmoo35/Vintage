@@ -109,7 +109,7 @@ export class ProfilePage {
   }
 
   onQA() {
-    // this.navCtrl.push('QuestionAnswerPage');
+    this.navCtrl.push('QuestionAnswersPage');
   }
 
   login() {
