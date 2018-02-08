@@ -33,4 +33,25 @@ export class OmiseProvider {
     })
   }
 
+  payBanking(omiseKey, bank, money) {
+    let omise = new Omise(omiseKey);
+    money = money * 100;
+    return new Promise((resolve, reject) => {
+      omise.charges.create({
+        'description': 'Charge for order ID:' + new Date(),
+        'amount': money, // 1,000 Baht
+        'currency': 'thb',
+        "offsite": bank,
+        "return_uri": "http://res.cloudinary.com/hzzat7wj2/image/upload/v1508831661/Pmss_new_jrnlia.png"
+      }, function (err, resp) {
+        if (err) {
+          reject(err);
+        }
+        else {
+          resolve(resp);
+        }
+      });
+    });
+  }
+
 }

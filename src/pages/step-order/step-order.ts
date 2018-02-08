@@ -7,6 +7,7 @@ import { LoadingProvider } from '../../providers/loading/loading';
 import { AlertProvider } from '../../providers/alert/alert';
 import { OmiseProvider } from '../../providers/omise/omise';
 import { Constants } from '../../app/app.constants';
+import { OrderProvider } from '../../providers/order/order';
 
 /**
  * Generated class for the StepOrderPage page.
@@ -57,6 +58,7 @@ export class StepOrderPage {
     creditcvc: null
   };
   omiseKey: any = Constants.OmiseKey;
+  omiseRes: any = {};
 
   constructor(
     public navCtrl: NavController,
@@ -67,6 +69,7 @@ export class StepOrderPage {
     private alert: AlertProvider,
     private translate: TranslateService,
     private omiseProvider: OmiseProvider,
+    private orderProvider: OrderProvider
   ) {
   }
 
@@ -244,8 +247,37 @@ export class StepOrderPage {
   // step 3
   // step 4
   clickConfirmed() {
+    if (this.order.payment.paymenttype === 'Internet banking') {
+      let bank = '';
+      if (this.bankData[this.bankingType].name === 'KTB') {
+        bank = 'internet_banking_ktb';
+      } else if (this.bankData[this.bankingType].name === 'SCB') {
+        bank = 'internet_banking_scb';
+      } else if (this.bankData[this.bankingType].name === 'BBL') {
+        bank = 'internet_banking_bbl'; //กรุงเทพ
+      } else if (this.bankData[this.bankingType].name === 'BAY') {
+        bank = 'internet_banking_bay'; //กรุงศรี
+      }
+      this.loading.onLoading();
+      this.omiseProvider.payBanking(this.omiseKey, bank, this.order.totalamount).then((data) => {
+        this.omiseRes = data;
+        // this.iab.create(this.omiseRes.authorize_uri, '_blank', this.options);
+        this.createOrder();
+      }, (err) => {
+        this.loading.dismiss();
+        this.alert.onAlert('', JSON.parse(err._body).message, 'OK');
+      });
+    } else {
+      this.createOrder();
+    }
+  }
 
-    console.log(this.order);
+  createOrder() {
+    this.orderProvider.saveOrder(this.order).then((res) => {
+      this.navCtrl.setRoot('NavtabsPage');
+    }, (err) => {
+      alert(JSON.stringify(err));
+    });
   }
   // step 4
 

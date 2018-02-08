@@ -28,15 +28,6 @@ export class OrderProvider {
       .catch(this.handleError);
   }
 
-  payOrder(order) {
-    let header = this.auth.setHeader();
-    return this.http.put(this.API_URL + '/api/payorder/' + order._id, order, { headers: header })
-      .toPromise()
-      .then(response => response as any)
-      .catch(this.handleError);
-  }
-
-
 // /api/getcouponbycode
 // (POST) 
 
