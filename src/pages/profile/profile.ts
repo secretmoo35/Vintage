@@ -59,11 +59,12 @@ export class ProfilePage {
   // }
 
   profileEdit() {
-    // alert("sssss");
+    console.log(this.user);
+    this.navCtrl.push('UpdateProfilePage', { user: this.user });
   }
 
   profileNotifications() {
-   this.navCtrl.push('NotificationPage');
+    this.navCtrl.push('NotificationPage');
   }
 
 
@@ -91,8 +92,8 @@ export class ProfilePage {
     }
     this.user = null;
   }
-  changePassword(){
-    
+  changePassword() {
+    this.navCtrl.push('ChangePasswordPage');
   }
 
   onSetting() {
@@ -111,14 +112,14 @@ export class ProfilePage {
     // this.navCtrl.push('QuestionAnswerPage');
   }
 
-  login(){
+  login() {
     this.navCtrl.push('LoginPage');
   }
 
-  favorite(){
+  favorite() {
     this.navCtrl.push('FavoriteProductPage');
   }
-  myPurchases(){
+  myPurchases() {
     this.navCtrl.push('MyPurchasesPage');
   }
 

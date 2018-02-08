@@ -45,6 +45,13 @@ export class AuthProvider {
       .then(response => this.updateSuccess(response))
       .catch(this.handleError);
   }
+  changPassword(user) {
+    let header = this.setHeader();
+    return this.http.post(this.API_URL + '/api/users/password', user, { headers: header })
+      .toPromise()
+      .then(response => response)
+      .catch(this.handleError);
+  }
 
   login(credentials) {
     return this.http.post(this.API_URL + "/api/auth/signin", credentials)
