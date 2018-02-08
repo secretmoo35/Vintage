@@ -1,7 +1,12 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Slides, Events } from 'ionic-angular';
+import { TranslateService } from '@ngx-translate/core';
 import { OrderModel } from '../../models/order.model';
 import { CartProvider } from '../../providers/cart/cart';
+import { LoadingProvider } from '../../providers/loading/loading';
+import { AlertProvider } from '../../providers/alert/alert';
+import { OmiseProvider } from '../../providers/omise/omise';
+import { Constants } from '../../app/app.constants';
 
 /**
  * Generated class for the StepOrderPage page.
@@ -51,11 +56,17 @@ export class StepOrderPage {
     expdate: '',
     creditcvc: null
   };
+  omiseKey: any = Constants.OmiseKey;
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public events: Events,
-    private cart: CartProvider
+    private cart: CartProvider,
+    private loading: LoadingProvider,
+    private alert: AlertProvider,
+    private translate: TranslateService,
+    private omiseProvider: OmiseProvider,
   ) {
   }
 
@@ -81,10 +92,9 @@ export class StepOrderPage {
 
   slideNext() {
     this.formWizard.lockSwipes(false);
-    this.formWizard.slideNext();
-    this.formWizard.lockSwipes(true);
 
-    if (this.formWizard._activeIndex === 3) {
+    if (this.formWizard._activeIndex === 2) {
+
       if (this.paymentType === '1') {
         this.order.payment = {
           paymenttype: 'Credit card',
@@ -102,7 +112,16 @@ export class StepOrderPage {
           creditcvc: ''
         };
       }
-      this.orderSummary();
+      this.onCheckCredit().then((res) => {
+        if (res) {
+          this.formWizard.slideNext();
+          this.orderSummary();
+        }
+        this.formWizard.lockSwipes(true);
+      });
+    } else {
+      this.formWizard.slideNext();
+      this.formWizard.lockSwipes(true);
     }
     // console.log(this.order);
   }
@@ -151,9 +170,14 @@ export class StepOrderPage {
   openGoogleMap() {
     this.events.unsubscribe('user:map');
     this.events.subscribe('user:map', (data) => {
-      this.shippingAddress.push(data);
+      this.shippingAddress.unshift(data);
     });
     this.navCtrl.push('GoogleMapsPage');
+  }
+
+  removeItem(index) {
+    this.shippingAddress.splice(index, 1);
+    window.localStorage.setItem('native_map_address_obj', JSON.stringify(this.shippingAddress));
   }
   // step 1
   // step 2
@@ -177,6 +201,34 @@ export class StepOrderPage {
   }
   // step 2
   // step 3
+  onCheckCredit(): Promise<any> {
+    return new Promise((resolve, reject) => {
+
+      this.loading.onLoading();
+
+      if (this.order.payment.paymenttype === 'Credit card') {
+
+        this.omiseProvider.getTokenByCredit(this.omiseKey, this.order.payment).then((res: any) => {
+          this.loading.dismiss();
+          this.order.omiseToken = res.id;
+          resolve(true);
+        }, (err) => {
+          this.loading.dismiss();
+          let language = this.translate.currentLang;
+          if (language === 'th') {
+            this.alert.onAlert('การชำระเงิน', 'บัตรเครดิตไม่ถูกต้อง', 'ตกลง');
+          } else if (language === 'en') {
+            this.alert.onAlert('Payment', 'Credit Card Error.', 'OK');
+          }
+          resolve(false);
+        });
+
+      } else {
+        this.loading.dismiss();
+        resolve(true);
+      }
+    });
+  }
   orderSummary() {
     this.order.amount = 0;
     this.order.shippingamount = 0;
