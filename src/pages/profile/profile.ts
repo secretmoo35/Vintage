@@ -63,7 +63,7 @@ export class ProfilePage {
   }
 
   profileNotifications() {
-    // alert("sssss");
+   this.navCtrl.push('NotificationPage');
   }
 
 
