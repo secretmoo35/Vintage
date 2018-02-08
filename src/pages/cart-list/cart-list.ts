@@ -28,13 +28,11 @@ export class CartListPage {
   }
 
   ionViewWillEnter() {
-    console.log('ionViewDidLoad CartListPage');
     this.getCart();
   }
 
   getCart() {
     this.cartData = this.cartProvider.getCart();
-    console.log(this.cartData);
   }
 
   removeItem(index) {

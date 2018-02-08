@@ -20,7 +20,7 @@ export class MyApp {
   ) {
 
     translate.addLangs(['en', 'th']);
-    translate.setDefaultLang('en');
+    // translate.setDefaultLang('en');
     const browserLang = translate.getBrowserLang();
     translate.use(browserLang.match(/en|th/) ? browserLang : 'en');
 

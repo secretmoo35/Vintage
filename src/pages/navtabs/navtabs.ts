@@ -61,21 +61,21 @@ export class NavtabsPage {
     });
   }
 
-  onReword() {
-    this.tabs.select(2);
+  ionViewWillEnter(){
+    console.log('object');
   }
 
   onSelectChange(e) {
     if (e === '0') {
       window.localStorage.setItem('current_page_for_login', 'HomePage');
     } else if (e === '1') {
-      window.localStorage.setItem('current_page_for_login', 'HomePage');
+      window.localStorage.setItem('current_page_for_login', 'ShopListPage');
     } else if (e === '2') {
-      window.localStorage.setItem('current_page_for_login', 'HomePage');
+      window.localStorage.setItem('current_page_for_login', 'BidListPage');
     } else if (e === '3') {
-      window.localStorage.setItem('current_page_for_login', 'HomePage');
+      window.localStorage.setItem('current_page_for_login', 'CartListPage');
     } else if (e === '4') {
-      window.localStorage.setItem('current_page_for_login', 'HomePage');
+      window.localStorage.setItem('current_page_for_login', 'ProfilePage');
     }
   }
 

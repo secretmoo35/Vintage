@@ -28,6 +28,7 @@ import { NativeGeocoder } from '@ionic-native/native-geocoder';
 import { AdsProvider } from '../providers/ads/ads';
 import { QuestionAnswersProvider } from '../providers/question-answers/question-answers';
 import { OmiseProvider } from '../providers/omise/omise';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { OmiseProvider } from '../providers/omise/omise';
     Facebook,
     GoogleMaps,
     NativeGeocoder,
+    InAppBrowser,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     {
       provide: HAMMER_GESTURE_CONFIG,

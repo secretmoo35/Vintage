@@ -4,7 +4,7 @@ var _ = require('lodash');
 var omiseConfig;
 
 // function resourceName(name) {
-//   return require(['./resources/', name, '.js'].join(''))(omiseConfig);
+//   return require(['./resources/', name].join(''))(omiseConfig);
 // }
 
 function resourceName(name) {
@@ -20,7 +20,7 @@ function resourcePath(name) {
     return {
       'path': _.compact([path, resourceId]).join('/')
     };
-  }
+  };
 }
 
 function nestedPath(resource, nestedName, nestedId) {
@@ -45,6 +45,7 @@ function _makeOptions(options, path, data) {
 module.exports.omiseResources = function (config) {
   omiseConfig = config;
   return {
+    sources: resourceName('Source'),
     tokens: resourceName('Token'),
     customers: resourceName('Customer'),
     charges: resourceName('Charge'),
@@ -53,10 +54,11 @@ module.exports.omiseResources = function (config) {
     transactions: resourceName('Transaction'),
     recipients: resourceName('Recipient'),
     events: resourceName('Event'),
+    links: resourceName('Link'),
     account: resourceName('Account'),
-    balance: resourceName('Balance')
-  }
-}
+    balance: resourceName('Balance'),
+  };
+};
 
 module.exports.resourceActions = function (name, actions, options) {
   var path = resourcePath(name);
@@ -72,7 +74,7 @@ module.exports.resourceActions = function (name, actions, options) {
       return api.get(_makeOptions(options, path(), data), callback);
     },
     retrieve: function (resourceId, callback) {
-      if (typeof (resourceId) === 'function') { //ugly hack
+      if (typeof (resourceId) === 'function') { // ugly hack
         callback = resourceId;
         resourceId = null;
       }
@@ -87,7 +89,7 @@ module.exports.resourceActions = function (name, actions, options) {
         callback);
     },
 
-    //Charge
+    // Charge
     capture: function (resourceId, callback) {
       return api.post(_nestedPathOptions(options, path(resourceId), 'capture'),
         callback);
@@ -97,7 +99,7 @@ module.exports.resourceActions = function (name, actions, options) {
         callback);
     },
 
-    //Card
+    // Card
     listCards: function (resourceId, data, callback) {
       if (typeof (data) === 'function') {
         callback = data;
@@ -123,7 +125,7 @@ module.exports.resourceActions = function (name, actions, options) {
         callback);
     },
 
-    //Refund
+    // Refund
     createRefund: function (resourceId, data, callback) {
       return api.post(_nestedPathOptions(options, path(resourceId), 'refunds',
           data),
@@ -140,7 +142,7 @@ module.exports.resourceActions = function (name, actions, options) {
       );
     },
 
-    //Dispute
+    // Dispute
     listOpen: function (callback) {
       return api.get(_makeOptions(options, path('open')), callback);
     },
@@ -152,4 +154,4 @@ module.exports.resourceActions = function (name, actions, options) {
     },
 
   }, actions);
-}
+};

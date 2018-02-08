@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Slides, Events } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
+import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
 import { OrderModel } from '../../models/order.model';
 import { CartProvider } from '../../providers/cart/cart';
 import { LoadingProvider } from '../../providers/loading/loading';
@@ -58,7 +59,6 @@ export class StepOrderPage {
     creditcvc: null
   };
   omiseKey: any = Constants.OmiseKey;
-  omiseRes: any = {};
 
   constructor(
     public navCtrl: NavController,
@@ -69,7 +69,8 @@ export class StepOrderPage {
     private alert: AlertProvider,
     private translate: TranslateService,
     private omiseProvider: OmiseProvider,
-    private orderProvider: OrderProvider
+    private orderProvider: OrderProvider,
+    private iab: InAppBrowser
   ) {
   }
 
@@ -260,12 +261,18 @@ export class StepOrderPage {
       }
       this.loading.onLoading();
       this.omiseProvider.payBanking(this.omiseKey, bank, this.order.totalamount).then((data) => {
-        this.omiseRes = data;
-        // this.iab.create(this.omiseRes.authorize_uri, '_blank', this.options);
+        this.loading.dismiss();
+        this.order.omiseresponse = data;
+        let options: InAppBrowserOptions = {
+          location: 'yes',//Or 'no' 
+          disallowoverscroll: 'yes',
+          enableViewportScale: 'yes'
+        };
         this.createOrder();
+        this.iab.create(this.order.omiseresponse.authorize_uri, '_blank', options);
       }, (err) => {
         this.loading.dismiss();
-        this.alert.onAlert('', JSON.parse(err._body).message, 'OK');
+        this.alert.onAlert('', JSON.stringify(err), 'OK');
       });
     } else {
       this.createOrder();
@@ -273,10 +280,25 @@ export class StepOrderPage {
   }
 
   createOrder() {
+    this.loading.onLoading();
     this.orderProvider.saveOrder(this.order).then((res) => {
+      this.loading.dismiss();
       this.navCtrl.setRoot('NavtabsPage');
+      this.cart.clearCart();
+      let language = this.translate.currentLang;
+      if (language === 'th') {
+        this.alert.onAlert('การสั่งซื้อสำเร็จ', 'ขอบคุณที่ใช้บริการ<br>หมายเลขการสั่งซื้อ ' + res._id, 'ตกลง');
+      } else if (language === 'en') {
+        this.alert.onAlert('Order success.', 'Thank you.<br>Order no. ' + res._id, 'OK');
+      }
     }, (err) => {
-      alert(JSON.stringify(err));
+      this.loading.dismiss();
+      let language = this.translate.currentLang;
+      if (language === 'th') {
+        this.alert.onAlert('การสั่งซื้อไม่สำเร็จ', 'เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง', 'ตกลง');
+      } else if (language === 'en') {
+        this.alert.onAlert('Order failed.', 'Order error. Please try again.', 'OK');
+      }
     });
   }
   // step 4
