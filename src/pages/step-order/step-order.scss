@@ -115,6 +115,15 @@ page-step-order {
         .item-cover {
             padding: 0px !important;
         }
+        .btn-del {
+            padding: 0px;
+            height: auto;
+            margin-top: -3px;
+            z-index: 999;
+            ion-icon {
+                font-size: 1.4em;
+            }
+        }
     }
     .checkout-product-shipping {
         background-color: #f8f8f8 !important;
@@ -233,7 +242,7 @@ page-step-order {
             .list {
                 margin: 0px !important;
             }
-            .item-detail{
+            .item-detail {
                 padding: 0px !important;
             }
         }

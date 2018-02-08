@@ -70,14 +70,16 @@
             </ion-row>
           </ion-grid>
           <ion-list radio-group [(ngModel)]="order.shippingAddress">
-            <ion-item *ngFor="let address of shippingAddress">
+            <ion-item *ngFor="let address of shippingAddress; let i = index;">
               <ion-label>
                 <p>{{ address.name }}</p>
-                <p>
-                  {{ address.address }} {{ address.district }} {{ address.subdistrict
-                  }} {{ address.province }} {{ address.postcode }}
+                <p *ngIf="address.address">
+                  {{ address.address.address }} {{ address.address.district }} {{ address.address.subdistrict }} {{ address.address.province }} {{ address.address.postcode }}
                 </p>
                 <p>{{ address.tel }}</p>
+                <button ion-button clear color="danger" class="btn-del" (tap)="removeItem(i)">
+                  <ion-icon name="trash"></ion-icon>
+                </button>
               </ion-label>
               <ion-radio [value]="address"></ion-radio>
             </ion-item>
@@ -300,7 +302,9 @@
                       </ion-item>
                       <ion-item class="item-detail" *ngIf="paymentType && order.payment.paymenttype === 'Credit card'">
                         <p>
-                          <b>บัตรเครดิต:</b> {{order.payment.creditno}}</p>
+                          <b>บัตรเครดิต</b>
+                        </p>
+                        <p>{{order.payment.creditno}}</p>
                       </ion-item>
                     </ion-col>
                   </ion-row>
