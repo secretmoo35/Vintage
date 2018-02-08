@@ -31,26 +31,20 @@ page-step-order {
             opacity: 1 !important;
             background-color: rgb(248, 248, 248);
         }
-        .segment-md-light .segment-button.segment-activated {
-            color: #fff;
-            background-color: $app !important;
-            border-color: $app;
-        }
         .segment-md-light .segment-button {
-            border-color: $app;
             border: 1px solid;
-            color: $app;
+            color: #cecece;
         }
         .active {
-            background-color: $app !important;
+            background-color: #fff !important;
             border: 1px solid !important;
-            border-color: $app !important;
-            color: #fff !important;
+            border-color: $app;
+            color: $app !important;
             opacity: 1 !important;
         }
         ion-segment {
-            width: 45px !important;
-            height: 45px !important;
+            width: 40px !important;
+            height: 40px !important;
             margin: 0 auto !important;
             p {
                 display: block;
@@ -62,8 +56,8 @@ page-step-order {
             }
         }
         ion-segment-button {
-            width: 45px !important;
-            height: 45px !important;
+            width: 40px !important;
+            height: 40px !important;
             font-size: 11px !important;
             z-index: 999 !important;
         }
@@ -74,14 +68,14 @@ page-step-order {
             margin-top: 20px !important;
             left: -50%;
             width: 200%;
-            border: rgba(60, 98, 51, 0.48) 2px solid;
+            border: rgba(192, 192, 192, 0.48) 1px solid;
             position: absolute;
         }
         .active-lines {
             margin-top: 20px !important;
             left: -50%;
             width: 200%;
-            border: $app 2px solid;
+            border: $app 1px solid;
             position: absolute;
         }
     }
