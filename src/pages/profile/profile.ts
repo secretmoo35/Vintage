@@ -112,6 +112,10 @@ export class ProfilePage {
     this.navCtrl.push('QuestionAnswersPage');
   }
 
+  onContact(){
+    this.navCtrl.push('ContactPage');
+  }
+
   login() {
     this.navCtrl.push('LoginPage');
   }
