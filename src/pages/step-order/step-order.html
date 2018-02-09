@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>การสั่งซื้อ</ion-title>
+    <ion-title>{{ 'ORDER' | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,7 +15,7 @@
           <ion-segment-button [ngClass]="tabs >= 0 ? 'active' : '' ">
             <ion-icon name="ios-pin-outline"></ion-icon>
           </ion-segment-button>
-          <p>ที่อยู่จัดส่ง</p>
+          <p>{{ 'SHIPPING_ADDRESS' | translate }}</p>
         </ion-segment>
       </ion-col>
       <ion-col text-center>
@@ -26,7 +26,7 @@
           <ion-segment-button [ngClass]="tabs >= 1 ? 'active' : '' ">
             <ion-icon name="ios-document-outline"></ion-icon>
           </ion-segment-button>
-          <p>การจัดส่ง</p>
+          <p>{{ 'SHIPPING' | translate }}</p>
         </ion-segment>
       </ion-col>
       <ion-col text-center>
@@ -37,7 +37,7 @@
           <ion-segment-button [ngClass]="tabs >= 2 ? 'active' : '' ">
             <ion-icon name="ios-card-outline"></ion-icon>
           </ion-segment-button>
-          <p>ชำระเงิน</p>
+          <p>{{ 'PAYMENT' | translate }}</p>
         </ion-segment>
       </ion-col>
       <ion-col text-center>
@@ -48,7 +48,7 @@
           <ion-segment-button [ngClass]="tabs >= 3 ? 'active' : '' ">
             <ion-icon name="md-checkmark"></ion-icon>
           </ion-segment-button>
-          <p>คอนเฟิร์ม</p>
+          <p>{{ 'CONFIRM' | translate }}</p>
         </ion-segment>
       </ion-col>
     </ion-row>
@@ -64,7 +64,7 @@
               <ion-col col-12 no-padding>
                 <button ion-button color="app" block small clear (click)="openGoogleMap()">
                   <ion-icon name="md-add"></ion-icon> &nbsp;
-                  <b>เพิ่มที่อยู่ใหม่</b>
+                  <b>{{ 'NEW_ADDRESS' | translate }}</b>
                 </button>
               </ion-col>
             </ion-row>
@@ -104,15 +104,15 @@
                 </ion-thumbnail>
                 <ion-label stacked>
                   <h2 class="product-name">{{item.product.name}}</h2>
-                  <p>{{item.product.price | number}} บาท</p>
-                  <p>จำนวน: {{item.qty}}</p>
+                  <p>{{item.product.price | number}} {{ 'THB' | translate }}</p>
+                  <p>{{ 'QTY' | translate }}: {{item.qty}}</p>
                 </ion-label>
               </ion-item>
             </ion-list>
             <ion-list class="shipping">
               <ion-item>
-                <ion-label>วิธีการจัดส่ง</ion-label>
-                <ion-select placeholder="กรุณาเลือกวิธีจัดส่ง" [(ngModel)]="item.shipping" (ionChange)="checkSelectShipping()">
+                <ion-label>{{ 'SHIPPING_TYPE' | translate }}</ion-label>
+                <ion-select placeholder="{{ 'PLEASE_SELECT_SHIPPING_TYPE' | translate }}" [(ngModel)]="item.shipping" (ionChange)="checkSelectShipping()">
                   <ion-option *ngFor="let shipping of item.product.shippings" [value]="shipping">{{shipping.ref.name}} ({{shipping.price}} บาท)</ion-option>
                 </ion-select>
               </ion-item>
@@ -124,10 +124,10 @@
         <ion-toolbar>
           <ion-row no-padding>
             <ion-col col-6 no-padding>
-              <button ion-button full color="danger" (click)="slidePrev()">ที่อยู่จัดส่ง</button>
+              <button ion-button full color="danger" (click)="slidePrev()">{{ 'SHIPPING_ADDRESS' | translate }}</button>
             </ion-col>
             <ion-col col-6 no-padding>
-              <button color="app" ion-button block [disabled]="isSelectShipping" (click)="slideNext()">ชำระเงิน</button>
+              <button color="app" ion-button block [disabled]="isSelectShipping" (click)="slideNext()">{{ 'PAYMENT' | translate }}</button>
             </ion-col>
           </ion-row>
         </ion-toolbar>
@@ -143,7 +143,7 @@
                 <img src="./assets/imgs/logo/sign-check-icon.png" *ngIf="paymentType === '1'" [ngClass]="{cssClass: paymentType === '1'}">
                 <img src="./assets/imgs/payment/credit-card.png" class="img-size">
                 <br>
-                <span class="font-payment">บัตรเครดิต</span>
+                <span class="font-payment">{{ 'CREDIT_CARDS' | translate }}</span>
               </ion-label>
               <ion-radio value="1"></ion-radio>
             </ion-item>
@@ -224,11 +224,11 @@
           <ion-toolbar>
             <ion-row no-padding>
               <ion-col col-6 no-padding>
-                <button ion-button full color="danger" (click)="slidePrev()">การจัดส่ง</button>
+                <button ion-button full color="danger" (click)="slidePrev()">{{ 'SHIPPING' | translate}}</button>
               </ion-col>
               <ion-col col-6 no-padding>
                 <button color="app" ion-button block [disabled]="paymentType === '1' ? paymentDetail.creditno === '' || paymentDetail.creditname === '' || paymentDetail.expdate === '' || paymentDetail.creditcvc === null : bankingType === ''"
-                  (click)="slideNext()">ยืนยัน</button>
+                  (click)="slideNext()">{{ 'CONFIRM' | translate}}</button>
               </ion-col>
             </ion-row>
           </ion-toolbar>
@@ -245,7 +245,7 @@
               <ion-item>
                 <ion-label>
                   <h2>
-                    <b>ที่อยู่จัดส่ง</b>
+                    <b>{{ 'SHIPPING_ADDRESS' | translate }}</b>
                   </h2>
                   <p>{{ order.shippingAddress.name }}</p>
                   <p>
@@ -263,7 +263,7 @@
               <ion-item>
                 <ion-label>
                   <h2>
-                    <b>รายการสินค้า</b>
+                    <b>{{ 'ITEMS' | translate }}</b>
                   </h2>
                 </ion-label>
               </ion-item>
@@ -290,7 +290,7 @@
               <ion-item>
                 <ion-label>
                   <h2>
-                    <b>การชำระเงิน</b>
+                    <b>{{ 'PAYMENT' | translate }}</b>
                   </h2>
                   <ion-row>
                     <ion-col col-12 text-cenetr>
@@ -302,7 +302,7 @@
                       </ion-item>
                       <ion-item class="item-detail" *ngIf="paymentType && order.payment.paymenttype === 'Credit card'">
                         <p>
-                          <b>บัตรเครดิต</b>
+                          <b>{{ 'CREDIT_CARDS' | translate }}</b>
                         </p>
                         <p>{{order.payment.creditno}}</p>
                       </ion-item>
@@ -317,16 +317,16 @@
               <ion-item>
                 <ion-label>
                   <h2>
-                    <b>คูปอง</b>
+                    <b>{{ 'COUPON' | translate }}</b>
                   </h2>
                   <ion-row>
                     <ion-col col-9>
                       <ion-item>
-                        <ion-input type="text" placeholder="คูปองส่วนลด"></ion-input>
+                        <ion-input type="text" placeholder="{{ 'COUPON' | translate }}"></ion-input>
                       </ion-item>
                     </ion-col>
                     <ion-col col-3 class="btn-coupon">
-                      <button ion-button block>ยืนยัน</button>
+                      <button ion-button block>{{ 'CONFIRM' | translate }}</button>
                     </ion-col>
                   </ion-row>
                 </ion-label>
@@ -340,7 +340,7 @@
                   <ion-row>
                     <ion-col col-6 text-left>
                       <h2>
-                        <b>ราคารวม</b>
+                        <b>{{ 'TOTAL_FEE' | translate }}</b>
                       </h2>
                     </ion-col>
                     <ion-col col-6 text-right>
@@ -352,7 +352,7 @@
                   <ion-row>
                     <ion-col col-6 text-left>
                       <h2>
-                        <b>รวมค่าจัดส่ง</b>
+                        <b>{{ 'DELIVERY_FEE' | translate }}</b>
                       </h2>
                     </ion-col>
                     <ion-col col-6 text-right>
@@ -364,7 +364,7 @@
                   <ion-row *ngIf="order.discountamount">
                     <ion-col col-6 text-left>
                       <h2>
-                        <b>ส่วนลด</b>
+                        <b>{{ 'DISCOUNT' | translate }}</b>
                       </h2>
                     </ion-col>
                     <ion-col col-6 text-right>
@@ -376,7 +376,7 @@
                   <ion-row>
                     <ion-col col-6 text-left>
                       <h2>
-                        <b>รวมสุทธิ</b>
+                        <b>{{ 'TOTAL_AMOUNT' | translate }}</b>
                       </h2>
                     </ion-col>
                     <ion-col col-6 text-right>
@@ -395,10 +395,10 @@
         <ion-toolbar>
           <ion-row no-padding>
             <ion-col col-6 no-padding>
-              <button ion-button full color="danger" (click)="slidePrev()">ชำระเงิน</button>
+              <button ion-button full color="danger" (click)="slidePrev()">{{ 'PAYMENT' | translate }}</button>
             </ion-col>
             <ion-col col-6 no-padding>
-              <button color="app" ion-button block (click)="clickConfirmed()">ยืนยันการสั้งซื้อ</button>
+              <button color="app" ion-button block (click)="clickConfirmed()">{{ 'CONFIRM_ORDER' | translate }}</button>
             </ion-col>
           </ion-row>
         </ion-toolbar>

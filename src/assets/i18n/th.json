@@ -127,5 +127,15 @@
   "NOTIFICATION":"การแจ้งเตือน",
   "CURRENT_PASSWORD":"รหัสผ่านเดิม",
   "NEW_PASSWORD":"รหัสผ่านใหม่",
-  "VERIFY_PASSWORD":"ยืนยันรหัสผ่าน"
+  "VERIFY_PASSWORD":"ยืนยันรหัสผ่าน",
+  "CONTACT":"ติดต่อ",
+  "NEW_ADDRESS":"เพิ่มที่อยู่ใหม่",
+  "CONFIRM":"คอนเฟิร์ม",
+  "SHIPPING":"การจัดส่ง",
+  "SHIPPING_ADDRESS":"ที่อยู่จัดส่ง",
+  "PLEASE_SELECT_SHIPPING_TYPE":"กรุณาเลือกวิธีจัดส่ง",
+  "CREDIT_CARDS":"บัตรเครดิต",
+  "TOTAL_AMOUNT":"รวมสุทธิ",
+  "CONFIRM_ORDER":"ยืนยันการสั้งซื้อ",
+  "ADDRESS_CONTACT":"ที่อยู่"
 }
