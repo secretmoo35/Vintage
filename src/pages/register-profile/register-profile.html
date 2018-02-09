@@ -14,13 +14,12 @@
 
 
 <ion-content>
-  <ion-row padding>
-    <ion-col col-3>
-    </ion-col>
-    <ion-col col-6 text-center>
-      <preload-image [ratio]="{w:1, h:1}" [src]="user.profileImageURL" title="ads"></preload-image>
-    </ion-col>
-    <ion-col col-3>
+  <ion-row>
+    <ion-col col-12 text-center>
+      <img src="{{ user.profileImageURL }}" class="arvatar">
+      <button ion-button icon-only clear round class="btn-upload" (click)="getImage()">
+        <ion-icon name="md-camera"></ion-icon>
+      </button>
     </ion-col>
   </ion-row>
   <ion-row>
@@ -51,7 +50,7 @@
           <!-- provider === 'fb' -->
           <ion-input type="email" [(ngModel)]="user.email" [disabled]="isDisabled"></ion-input>
         </ion-item>
-        
+
         <ion-item>
           <ion-label floating>{{ 'TEL' | translate}}
             <span class="danger">*</span>
@@ -70,16 +69,16 @@
         </ion-item>
 
         <!-- <ion-item> -->
-          <ion-row class="datetime-birthday">
-            <ion-col col-6>
-              <p>{{ 'BIRTHDAY' | translate}}
-                <span class="danger">*</span>
-              </p>
-            </ion-col>
-            <ion-col col-6 text-right>
-              <ion-datetime placeholder="{{ 'BIRTHDAY_SELECTED' | translate}}" displayFormat="DD/MM/YYYY" [(ngModel)]="birthday"></ion-datetime>
-            </ion-col>
-          </ion-row>
+        <ion-row class="datetime-birthday">
+          <ion-col col-6>
+            <p>{{ 'BIRTHDAY' | translate}}
+              <span class="danger">*</span>
+            </p>
+          </ion-col>
+          <ion-col col-6 text-right>
+            <ion-datetime placeholder="{{ 'BIRTHDAY_SELECTED' | translate}}" displayFormat="DD/MM/YYYY" [(ngModel)]="birthday"></ion-datetime>
+          </ion-col>
+        </ion-row>
         <!-- </ion-item> -->
 
         <!-- <ion-item>
