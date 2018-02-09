@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { QuestionAnswersPage } from './question-answers';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -8,6 +9,7 @@ import { QuestionAnswersPage } from './question-answers';
   ],
   imports: [
     IonicPageModule.forChild(QuestionAnswersPage),
+    TranslateModule.forChild(),
   ],
 })
 export class QuestionAnswersPageModule {}
