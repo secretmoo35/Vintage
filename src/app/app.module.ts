@@ -9,6 +9,9 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { Facebook } from '@ionic-native/facebook';
+import { ImagePicker } from '@ionic-native/image-picker';
+import { Crop } from '@ionic-native/crop';
+import { Camera } from '@ionic-native/camera';
 
 import { AuthProvider } from '../providers/auth/auth';
 import { LoadingProvider } from '../providers/loading/loading';
@@ -60,6 +63,9 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     GoogleMaps,
     NativeGeocoder,
     InAppBrowser,
+    ImagePicker,
+    Crop,
+    Camera,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     {
       provide: HAMMER_GESTURE_CONFIG,

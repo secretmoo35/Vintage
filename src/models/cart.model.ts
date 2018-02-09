@@ -15,6 +15,8 @@ export class ItemCartModel {
 export class ProductCartModel {
     name: string;
     price: number;
+    images: Array<string>;
+    shopid: string;
     shipping: Array<any>;
 }
 
