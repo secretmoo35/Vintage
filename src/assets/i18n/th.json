@@ -107,7 +107,7 @@
   "EXPIRED_DATE": "วันหมดอายุ",
   "WAIT_SEND": "รอการจัดส่ง",
   "WAIT_RECEIPT": "รอรับสินค้า",
-  "RECEIPT": "รับแล้ว",
+  "COMPLETED": "สำเร็จ",
   "ON_RECEIPT": "ได้รับสินค้าแล้ว",
   "QTY": "จำนวน",
   "SHIPPING_TYPE": "วิธีการจัดส่ง",
@@ -120,9 +120,12 @@
   "BBL":"ธนาคารกรุงเทพ",
   "KTB":"ธนาคารกรุงไทย",
   "SCB":"ธนาคารไทยพาณิชย์",
-  "UPDATE_PROFILE":"แก้ไข ข้อมูลส่วนตัว",
+  "UPDATE_PROFILE":"แก้ไขข้อมูลส่วนตัว",
   "ME":"ฉัน",
   "SAVE":"บันทึก",
   "MOBILE":"เบอร์โทร",
-  "NOTIFICATION":"ข้อความ"
+  "NOTIFICATION":"การแจ้งเตือน",
+  "CURRENT_PASSWORD":"รหัสผ่านเดิม",
+  "NEW_PASSWORD":"รหัสผ่านใหม่",
+  "VERIFY_PASSWORD":"ยืนยันรหัสผ่าน"
 }

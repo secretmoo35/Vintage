@@ -107,7 +107,7 @@
   "CARD_NUMBER": "Card number",
   "WAIT_SEND": "To Ship",
   "WAIT_RECEIPT": "To Receive",
-  "RECEIPT": "Completed",
+  "COMPLETED": "Completed",
   "ON_RECEIPT": "Order Receipt",
   "QTY": "Qty",
   "SHIPPING_TYPE": "Shipping type",
@@ -124,5 +124,8 @@
   "ME": "Me",
   "SAVE":"Save",
   "MOBILE":"Mobile",
-  "NOTIFICATION":"notification"
+  "NOTIFICATION":"Notification",
+  "CURRENT_PASSWORD":"Current password",
+  "NEW_PASSWORD":"New password" ,
+  "VERIFY_PASSWORD":"Verify password"
 }
