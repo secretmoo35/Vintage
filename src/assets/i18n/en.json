@@ -121,5 +121,8 @@
   "KTB": "Kasikornbank",
   "SCB": "Siam Commercial Bank",
   "UPDATE_PROFILE": "Update profile",
-  "ME": "Me"
+  "ME": "Me",
+  "SAVE":"Save",
+  "MOBILE":"Mobile",
+  "NOTIFICATION":"notification"
 }

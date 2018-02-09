@@ -1,4 +1,6 @@
 export class QuestionModel {
-    questions: string;
-    answers: string;
+    questionsTH: string;
+    questionsEN: string;
+    answersTH: string;
+    answersEN: string;
 }

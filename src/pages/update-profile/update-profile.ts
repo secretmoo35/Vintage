@@ -60,4 +60,8 @@ export class UpdateProfilePage {
     })
   }
 
+  updateProfileBack(){
+    
+  }
+
 }

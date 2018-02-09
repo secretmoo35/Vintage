@@ -1,3 +1,16 @@
 page-update-profile {
+    .profile-image {
+        width: 30vw !important;
+        height: 30vw !important;
+        border-radius: 100%;
+    }
 
+    .icon-camera{
+        position: absolute;
+    }
+    ion-footer {
+        .toolbar-background {
+            background-color: #f4f4f4 !important;
+        }
+    }
 }

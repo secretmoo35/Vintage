@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { QuestionAnswersProvider } from '../../providers/question-answers/question-answers';
 import { QuestionModel } from '../../models/question-answers.model';
+import { TranslateService } from '@ngx-translate/core';
 
 /**
  * Generated class for the QuestionAnswersPage page.
@@ -19,15 +20,19 @@ export class QuestionAnswersPage {
 
   qas: Array<QuestionModel>;
   shownGroup = null;
+  language:any;
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    public QuestionProvider:QuestionAnswersProvider) {
+    public QuestionProvider:QuestionAnswersProvider,
+    private translate: TranslateService,
+  ) {
+     
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad QuestionAnswersPage');
+  ionViewWillEnter() {
+    this.language = this.translate.currentLang;
     this.getQuestions();
   }
 
