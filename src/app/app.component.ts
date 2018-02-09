@@ -20,8 +20,8 @@ export class MyApp {
   ) {
 
     translate.addLangs(['en', 'th']);
-    translate.setDefaultLang('en');
     const browserLang = translate.getBrowserLang();
+    translate.setDefaultLang(browserLang === 'th' ? 'en' : 'th');
     translate.use(browserLang.match(/en|th/) ? browserLang : 'en');
 
     let agr = JSON.parse(window.localStorage.getItem('Agreement@' + Constants.URL));

@@ -62,7 +62,7 @@ export class NavtabsPage {
   }
 
   ionViewWillEnter(){
-    console.log('object');
+    // console.log('object');
   }
 
   onSelectChange(e) {
