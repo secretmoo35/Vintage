@@ -134,5 +134,8 @@
   "SHIPPING":"การจัดส่ง",
   "SHIPPING_ADDRESS":"ที่อยู่จัดส่ง",
   "PLEASE_SELECT_SHIPPING_TYPE":"กรุณาเลือกวิธีจัดส่ง",
-  "CREDIT_CARDS":"บัตรเครดิต"
+  "CREDIT_CARDS":"บัตรเครดิต",
+  "TOTAL_AMOUNT":"รวมสุทธิ",
+  "CONFIRM_ORDER":"ยืนยันการสั้งซื้อ",
+  "ADDRESS_CONTACT":"ที่อยู่"
 }

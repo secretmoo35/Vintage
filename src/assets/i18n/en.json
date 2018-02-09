@@ -134,7 +134,10 @@
   "SHIPPING":"Shipping",
   "SHIPPING_ADDRESS":"Address",
   "PLEASE_SELECT_SHIPPING_TYPE":"Please select shipping",
-  "CREDIT_CARDS":"Credit cards"
+  "CREDIT_CARDS":"Credit cards",
+  "TOTAL_AMOUNT":"Total amount",
+  "CONFIRM_ORDER":"Confirm order",
+  "ADDRESS_CONTACT":"Address"
 
   
 }
