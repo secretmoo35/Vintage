@@ -127,5 +127,14 @@
   "NOTIFICATION":"Notification",
   "CURRENT_PASSWORD":"Current password",
   "NEW_PASSWORD":"New password" ,
-  "VERIFY_PASSWORD":"Verify password"
+  "VERIFY_PASSWORD":"Verify password",
+  "CONTACT":"Contact",
+  "NEW_ADDRESS":"Add a new address",
+  "CONFIRM":"Confirm",
+  "SHIPPING":"Shipping",
+  "SHIPPING_ADDRESS":"Address",
+  "PLEASE_SELECT_SHIPPING_TYPE":"Please select shipping",
+  "CREDIT_CARDS":"Credit cards"
+
+  
 }
