@@ -63,7 +63,6 @@ page-my-purchases {
         background-color: #f7f7f7 !important;
         margin: 6px 0px 6px 0px;
         .product {
-            border-top: 1px solid #ddf5d8;
             margin-bottom: 6px;
             .product-name {
                 width: 100%;
@@ -100,8 +99,8 @@ page-my-purchases {
                 margin-bottom: 0px !important;
                 .item {
                     background-color: #ffffff;
-                    border-top: 1px solid #ddf5d8;
-                    border-bottom: 1px solid #ddf5d8;
+                    border-top: 1px solid #e6e6e6;
+                    border-bottom: 1px solid #e6e6e6;
                     min-height: 36px !important;
                     height: 36px !important;
                 }

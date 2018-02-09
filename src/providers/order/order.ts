@@ -28,10 +28,18 @@ export class OrderProvider {
       .catch(this.handleError);
   }
 
-// /api/getcouponbycode
-// (POST) 
+  getOrders() {
+    let header = this.auth.setHeader();
+    return this.http.post(this.API_URL + '/api/customergetorders', { headers: header })
+      .toPromise()
+      .then(response => response as any)
+      .catch(this.handleError);
+  }
 
-// body { code: code }
+  // /api/getcouponbycode
+  // (POST) 
+
+  // body { code: code }
   private handleError(error: any): Promise<any> {
     // this.log.errorService('An error occurred', error);
     return Promise.reject(error.message || error);

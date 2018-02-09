@@ -1,5 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Slides, Platform, Content } from 'ionic-angular';
+import { TranslateService } from '@ngx-translate/core';
+import { OrderProvider } from '../../providers/order/order';
+import { AlertProvider } from '../../providers/alert/alert';
 
 @IonicPage()
 @Component({
@@ -18,23 +21,24 @@ export class MyPurchasesPage {
   isLeft: boolean = true;
   tabs: any = [];
 
-
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public platform: Platform
+    public platform: Platform,
+    private order: OrderProvider,
+    private translate: TranslateService,
+    private alert: AlertProvider
   ) {
     this.tabs = ["WAIT_SEND", "WAIT_RECEIPT", "COMPLETED", "CANCEL"];
-    console.log('Width: ' + platform.width());
     this.screenWidth_px = platform.width();
-
   }
-  ionViewDidEnter() {
-    this.SwipedTabsIndicator = document.getElementById("indicator");
-    for (let i in this.tabs)
-      this.tabTitleWidthArray.push(document.getElementById("tabTitle" + i).offsetWidth);
 
-    this.selectTab(0);
+  ionViewDidEnter() {
+    if (!this.SwipedTabsIndicator) {
+      this.SwipedTabsIndicator = document.getElementById("indicator");
+      for (let i in this.tabs) this.tabTitleWidthArray.push(document.getElementById("tabTitle" + i).offsetWidth);
+      this.selectTab(0);
+    }
   }
 
   scrollIndicatiorTab() {
@@ -108,6 +112,19 @@ export class MyPurchasesPage {
     if (!this.isRight && !this.isLeft)
       this.SwipedTabsIndicator.style.width = this.tabTitleWidthArray[this.SwipedTabsSlider.getActiveIndex()] + "px";
 
+  }
+
+  getOrders() {
+    this.order.getOrders().then((res) => {
+
+    }, (err) => {
+      let language = this.translate.currentLang;
+      if (language === 'th') {
+        this.alert.onAlert('รายการสั่งซื้อ', 'โหลดข้อมูลไม่สำเร็จ', 'ตกลง');
+      } else if (language === 'en') {
+        this.alert.onAlert('Order fail.', 'Load order fail.', 'OK');
+      }
+    });
   }
 
   selectPurchases(item) {
