@@ -24,7 +24,7 @@ export class MyPurchasesPage {
     public navParams: NavParams,
     public platform: Platform
   ) {
-    this.tabs = ["WAIT_SEND", "WAIT_RECEIPT", "RECEIPT", "CANCEL"];
+    this.tabs = ["WAIT_SEND", "WAIT_RECEIPT", "COMPLETED", "CANCEL"];
     console.log('Width: ' + platform.width());
     this.screenWidth_px = platform.width();
 

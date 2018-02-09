@@ -60,7 +60,7 @@ export class ProfilePage {
 
   profileEdit() {
     console.log(this.user);
-    this.navCtrl.push('UpdateProfilePage', { user: this.user });
+    this.navCtrl.push('UpdateProfilePage');
   }
 
   profileNotifications() {

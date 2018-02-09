@@ -13,16 +13,15 @@
 </ion-header>
 
 
-<ion-content >
+<ion-content>
   <ion-list>
     <ion-grid>
-      <ion-row >
-        <ion-col col-3>
-        </ion-col>
-        <ion-col col-6 text-center>
-          <img [src]="user.profileImageURL" class="profile-image">
-        </ion-col>
-        <ion-col col-3>
+      <ion-row>
+        <ion-col col-12 text-center>
+          <img src="{{ user.profileImageURL }}" class="arvatar">
+          <button ion-button icon-only clear round class="btn-upload" (click)="getImage()">
+            <ion-icon name="md-camera"></ion-icon>
+          </button>
         </ion-col>
       </ion-row>
       <ion-row>
