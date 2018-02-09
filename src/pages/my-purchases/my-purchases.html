@@ -55,8 +55,8 @@
     <!-- 2 -->
     <ion-slide>
       <ion-scroll scrollY>
-        <div class="checkout-product-shipping" *ngIf="orders[0] && orders[0].items">
-          <div class="product" *ngFor="let item of orders[0].items">
+        <div class="checkout-product-shipping" *ngIf="orders[1] && orders[1].items">
+          <div class="product" *ngFor="let item of orders[1].items">
             <ion-list mode="md" class="list-item" (click)="selectPurchases(item)">
               <ion-item>
                 <ion-thumbnail item-start>
@@ -76,7 +76,7 @@
                   <b>{{ 'SHIPPING_DATE' | translate }} {{ item.sentdate | date:'dd/MM/yy' }}</b>
                 </ion-label>
                 <ion-label text-right class="price">
-                  <b>{{ 'TOTAL_FEE' | translate }}: {{ item.amount | translate }} {{ 'THB' | translate }}</b>
+                  <b>{{ 'TOTAL_FEE' | translate }}: {{ item.amount | number }} {{ 'THB' | translate }}</b>
                 </ion-label>
               </ion-item>
             </ion-list>
@@ -109,7 +109,7 @@
                   <b>{{ 'RECEIPT_DATE' | translate }} {{ item.received | date:'dd/MM/yy'}}</b>
                 </ion-label>
                 <ion-label text-right class="price">
-                  <b>{{ 'TOTAL_FEE' | translate }}: {{ item.amount | translate }} {{ 'THB' | translate }}</b>
+                  <b>{{ 'TOTAL_FEE' | translate }}: {{ item.amount | number }} {{ 'THB' | translate }}</b>
                 </ion-label>
               </ion-item>
             </ion-list>
@@ -144,7 +144,7 @@
                     <b>{{ 'CANCEL_DATE' | translate }} {{ item.canceldate | date:'dd/MM/yy'}}</b>
                   </ion-label>
                   <ion-label text-right class="price">
-                    <b>{{ 'TOTAL_FEE' | translate }}: {{ item.amount | translate }} {{ 'THB' | translate }}</b>
+                    <b>{{ 'TOTAL_FEE' | translate }}: {{ item.amount | number }} {{ 'THB' | translate }}</b>
                   </ion-label>
                 </ion-item>
               </ion-list>

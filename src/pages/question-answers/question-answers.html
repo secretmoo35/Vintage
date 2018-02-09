@@ -14,7 +14,7 @@
 
 
 <ion-content>
-  <div *ngIf="language == 'th'">
+  <div *ngIf="language === 'th'">
     <ion-list>
       <ion-item *ngFor="let d of qas; let i=index" text-wrap (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}">
         <ion-row>
@@ -33,7 +33,7 @@
       </ion-item>
     </ion-list>
   </div>
-  <div *ngIf="language !== 'th'">
+  <div *ngIf="language === 'en'">
     <ion-list>
       <ion-item *ngFor="let d of qas; let i=index" text-wrap (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}">
         <ion-row>
