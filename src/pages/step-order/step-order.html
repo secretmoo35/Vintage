@@ -78,12 +78,12 @@
                   }} {{ address.address.postcode }}
                 </p>
                 <p>{{ address.tel }}</p>
-                <button ion-button clear color="danger" class="btn-del" (tap)="removeItem(i)">
+                <!-- <img src="./assets/imgs/logo/sign-check-icon.png" *ngIf="order.shippingAddress === address" class="addresscssClass"> -->
+                <button ion-button clear color="dark" class="btn-del" (tap)="removeItem(i)">
                   <ion-icon name="ios-trash"></ion-icon>
                 </button>
               </ion-label>
-              <ion-radio [value]="address"></ion-radio>
-              <img src="./assets/imgs/logo/sign-check-icon.png" *ngIf="order.shippingAddress === address" item-end class="addresscssClass">
+              <ion-radio [value]="address" item-start></ion-radio>
             </ion-item>
           </ion-list>
         </div>

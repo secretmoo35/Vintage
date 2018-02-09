@@ -137,5 +137,9 @@
   "CREDIT_CARDS":"บัตรเครดิต",
   "TOTAL_AMOUNT":"รวมสุทธิ",
   "CONFIRM_ORDER":"ยืนยันการสั้งซื้อ",
-  "ADDRESS_CONTACT":"ที่อยู่"
+  "ADDRESS_CONTACT":"ที่อยู่",
+  "DISTRICT": "เขต/อำเภอ",
+  "SUBDISTRICT": "แขวง/ตำบล",
+  "PROVINCE": "จังหวัด",
+  "POSTCODE": "รหัสไปรษณีย์"
 }

@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>ที่อยู่จัดส่ง</ion-title>
+    <ion-title>{{ 'SHIPPING_ADDRESS' | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -16,47 +16,47 @@
 <ion-content padding>
   <ion-list>
     <ion-item>
-      <ion-label color="app">ชื่อ-สกุล
+      <ion-label color="app">{{ 'DISPLAY_NAME' | translate }}
         <span>*</span>
       </ion-label>
       <ion-input text-right type="text" [(ngModel)]="address.name"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label color="app">เบอร์โทร</ion-label>
+      <ion-label color="app">{{ 'TEL' | translate }}</ion-label>
       <ion-input text-right type="number" [(ngModel)]="address.tel"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label color="app">ที่อยู่
+      <ion-label color="app">{{ 'ADDRESS_CONTACT' | translate }}
         <span>*</span>
       </ion-label>
       <ion-input text-right type="text" [(ngModel)]="address.address.address"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label color="app">เขต/อำเภอ
+      <ion-label color="app">{{ 'DISTRICT' | translate}}
         <span>*</span>
       </ion-label>
       <ion-input text-right type="text" [(ngModel)]="address.address.district"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label color="app">แขวง/ตำบล
+      <ion-label color="app">{{ 'SUBDISTRICT' | translate}}
         <span>*</span>
       </ion-label>
       <ion-input text-right type="text" [(ngModel)]="address.address.subdistrict"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label color="app">จังหวัด
+      <ion-label color="app">{{ 'PROVINCE' | translate}}
         <span>*</span>
       </ion-label>
       <ion-input text-right type="text" [(ngModel)]="address.address.province"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label color="app">ไปรษณีย์
+      <ion-label color="app">{{ 'POSTCODE' | translate}}
         <span>*</span>
       </ion-label>
       <ion-input text-right type="text" [(ngModel)]="address.address.postcode"></ion-input>
     </ion-item>
   </ion-list>
   <ion-list>
-    <button ion-button block color="app" (click)="confirmAddress()">ตกลง</button>
+    <button ion-button block color="app" (click)="confirmAddress()" [disabled]="!address.name || address.name==='' || !address.address.address || address.address.address==='' || !address.address.district || address.address.district==='' || !address.address.subdistrict || address.address.subdistrict===''||!address.address.province || address.address.province==='' || !address.address.postcode || address.address.postcode===''">ตกลง</button>
   </ion-list>
 </ion-content>
