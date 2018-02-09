@@ -7,11 +7,11 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content no-bounce>
   <ion-grid class="header-segment">
     <ion-row>
       <ion-col text-center>
-        <ion-segment color="light" class="md" [(ngModel)]="tabs">
+        <ion-segment color="light" [(ngModel)]="tabs" (click)="gotoSlides(0)">
           <ion-segment-button [ngClass]="tabs >= 0 ? 'active' : '' ">
             <ion-icon name="ios-pin-outline"></ion-icon>
           </ion-segment-button>
@@ -22,7 +22,7 @@
         <div class="lines" [ngClass]="tabs >= 1 ? 'active-lines' : '' "></div>
       </ion-col>
       <ion-col text-center>
-        <ion-segment color="light" [(ngModel)]="tabs">
+        <ion-segment color="light" [(ngModel)]="tabs" (click)="gotoSlides(1)">
           <ion-segment-button [ngClass]="tabs >= 1 ? 'active' : '' ">
             <ion-icon name="ios-document-outline"></ion-icon>
           </ion-segment-button>
@@ -33,7 +33,7 @@
         <div class="lines" [ngClass]="tabs >= 2 ? 'active-lines' : '' "></div>
       </ion-col>
       <ion-col text-center>
-        <ion-segment color="light" [(ngModel)]="tabs">
+        <ion-segment color="light" [(ngModel)]="tabs" (click)="gotoSlides(2)">
           <ion-segment-button [ngClass]="tabs >= 2 ? 'active' : '' ">
             <ion-icon name="ios-card-outline"></ion-icon>
           </ion-segment-button>
@@ -44,7 +44,7 @@
         <div class="lines" [ngClass]="tabs >= 3 ? 'active-lines' : '' "></div>
       </ion-col>
       <ion-col text-center>
-        <ion-segment color="light" [(ngModel)]="tabs">
+        <ion-segment color="light" [(ngModel)]="tabs" (click)="gotoSlides(3)">
           <ion-segment-button [ngClass]="tabs >= 3 ? 'active' : '' ">
             <ion-icon name="md-checkmark"></ion-icon>
           </ion-segment-button>
@@ -69,7 +69,7 @@
               </ion-col>
             </ion-row>
           </ion-grid>
-          <ion-list radio-group [(ngModel)]="order.shippingAddress">
+          <ion-list mode="md" radio-group [(ngModel)]="order.shippingAddress">
             <ion-item *ngFor="let address of shippingAddress; let i = index;">
               <ion-label>
                 <p>{{ address.name }}</p>
@@ -87,18 +87,18 @@
           </ion-list>
         </div>
       </ion-scroll>
-      <ion-footer>
+      <!-- <ion-footer>
         <ion-toolbar>
           <button color="app" ion-button block [disabled]="!order.shippingAddress.name" (click)="slideNext()">การจัดส่ง</button>
         </ion-toolbar>
-      </ion-footer>
+      </ion-footer> -->
     </ion-slide>
     <!-- 2 -->
     <ion-slide>
       <ion-scroll scrollY>
         <div class="checkout-product-shipping">
           <div class="product" *ngFor="let item of order.items">
-            <ion-list class="list-item">
+            <ion-list mode="md" class="list-item">
               <ion-item>
                 <ion-thumbnail item-start>
                   <preload-image class="products-image" [ratio]="{w:1, h:1}" [src]="item.product.images[0]"></preload-image>
@@ -110,10 +110,11 @@
                 </ion-label>
               </ion-item>
             </ion-list>
-            <ion-list class="shipping">
+            <ion-list mode="md" class="shipping">
               <ion-item>
                 <ion-label>{{ 'SHIPPING_TYPE' | translate }}</ion-label>
-                <ion-select placeholder="{{ 'PLEASE_SELECT_SHIPPING_TYPE' | translate }}"  okText="{{ 'OK' | translate }}" cancelText="{{ 'CANCEL' | translate }}" [(ngModel)]="item.shipping" (ionChange)="checkSelectShipping()">
+                <ion-select placeholder="{{ 'PLEASE_SELECT_SHIPPING_TYPE' | translate }}" okText="{{ 'OK' | translate }}" cancelText="{{ 'CANCEL' | translate }}"
+                  [(ngModel)]="item.shipping" (ionChange)="checkSelectShipping()">
                   <ion-option *ngFor="let shipping of item.product.shippings" [value]="shipping">{{shipping.ref.name}} ({{shipping.price}} บาท)</ion-option>
                 </ion-select>
               </ion-item>
@@ -121,7 +122,7 @@
           </div>
         </div>
       </ion-scroll>
-      <ion-footer>
+      <!-- <ion-footer>
         <ion-toolbar>
           <ion-row no-padding>
             <ion-col col-6 no-padding>
@@ -132,7 +133,7 @@
             </ion-col>
           </ion-row>
         </ion-toolbar>
-      </ion-footer>
+      </ion-footer> -->
     </ion-slide>
     <!-- 3 -->
     <ion-slide>
@@ -162,7 +163,7 @@
           </ion-col>
         </ion-row>
 
-        <ion-list *ngIf="paymentType === '1'">
+        <ion-list mode="md" *ngIf="paymentType === '1'">
           <ion-item>
             <ion-label floating>{{ 'CARD_NUMBER' | translate }}</ion-label>
             <ion-input type="number" [(ngModel)]="paymentDetail.creditno" (ionChange)="creditFormat()"></ion-input>
@@ -221,7 +222,7 @@
           </ion-grid>
         </div>
 
-        <ion-footer>
+        <!-- <ion-footer>
           <ion-toolbar>
             <ion-row no-padding>
               <ion-col col-6 no-padding>
@@ -233,7 +234,7 @@
               </ion-col>
             </ion-row>
           </ion-toolbar>
-        </ion-footer>
+        </ion-footer> -->
 
       </div>
     </ion-slide>
@@ -327,7 +328,7 @@
                       </ion-item>
                     </ion-col>
                     <ion-col col-3 class="btn-coupon">
-                      <button ion-button block (click)="getCoupon()">{{ 'CONFIRM' | translate }}</button>
+                      <button ion-button block (click)="getCoupon()">{{ 'COUPON_APPLY' | translate }}</button>
                     </ion-col>
                   </ion-row>
                 </ion-label>
@@ -392,7 +393,7 @@
           </div>
         </div>
       </ion-scroll>
-      <ion-footer>
+      <!-- <ion-footer>
         <ion-toolbar>
           <ion-row no-padding>
             <ion-col col-6 no-padding>
@@ -403,8 +404,54 @@
             </ion-col>
           </ion-row>
         </ion-toolbar>
-      </ion-footer>
+      </ion-footer> -->
     </ion-slide>
   </ion-slides>
 
 </ion-content>
+
+<ion-footer *ngIf="formWizard._activeIndex === 0">
+  <ion-toolbar>
+    <button color="app" ion-button block [disabled]="!order.shippingAddress.name" (click)="slideNext()">การจัดส่ง</button>
+  </ion-toolbar>
+</ion-footer>
+
+<ion-footer *ngIf="formWizard._activeIndex === 1">
+  <ion-toolbar>
+    <ion-row no-padding>
+      <ion-col col-6 no-padding>
+        <button ion-button full color="danger" (click)="slidePrev()">{{ 'SHIPPING_ADDRESS' | translate }}</button>
+      </ion-col>
+      <ion-col col-6 no-padding>
+        <button color="app" ion-button block [disabled]="isSelectShipping" (click)="slideNext()">{{ 'PAYMENT' | translate }}</button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>
+
+<ion-footer *ngIf="formWizard._activeIndex === 2">
+  <ion-toolbar>
+    <ion-row no-padding>
+      <ion-col col-6 no-padding>
+        <button ion-button full color="danger" (click)="slidePrev()">{{ 'SHIPPING' | translate}}</button>
+      </ion-col>
+      <ion-col col-6 no-padding>
+        <button color="app" ion-button block [disabled]="paymentType === '1' ? paymentDetail.creditno === '' || paymentDetail.creditname === '' || paymentDetail.expdate === '' || paymentDetail.creditcvc === null : bankingType === ''"
+          (click)="slideNext()">{{ 'CONFIRM' | translate}}</button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>
+
+<ion-footer *ngIf="formWizard._activeIndex === 3">
+  <ion-toolbar>
+    <ion-row no-padding>
+      <ion-col col-6 no-padding>
+        <button ion-button full color="danger" (click)="slidePrev()">{{ 'PAYMENT' | translate }}</button>
+      </ion-col>
+      <ion-col col-6 no-padding>
+        <button color="app" ion-button block (click)="clickConfirmed()">{{ 'CONFIRM_ORDER' | translate }}</button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

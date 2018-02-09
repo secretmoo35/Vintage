@@ -130,6 +130,14 @@ export class StepOrderPage {
     // console.log(this.order);
   }
 
+  gotoSlides(index) {
+    if (index < this.formWizard._activeIndex) {
+      this.formWizard.lockSwipes(false);
+      this.formWizard.slideTo(index);
+      this.formWizard.lockSwipes(true);
+    }
+  }
+
   creditFormat() {
     // let pattern = new RegExp('[0-9]{1,30}');
     if (this.paymentDetail.creditno) {

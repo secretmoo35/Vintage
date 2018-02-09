@@ -1,4 +1,7 @@
 page-step-order {
+    .scroll-content {
+        overflow-y: hidden !important;
+    }
     .header-segment {
         height: 90px !important;
         .segment-ios .segment-button {
@@ -77,22 +80,27 @@ page-step-order {
     }
     ion-slides {
         display: block;
-        width: 100%;
-        height: calc(100vh - 146px) !important;
+        width: 100%; // height: calc(100vh - 146px) !important;
+        height: 72vh !important;
     }
     ion-slide {
-        height: calc(100vh - 146px) !important;
+        // height: calc(100vh - 146px) !important;
+        height: 72vh !important;
         background-color: #f8f8f8 !important;
         align-items: flex-start !important;
+        .scroll-content {
+            overflow-y: auto !important;
+        }
     }
     ion-scroll {
         position: inherit;
-        display: block;
-        height: 100vh;
+        display: block; // height: 100vh;
+        height: 72vh !important;
     }
     .checkout-address {
         background-color: #f8f8f8 !important;
         padding: 8px;
+        margin-bottom: 20px;
         ion-list {
             margin: 8px 0px 50px 0px !important;
         }
