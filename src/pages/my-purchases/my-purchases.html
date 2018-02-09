@@ -36,14 +36,14 @@
                   <h2 class="product-name">{{ item.name }}</h2>
                   <p>{{ item.price | number }} {{ 'THB' | translate }}</p>
                   <p>{{ 'QTY' | translate }}: {{ item.qty }}</p>
-                  <p>{{ 'SHIPPING_TYPE' | translate }}: {{ item.shippingtype }}</p>
+                  <p>{{ 'SHIPPING_TYPE' | translate }}: {{ item.shippingtype }} ({{item.shippingprice}} {{'THB'|translate}})</p>
                 </ion-label>
               </ion-item>
             </ion-list>
             <ion-list mode="md" class="shipping">
               <ion-item>
                 <ion-label text-right class="price">
-                  <b>{{ 'TOTAL_FEE' | translate }}: {{ item.amount | number }} {{ 'THB' | translate }}</b>
+                  <b>{{ 'TOTAL_FEE' | translate }}: {{ (item.amount + item.shippingprice) | number }} {{ 'THB' | translate }}</b>
                 </ion-label>
               </ion-item>
             </ion-list>
@@ -66,7 +66,7 @@
                   <h2 class="product-name">{{ item.name }}</h2>
                   <p>{{ item.price | number }} {{ 'THB' | translate }}</p>
                   <p>{{ 'QTY' | translate }}: {{ item.qty }}</p>
-                  <p>{{ 'SHIPPING_TYPE' | translate }}: {{ item.shippingtype }}</p>
+                  <p>{{ 'SHIPPING_TYPE' | translate }}: {{ item.shippingtype }} ({{item.shippingprice}} {{'THB'|translate}})</p>
                 </ion-label>
               </ion-item>
             </ion-list>
@@ -76,7 +76,7 @@
                   <b>{{ 'SHIPPING_DATE' | translate }} {{ item.sentdate | date:'dd/MM/yy' }}</b>
                 </ion-label>
                 <ion-label text-right class="price">
-                  <b>{{ 'TOTAL_FEE' | translate }}: {{ item.amount | number }} {{ 'THB' | translate }}</b>
+                  <b>{{ 'TOTAL_FEE' | translate }}: {{ (item.amount + item.shippingprice) | number }} {{ 'THB' | translate }}</b>
                 </ion-label>
               </ion-item>
             </ion-list>
@@ -99,7 +99,7 @@
                   <h2 class="product-name">{{ item.name }}</h2>
                   <p>{{ item.price | number }} {{ 'THB' | translate }}</p>
                   <p>{{ 'QTY' | translate }}: {{ item.qty }}</p>
-                  <p>{{ 'SHIPPING_TYPE' | translate }}: {{ item.shippingtype }}</p>
+                  <p>{{ 'SHIPPING_TYPE' | translate }}: {{ item.shippingtype }} ({{item.shippingprice}} {{'THB'|translate}})</p>
                 </ion-label>
               </ion-item>
             </ion-list>
@@ -109,7 +109,7 @@
                   <b>{{ 'RECEIPT_DATE' | translate }} {{ item.received | date:'dd/MM/yy'}}</b>
                 </ion-label>
                 <ion-label text-right class="price">
-                  <b>{{ 'TOTAL_FEE' | translate }}: {{ item.amount | number }} {{ 'THB' | translate }}</b>
+                  <b>{{ 'TOTAL_FEE' | translate }}: {{ (item.amount + item.shippingprice) | number }} {{ 'THB' | translate }}</b>
                 </ion-label>
               </ion-item>
             </ion-list>
@@ -144,7 +144,9 @@
                     <b>{{ 'CANCEL_DATE' | translate }} {{ item.canceldate | date:'dd/MM/yy'}}</b>
                   </ion-label>
                   <ion-label text-right class="price">
-                    <b>{{ 'TOTAL_FEE' | translate }}: {{ item.amount | number }} {{ 'THB' | translate }}</b>
+                    <b>{{ 'TOTAL_FEE' | translate }}: {{ (item.amount + item.shippingprice) | number }} {{ 'THB' | translate
+                      }}
+                    </b>
                   </ion-label>
                 </ion-item>
               </ion-list>
