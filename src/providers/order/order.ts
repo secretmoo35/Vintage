@@ -30,9 +30,9 @@ export class OrderProvider {
 
   getOrders() {
     let header = this.auth.setHeader();
-    return this.http.post(this.API_URL + '/api/customergetorders', { headers: header })
+    return this.http.get(this.API_URL + '/api/customergetorders', { headers: header })
       .toPromise()
-      .then(response => response as any)
+      .then(response => response as Array<any>)
       .catch(this.handleError);
   }
 

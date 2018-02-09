@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, Slides, Platform, Content } from '
 import { TranslateService } from '@ngx-translate/core';
 import { OrderProvider } from '../../providers/order/order';
 import { AlertProvider } from '../../providers/alert/alert';
+import { LoadingProvider } from '../../providers/loading/loading';
 
 @IonicPage()
 @Component({
@@ -20,6 +21,7 @@ export class MyPurchasesPage {
   isRight: boolean = true;
   isLeft: boolean = true;
   tabs: any = [];
+  orders: any = {};
 
   constructor(
     public navCtrl: NavController,
@@ -27,7 +29,8 @@ export class MyPurchasesPage {
     public platform: Platform,
     private order: OrderProvider,
     private translate: TranslateService,
-    private alert: AlertProvider
+    private alert: AlertProvider,
+    private loading: LoadingProvider
   ) {
     this.tabs = ["WAIT_SEND", "WAIT_RECEIPT", "COMPLETED", "CANCEL"];
     this.screenWidth_px = platform.width();
@@ -39,6 +42,7 @@ export class MyPurchasesPage {
       for (let i in this.tabs) this.tabTitleWidthArray.push(document.getElementById("tabTitle" + i).offsetWidth);
       this.selectTab(0);
     }
+    this.getOrders();
   }
 
   scrollIndicatiorTab() {
@@ -115,9 +119,12 @@ export class MyPurchasesPage {
   }
 
   getOrders() {
+    this.loading.onLoading();
     this.order.getOrders().then((res) => {
-
+      this.loading.dismiss();
+      this.orders = res;
     }, (err) => {
+      this.loading.dismiss();      
       let language = this.translate.currentLang;
       if (language === 'th') {
         this.alert.onAlert('รายการสั่งซื้อ', 'โหลดข้อมูลไม่สำเร็จ', 'ตกลง');
