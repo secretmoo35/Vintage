@@ -4,6 +4,9 @@ page-step-order {
     }
     .header-segment {
         height: 90px !important;
+        position: fixed;
+        z-index: 999;
+        background-color: #ffffff !important;
         .segment-ios .segment-button {
             border-top-left-radius: 100% !important;
             border-top-right-radius: 100% !important;
@@ -11,7 +14,7 @@ page-step-order {
             border-bottom-left-radius: 100% !important;
             opacity: 1 !important;
             background-color: rgb(248, 248, 248);
-            padding: 8px;
+            padding: 4px;
         }
         .toolbar-ios .segment-ios {
             position: inherit !important;
@@ -37,8 +40,8 @@ page-step-order {
         .active {
             background-color: #fff !important;
             border: 1px solid !important;
-            border-color: $app;
-            color: $app !important;
+            border-color: #6ddb9c;
+            color: #6ddb9c !important;
             opacity: 1 !important;
         }
         ion-segment {
@@ -74,38 +77,38 @@ page-step-order {
             margin-top: 20px !important;
             left: -50%;
             width: 200%;
-            border: $app 1px solid;
+            border: #6ddb9c 1px solid;
             position: absolute;
         }
     }
     ion-slides {
         display: block;
-        width: 100%; // height: calc(100vh - 146px) !important;
+        width: 100%;
         height: 72vh !important;
+        margin-top: 94px;
     }
     ion-slide {
-        // height: calc(100vh - 146px) !important;
         height: 72vh !important;
-        background-color: #f8f8f8 !important;
+        background-color: #ffffff !important;
         align-items: flex-start !important;
         .scroll-content {
             overflow-y: auto !important;
         }
     }
     ion-scroll {
-        position: inherit;
-        display: block; // height: 100vh;
+        // position: inherit;
+        // display: block; // height: 100vh;
         height: 72vh !important;
     }
     .checkout-address {
-        background-color: #f8f8f8 !important;
         padding: 8px;
         margin-bottom: 20px;
         ion-list {
-            margin: 8px 0px 50px 0px !important;
+            margin: 8px 0px 8px 0px !important;
         }
         ion-item {
             color: #6d6d6d !important;
+            border: 1px solid #f8f8f8;
             padding: 0px !important;
             ion-label {
                 margin-left: 18px !important;
@@ -128,13 +131,21 @@ page-step-order {
                 font-size: 1.4em;
             }
         }
+        .radio-icon {
+            display: none !important;
+        }
+        .addresscssClass {
+            z-index: 1;
+            height: 30px;
+            opacity: 0.7;
+        }
     }
     .checkout-product-shipping {
-        background-color: #f8f8f8 !important;
-        padding: 8px;
+        padding: 0px 8px 8px 8px !important;
         margin-bottom: 30px;
         .product {
-            margin-top: -7px;
+            margin-top: 6px;
+            border: 3px solid #f8f8f8;
             .product-name {
                 width: 100%;
                 white-space: nowrap;
@@ -160,12 +171,13 @@ page-step-order {
                 .item {
                     background-color: #f5f5f5;
                 }
+                margin-bottom: 0px;
             }
         }
     }
     .checkout-payment {
-        background-color: #f8f8f8 !important;
         padding: 8px !important;
+        margin-top: 10px;
         .bankingcssClass {
             position: absolute;
             z-index: 1;
@@ -181,7 +193,7 @@ page-step-order {
             }
         }
         .img-size {
-            max-width: 50%;
+            max-width: 30%;
         }
         .font-payment {
             font-size: 4vw;
@@ -193,17 +205,19 @@ page-step-order {
         .radio-icon {
             display: none !important;
         }
+        .item{
+            padding-right: 16px !important;
+        }
         .item-inner {
-            border: none !important;
-            padding-right: 0px !important;
             font-weight: 600 !important;
+            padding: 0px !important;
         }
         .item-radio-checked.item ion-label.size {
-            color: $app;
+            color: #6ddb9c;
         }
         .item-radio-checked.item {
             .item-cover {
-                // border: 1px solid $app;
+                border: 1px solid #6ddb9c;
             }
         }
         .color {
@@ -217,7 +231,7 @@ page-step-order {
         .cssClass {
             position: absolute;
             z-index: 1;
-            height: 10vw;
+            height: 30%;
             opacity: 0.7;
             top: 2px;
             right: 2px;
@@ -229,11 +243,12 @@ page-step-order {
                 padding: 0px !important;
             }
         }
-        .left {
-            padding-right: 4px !important;
-        }
-        .right {
-            padding-left: 4px !important;
+        .item-label-stacked .text-input,
+        .item-label-floating .text-input {
+            margin-left: 0;
+            margin-top: -10px;
+            margin-bottom: 2px;
+            width: calc(100% - 8px);
         }
     }
     .checkout-confirm {
