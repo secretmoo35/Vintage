@@ -74,7 +74,8 @@
               <ion-label>
                 <p>{{ address.name }}</p>
                 <p *ngIf="address.address">
-                  {{ address.address.address }} {{ address.address.district }} {{ address.address.subdistrict }} {{ address.address.province }} {{ address.address.postcode }}
+                  {{ address.address.address }} {{ address.address.district }} {{ address.address.subdistrict }} {{ address.address.province
+                  }} {{ address.address.postcode }}
                 </p>
                 <p>{{ address.tel }}</p>
                 <button ion-button clear color="danger" class="btn-del" (tap)="removeItem(i)">
@@ -112,7 +113,7 @@
             <ion-list class="shipping">
               <ion-item>
                 <ion-label>{{ 'SHIPPING_TYPE' | translate }}</ion-label>
-                <ion-select placeholder="{{ 'PLEASE_SELECT_SHIPPING_TYPE' | translate }}" [(ngModel)]="item.shipping" (ionChange)="checkSelectShipping()">
+                <ion-select placeholder="{{ 'PLEASE_SELECT_SHIPPING_TYPE' | translate }}"  okText="{{ 'OK' | translate }}" cancelText="{{ 'CANCEL' | translate }}" [(ngModel)]="item.shipping" (ionChange)="checkSelectShipping()">
                   <ion-option *ngFor="let shipping of item.product.shippings" [value]="shipping">{{shipping.ref.name}} ({{shipping.price}} บาท)</ion-option>
                 </ion-select>
               </ion-item>
@@ -241,7 +242,7 @@
       <ion-scroll scrollY>
         <div class="checkout-confirm">
           <div class="address">
-            <ion-list>
+            <ion-list mode="md">
               <ion-item>
                 <ion-label>
                   <h2>
@@ -286,7 +287,7 @@
             </ion-list>
           </div>
           <div class="payment">
-            <ion-list>
+            <ion-list mode="md">
               <ion-item>
                 <ion-label>
                   <h2>
@@ -313,7 +314,7 @@
             </ion-list>
           </div>
           <div class="coupon">
-            <ion-list>
+            <ion-list mode="md">
               <ion-item>
                 <ion-label>
                   <h2>
@@ -322,11 +323,11 @@
                   <ion-row>
                     <ion-col col-9>
                       <ion-item>
-                        <ion-input type="text" placeholder="{{ 'COUPON' | translate }}"></ion-input>
+                        <ion-input type="text" placeholder="{{ 'COUPON' | translate }}" [(ngModel)]="couponCode"></ion-input>
                       </ion-item>
                     </ion-col>
                     <ion-col col-3 class="btn-coupon">
-                      <button ion-button block>{{ 'CONFIRM' | translate }}</button>
+                      <button ion-button block (click)="getCoupon()">{{ 'CONFIRM' | translate }}</button>
                     </ion-col>
                   </ion-row>
                 </ion-label>

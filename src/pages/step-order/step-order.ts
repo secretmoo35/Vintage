@@ -59,7 +59,7 @@ export class StepOrderPage {
     creditcvc: null
   };
   omiseKey: any = Constants.OmiseKey;
-
+  couponCode: string = '';
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -236,17 +236,46 @@ export class StepOrderPage {
   orderSummary() {
     this.order.amount = 0;
     this.order.shippingamount = 0;
-    this.order.discountamount = 0;
+    this.order.discountamount = this.order.coupon.discount ? this.order.coupon.discount : 0;
     this.order.totalamount = 0;
 
     this.order.items.forEach((item) => {
       this.order.amount += item.amount;
       this.order.shippingamount += item.shipping.price;
-      this.order.totalamount = this.order.amount + this.order.shippingamount;
+      this.order.totalamount = (this.order.amount + this.order.shippingamount) - this.order.discountamount;
     });
   }
   // step 3
   // step 4
+  getCoupon() {
+    this.loading.onLoading();
+    this.orderProvider.getCoupon({ code: this.couponCode }).then((res) => {
+      this.loading.dismiss();
+      if (res.status) {
+        this.order.coupon.code = res.code;
+        this.order.coupon.discount = res.discount;
+        this.orderSummary();
+      } else {
+        let language = this.translate.currentLang;
+        if (language === 'th') {
+          if (res.message === "Coupon is invalid!") {
+            this.alert.onAlert('คูปอง', 'คูปองไม่ถูกต้อง', 'ตกลง');
+          } else if (res.message === "Coupon is already") {
+            this.alert.onAlert('คูปอง', 'คุณใช้คูปองนี้ไปแล้ว', 'ตกลง');
+          } else if (res.message === "Coupon is expired!") {
+            this.alert.onAlert('คูปอง', 'คูปองหมดอายุ', 'ตกลง');
+          }
+        } else if (language === 'en') {
+
+          this.alert.onAlert('Coupon', res.message, 'OK');
+
+        }
+      }
+    }, (err) => {
+      this.loading.dismiss();
+    });
+  }
+
   clickConfirmed() {
     if (this.order.payment.paymenttype === 'Internet banking') {
       let bank = '';

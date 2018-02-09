@@ -13,15 +13,11 @@ page-step-order {
         .toolbar-ios .segment-ios {
             position: inherit !important;
         }
-        .segment-ios-light .segment-button.segment-activated {
-            color: #fff !important;
-            background-color: $app !important;
-            border-color: $app;
-        }
         .segment-ios-light .segment-button {
             border: 1px solid;
             line-height: 2rem !important;
-            color: $app;
+            color: #cecece;
+            border-color: #cecece;
         }
         .segment-md .segment-button {
             border-top-left-radius: 100%;
