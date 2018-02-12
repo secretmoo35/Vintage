@@ -83,14 +83,18 @@ ion-footer {
         min-height: 46px !important;
         max-height: 46px !important;
         padding-bottom: 4px !important;
-        .button{
-            height: 46px !important; 
+        .button {
+            height: 46px !important;
         }
     }
 }
 
 .footer-md::before {
     background-image: none !important;
+}
+
+.footer-ios .toolbar-background-ios {
+    border-color: transparent !important;
 }
 
 .button-md {

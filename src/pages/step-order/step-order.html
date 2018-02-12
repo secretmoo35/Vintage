@@ -114,8 +114,8 @@
             <ion-list mode="md" class="shipping">
               <ion-item>
                 <ion-label>{{ 'SHIPPING_TYPE' | translate }}</ion-label>
-                <ion-select placeholder="{{ 'PLEASE_SELECT_SHIPPING_TYPE' | translate }}" okText="{{ 'OK' | translate }}" cancelText="{{ 'CANCEL' | translate }}"
-                  [(ngModel)]="item.shipping" (ionChange)="checkSelectShipping()">
+                <ion-select interface="popover" placeholder="{{ 'PLEASE_SELECT_SHIPPING_TYPE' | translate }}" okText="{{ 'OK' | translate }}"
+                  cancelText="{{ 'CANCEL' | translate }}" [(ngModel)]="item.shipping" (ionChange)="checkSelectShipping()">
                   <ion-option *ngFor="let shipping of item.product.shippings" [value]="shipping">{{shipping.ref.name}} ({{shipping.price}} บาท)</ion-option>
                 </ion-select>
               </ion-item>
