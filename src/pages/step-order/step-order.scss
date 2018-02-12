@@ -103,7 +103,7 @@ page-step-order {
     .checkout-address {
         padding: 8px;
         margin-bottom: 20px;
-        margin-top: 10px;
+        margin-top: 16px;
         ion-list {
             margin: 8px 0px 8px 0px !important;
         }
@@ -148,7 +148,7 @@ page-step-order {
     .checkout-product-shipping {
         padding: 0px 8px 8px 8px !important;
         margin-bottom: 30px;
-        margin-top: 10px;
+        margin-top: 16px;
         .product {
             margin-top: 6px;
             border: 3px solid #f5f5f5;
@@ -183,7 +183,7 @@ page-step-order {
     }
     .checkout-payment {
         padding: 8px !important;
-        margin-top: 10px;
+        margin-top: 16px;
         .bankingcssClass {
             position: absolute;
             z-index: 1;
@@ -266,6 +266,7 @@ page-step-order {
     }
     .checkout-confirm {
         background-color: #f8f8f8 !important;
+        margin-top: 16px;
         .confirm-bank {
             width: 45%;
         }
