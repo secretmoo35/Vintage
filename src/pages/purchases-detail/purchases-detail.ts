@@ -63,6 +63,7 @@ export class PurchasesDetailPage {
     let alert = this.alertCtrl.create({
       title: title,
       message: message,
+      mode:'ios',
       cssClass: 'confirm',
       buttons: [
         {
@@ -115,12 +116,7 @@ export class PurchasesDetailPage {
     this.loading.onLoading();
     this.order.receiptOrder(body).then((data) => {
       this.loading.dismiss();
-      // let language = this.translate.currentLang;
-      // if (language === 'th') {
-      //   this.alert.onAlert('ยกเลิกสินค้า', 'ยกเลิกสินค้าสำเร็จ', 'ตกลง');
-      // } else if (language === 'en') {
-      //   this.alert.onAlert('Cancel order', 'Success.', 'OK');
-      // }
+      this.getOrderDetail();
     }, (err) => {
       this.loading.dismiss();
     });

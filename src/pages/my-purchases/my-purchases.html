@@ -7,7 +7,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content  no-bounce>
+<ion-content no-bounce>
   <ion-toolbar class="tabsHeight">
     <ion-content #MultiItemsScrollingTabs class="tabsContent">
       <ion-segment class="SwipedTabs-tabs">
@@ -79,8 +79,19 @@
                   <b>{{ 'TOTAL_FEE' | translate }}: {{ (item.amount + item.shippingprice) | number }} {{ 'THB' | translate }}</b>
                 </ion-label>
               </ion-item>
+              <ion-item class="no-lines">
+                <ion-label no-padding>
+                  <ion-row no-padding>
+                    <ion-col col-8 no-padding class="col-receipt">
+                      <p>{{ 'REMARK_RECEIVED' | translate}} </p>
+                    </ion-col>
+                    <ion-col col-2 no-padding>
+                      <button class="btn" small ion-button item-end color="secondary" (click)="received(item)">{{ 'ON_RECEIPT' | translate}}</button>
+                    </ion-col>
+                  </ion-row>
+                </ion-label>
+              </ion-item>
             </ion-list>
-            <button class="btn" full small ion-button item-end color="secondary">{{ 'ON_RECEIPT' | translate}}</button>
           </div>
         </div>
       </ion-scroll>

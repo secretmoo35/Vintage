@@ -115,6 +115,13 @@ page-my-purchases {
             }
         }
     }
+    .col-receipt {
+        display: flex;
+        align-items: center;
+    }
+    .no-lines{
+        border: none !important;
+    }
 }
 
 .ios {

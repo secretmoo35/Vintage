@@ -112,7 +112,7 @@
   "QTY": "Qty",
   "SHIPPING_TYPE": "Shipping type",
   "SHIPPING_DATE": "Shipping date",
-  "CREATE_ORDER_DATE": "Order time",  
+  "CREATE_ORDER_DATE": "Order time",
   "RECEIPT_DATE": "Ship time",
   "CANCEL_DATE": "Cancel time",
   "CANCEL_RECEIPT": "Refunded",
@@ -145,5 +145,7 @@
   "POSTCODE": "postcode",
   "DETAIL": "Detail",
   "CANCEL_ITEM": "Cancel order",
-  "REMARK": "Remark"
+  "REMARK": "Remark",
+  "PREV": "Prev",
+  "REMARK_RECEIVED": "If receive item, please press"
 }

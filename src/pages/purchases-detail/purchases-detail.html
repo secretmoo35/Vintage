@@ -41,7 +41,7 @@
               <b>{{ 'CANCEL_DATE' | translate }}</b>
             </h2>
             <p>{{ orderDetail.canceldate | date:'dd-MM-yyyy HH:mm'}}</p>
-            <p>
+            <p *ngIf="orderDetail.rejectreason">
               <b>{{'REMARK' | translate}}</b>
               {{orderDetail.rejectreason}}
             </p>
@@ -221,6 +221,6 @@
     <button color="dark" ion-button block outline (click)="cancelorder()">{{ 'CANCEL_ITEM' | translate }}</button>
   </ion-toolbar>
   <ion-toolbar *ngIf="orderDetail.status === 'sent'">
-    <button color="app" ion-button block (click)="received()">{{ 'CANCEL_ITEM' | translate }}</button>
+    <button color="secondary" ion-button block (click)="received()">{{ 'ON_RECEIPT' | translate }}</button>
   </ion-toolbar>
 </ion-footer>

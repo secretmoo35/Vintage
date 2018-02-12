@@ -428,7 +428,7 @@
   <ion-toolbar>
     <ion-row no-padding>
       <ion-col col-6 no-padding>
-        <button ion-button full color="danger" (click)="slidePrev()">{{ 'SHIPPING_ADDRESS' | translate }}</button>
+        <button ion-button full color="danger" (click)="slidePrev()">{{ 'PREV' | translate }}</button>
       </ion-col>
       <ion-col col-6 no-padding>
         <button color="app" ion-button block [disabled]="isSelectShipping" (click)="slideNext()">{{ 'PAYMENT' | translate }}</button>
@@ -441,7 +441,7 @@
   <ion-toolbar>
     <ion-row no-padding>
       <ion-col col-6 no-padding>
-        <button ion-button full color="danger" (click)="slidePrev()">{{ 'SHIPPING' | translate}}</button>
+        <button ion-button full color="danger" (click)="slidePrev()">{{ 'PREV' | translate}}</button>
       </ion-col>
       <ion-col col-6 no-padding>
         <button color="app" ion-button block [disabled]="paymentType === '1' ? paymentDetail.creditno === '' || paymentDetail.creditname === '' || paymentDetail.expdate === '' || paymentDetail.creditcvc === null : bankingType === ''"
@@ -455,7 +455,7 @@
   <ion-toolbar>
     <ion-row no-padding>
       <ion-col col-6 no-padding>
-        <button ion-button full color="danger" (click)="slidePrev()">{{ 'PAYMENT' | translate }}</button>
+        <button ion-button full color="danger" (click)="slidePrev()">{{ 'PREV' | translate }}</button>
       </ion-col>
       <ion-col col-6 no-padding>
         <button color="app" ion-button block (click)="clickConfirmed()">{{ 'CONFIRM_ORDER' | translate }}</button>

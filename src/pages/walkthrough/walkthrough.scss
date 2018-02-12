@@ -9,18 +9,19 @@ page-walkthrough {
         z-index: 999;
     }
     .text {
+        padding: 8px;
         color: $app;
     }
     .swiper-pagination-bullet-active {
         background: $app;
         opacity: 1;
     }
-    .bg-slide-1 {
-        margin-top: -20px;
-        // background-image: url("../assets/imgs/greeting/step1.png");
-        background-size: cover;
+    .swiper-container {
+        overflow: scroll !important;
     }
-    .scroll-content {
-        padding-bottom: 0px !important;
+    .bg-slide {
+        .logo {
+            max-width: 240px !important;
+        }
     }
 }

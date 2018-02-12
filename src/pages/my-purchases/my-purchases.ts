@@ -139,4 +139,18 @@ export class MyPurchasesPage {
     this.navCtrl.push('PurchasesDetailPage', item);
   }
 
+  received(item) {
+    let body = {
+      orderid: item.orderid,
+      itemid: item.itemid
+    };
+    this.loading.onLoading();
+    this.order.receiptOrder(body).then((data) => {
+      this.loading.dismiss();
+      this.getOrders();
+    }, (err) => {
+      this.loading.dismiss();
+    });
+  }
+
 }
