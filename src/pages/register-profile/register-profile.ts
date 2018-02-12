@@ -89,7 +89,13 @@ export class RegisterProfilePage {
         if (language === 'th') {
           this.alert.onAlert('สมัครสมาชิก', 'อีเมล์นี้มีผู้ใช้งานแล้ว', 'ตกลง');
         } else if (language === 'en') {
-          this.alert.onAlert('Register', 'Email already existss.', 'OK');
+          this.alert.onAlert('Register', 'Email already exists.', 'OK');
+        }
+      } else {
+        if (language === 'th') {
+          this.alert.onAlert('สมัครสมาชิก', JSON.stringify(err.message), 'ตกลง');
+        } else if (language === 'en') {
+          this.alert.onAlert('Register', JSON.stringify(err.message), 'OK');
         }
       }
       this.loading.dismiss();
