@@ -144,7 +144,8 @@
                     <p>{{ item.price | number }} {{ 'THB' | translate }}</p>
                     <p>{{ 'QTY' | translate }}: {{ item.qty }}</p>
                     <p class="danger">
-                      <b>{{ 'CANCEL_RECEIPT' | translate }}</b>
+                      <b *ngIf="item.status ==='cancel' || item.status ==='reject'">{{ 'CANCEL_RECEIPT_NOT' | translate }}</b>
+                      <b *ngIf="item.status ==='cancelrefund' || item.status ==='rejectrefund'">{{ 'CANCEL_RECEIPT' | translate }}</b>
                     </p>
                   </ion-label>
                 </ion-item>

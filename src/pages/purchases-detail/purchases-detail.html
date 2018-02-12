@@ -36,15 +36,16 @@
             </h2>
             <p>{{ orderDetail.receiveddate | date:'dd-MM-yyyy HH:mm'}}</p>
           </ion-label>
-          <ion-label *ngIf="orderDetail.status ==='cancel' || orderDetail.status ==='reject'">
+          <ion-label *ngIf="orderDetail.status ==='cancel' || orderDetail.status ==='reject' || orderDetail.status ==='cancelrefund' || orderDetail.status ==='rejectrefund'">
             <h2>
               <b>{{ 'CANCEL_DATE' | translate }}</b>
             </h2>
             <p>{{ orderDetail.canceldate | date:'dd-MM-yyyy HH:mm'}}</p>
             <p *ngIf="orderDetail.rejectreason">
-              <b>{{'REMARK' | translate}}</b>
-              {{orderDetail.rejectreason}}
+              {{'REMARK' | translate}} {{orderDetail.rejectreason}}
             </p>
+            <b class="cancel" *ngIf="orderDetail.status ==='cancel' || orderDetail.status ==='reject'">{{ 'CANCEL_RECEIPT_NOT' | translate }}</b>
+            <b class="cancel" *ngIf="orderDetail.status ==='cancelrefund' || orderDetail.status ==='rejectrefund'">{{ 'CANCEL_RECEIPT' | translate }}</b>
           </ion-label>
         </ion-item>
       </ion-list>

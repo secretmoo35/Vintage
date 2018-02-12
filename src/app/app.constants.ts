@@ -1,5 +1,4 @@
 export class Constants {
-    // public static get URL(): string { return "https://eatsyd-test.herokuapp.com"; };
     public static get URL(): string { return "https://vintage-server.herokuapp.com"; };    
     public static get OmiseKey(): any {
         let key = {
