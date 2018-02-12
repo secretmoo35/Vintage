@@ -118,6 +118,11 @@ export class MyPurchasesPage {
 
   }
 
+  doRefresh(refresher) {
+    this.getOrders();
+    refresher.complete();
+  }
+
   getOrders() {
     this.loading.onLoading();
     this.order.getOrders().then((res) => {

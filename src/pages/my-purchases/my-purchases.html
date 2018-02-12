@@ -20,6 +20,10 @@
     </ion-content>
   </ion-toolbar>
 
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-down" pullingText="{{ 'PULL_TO_REFRESH' | translate }}" refreshingSpinner="dots"
+      refreshingText="{{ 'REFRESHING' | translate }}"></ion-refresher-content>
+  </ion-refresher>
   <ion-slides #SwipedTabsSlider (ionSlideDrag)="animateIndicator($event)" (ionSlideDidChange)="updateIndicatorPosition()" (ionSlideWillChange)="scrollIndicatiorTab()"
     (panend)="updateIndicatorPositionOnTouchEnd()" [pager]="false">
     <!-- 1 -->
