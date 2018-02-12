@@ -124,7 +124,7 @@ export class MyPurchasesPage {
       this.loading.dismiss();
       this.orders = res;
     }, (err) => {
-      this.loading.dismiss();      
+      this.loading.dismiss();
       let language = this.translate.currentLang;
       if (language === 'th') {
         this.alert.onAlert('รายการสั่งซื้อ', 'โหลดข้อมูลไม่สำเร็จ', 'ตกลง');
@@ -136,7 +136,7 @@ export class MyPurchasesPage {
 
   selectPurchases(item) {
     console.log(item);
-    this.navCtrl.push('PurchasesDetailPage');
+    this.navCtrl.push('PurchasesDetailPage', item);
   }
 
 }

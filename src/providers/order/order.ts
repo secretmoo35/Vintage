@@ -44,6 +44,15 @@ export class OrderProvider {
       .catch(this.handleError);
   }
 
+  getOrderDetail(item) {
+    let header = this.auth.setHeader();
+    return this.http.get(this.API_URL + '/api/getorderdetail/' + item.orderid + '/' + item.itemid, { headers: header })
+      .toPromise()
+      .then(response => response as Array<any>)
+      .catch(this.handleError);
+  }
+
+
   private handleError(error: any): Promise<any> {
     // this.log.errorService('An error occurred', error);
     return Promise.reject(error.message || error);

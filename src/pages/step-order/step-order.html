@@ -412,7 +412,7 @@
 
 <ion-footer *ngIf="formWizard._activeIndex === 0">
   <ion-toolbar>
-    <button color="app" ion-button block [disabled]="!order.shippingAddress.name" (click)="slideNext()">การจัดส่ง</button>
+    <button color="app" ion-button block [disabled]="!order.shippingAddress.name" (click)="slideNext()">{{ 'SHIPPING' | translate }}</button>
   </ion-toolbar>
 </ion-footer>
 

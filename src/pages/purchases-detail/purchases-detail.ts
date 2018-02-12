@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { OrderProvider } from '../../providers/order/order';
 
 /**
  * Generated class for the PurchasesDetailPage page.
@@ -14,12 +15,23 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'purchases-detail.html',
 })
 export class PurchasesDetailPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  orderDetail: any = {};
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private order: OrderProvider
+  ) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PurchasesDetailPage');
+  ionViewWillEnter() {
+    this.getOrderDetail();
+  }
+
+  getOrderDetail() {
+    let item = this.navParams.data;
+    this.order.getOrderDetail(item).then((data) => {
+      this.orderDetail = data;
+    });
   }
 
 }

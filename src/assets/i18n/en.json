@@ -141,5 +141,6 @@
   "DISTRICT": "District",
   "SUBDISTRICT": "Subdistrict",
   "PROVINCE": "province",
-  "POSTCODE": "postcode"
+  "POSTCODE": "postcode",
+  "DETAIL": "Detail"
 }
