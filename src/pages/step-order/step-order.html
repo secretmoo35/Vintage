@@ -88,11 +88,6 @@
           </ion-list>
         </div>
       </ion-scroll>
-      <!-- <ion-footer>
-        <ion-toolbar>
-          <button color="app" ion-button block [disabled]="!order.shippingAddress.name" (click)="slideNext()">การจัดส่ง</button>
-        </ion-toolbar>
-      </ion-footer> -->
     </ion-slide>
     <!-- 2 -->
     <ion-slide>
@@ -123,18 +118,6 @@
           </div>
         </div>
       </ion-scroll>
-      <!-- <ion-footer>
-        <ion-toolbar>
-          <ion-row no-padding>
-            <ion-col col-6 no-padding>
-              <button ion-button full color="danger" (click)="slidePrev()">{{ 'SHIPPING_ADDRESS' | translate }}</button>
-            </ion-col>
-            <ion-col col-6 no-padding>
-              <button color="app" ion-button block [disabled]="isSelectShipping" (click)="slideNext()">{{ 'PAYMENT' | translate }}</button>
-            </ion-col>
-          </ion-row>
-        </ion-toolbar>
-      </ion-footer> -->
     </ion-slide>
     <!-- 3 -->
     <ion-slide>
@@ -211,39 +194,22 @@
                   <ion-radio value="{{i}}"></ion-radio>
                   <img src="./assets/imgs/logo/sign-check-icon.png" *ngIf="bankingType === i+''" item-end class="bankingcssClass">
                 </ion-item>
-                <!-- <ion-item text-center class="banking-padding">
-                  <ion-label>
-                    <ion-row>
-                      <ion-col col-4>
-                        <img src="{{item.image}}" class="img-banking">
-                      </ion-col>
-                      <ion-col col-8>
-                        <img src="./assets/imgs/logo/sign-check-icon.png" *ngIf="banking === i" class="bankingcssClass">
-                        <span>{{item.name}}</span>
-                        <ion-radio [value]="i"></ion-radio>
-                      </ion-col>
-                    </ion-row>
-                  </ion-label>
-                </ion-item> -->
               </ion-col>
             </ion-row>
           </ion-grid>
         </div>
 
-        <!-- <ion-footer>
-          <ion-toolbar>
-            <ion-row no-padding>
-              <ion-col col-6 no-padding>
-                <button ion-button full color="danger" (click)="slidePrev()">{{ 'SHIPPING' | translate}}</button>
-              </ion-col>
-              <ion-col col-6 no-padding>
-                <button color="app" ion-button block [disabled]="paymentType === '1' ? paymentDetail.creditno === '' || paymentDetail.creditname === '' || paymentDetail.expdate === '' || paymentDetail.creditcvc === null : bankingType === ''"
-                  (click)="slideNext()">{{ 'CONFIRM' | translate}}</button>
-              </ion-col>
-            </ion-row>
-          </ion-toolbar>
-        </ion-footer> -->
-
+        <!-- <div *ngIf="formWizard._activeIndex === 2">
+          <ion-row no-padding>
+            <ion-col col-6 no-padding>
+              <button ion-button full color="danger" (click)="slidePrev()">{{ 'PREV' | translate}}</button>
+            </ion-col>
+            <ion-col col-6 no-padding>
+              <button color="app" ion-button block [disabled]="paymentType === '1' ? paymentDetail.creditno === '' || paymentDetail.creditname === '' || paymentDetail.expdate === '' || paymentDetail.creditcvc === null : bankingType === ''"
+                (click)="slideNext()">{{ 'CONFIRM' | translate}}</button>
+            </ion-col>
+          </ion-row>
+        </div> -->
       </div>
     </ion-slide>
     <!-- 4 -->
@@ -401,18 +367,6 @@
           </div>
         </div>
       </ion-scroll>
-      <!-- <ion-footer>
-        <ion-toolbar>
-          <ion-row no-padding>
-            <ion-col col-6 no-padding>
-              <button ion-button full color="danger" (click)="slidePrev()">{{ 'PAYMENT' | translate }}</button>
-            </ion-col>
-            <ion-col col-6 no-padding>
-              <button color="app" ion-button block (click)="clickConfirmed()">{{ 'CONFIRM_ORDER' | translate }}</button>
-            </ion-col>
-          </ion-row>
-        </ion-toolbar>
-      </ion-footer> -->
     </ion-slide>
   </ion-slides>
 
