@@ -3,13 +3,11 @@
   <ion-navbar>
     <ion-title>{{shopData.name}}</ion-title>
   </ion-navbar>
-
+  <search-input></search-input>
 </ion-header>
 
 
 <ion-content  no-bounce>
-  <search-input></search-input>
-
   <div *ngIf="shopData.products">
     <preload-image [ratio]="{w:19, h:8}" [src]="shopData.coverimage" [isIcon]="true"></preload-image>
     <ion-grid class="shop-detail">

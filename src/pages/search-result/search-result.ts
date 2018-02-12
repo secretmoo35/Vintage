@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { LoadingProvider } from '../../providers/loading/loading';
 
 /**
@@ -19,9 +19,10 @@ export class SearchResultPage {
   search: any;
   title: string;
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public navParams: NavParams,
-    private loading : LoadingProvider
+    private loading: LoadingProvider,
+    private modalCtrl: ModalController
   ) {
     this.search = this.navParams.get('items');
     this.title = this.navParams.get('keyword');
@@ -31,7 +32,7 @@ export class SearchResultPage {
     console.log('ionViewDidLoad SearchResultPage');
   }
 
-  selectTabs(){
+  selectTabs() {
     this.loading.onLoading();
     this.loading.dismiss();
   }
@@ -40,5 +41,9 @@ export class SearchResultPage {
     this.navCtrl.push('ShopPage', e._id);
   }
 
+  gotoDetail(item) {
+    let modal1 = this.modalCtrl.create('ProductDetailPage', { productId: item._id });
+    modal1.present();
+  }
 
 }

@@ -1,8 +1,11 @@
 <ion-header>
+  <ion-navbar color="app">
+    <ion-title>{{ 'HOME' | translate }}</ion-title>
+  </ion-navbar>
   <search-input></search-input>
 </ion-header>
 
-<ion-content  no-bounce>
+<ion-content no-bounce>
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content pullingIcon="arrow-down" pullingText="{{ 'PULL_TO_REFRESH' | translate }}" refreshingSpinner="dots"
       refreshingText="{{ 'REFRESHING' | translate }}"></ion-refresher-content>

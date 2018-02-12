@@ -52,6 +52,21 @@ export class OrderProvider {
       .catch(this.handleError);
   }
 
+  cancelOrder(body) {
+    let header = this.auth.setHeader();
+    return this.http.post(this.API_URL + '/api/cancelitem', body, { headers: header })
+      .toPromise()
+      .then(response => response as Array<any>)
+      .catch(this.handleError);
+  }
+
+  receiptOrder(body) {
+    let header = this.auth.setHeader();
+    return this.http.post(this.API_URL + '/api/completeitem', body, { headers: header })
+      .toPromise()
+      .then(response => response as Array<any>)
+      .catch(this.handleError);
+  }
 
   private handleError(error: any): Promise<any> {
     // this.log.errorService('An error occurred', error);

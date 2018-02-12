@@ -164,21 +164,29 @@
           <!-- </ion-col> -->
         </ion-row>
 
-        <ion-list *ngIf="paymentType === '1'">
+        <ion-list class="input-list" *ngIf="paymentType === '1'">
           <ion-item>
-            <ion-label floating>{{ 'CARD_NUMBER' | translate }}</ion-label>
+            <ion-label floating>{{ 'CARD_NUMBER' | translate }}
+              <span>*</span>
+            </ion-label>
             <ion-input type="number" [(ngModel)]="paymentDetail.creditno" (ionChange)="creditFormat()"></ion-input>
           </ion-item>
           <ion-item>
-            <ion-label floating>{{ 'CARD_HOLDER' | translate }}</ion-label>
+            <ion-label floating>{{ 'CARD_HOLDER' | translate }}
+              <span>*</span>
+            </ion-label>
             <ion-input type="text" [(ngModel)]="paymentDetail.creditname"></ion-input>
           </ion-item>
           <ion-item>
-            <ion-label floating>{{ 'EXPIRED_DATE' | translate }}(mm/yy)</ion-label>
+            <ion-label floating>{{ 'EXPIRED_DATE' | translate }}(mm/yy)
+              <span>*</span>
+            </ion-label>
             <ion-input type="text" [(ngModel)]="paymentDetail.expdate" (ionChange)="creditFormat()"></ion-input>
           </ion-item>
           <ion-item>
-            <ion-label floating>CVC</ion-label>
+            <ion-label floating>CVC
+              <span>*</span>
+            </ion-label>
             <ion-input type="number" [(ngModel)]="paymentDetail.creditcvc" (ionChange)="creditFormat()"></ion-input>
           </ion-item>
           <ion-row no-padding>

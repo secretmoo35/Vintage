@@ -256,6 +256,13 @@ page-step-order {
             margin-bottom: 2px;
             width: calc(100% - 8px);
         }
+        .input-list {
+            ion-label {
+                span {
+                    color: #F44336;
+                }
+            }
+        }
     }
     .checkout-confirm {
         background-color: #f8f8f8 !important;
@@ -324,4 +331,10 @@ page-step-order {
             }
         }
     }
+}
+
+.popover-content {
+    right: 8px !important;
+    left: inherit !important;
+    width: auto !important;
 }

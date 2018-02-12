@@ -112,6 +112,7 @@
   "QTY": "Qty",
   "SHIPPING_TYPE": "Shipping type",
   "SHIPPING_DATE": "Shipping date",
+  "CREATE_ORDER_DATE": "Order time",  
   "RECEIPT_DATE": "Ship time",
   "CANCEL_DATE": "Cancel time",
   "CANCEL_RECEIPT": "Refunded",
@@ -142,5 +143,7 @@
   "SUBDISTRICT": "Subdistrict",
   "PROVINCE": "province",
   "POSTCODE": "postcode",
-  "DETAIL": "Detail"
+  "DETAIL": "Detail",
+  "CANCEL_ITEM": "Cancel order",
+  "REMARK": "Remark"
 }
