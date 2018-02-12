@@ -18,7 +18,11 @@ import { Constants } from '../../app/app.constants';
 export class AgreementPage {
   isShowAgreementBtn: boolean = false;
   language: string = '';
-  constructor(public navCtrl: NavController, public navParams: NavParams, private translate: TranslateService, ) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    private translate: TranslateService
+  ) {
   }
 
   ionViewDidLoad() {

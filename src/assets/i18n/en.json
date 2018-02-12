@@ -147,5 +147,6 @@
   "CANCEL_ITEM": "Cancel order",
   "REMARK": "Remark",
   "PREV": "Prev",
-  "REMARK_RECEIVED": "If receive item, please press"
+  "REMARK_RECEIVED": "If receive item, please press",
+  "SHOP_NOW": "Shop now!"
 }

@@ -8,7 +8,7 @@
       </ion-row>
       <ion-row>
         <ion-col col-12>
-          <p class="text">Welcome green vintage shop</p>
+          <p class="text">Welcome to Green Vintage Shop</p>
         </ion-col>
       </ion-row>
     </ion-slide>
@@ -20,7 +20,8 @@
       </ion-row>
       <ion-row>
         <ion-col col-12>
-          <p class="text">Limited edition ช๊อปได้ไม่ซ้ำใคร</p>
+          <p class="text" *ngIf="language ==='th'">Limited edition ช๊อปได้ไม่ซ้ำใคร</p>
+          <p class="text" *ngIf="language ==='en'">Limited Edition: Unique Shop</p>
         </ion-col>
       </ion-row>
     </ion-slide>
@@ -32,7 +33,8 @@
       </ion-row>
       <ion-row>
         <ion-col col-12>
-          <p class="text">แอพเดียวที่ได้ทั้งช๊อปและประมูลออกไลน์</p>
+          <p class="text" *ngIf="language ==='th'">แอพเดียวที่ได้ทั้งช๊อปและประมูลออนไลน์</p>
+          <p class="text" *ngIf="language ==='en'">A single application for both shopping and online auctions.</p>
         </ion-col>
       </ion-row>
     </ion-slide>
@@ -44,7 +46,8 @@
       </ion-row>
       <ion-row>
         <ion-col col-12>
-          <p class="text">ตรวจสอบสถานะการสั่งซื้อได้ด้วยตัวคุณเองผ่านแอพ</p>
+          <p class="text" *ngIf="language ==='th'">ตรวจสอบสถานะการสั่งซื้อได้ด้วยตัวคุณเองผ่านแอพ</p>
+          <p class="text" *ngIf="language ==='en'">Check the status of your order from your own application.</p>
         </ion-col>
       </ion-row>
     </ion-slide>
@@ -56,13 +59,14 @@
       </ion-row>
       <ion-row>
         <ion-col col-12>
-          <p class="text">ปลอดภัย มั่นใจทุกการสั่งซื้อ การันตีโดย green vintage</p>
+          <p class="text" *ngIf="language ==='th'">ปลอดภัย มั่นใจทุกการสั่งซื้อ การันตีโดย green vintage</p>
+          <p class="text" *ngIf="language ==='en'">Green Vintage guarantees the safety of all orders</p>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col col-2></ion-col>
         <ion-col col-8>
-          <button ion-button block color="app" (click)="goToLogin()">สั่งซื้อเลย !</button>
+          <button ion-button block color="app" (click)="goToLogin()">{{ 'SHOP_NOW' | translate }}</button>
         </ion-col>
         <ion-col col-2></ion-col>
       </ion-row>
