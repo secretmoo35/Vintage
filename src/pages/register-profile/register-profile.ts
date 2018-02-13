@@ -48,6 +48,7 @@ export class RegisterProfilePage {
       this.user.lastName = fb_user.last_name;
       this.user.gender = fb_user.gender;
       this.user.email = fb_user.email;
+      this.user.provider = 'facebook';
       this.birthday = fb_user.birthday ? new Date(fb_user.birthday).toISOString() : '';
 
     } else if (this.provider === 'local') {
@@ -72,7 +73,7 @@ export class RegisterProfilePage {
 
     let date = new Date(this.birthday);
     this.user.dateOfBirth = date;
-    this.user.username = this.user.username ? this.user.username : this.user.email;
+    // this.user.username = this.user.username ? this.user.username : this.user.email;
     this.loading.onLoading();
     this.auth.signup(this.user).then((res) => {
       this.navCtrl.setRoot('NavtabsPage');

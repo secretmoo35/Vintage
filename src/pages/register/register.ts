@@ -45,7 +45,7 @@ export class RegisterPage {
     this.fb.login(['public_profile', 'user_friends', 'email'])
       .then((res: FacebookLoginResponse) => {
         this.fb.api('me?fields=id,first_name,last_name,email,birthday,gender,picture.width(300).height(300)', null).then((user) => {
-          user.username = user.email;
+          user.username = user.id;
           user.password = 'FB@Pass1234';
           this.authenFB(user);
         })
