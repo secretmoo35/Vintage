@@ -12,6 +12,7 @@ import { Facebook } from '@ionic-native/facebook';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { Crop } from '@ionic-native/crop';
 import { Camera } from '@ionic-native/camera';
+import { OneSignal } from '@ionic-native/onesignal';
 
 import { AuthProvider } from '../providers/auth/auth';
 import { LoadingProvider } from '../providers/loading/loading';
@@ -66,6 +67,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     ImagePicker,
     Crop,
     Camera,
+    OneSignal,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     {
       provide: HAMMER_GESTURE_CONFIG,

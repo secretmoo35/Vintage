@@ -38,7 +38,7 @@ export class ProfilePage {
   }
 
   ionViewWillEnter() {
-    console.log('ionViewDidLoad ProfilePage');
+    this.user = JSON.parse(window.localStorage.getItem('user@' + Constants.URL));
     this.auth.authenticated().then((res) => {
       if (res) {
         this.user = JSON.parse(window.localStorage.getItem('user@' + Constants.URL));

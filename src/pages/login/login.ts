@@ -129,7 +129,7 @@ export class LoginPage {
     });
   }
 
-  goForgotPassword(){
+  goForgotPassword() {
     this.app.getRootNav().push('ForgotPasswordPage');
   }
 
