@@ -8,7 +8,8 @@
       </ion-row>
       <ion-row>
         <ion-col col-12>
-          <p class="text">Welcome to Green Vintage Shop</p>
+          <p class="text">Welcome to</p>
+          <p class="text">Green Vintage Shop</p>
         </ion-col>
       </ion-row>
     </ion-slide>
@@ -20,8 +21,10 @@
       </ion-row>
       <ion-row>
         <ion-col col-12>
-          <p class="text" *ngIf="language ==='th'">Limited edition ช๊อปได้ไม่ซ้ำใคร</p>
-          <p class="text" *ngIf="language ==='en'">Limited Edition: Unique Shop</p>
+          <p class="text" *ngIf="language ==='th'">Limited edition</p>
+          <p class="text" *ngIf="language ==='th'">ช๊อปได้ไม่ซ้ำใคร</p>
+          <p class="text" *ngIf="language ==='en'">Limited Edition</p>
+          <p class="text" *ngIf="language ==='en'">Unique Shop</p>
         </ion-col>
       </ion-row>
     </ion-slide>
@@ -33,7 +36,8 @@
       </ion-row>
       <ion-row>
         <ion-col col-12>
-          <p class="text" *ngIf="language ==='th'">แอพเดียวที่ได้ทั้งช๊อปและประมูลออนไลน์</p>
+          <p class="text" *ngIf="language ==='th'">แอพเดียวที่ได้ทั้งช๊อป</p>
+          <p class="text" *ngIf="language ==='th'">และประมูลออนไลน์</p>
           <p class="text" *ngIf="language ==='en'">A single application for both shopping and online auctions.</p>
         </ion-col>
       </ion-row>
@@ -59,7 +63,8 @@
       </ion-row>
       <ion-row>
         <ion-col col-12>
-          <p class="text" *ngIf="language ==='th'">ปลอดภัย มั่นใจทุกการสั่งซื้อ การันตีโดย green vintage</p>
+          <p class="text" *ngIf="language ==='th'">ปลอดภัย มั่นใจทุกการสั่งซื้อ</p>
+          <p class="text" *ngIf="language ==='th'">การันตีโดย green vintage</p>
           <p class="text" *ngIf="language ==='en'">Green Vintage guarantees the safety of all orders</p>
         </ion-col>
       </ion-row>
@@ -72,5 +77,5 @@
       </ion-row>
     </ion-slide>
   </ion-slides>
-  <button ion-button clear color="dark" class="text" (click)="goToLogin()">{{ 'SKIP' | translate }}</button>
+  <button ion-button clear color="dark" class="text-skip" (click)="goToLogin()">{{ 'SKIP' | translate }}</button>
 </ion-content>
