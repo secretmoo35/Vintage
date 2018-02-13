@@ -96,7 +96,7 @@
     <plugin name="onesignal-cordova-plugin" spec="^2.2.5" />
     <engine name="android" spec="~6.3.0" />
     <plugin name="cordova-plugin-facebook4" spec="^1.9.1">
-        <variable name="APP_ID" value="2017142665188943" />
+        <variable name="APP_ID" value="145722212770833" />
         <variable name="APP_NAME" value="G-Vintage" />
     </plugin>
 </widget>
