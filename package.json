@@ -75,10 +75,6 @@
             "cordova-plugin-ionic-webview": {},
             "cordova-plugin-splashscreen": {},
             "cordova-plugin-whitelist": {},
-            "cordova-plugin-facebook4": {
-                "APP_ID": "277183306145425",
-                "APP_NAME": "App_authen"
-            },
             "cordova-plugin-nativegeocoder": {},
             "cordova-plugin-googlemaps": {
                 "API_KEY_FOR_ANDROID": "AIzaSyAXgpAM4D3HZwRrIaqWhPY4-s3xG20xim4",
@@ -88,7 +84,11 @@
             "cordova-plugin-camera": {},
             "com.synconset.imagepicker": {},
             "cordova-plugin-crop": {},
-            "onesignal-cordova-plugin": {}
+            "onesignal-cordova-plugin": {},
+            "cordova-plugin-facebook4": {
+                "APP_ID": "2017142665188943",
+                "APP_NAME": "G-Vintage"
+            }
         },
         "platforms": [
             "android"
