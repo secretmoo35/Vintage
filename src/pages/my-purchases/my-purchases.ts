@@ -39,7 +39,9 @@ export class MyPurchasesPage {
   ionViewDidEnter() {
     if (!this.SwipedTabsIndicator) {
       this.SwipedTabsIndicator = document.getElementById("indicator");
-      for (let i in this.tabs) this.tabTitleWidthArray.push(document.getElementById("tabTitle" + i).offsetWidth);
+      for (let i in this.tabs) {
+        this.tabTitleWidthArray.push(document.getElementById("tabTitle" + i).offsetWidth);
+      }
       this.selectTab(0);
     }
     this.getOrders();

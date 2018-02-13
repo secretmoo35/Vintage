@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 import { tokenNotExpired } from 'angular2-jwt';
 import 'rxjs/add/operator/toPromise';
 import { Constants } from '../../app/app.constants';
-
+import { Platform } from 'ionic-angular';
+import { OneSignal } from '@ionic-native/onesignal';
 /*
   Generated class for the AuthProvider provider.
 
@@ -18,7 +19,9 @@ export class AuthProvider {
   _credentials: any = {};
 
   constructor(
-    public http: HttpClient
+    public http: HttpClient,
+    private platform: Platform,
+    private oneSignal: OneSignal
   ) {
 
   }
@@ -69,9 +72,31 @@ export class AuthProvider {
   }
 
   logout() {
-    window.localStorage.removeItem('user@' + this.API_URL);
-    window.localStorage.removeItem('token');
-    console.log('logout');
+    if (this.platform.is('cordova')) {
+      this.oneSignal.getIds().then((data) => {
+        let user = JSON.parse(window.localStorage.getItem('user@' + this.API_URL));
+        let index = user.notificationids.indexOf(data.userId);
+        if (index !== -1) {
+          user.notificationids.splice(index, 1);
+          this.updateUser(user);
+        }
+        window.localStorage.removeItem('user@' + this.API_URL);
+        window.localStorage.removeItem('token');
+      });
+    } else {
+      window.localStorage.removeItem('user@' + this.API_URL);
+      window.localStorage.removeItem('token');
+    }
+    console.log('logout success.');
+  }
+
+  private onOneSignal(user) {
+    if (this.platform.is('cordova')) {
+      this.oneSignal.getIds().then((data) => {
+        user.notificationids.push(data.userId);
+        this.updateUser(user);
+      });
+    }
   }
 
   private updateSuccess(res) {
@@ -80,12 +105,14 @@ export class AuthProvider {
   }
 
   private loginSuccess(res) {
+    this.onOneSignal(res);
     window.localStorage.setItem('user@' + this.API_URL, JSON.stringify(res));
     window.localStorage.setItem('token', res.loginToken);
     return res;
   }
 
   private registerSuccess(res) {
+    this.onOneSignal(res);
     window.localStorage.setItem('user@' + this.API_URL, JSON.stringify(res));
     window.localStorage.setItem('token', res.loginToken);
     return res;

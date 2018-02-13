@@ -56,7 +56,7 @@
         </ion-icon>
         {{ 'FAVORITE' | translate }}
       </button>
-      <button ion-item item-start *ngIf="user.provider ==='local'" (click)="changePassword()">
+      <button ion-item item-start *ngIf="user && user.provider ==='local'" (click)="changePassword()">
         <ion-icon item-start>
           <img src="./assets/icon/more/key.png" width="30">
         </ion-icon>
