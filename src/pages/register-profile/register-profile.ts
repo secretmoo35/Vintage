@@ -93,9 +93,9 @@ export class RegisterProfilePage {
         }
       } else {
         if (language === 'th') {
-          this.alert.onAlert('สมัครสมาชิก', JSON.stringify(err.message), 'ตกลง');
+          this.alert.onAlert('สมัครสมาชิก', err.message, 'ตกลง');
         } else if (language === 'en') {
-          this.alert.onAlert('Register', JSON.stringify(err.message), 'OK');
+          this.alert.onAlert('Register', err.message, 'OK');
         }
       }
       this.loading.dismiss();
