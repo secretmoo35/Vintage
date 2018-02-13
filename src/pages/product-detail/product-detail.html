@@ -15,7 +15,7 @@
     </ion-slide>
   </ion-slides>
   <ion-row>
-    <ion-col col-10>
+    <ion-col col-10 no-padding>
       <h2 padding-left text-left>{{productData.name}}
       </h2>
     </ion-col>
@@ -26,6 +26,11 @@
         <ion-icon *ngIf="productData.isFavorite" name="md-heart"></ion-icon>
       </button>
       <!-- </div> -->
+    </ion-col>
+    <ion-col col-12 no-padding padding-left>
+      <ion-badge color="danger" *ngIf="productData.ispromotion">{{ 'PROMOTION' | translate }}</ion-badge>
+      <ion-badge color="primary" *ngIf="productData.ispopular">{{ 'POPULAR' | translate }}</ion-badge>
+      <ion-badge color="secondary" *ngIf="productData.isrecommend">{{ 'RECOMMEND' | translate }}</ion-badge>
     </ion-col>
   </ion-row>
   <p padding-left padding-right>

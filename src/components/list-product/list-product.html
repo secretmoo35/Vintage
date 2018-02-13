@@ -6,7 +6,7 @@
     <h2>{{productitem.name}}</h2>
     <p>{{productitem.price | number:'0.2-2'}} {{'THB' | translate}}</p>
     <!-- <div class="icon-status"> -->
-      <ion-badge color="bite" *ngIf="productitem.ispromotion">{{ 'PROMOTION' | translate }}</ion-badge>
+      <ion-badge color="danger" *ngIf="productitem.ispromotion">{{ 'PROMOTION' | translate }}</ion-badge>
       <ion-badge color="primary" *ngIf="productitem.ispopular">{{ 'POPULAR' | translate }}</ion-badge>
       <ion-badge color="secondary" *ngIf="productitem.isrecommend">{{ 'RECOMMEND' | translate }}</ion-badge>
     <!-- </div> -->

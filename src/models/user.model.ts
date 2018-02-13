@@ -15,7 +15,8 @@ export class UserModel {
     notificationids: Array<string>;
     address: string;
     subdistrict: string;
-    district: string;    
+    district: string;
     province: string;
     postcode: number;
+    provider: string;
 }

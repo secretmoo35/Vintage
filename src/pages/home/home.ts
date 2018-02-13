@@ -39,7 +39,7 @@ export class HomePage {
   }
 
   selected(e) {
-    console.log(e);
+    // console.log(e);
     if (e.type === 'ads') {
       if (e.isvideo) {
         let profileModal = this.modalCtrl.create('AdsVideoPage', { _id: e._id });

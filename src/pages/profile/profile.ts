@@ -38,7 +38,6 @@ export class ProfilePage {
   }
 
   ionViewWillEnter() {
-    this.user = JSON.parse(window.localStorage.getItem('user@' + Constants.URL));
     console.log('ionViewDidLoad ProfilePage');
     this.auth.authenticated().then((res) => {
       if (res) {
@@ -112,7 +111,7 @@ export class ProfilePage {
     this.navCtrl.push('QuestionAnswersPage');
   }
 
-  onContact(){
+  onContact() {
     this.navCtrl.push('ContactPage');
   }
 
