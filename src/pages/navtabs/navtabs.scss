@@ -9,82 +9,97 @@ page-navtabs {
         color: $app;
         padding: 0;
     }
+    .tab-button-text {
+        margin-top: 0px !important;
+    }
+    .tab-button-icon {
+        color: #3C6233;
+        -webkit-transform: translate3d(0, 0, 0) !important;
+        transform: translate3d(0, 0, 0) !important;
+    }
 }
 
-// @font-face {
-//     font-family: 'icomoon';
-//     src: url('../assets/icon/icomoon-tab/fonts/icomoon.eot?2law6p');
-//     src: url('../assets/icon/icomoon-tab/fonts/icomoon.eot?2law6p#iefix') format('embedded-opentype'), url('../assets/icon/icomoon-tab/fonts/icomoon.ttf?2law6p') format('truetype'), url('../assets/icon/icomoon-tab/fonts/icomoon.woff?2law6p') format('woff'), url('../assets/icon/icomoon-tab/fonts/icomoon.svg?2law6p#icomoon') format('svg');
-//     font-weight: normal;
-//     font-style: normal;
-// }
-// @mixin makeIcon($arg,
-// $val) {
-//     .ion-ios-#{$arg}:before,
-//     .ion-ios-#{$arg}-circle:before,
-//     .ion-ios-#{$arg}-circle-outline:before,
-//     .ion-ios-#{$arg}-outline:before,
-//     .ion-md-#{$arg}:before,
-//     .ion-md-#{$arg}-circle:before,
-//     .ion-md-#{$arg}-circle-outline:before,
-//     .ion-md-#{$arg}-outline:before {
-//         font-family: "icomoon" !important;
-//         content: $val;
-//         font-weight: bold;
-//     }
-// }
-// @include makeIcon(icon-tab-home,
-// '\e901');
-// @include makeIcon(icon-tab-recommented,
-// '\e902');
-// @include makeIcon(icon-tab-reword,
-// '\e903');
-// @include makeIcon(icon-tab-status,
-// '\e904');
-// @include makeIcon(icon-tab-more,
-// '\e905');
-// [class^="icon-tab"],
-// [class*=" icon-tab"] {
-//     /* use !important to prevent issues with browser extensions that change fonts */
-//     font-family: 'icomoon' !important;
-//     speak: none;
-//     font-style: normal;
-//     font-weight: normal;
-//     font-variant: normal;
-//     text-transform: none;
-//     line-height: 1;
-//     /* Better Font Rendering =========== */
-//     -webkit-font-smoothing: antialiased;
-//     -moz-osx-font-smoothing: grayscale;
-// }
-// .icon-tab-home:before {
-//     content: "\e901";
-//     color: white;
-//     font-size: 30px;
-//     font-weight: bold;
-//     margin-top: 4px;
-// }
-// .icon-tab-recommented:before {
-//     content: "\e902";
-//     color: white;
-//     font-size: 30px;
-//     font-weight: bold;
-// }
-// .icon-tab-reword:before {
-//     content: "\e903";
-//     color: white;
-//     font-size: 30px;
-//     font-weight: bold;
-// }
-// .icon-tab-status:before {
-//     content: "\e904";
-//     color: white;
-//     font-size: 30px;
-//     font-weight: bold;
-// }
-// .icon-tab-more:before {
-//     content: "\e905";
-//     color: white;
-//     font-size: 30px;
-//     font-weight: bold;
-// }
+@font-face {
+    font-family: 'icomoon';
+    src: url('../assets/icon/tabs/icomoon/fonts/icomoon.eot?2law6p');
+    src: url('../assets/icon/tabs/icomoon/fonts/icomoon.eot?2law6p#iefix') format('embedded-opentype'), url('../assets/icon/tabs/icomoon/fonts/icomoon.ttf?2law6p') format('truetype'), url('../assets/icon/tabs/icomoon/fonts/icomoon.woff?2law6p') format('woff'), url('../assets/icon/tabs/icomoon/fonts/icomoon.svg?2law6p#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@mixin makeIcon($arg,
+$val) {
+    .ion-ios-#{$arg}:before,
+    .ion-ios-#{$arg}-circle:before,
+    .ion-ios-#{$arg}-circle-outline:before,
+    .ion-ios-#{$arg}-outline:before,
+    .ion-md-#{$arg}:before,
+    .ion-md-#{$arg}-circle:before,
+    .ion-md-#{$arg}-circle-outline:before,
+    .ion-md-#{$arg}-outline:before {
+        font-family: "icomoon" !important;
+        content: $val;
+        font-weight: bold;
+    }
+}
+
+@include makeIcon(icon-tab-home,
+'\e901');
+@include makeIcon(icon-tab-shop,
+'\e902');
+@include makeIcon(icon-tab-bid,
+'\e903');
+@include makeIcon(icon-tab-cart,
+'\e904');
+@include makeIcon(icon-tab-me,
+'\e905');
+[class^="icon-tab"],
+[class*=" icon-tab"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-tab-home:before {
+    content: "\e901";
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 4px;
+}
+
+.icon-tab-shop:before {
+    content: "\e902";
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.icon-tab-bid:before {
+    content: "\e903";
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.icon-tab-cart:before {
+    content: "\e904";
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.icon-tab-me:before {
+    content: "\e905";
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
