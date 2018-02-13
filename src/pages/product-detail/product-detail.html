@@ -21,10 +21,10 @@
     </ion-col>
     <ion-col col-2>
       <!-- <div class="favorite-btn"> -->
-        <button ion-button icon-left clear large *ngIf="user" class="favorite" (click)="onFavorite()">
-          <ion-icon *ngIf="!productData.isFavorite" name="md-star-outline"></ion-icon>
-          <ion-icon *ngIf="productData.isFavorite" name="md-star"></ion-icon>
-        </button>
+      <button ion-button icon-left clear large *ngIf="user" class="favorite" (click)="onFavorite()">
+        <ion-icon *ngIf="!productData.isFavorite" name="md-heart-outline"></ion-icon>
+        <ion-icon *ngIf="productData.isFavorite" name="md-heart"></ion-icon>
+      </button>
       <!-- </div> -->
     </ion-col>
   </ion-row>

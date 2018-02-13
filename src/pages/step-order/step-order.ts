@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Slides, Events } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Slides, Events, AlertController } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
 import { OrderModel } from '../../models/order.model';
@@ -70,7 +70,8 @@ export class StepOrderPage {
     private translate: TranslateService,
     private omiseProvider: OmiseProvider,
     private orderProvider: OrderProvider,
-    private iab: InAppBrowser
+    private iab: InAppBrowser,
+    private alertCtrl: AlertController
   ) {
   }
 
@@ -188,8 +189,46 @@ export class StepOrderPage {
   }
 
   removeItem(index) {
-    this.shippingAddress.splice(index, 1);
-    window.localStorage.setItem('native_map_address_obj', JSON.stringify(this.shippingAddress));
+    let language = this.translate.currentLang;
+    let title = '';
+    let message = '';
+    let cancel = '';
+    let ok = '';
+    if (language === 'th') {
+      title = 'ลบที่อยู่จัดส่ง';
+      message = 'คุณต้องลบที่อยู่จัดส่งนี้?';
+      cancel = 'ยกเลิก';
+      ok = 'ตกลง';
+    } else if (language === 'en') {
+      title = 'Remove address';
+      message = 'Do you want to remove this address?';
+      cancel = 'Cancel';
+      ok = 'OK';
+    }
+    let alert = this.alertCtrl.create({
+      title: title,
+      message: message,
+      mode: 'ios',
+      buttons: [
+        {
+          text: ok,
+          cssClass: 'confirm',
+          handler: () => {
+            this.shippingAddress.splice(index, 1);
+            window.localStorage.setItem('native_map_address_obj', JSON.stringify(this.shippingAddress));
+          }
+        },
+        {
+          text: cancel,
+          role: 'cancel',
+          cssClass: 'cancel',
+          handler: () => {
+
+          }
+        }
+      ]
+    });
+    alert.present();
   }
   // step 1
   // step 2

@@ -63,11 +63,11 @@ export class PurchasesDetailPage {
     let alert = this.alertCtrl.create({
       title: title,
       message: message,
-      mode:'ios',
-      cssClass: 'confirm',
+      mode: 'ios',
       buttons: [
         {
           text: ok,
+          cssClass: 'confirm',
           handler: () => {
             let body = {
               orderid: this.orderDetail.orderid,

@@ -72,6 +72,7 @@ export class RegisterProfilePage {
 
     let date = new Date(this.birthday);
     this.user.dateOfBirth = date;
+    this.user.username = this.user.username ? this.user.username : this.user.email;
     this.loading.onLoading();
     this.auth.signup(this.user).then((res) => {
       this.navCtrl.setRoot('NavtabsPage');
