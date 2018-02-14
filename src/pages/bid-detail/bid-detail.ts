@@ -22,7 +22,7 @@ export class BidDetailPage implements OnInit {
 
   bidDetailData: BidDetailModel = new BidDetailModel();
 
-  accordion = false
+  accordion = true
   @ViewChild('cc') cardContent: any;
   constructor(
     public navCtrl: NavController,

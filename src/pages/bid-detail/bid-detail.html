@@ -6,99 +6,111 @@
 
 </ion-header>
 
-
-<ion-content  no-bounce>
+<ion-content no-bounce>
   <div *ngIf="bidDetailData.product.name">
-    <ion-grid>
+    <ion-grid no-padding>
+
+      <ion-row class="padding-style" *ngIf="bidDetailData.isBid">
+        <ion-col col-6 text-center class="time danger">
+          <div class="sub-time">
+            <div>
+              <h2>{{ 'TIME_LEFT' | translate }}</h2>
+              <h2 class="time-magin">{{bidDetailData.timeleft}}</h2>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col col-6 class="time">
+          <div class="sub-time">
+            <ion-row class="list-user">
+              <ion-col col-12 text-center>
+                <img src="{{bidDetailData.currentuser.profileImageURL}}" class="image-user">
+              </ion-col>
+              <ion-col col-12 text-center>
+                <h2 class="title">{{ 'BID_CURRENT' | translate }}</h2>
+                <p class="discription">{{ bidDetailData.price | number}} {{ 'THB' | translate }}</p>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="padding-style" *ngIf="!bidDetailData.isBid">
+        <ion-col col-12 text-center class="time">
+          <div class="sub-time">
+            <div class="width-100">
+              <h2>{{ 'TIME_BID' | translate }}</h2>
+              <ion-row>
+                <ion-col col-6>
+                  <h2 class="time-magin discription">{{bidDetailData.datestart | date: 'dd/MM/yy'}}</h2>
+                </ion-col>
+                <ion-col col-6>
+                  <h2 class="time-magin discription">{{bidDetailData.datestart | date: 'hh:mm'}}-{{bidDetailData.dateend | date: 'hh:mm'}}</h2>
+                </ion-col>
+              </ion-row>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col col-6 class="time">
+          <div class="sub-time">
+            <div>
+              <p class="magin-p">{{ 'START_PRICE' | translate }}</p>
+              <h3 class="magin-p discription">{{bidDetailData.pricestart}} บาท</h3>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col col-6 class="time">
+          <div class="sub-time">
+            <div>
+              <p class="magin-p">{{ 'PLACE_BID' | translate }}</p>
+              <h3 class="magin-p discription">{{bidDetailData.pricebid}} บาท</h3>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="padding-style">
+        <ion-col col-12>
+          <ion-slides pager>
+            <ion-slide *ngFor="let item of bidDetailData.product.images">
+              <img src="{{item}}" class="arvatar-slide">
+            </ion-slide>
+          </ion-slides>
+        </ion-col>
+      </ion-row>
       <ion-row>
         <ion-col col-12 class="col-shop">
-          <ion-list>
-            <ion-item>
+          <ion-list mode="ios">
+            <ion-item class="list-shop-name">
               <ion-avatar item-start>
                 <img src="{{bidDetailData.shop.image}}">
               </ion-avatar>
-              <p>
-                <b>{{bidDetailData.shop.name}}</b>
-              </p>
+              <h2>
+                {{bidDetailData.shop.name}}
+              </h2>
             </ion-item>
           </ion-list>
         </ion-col>
-        <ion-col col-12 text-center>
+        <ion-col col-12 class="padding">
           <h2 class="bid-name">{{bidDetailData.product.name}}</h2>
+          <p>
+            {{bidDetailData.product.detail}}
+          </p>
         </ion-col>
       </ion-row>
-      <ion-row padding-left padding-right>
-        <ion-slides pager class="slides-border">
-          <ion-slide *ngFor="let item of bidDetailData.product.images">
-            <img src="{{item}}" alt="" class="arvatar-slide">
-          </ion-slide>
-        </ion-slides>
-      </ion-row>
-      <ion-row padding-left padding-right>
-        <ion-card>
-          <ion-card-header (click)="toggleAddccoding()">
-            {{ 'VIEW_DETAIL' | translate }}
-          </ion-card-header>
-          <ion-card-content #cc>
-            {{bidDetailData.product.detail}}
-          </ion-card-content>
-        </ion-card>
-      </ion-row>
-      <!-- is:true -->
-      <div *ngIf="bidDetailData.isBid">
-        <ion-row padding>
-          <ion-col col-12 text-center class="color-time">
-            <h2 padding-top>{{ 'TIME_LEFT' | translate }}</h2>
-            <h2 class="time-magin">{{bidDetailData.timeleft}}</h2>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col col-12 text-center>
-            <ion-list class="list-custom">
-              <ion-item>
-                <ion-avatar item-left>
-                  <img src="{{bidDetailData.currentuser.profileImageURL}}">
-                </ion-avatar>
-                <h2>{{ 'BID_CURRENT' | translate }}</h2>
-                <p>{{ bidDetailData.price | number}} {{ 'THB' | translate }}</p>
-              </ion-item>
-            </ion-list>
-            <button ion-button round color="app" class="btn-radiascenter">
-              <ion-icon name="hammer"></ion-icon>
-              <br>
-              <span>{{bidDetailData.price + bidDetailData.pricebid}}</span>
-            </button>
-          </ion-col>
-        </ion-row>
-      </div>
-      <!-- is:false -->
-      <div *ngIf="!bidDetailData.isBid">
-        <ion-row padding>
-          <ion-col col-12 text-center class="color-time">
-            <h2 padding-top>{{ 'TIME_BID' | translate }}</h2>
-            <ion-row>
-              <ion-col col-6>
-                <h2 class="time-magin">{{bidDetailData.datestart | date: 'dd/MM/yy'}}</h2>
-              </ion-col>
-              <ion-col col-6>
-                <h2 class="time-magin">{{bidDetailData.datestart | date: 'hh:mm'}}-{{bidDetailData.dateend | date: 'hh:mm'}}</h2>
-              </ion-col>
-            </ion-row>
-          </ion-col>
-          <ion-col col-6 class="col-left">
-            <div class="div-border ">
-              <p class="magin-p">{{ 'START_PRICE' | translate }}</p>
-              <h3 class="magin-p">{{bidDetailData.pricestart}} บาท</h3>
-            </div>
-          </ion-col>
-          <ion-col col-6 class="col-right">
-            <div class="div-border ">
-              <p class="magin-p">{{ 'PLACE_BID' | translate }}</p>
-              <h3 class="magin-p">{{bidDetailData.pricebid}} บาท</h3>
-            </div>
-          </ion-col>
-        </ion-row>
-      </div>
     </ion-grid>
   </div>
 </ion-content>
+<ion-footer *ngIf="bidDetailData.isBid">
+  <ion-toolbar>
+    <button ion-button block color="primary" class="blink">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-12>
+            <ion-icon name="icon-tab-bid"></ion-icon>
+            <span>{{bidDetailData.price + bidDetailData.pricebid | number}}</span>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </button>
+  </ion-toolbar>
+</ion-footer>

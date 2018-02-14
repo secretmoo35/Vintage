@@ -18,7 +18,7 @@
   "dateend": "Thu Feb 19 2018 19:00:00 GMT+0700 (SE Asia Standard Time)",
   "price": 300,
   "pricestart": 10,
-  "pricebid": 5,
+  "pricebid": 50,
   "isBid": true,
   "currentuser": {
     "_id": "user1",

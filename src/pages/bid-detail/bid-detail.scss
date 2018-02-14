@@ -1,52 +1,38 @@
 page-bid-detail {
+    .padding {
+        padding: 8px !important;
+    }
     .col-shop {
         height: 70px;
-    }
-    .arvatar {
-        width: 15vw !important;
-        border-radius: 100%;
-        height: 15vw;
-        object-fit: cover;
-        border: 2px solid $app;
     }
     img {
         object-fit: cover;
     }
+    .list-shop-name {
+        height: 40px;
+    }
     .bid-name {
         margin-top: 0px !important;
-        color: $app;
+        font-weight: bold;
     }
     .arvatar-slide {
         object-fit: cover;
-        width: 40vw !important;
-        height: 40vw;
-        padding: 3px
+        width: 100vw !important;
     }
-    .slides-border {
-        border: 1px solid;
-        border-radius: 10px;
-        color: $app;
+    .danger {
+        color: #f44336;
     }
-    .card-header {
-        padding: 10px !important;
-        background-color: map-get($colors, app);
-        color: rgb(225, 228, 231);
+    .time {
+        padding: 2px !important;
     }
-    .card-content {
-        padding: 0px 16px;
-        max-height: 0px;
-        border: 1px solid;
-        color: $app;
-    }
-    .card {
-        box-shadow: none !important;
-        height: 95%;
-        margin: 4px 0px 0px 0px !important;
+    .sub-time {
+        background-color: #f6f5f5;
+        height: 100%;
         width: 100%;
-    }
-    .color-time {
-        color: #F44336;
-        border: 1px solid;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 6px;
     }
     .time-magin {
         margin-top: 0px;
@@ -55,60 +41,60 @@ page-bid-detail {
         background: $app;
         opacity: 1;
     }
-    .list-custom {
-        width: 200px !important;
-        position: absolute !important;
-        left: 50% !important;
-        margin-left: -100px !important;
-        border: 2px solid $app;
-        border-radius: 100px;
-        height: 65px !important;
-        .item {
-            border-radius: 100px;
-            height: 60px !important;
-            padding: 0px 0px 0px 4px !important;
-        }
-        .item-inner {
-            text-align: center;
-            margin-left: -4px !important;
-        }
-        img {
-            width: 50px;
-            height: 50px;
-            object-fit: cover;
-        }
-    }
-    .btn-radiascenter {
-        border-radius: 100% !important;
-        margin-top: 80px;
-        height: 120px;
-        width: 120px;
-        .button-inner {
-            font-size: 25px !important;
-            flex-flow: column;
-        }
-        ion-icon {
-            font-size: 1.8em;
-        }
-        span {
-            font-size: 0.8em;
-            margin-top: -20px;
-        }
-    }
-    .col-left {
-        margin: 8px 0px 0px 0px;
-        padding-left: 0.5px;
-    }
-    .col-right {
-        margin: 8px 0px 0px 0px;
-        padding-right: 0.5px;
-    }
-    .div-border {
-        border: 1px solid $app;
-    }
     .magin-p {
         margin-top: 0px;
         margin-bottom: 0px;
         text-align: center;
+    }
+    .padding-style {
+        padding: 0px 8px 8px 8px;
+        .col {
+            padding: 0px;
+        }
+    } // 
+    .width-100 {
+        width: 100%;
+    }
+    .image-user {
+        width: 30%;
+        border-radius: 100%;
+    }
+    .title {
+        font-size: 1.2em;
+        margin: 0px;
+    }
+    .discription {
+        color: $app !important;
+        font-weight: bold;
+        font-size: 1.5em;
+        margin: 0px;
+    }
+}
+
+@keyframes blink {
+    0% {
+        color: #488aff;
+    }
+    100% {
+        color: #FFFFFF;
+    }
+}
+
+@-webkit-keyframes blink {
+    0% {
+        color: #488aff;
+    }
+    100% {
+        color: #FFFFFF;
+    }
+}
+
+.blink {
+    -webkit-animation: blink 1.5s linear infinite;
+    -moz-animation: blink 1.5s linear infinite;
+    animation: blink 1.5s linear infinite;
+    font-size: 1.5em;
+    .button-inner {
+        margin-left: -10px;
     }
 }

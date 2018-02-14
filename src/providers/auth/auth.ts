@@ -100,8 +100,12 @@ export class AuthProvider {
   }
 
   private updateSuccess(res) {
-    window.localStorage.setItem('user@' + this.API_URL, JSON.stringify(res));
-    return res;
+    let isUser = window.localStorage.getItem('user@' + this.API_URL) ? true : false;
+    if (isUser) {
+      window.localStorage.setItem('user@' + this.API_URL, JSON.stringify(res));
+      return res;
+    }
+    return;
   }
 
   private loginSuccess(res) {

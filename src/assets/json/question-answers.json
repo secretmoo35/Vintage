@@ -5,7 +5,7 @@
   "answersEN": "Go to 'Me' tab > Setting language select 'Thai' or 'English' to language change."
 }, {
   "questionsTH": "ช่องทางการชำระเงินมีกี่ประเภท",
-  "answersTH": "ช่องทางการชำระเงินมีทั้งหมด 1 ช่องทาง คือ บัตรเครดิต/เดบิต",
+  "answersTH": "ช่องทางการชำระเงินมี 1 ช่องทาง คือ บัตรเครดิต/เดบิต",
   "questionsEN": "There are many types of payment channels?",
-  "answersEN": "Payments with all 1 channels - Pay by credit / debit card"
+  "answersEN": "Payments with 1 channel - Pay by credit / debit card"
 }]

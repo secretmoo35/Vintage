@@ -44,13 +44,13 @@
         </ion-icon>
         <span>{{ 'LOGIN' | translate }}</span>
       </button>
-      <button ion-item item-start (click)="myPurchases()">
+      <button ion-item item-start (click)="myPurchases()" *ngIf="user">
         <ion-icon item-start>
           <img src="./assets/icon/more/purchase.png" width="30">
         </ion-icon>
         {{ 'MY_PURCHASES' | translate }}
       </button>
-      <button ion-item item-start (click)="favorite()">
+      <button ion-item item-start (click)="favorite()" *ngIf="user">
         <ion-icon item-start>
           <img src="./assets/icon/more/favorite.png" width="30">
         </ion-icon>
