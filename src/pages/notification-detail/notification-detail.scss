@@ -1,10 +1,18 @@
 page-notification-detail {
-    h3 {
-        font-size: 22px !important;
-        font-weight: bold !important;
+    div {
+        font-size: 16px !important;
+        color: rgb(163, 163, 163);
+        h2 {
+            color: black !important;
+        }
     }
-    p {
-        font-size: 17px !important;
-        color: rgb(163, 163, 163)
-    }
+}
+
+.confirm {
+    font-weight: bold !important;
+}
+
+.cancel {
+    color: #F44336 !important;
+    font-weight: 100 !important;
 }

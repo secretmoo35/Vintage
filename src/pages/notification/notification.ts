@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NotificationProvider } from '../../providers/notification/notification';
+import { LoadingProvider } from '../../providers/loading/loading';
+import moment from 'moment';
+import { TranslateService } from '@ngx-translate/core';
 
 /**
  * Generated class for the NotificationPage page.
@@ -15,25 +19,43 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class NotificationPage {
 
-  notificationData = [
-    {
-      "day": "Wed Jan 31 2018 16:21:38 GMT+0700 (SE Asia Standard Time)",
-      "description": "The email notification is triggered by an event, which is triggered by a business rule. Events can be triggered by business rules and, in turn, reacted to elsewhere."
-    },
-    {
-      "day": "Thu Feb 19 2018 19:00:00 GMT+0700 (SE Asia Standard Time)",
-      "description": "The email notification is triggered by an event, which is triggered by a business rule. Events can be triggered by business rules and, in turn, reacted to elsewhere."
-    },
-    {
-      "day": "Thu Feb 21 2018 19:00:00 GMT+0700 (SE Asia Standard Time)",
-      "description": "The email notification is triggered by an event, which is triggered by a business rule. Events can be triggered by business rules and, in turn, reacted to elsewhere."
-    }
-  ]
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  notificationData: Array<any> = [];
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private notificationProvider: NotificationProvider,
+    private loading: LoadingProvider,
+    private translate: TranslateService
+  ) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad NotificationPage');
+  ionViewWillEnter() {
+    this.getNotification();
+  }
+
+  doRefresh(refresher) {
+    this.getNotification();
+    refresher.complete();
+  }
+
+  getNotification() {
+    this.loading.onLoading();
+    this.notificationProvider.getNotification().then((data) => {
+      this.loading.dismiss();
+      this.notificationData = data;
+    }, (err) => {
+      this.loading.dismiss();
+    });
+  }
+
+  getTime(date) {
+    let language = this.translate.currentLang;
+    if (language === 'th') {
+      moment.locale('th');
+    } else if (language === 'en') {
+      moment.locale('en');
+    }
+    return moment(date).format('DD MMMM YYYY  HH:mm:ss');
   }
 
   getDescription(e) {

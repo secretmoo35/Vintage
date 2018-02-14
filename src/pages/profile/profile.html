@@ -3,6 +3,7 @@
     <ion-buttons left *ngIf="user">
       <button ion-button icon-only (click)="profileNotifications()">
         <ion-icon name="md-mail"></ion-icon>
+        <ion-badge color="danger" *ngIf="badgeNoti > 0" class="badge-position">{{badgeNoti}}</ion-badge>
       </button>
     </ion-buttons>
     <ion-title *ngIf="user">{{ 'PROFILE' | translate}}</ion-title>

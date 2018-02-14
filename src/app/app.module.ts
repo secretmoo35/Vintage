@@ -33,6 +33,7 @@ import { AdsProvider } from '../providers/ads/ads';
 import { QuestionAnswersProvider } from '../providers/question-answers/question-answers';
 import { OmiseProvider } from '../providers/omise/omise';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { NotificationProvider } from '../providers/notification/notification';
 
 @NgModule({
   declarations: [
@@ -85,7 +86,8 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     OrderProvider,
     AdsProvider,
     QuestionAnswersProvider,
-    OmiseProvider
+    OmiseProvider,
+    NotificationProvider
   ]
 })
 export class AppModule { }

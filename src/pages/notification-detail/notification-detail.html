@@ -8,7 +8,7 @@
 
   <ion-navbar>
     <ion-title>{{ 'NOTIFICATION' | translate}}</ion-title>
-    <ion-buttons right >
+    <ion-buttons right>
       <button ion-button icon-only (click)="notificationDelete()">
         <ion-icon name="ios-trash"></ion-icon>
       </button>
@@ -20,7 +20,8 @@
 
 <ion-content padding>
   <div>
-    <h3>{{detailNoti.day | date:'d MMMM yyyy h:mm:ss' }}</h3>
-    <p>{{detailNoti.description}}</p>
+    <h2>{{detailNoti.title}}</h2>
+    <p>{{getTime(detailNoti.created)}}</p>
+    {{detailNoti.detail}}
   </div>
 </ion-content>

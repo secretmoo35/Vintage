@@ -8,6 +8,7 @@ import { ItemProductModel } from '../../models/shop.model';
 import { ProductProvider } from '../../providers/product/product';
 import { TranslateService } from '@ngx-translate/core';
 import { AlertProvider } from '../../providers/alert/alert';
+import { NotificationProvider } from '../../providers/notification/notification';
 
 /**
  * Generated class for the ProfilePage page.
@@ -22,7 +23,7 @@ import { AlertProvider } from '../../providers/alert/alert';
   templateUrl: 'profile.html',
 })
 export class ProfilePage {
-
+  badgeNoti: number = 0;
   segment: String = 'favorte';
   productFavarite: ItemProductModel = new ItemProductModel();
   user: UserModel = new UserModel();
@@ -33,7 +34,8 @@ export class ProfilePage {
     private modalCtrl: ModalController,
     private productProvider: ProductProvider,
     private translate: TranslateService,
-    private alertCtrl: AlertProvider
+    private alertCtrl: AlertProvider,
+    private notificationProvider: NotificationProvider
   ) {
   }
 
@@ -43,6 +45,7 @@ export class ProfilePage {
       if (res) {
         this.user = JSON.parse(window.localStorage.getItem('user@' + Constants.URL));
         this.getProductFavarite();
+        this.getBadgeNotification();
       } else {
         // this.navCtrl.push('LoginPage');
       }
@@ -53,10 +56,6 @@ export class ProfilePage {
     console.log(e);
   }
 
-  // profileSettings() {
-  //   this.navCtrl.push('MorePage');
-  // }
-
   profileEdit() {
     console.log(this.user);
     this.navCtrl.push('UpdateProfilePage');
@@ -66,6 +65,11 @@ export class ProfilePage {
     this.navCtrl.push('NotificationPage');
   }
 
+  getBadgeNotification() {
+    this.notificationProvider.getBadgeNotification().then((data) => {
+      this.badgeNoti = data;
+    });
+  }
 
   getProductFavarite() {
     this.productFavarite = this.productProvider.getFavorite();
