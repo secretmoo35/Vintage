@@ -96,7 +96,7 @@
                   <h2 class="time-magin discription">{{bidDetailData.datestart | date: 'dd/MM/yy'}}</h2>
                 </ion-col>
                 <ion-col col-6>
-                  <h2 class="time-magin discription">{{bidDetailData.datestart | date: 'hh:mm'}}-{{bidDetailData.dateend | date: 'hh:mm'}}</h2>
+                  <h2 class="time-magin discription">{{ getTimeOnly(bidDetailData.datestart) }} - {{getTimeOnly(bidDetailData.dateend)}}</h2>
                 </ion-col>
               </ion-row>
             </div>

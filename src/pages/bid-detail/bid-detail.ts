@@ -63,7 +63,7 @@ export class BidDetailPage {
 
   getBiddetail() {
     this.loading.onLoading();
-    this.bidProvider.getBidDetail().then(res => {
+    this.bidProvider.getBidDetail(this.navParams.get('_id')).then(res => {
       this.loading.dismiss();
       this.bidDetailData = res;
       this.bidDetailData.timeleft = '';
@@ -91,6 +91,11 @@ export class BidDetailPage {
       //  duration.days() + ':' + 
       data.timeleft = ((duration.hours() > 9) ? duration.hours() : '0' + duration.hours()) + ':' + ((duration.minutes() > 9) ? duration.minutes() : '0' + duration.minutes()) + ':' + ((duration.seconds() > 9) ? duration.seconds() : '0' + duration.seconds());
     }, interval);
+  }
+
+  getTimeOnly(date) {
+    let eventTime = new Date(date);
+    return (eventTime.getUTCHours() > 9 ? eventTime.getUTCHours() : '0' + eventTime.getUTCHours()) + ':' + (eventTime.getUTCMinutes() > 9 ? eventTime.getUTCMinutes() : '0' + eventTime.getUTCMinutes());
   }
 
   doBid() {

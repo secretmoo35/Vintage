@@ -17,20 +17,23 @@ export class BidProvider {
   API_URL: string = Constants.URL;
   constructor(
     public http: HttpClient,
-    private auth: AuthProvider    
+    private auth: AuthProvider
   ) {
   }
 
   getBidService(): Promise<BidMasterModel> {
+    let user = window.localStorage.getItem('user@' + Constants.URL) ? JSON.parse(window.localStorage.getItem('user@' + Constants.URL)) : null;
     let header = this.auth.setHeader();
-    return this.http.get(this.API_URL + '/api/getbidlist', { headers: header })
+    let user_id = user ? user._id : 'nouser';
+    return this.http.get(this.API_URL + '/api/getbidlist/' + user_id, { headers: header })
       .toPromise()
       .then(response => response as BidMasterModel)
       .catch(this.handleError);
   }
 
-  getBidDetail(): Promise<BidDetailModel> {
-    return this.http.get('./assets/json/bid-detail.json')
+  getBidDetail(bidId): Promise<BidDetailModel> {
+    let header = this.auth.setHeader();
+    return this.http.get(this.API_URL + '/api/biddetail/' + bidId, { headers: header })
       .toPromise()
       .then(response => response as BidDetailModel)
       .catch(this.handleError);

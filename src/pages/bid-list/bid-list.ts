@@ -33,6 +33,7 @@ export class BidListPage {
   }
 
   ionViewWillEnter() {
+    this.index = '0';
     this.user = JSON.parse(window.localStorage.getItem('user@' + Constants.URL));
     this.bidLoadData();
   }
@@ -76,7 +77,16 @@ export class BidListPage {
     });
   }
 
-  toBidDetail() {
-    this.navCtrl.push('BidDetailPage');
+  getTimeOnly(date) {
+    let eventTime = new Date(date);
+    return (eventTime.getUTCHours() > 9 ? eventTime.getUTCHours() : '0' + eventTime.getUTCHours()) + ':' + (eventTime.getUTCMinutes() > 9 ? eventTime.getUTCMinutes() : '0' + eventTime.getUTCMinutes());
+  }
+
+  selectTabs(i) {
+    this.index = i;
+  }
+
+  toBidDetail(item) {
+    this.navCtrl.push('BidDetailPage', { _id: item._id });
   }
 }

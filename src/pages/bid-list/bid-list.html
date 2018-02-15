@@ -6,13 +6,13 @@
 
   <div class="padding-seg">
     <ion-segment mode="ios" color="app" [(ngModel)]="index">
-      <ion-segment-button value="0">
+      <ion-segment-button value="0" (click)="selectTabs('0')">
         {{ 'BID_NOW' | translate }}
       </ion-segment-button>
-      <ion-segment-button value="1">
+      <ion-segment-button value="1" (click)="selectTabs('1')">
         {{ 'BIT_COMING' | translate }}
       </ion-segment-button>
-      <ion-segment-button value="2" *ngIf="user">
+      <ion-segment-button value="2" *ngIf="user" (click)="selectTabs('2')">
         {{ 'BIT_ME' | translate }}
       </ion-segment-button>
     </ion-segment>
@@ -31,7 +31,7 @@
   <ion-grid *ngIf="bidData.items && bidData.items[index] && bidData.items[index].items">
     <ion-row>
       <ion-col col-6 col-md-4 col-lg-4 class="col-grid" *ngFor="let item of bidData.items[index].items">
-        <ion-card (click)="toBidDetail()">
+        <ion-card (click)="toBidDetail(item)">
           <ion-card-content>
             <preload-image class="products-image" [ratio]="{w:1, h:1}" [src]="item.image"></preload-image>
           </ion-card-content>
@@ -39,7 +39,7 @@
             <p text-center>{{ 'TIME_LEFT' | translate }}</p>
             <ion-row no-padding *ngIf="item.timeleft">
               <ion-col col-12 no-padding text-center>
-                <b class="col-red">{{item.timeleft}}</b>
+                <b class="col-red" *ngIf="item.timeleft">{{item.timeleft}}</b>
               </ion-col>
             </ion-row>
           </div>
@@ -47,7 +47,7 @@
             <p text-center>{{ 'TIME_BID' | translate }}</p>
             <ion-row no-padding>
               <ion-col col-12 class="col-green" no-padding text-center>
-                {{ item.datestart | date:'dd/MM/yy - HH:mm' }}
+                {{ item.datestart | date:'dd/MM/yy'}} {{getTimeOnly(item.datestart)}}
               </ion-col>
             </ion-row>
           </div>
