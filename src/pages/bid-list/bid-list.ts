@@ -33,8 +33,10 @@ export class BidListPage {
   }
 
   ionViewWillEnter() {
-    this.index = '0';
     this.user = JSON.parse(window.localStorage.getItem('user@' + Constants.URL));
+    if (!this.user) {
+      this.index = '0';
+    }
     this.bidLoadData();
   }
 
