@@ -4,6 +4,8 @@ import moment from 'moment';
 import { BidProvider } from '../../providers/bid/bid';
 import { BidMasterModel } from '../../models/bid.model';
 import { LoadingProvider } from '../../providers/loading/loading';
+import { UserModel } from '../../models/user.model';
+import { Constants } from '../../app/app.constants';
 // declare let moment;
 /**
  * Generated class for the BidListPage page.
@@ -21,6 +23,7 @@ export class BidListPage {
 
   bidData: BidMasterModel = new BidMasterModel();
   index: string = '0';
+  user: UserModel = new UserModel();
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -30,7 +33,7 @@ export class BidListPage {
   }
 
   ionViewWillEnter() {
-    console.log('ionViewDidLoad BidListPage');
+    this.user = JSON.parse(window.localStorage.getItem('user@' + Constants.URL));
     this.bidLoadData();
   }
 
@@ -43,17 +46,22 @@ export class BidListPage {
     })
   }
 
+  doRefresh(refresher) {
+    this.bidLoadData();
+    refresher.complete();
+  }
+
   startTimer() {
     // console.log(this.bidData.length);
     this.bidData.items.forEach(element => {
       element.items.forEach((item: any) => {
         let eventTime: any = new Date(item.dateend);
-        let currentTime: any = new Date();
+        let currentTime: any = new Date(this.bidData.datenow);
         let leftTime = eventTime - currentTime;
         let duration = moment.duration(leftTime, 'milliseconds');
         let interval = 1000;
 
-        let intervalId = setInterval(function () {
+        let intervalId = setInterval(() => {
           if (duration.asSeconds() <= 0) {
             clearInterval(intervalId);
           }

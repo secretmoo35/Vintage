@@ -2,8 +2,9 @@ export class BidDetailModel {
     _id: string;
     shop: ShopBidModel = new ShopBidModel();
     product: ProductBidModel = new ProductBidModel();
-    datestart: string;
-    dateend: string;
+    datestart: Date;
+    dateend: Date;
+    datenow: Date;
     price: number;
     pricestart: number;
     pricebid: number;

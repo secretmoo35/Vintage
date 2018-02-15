@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/toPromise';
 import { BidMasterModel } from '../../models/bid.model';
 import { BidDetailModel } from '../../models/biddetail.model';
+import { Constants } from '../../app/app.constants';
+import { AuthProvider } from '../auth/auth';
 
 /*
   Generated class for the BidProvider provider.
@@ -12,13 +14,16 @@ import { BidDetailModel } from '../../models/biddetail.model';
 */
 @Injectable()
 export class BidProvider {
-
-  constructor(public http: HttpClient) {
-    console.log('Hello BidProvider Provider');
+  API_URL: string = Constants.URL;
+  constructor(
+    public http: HttpClient,
+    private auth: AuthProvider    
+  ) {
   }
 
   getBidService(): Promise<BidMasterModel> {
-    return this.http.get('./assets/json/bid.json')
+    let header = this.auth.setHeader();
+    return this.http.get(this.API_URL + '/api/getbidlist', { headers: header })
       .toPromise()
       .then(response => response as BidMasterModel)
       .catch(this.handleError);

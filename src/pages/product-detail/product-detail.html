@@ -33,10 +33,37 @@
       <ion-badge color="secondary" *ngIf="productData.isrecommend">{{ 'RECOMMEND' | translate }}</ion-badge>
     </ion-col>
   </ion-row>
-  <p padding-left padding-right>
-    {{ productData.detail }}
-  </p>
-  <ion-item-divider color="light">
+  
+  <ion-card>
+    <ion-card-header (click)="toggleAddccoding()">
+      {{ 'VIEW_DETAIL' | translate }}
+      <ion-icon color="success" item-end class="exp" [name]="accordion ? 'ios-arrow-dropdown-outline' : 'ios-arrow-dropright-outline'"></ion-icon>
+    </ion-card-header>
+
+    <ion-card-content #cont>
+      {{ productData.detail }}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header (click)="toggleAddccodingShip()">
+      {{ 'SHIPPING_TYPE' | translate }}
+      <ion-icon color="success" item-end class="exp" [name]="accordionShip ? 'ios-arrow-dropdown-outline' : 'ios-arrow-dropright-outline'"></ion-icon>
+    </ion-card-header>
+
+    <ion-card-content #ship>
+      <ion-list>
+        <ion-item *ngFor="let item of productData.shippings">
+          <h2>{{item.ref.name}}
+          </h2>
+          <p>{{item.ref.detail}}</p>
+          <p *ngIf="item.price && item.price > 0">{{'PRICE' | translate}} {{item.price}} {{'THB' | translate}}</p>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- <ion-item-divider color="light">
     <ion-icon name="pin"></ion-icon>
     <b>{{ 'SHIPPING_TYPE' | translate }}</b>
   </ion-item-divider>
@@ -47,7 +74,7 @@
       <p>{{item.ref.detail}}</p>
       <p *ngIf="item.price && item.price > 0">{{'PRICE' | translate}} {{item.price}} {{'THB' | translate}}</p>
     </ion-item>
-  </ion-list>
+  </ion-list> -->
 
   <div text-center class="count">
     <button ion-button outline color="bite" class="count-radias" (click)="countDelete()">-</button>

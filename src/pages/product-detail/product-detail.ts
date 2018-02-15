@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, Renderer } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { CartProvider } from '../../providers/cart/cart';
 import { LoadingProvider } from '../../providers/loading/loading';
@@ -15,12 +15,16 @@ import { UserModel } from '../../models/user.model';
   templateUrl: 'product-detail.html',
 })
 export class ProductDetailPage {
+  @ViewChild('cont') cardContent: any;
+  @ViewChild('ship') shipContent: any;
 
   productData: ProductDetailModel = new ProductDetailModel();
   remark: string = '';
   numberCount: number = 1;
   amount: number = 0;
   user: UserModel = new UserModel();
+  accordion = false;
+  accordionShip = false;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -29,7 +33,8 @@ export class ProductDetailPage {
     private productProvider: ProductProvider,
     private loading: LoadingProvider,
     private alert: AlertProvider,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private renderer: Renderer
   ) {
   }
 
@@ -39,6 +44,15 @@ export class ProductDetailPage {
     this.getProductDetail();
   }
 
+  def() {
+    setTimeout(() => {
+      if (this.cardContent && this.cardContent.nativeElement !== "undefined") {
+        this.renderer.setElementStyle(this.cardContent.nativeElement, "display", "none");
+        this.renderer.setElementStyle(this.shipContent.nativeElement, "display", "none");
+      }
+    }, 0);
+  }
+
   getProductDetail() {
     this.loading.onLoading();
     let productId = this.navParams.get('productId');
@@ -46,6 +60,7 @@ export class ProductDetailPage {
       this.productData = res;
       this.countPrice();
       this.onCheckFavorite();
+      this.def();
       this.loading.dismiss();
     }, (err) => {
       this.loading.dismiss();
@@ -57,6 +72,28 @@ export class ProductDetailPage {
         this.alert.onAlert('Product', 'Error loading product.', 'OK');
       }
     });
+  }
+
+  toggleAddccoding() {
+    if (this.accordion) {
+      this.renderer.setElementStyle(this.cardContent.nativeElement, "display", "none");
+    } else {
+      this.renderer.setElementStyle(this.cardContent.nativeElement, "max-height", "100%");
+      this.renderer.setElementStyle(this.cardContent.nativeElement, "padding", "8px");
+      this.renderer.setElementStyle(this.cardContent.nativeElement, "display", "flex");
+    }
+    this.accordion = !this.accordion;
+  }
+
+  toggleAddccodingShip() {
+    if (this.accordionShip) {
+      this.renderer.setElementStyle(this.shipContent.nativeElement, "display", "none");
+    } else {
+      this.renderer.setElementStyle(this.shipContent.nativeElement, "max-height", "100%");
+      this.renderer.setElementStyle(this.shipContent.nativeElement, "padding", "8px");
+      this.renderer.setElementStyle(this.shipContent.nativeElement, "display", "flex");
+    }
+    this.accordionShip = !this.accordionShip;
   }
 
   countDelete() {

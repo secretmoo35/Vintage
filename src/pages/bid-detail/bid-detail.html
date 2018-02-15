@@ -35,24 +35,51 @@
       </ion-row>
 
 
-      <ion-row class="padding-style" *ngIf="bidDetailData.isBid">
-        <ion-col col-6 text-center class="time danger">
-          <div class="sub-time">
-            <div>
-              <h2>{{ 'TIME_LEFT' | translate }}</h2>
-              <h2 class="time-magin">{{bidDetailData.timeleft}}</h2>
+      <ion-row class="padding-style row-bid" *ngIf="bidDetailData.isBid">
+
+        <ion-col no-padding col-6 text-center class="col-cs-bid">
+          <p class="bid-title">{{ 'START_PRICE' | translate }}</p>
+          <p class="bid-price">{{ bidDetailData.pricestart | number}} {{ 'THB' | translate }}</p>
+        </ion-col>
+        <div class="vl"></div>
+        <ion-col no-padding col-6 text-center class="col-cs-bid">
+          <p class="bid-title">{{ 'PLACE_BID' | translate }}</p>
+          <p class="bid-price">{{ bidDetailData.pricebid | number}} {{ 'THB' | translate }}</p>
+        </ion-col>
+
+        <ion-col col-12 text-center class="time danger margin-top">
+          <div class="sub-time height-60">
+            <div class="list-row">
+              <ion-row class="list-row">
+                <ion-col col-6 text-left class="time danger">
+                  <div class="sub-time">
+                    <div>
+                      <h4 class="no-margin">{{ 'TIME_LEFT' | translate }}</h4>
+                    </div>
+                  </div>
+                </ion-col>
+                <ion-col col-6 text-right class="time danger">
+                  <div class="sub-time">
+                    <div>
+                      <h4 class="no-margin">{{bidDetailData.timeleft}}</h4>
+                    </div>
+                  </div>
+                </ion-col>
+              </ion-row>
             </div>
           </div>
         </ion-col>
-        <ion-col col-6 class="time">
+        <ion-col col-12 class="time">
           <div class="sub-time">
-            <ion-row class="list-user">
+            <ion-row class="list-row">
               <ion-col col-12 text-center>
-                <img src="{{bidDetailData.currentuser.profileImageURL}}" class="image-user">
-              </ion-col>
-              <ion-col col-12 text-center>
-                <h2 class="title">{{ 'BID_CURRENT' | translate }}</h2>
-                <p class="discription">{{ bidDetailData.price | number}} {{ 'THB' | translate }}</p>
+                <div class="sub-time">
+                  <div>
+                    <img src="{{bidDetailData.currentuser.profileImageURL}}" class="image-user">
+                    <h2 class="title">{{ 'BID_CURRENT' | translate }}</h2>
+                    <p class="discription">{{ bidDetailData.price | number}} {{ 'THB' | translate }}</p>
+                  </div>
+                </div>
               </ion-col>
             </ion-row>
           </div>
@@ -98,7 +125,7 @@
 </ion-content>
 <ion-footer *ngIf="bidDetailData.isBid">
   <ion-toolbar>
-    <button ion-button block color="primary" class="blink">
+    <button ion-button block color="primary" class="blink" (click)="doBid()">
       <ion-grid>
         <ion-row>
           <ion-col col-12>

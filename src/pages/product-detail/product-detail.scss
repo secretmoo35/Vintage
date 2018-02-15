@@ -1,4 +1,9 @@
 page-product-detail {
+    .scroll-content {
+        overflow-x: none !important;
+        overflow-y: auto !important;
+        margin-bottom: 30px !important;
+    }
     ion-slides {
         height: auto !important;
     }
@@ -65,9 +70,9 @@ page-product-detail {
         color: #F44336; // position: absolute;
         z-index: 9999;
         bottom: 0px;
-        right: 14px;
-        font-size: 30px;
-        // background-color: #21262b;
+        right: 20px;
+        margin-left: 2px;
+        font-size: 30px; // background-color: #21262b;
         height: 50px !important;
         width: 70px;
     }
@@ -79,5 +84,26 @@ page-product-detail {
         padding-left: 16px;
         border-bottom: none !important;
         height: 40px !important;
+    }
+    .card-header {
+        padding: 10px !important;
+        background-color: #f6f5f5;
+    }
+    .card-content {
+        padding: 0px 16px;
+        max-height: 0px;
+        border: 1px solid #f6f5f5;
+        ;
+    }
+    .card {
+        box-shadow: none !important;
+        margin: 4px 0px 2px 0px !important;
+        width: 100%;
+        padding: 0px 8px 0px 8px;
+    }
+    .exp {
+        position: absolute;
+        right: 26px;
+        font-size: 1.5em;
     }
 }

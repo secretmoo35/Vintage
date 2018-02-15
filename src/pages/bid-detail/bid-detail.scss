@@ -2,15 +2,6 @@ page-bid-detail {
     .padding {
         padding: 10px !important;
     }
-    .col-shop {
-        height: 70px;
-    }
-    img {
-        object-fit: cover;
-    }
-    .list-shop-name {
-        height: 40px;
-    }
     .bid-name {
         margin-top: 0px !important;
         font-weight: bold;
@@ -56,7 +47,7 @@ page-bid-detail {
         width: 100%;
     }
     .image-user {
-        width: 30%;
+        width: 50%;
         border-radius: 100%;
     }
     .title {
@@ -81,7 +72,6 @@ page-bid-detail {
     }
     .card {
         box-shadow: none !important;
-        height: 95%;
         margin: 4px 0px 0px 0px !important;
         width: 100%;
     }
@@ -93,30 +83,88 @@ page-bid-detail {
     h2 {
         margin-top: 6px !important;
     }
+    .list-row {
+        width: 100%;
+    }
+    .row-bid {
+        margin-top: 8px;
+    }
+    .vl {
+        border-left: 2px solid #f6f5f5;
+        height: auto;
+    }
+    .col-cs-bid {
+        margin-left: -2px;
+        border-top: 2px solid #f6f5f5;
+        border-bottom: 2px solid #f6f5f5;
+    }
+    .bid-title {
+        margin: 0px 0px 8px 0px;
+        font-size: 22px;
+    }
+    .bid-price {
+        margin: 0px 0px 8px 0px;
+        font-size: 22px;
+        font-weight: bold;
+        color: $app;
+    }
+    .list-custom {
+        width: 200px !important;
+        position: absolute !important;
+        left: 50% !important;
+        top: 50px;
+        margin-left: -100px !important;
+        border: 2px solid $app;
+        border-radius: 100px;
+        height: 65px !important;
+        .item {
+            border-radius: 100px;
+            height: 60px !important;
+            padding: 0px 0px 0px 4px !important;
+        }
+        .item-inner {
+            text-align: center;
+            margin-left: -4px !important;
+        }
+        img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+        }
+    }
+    .margin-top {
+        margin-top: 16px;
+    }
+    .no-margin {
+        margin: 0px !important;
+    }
+    .height-60 {
+        height: 60px;
+    }
 }
 
 @keyframes blink {
     0% {
-        color: #488aff;
+        color: #FFFFFF;
     }
     100% {
-        color: #FFFFFF;
+        color: #488aff;
     }
 }
 
 @-webkit-keyframes blink {
     0% {
-        color: #488aff;
+        color: #FFFFFF;
     }
     100% {
-        color: #FFFFFF;
+        color: #488aff;
     }
 }
 
 .blink {
-    -webkit-animation: blink 1.5s linear infinite;
-    -moz-animation: blink 1.5s linear infinite;
-    animation: blink 1.5s linear infinite;
+    -webkit-animation: blink 1.2s linear infinite;
+    -moz-animation: blink 1.2s linear infinite;
+    animation: blink 1.2s linear infinite;
     font-size: 1.5em;
     .button-inner {
         margin-left: -10px;
