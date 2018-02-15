@@ -39,12 +39,12 @@ export class NotificationPage {
   }
 
   getNotification() {
-    this.loading.onLoading();
+    // this.loading.onLoading();
     this.notificationProvider.getNotification().then((data) => {
-      this.loading.dismiss();
+      // this.loading.dismiss();
       this.notificationData = data;
     }, (err) => {
-      this.loading.dismiss();
+      // this.loading.dismiss();
     });
   }
 
