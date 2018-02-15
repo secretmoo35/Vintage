@@ -54,8 +54,8 @@ export class HomePage {
     }
   }
 
-  toBidDetail() {
-    this.navCtrl.push('BidDetailPage');
+  toBidDetail(item) {
+    this.navCtrl.push('BidDetailPage', { _id: item._id });
   }
 
 }
