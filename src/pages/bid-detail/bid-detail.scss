@@ -1,8 +1,9 @@
 page-bid-detail {
     .scroll-margin {
-        .scroll-content {
-            margin-bottom: 100px !important;
-        }
+        margin-bottom: 60px !important;
+    }
+    .scroll-margin-none {
+        margin-bottom: 0px !important;
     }
     .padding {
         padding: 10px !important;
@@ -29,7 +30,7 @@ page-bid-detail {
         align-items: center;
         justify-content: center;
         padding: 6px;
-        div{
+        div {
             width: 100%;
         }
     }

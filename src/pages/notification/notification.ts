@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { NotificationProvider } from '../../providers/notification/notification';
-import { LoadingProvider } from '../../providers/loading/loading';
+// import { LoadingProvider } from '../../providers/loading/loading';
 import moment from 'moment';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -24,7 +24,7 @@ export class NotificationPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private notificationProvider: NotificationProvider,
-    private loading: LoadingProvider,
+    // private loading: LoadingProvider,
     private translate: TranslateService
   ) {
   }
