@@ -41,5 +41,8 @@ page-bid-list {
     }
     .buttun-hammer{
         margin: 0px !important;
+        .button-inner{
+            margin-left: -10px;
+        }
     }
 }

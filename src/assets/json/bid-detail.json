@@ -1,9 +1,5 @@
 {
   "_id": "1",
-  "shop": {
-    "name": "Camera shop",
-    "image": "https://www.sinthanee.com/image/cache/product/2016-11-21/camera/nikon/coolpix%20s6900-1000x1000.jpg"
-  },
   "product": {
     "name": "Sensor Exmor™",
     "images": [
@@ -11,7 +7,7 @@
       "https://www.sinthanee.com/image/cache/product/2016-11-21/camera/canon/m10-1000x1000.jpg",
       "https://www.sinthanee.com/image/cache/product/2016-11-21/camera/nikon/coolpix%20s6900-1000x1000.jpg"
     ],
-    "detail": "Sensor Exmor™ CMOS ขนาด APS-C ความละเอียด 24.3 megapixel Processor BIONZ X ระบบออโต้โฟกัส Fast Hybrid AF พร้อมจุดโฟกัส 179 จุด หน้ าจอที่ พั บปรั บได้ 180 องศาสำหรั บการถ่ ายภาพตั วเอง Builtin wifi และ NFC บั นทึก Video Full HD"
+    "detail": "Sensor Exmor™ CMOS ขนาด APS-C ความละเอียด 24.3 megapixel Processor BIONZ X ระบบออโต้โฟกัส Fast Hybrid AF พร้อมจุดโฟกัส 179 จุดหน้าจอที่พับปรับได้ 180 องศาสำหรับการถ่ายภาพตัวเอง Builtin wifi และ NFC บันทึก Video Full HD"
 
   },
   "datestart": "Wed Jan 31 2018 16:21:38 GMT+0700 (SE Asia Standard Time)",

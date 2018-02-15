@@ -1,6 +1,6 @@
 page-bid-detail {
     .padding {
-        padding: 8px !important;
+        padding: 10px !important;
     }
     .col-shop {
         height: 70px;
@@ -68,6 +68,30 @@ page-bid-detail {
         font-weight: bold;
         font-size: 1.5em;
         margin: 0px;
+    }
+    .card-header {
+        padding: 10px !important;
+        background-color: #f6f5f5;
+    }
+    .card-content {
+        padding: 0px 16px;
+        max-height: 0px;
+        border: 1px solid #f6f5f5;
+        ;
+    }
+    .card {
+        box-shadow: none !important;
+        height: 95%;
+        margin: 4px 0px 0px 0px !important;
+        width: 100%;
+    }
+    .exp {
+        position: absolute;
+        right: 26px;
+        font-size: 1.5em;
+    }
+    h2 {
+        margin-top: 6px !important;
     }
 }
 

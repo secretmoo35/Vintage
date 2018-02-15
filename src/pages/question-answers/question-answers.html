@@ -13,16 +13,14 @@
 </ion-header>
 
 
-<ion-content  no-bounce>
+<ion-content no-bounce>
   <div *ngIf="language === 'th'">
     <ion-list>
       <ion-item *ngFor="let d of qas; let i=index" text-wrap (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}">
         <ion-row>
-          <ion-col col-10>
+          <ion-col col-12>
             คำถาม : {{d.questionsTH}}
-          </ion-col>
-          <ion-col col-2>
-            <ion-icon color="success" item-end class="icon-right" [name]="isGroupShown(i) ? 'arrow-dropdown' : 'arrow-dropright'"></ion-icon>
+            <ion-icon item-end class="icon-right" [name]="isGroupShown(i) ? 'ios-arrow-dropdown-outline' : 'ios-arrow-dropright-outline'"></ion-icon>
           </ion-col>
         </ion-row>
         <ion-row *ngIf="isGroupShown(i)">

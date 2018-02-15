@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/toPromise';
-import { BidModel } from '../../models/bid.model';
+import { BidMasterModel } from '../../models/bid.model';
 import { BidDetailModel } from '../../models/biddetail.model';
 
 /*
@@ -17,19 +17,19 @@ export class BidProvider {
     console.log('Hello BidProvider Provider');
   }
 
-  getBidService(): Promise<BidModel> {
-      return this.http.get('./assets/json/bid.json')
+  getBidService(): Promise<BidMasterModel> {
+    return this.http.get('./assets/json/bid.json')
       .toPromise()
-      .then(response => response as BidModel)
+      .then(response => response as BidMasterModel)
       .catch(this.handleError);
   }
 
   getBidDetail(): Promise<BidDetailModel> {
     return this.http.get('./assets/json/bid-detail.json')
-    .toPromise()
-    .then(response => response as BidDetailModel)
-    .catch(this.handleError);
-}
+      .toPromise()
+      .then(response => response as BidDetailModel)
+      .catch(this.handleError);
+  }
 
   private handleError(error: any): Promise<any> {
     return Promise.reject(error.message || error);

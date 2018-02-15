@@ -9,6 +9,31 @@
 <ion-content no-bounce>
   <div *ngIf="bidDetailData.product.name">
     <ion-grid no-padding>
+      <ion-row no-padding>
+        <ion-col col-12>
+          <ion-slides pager>
+            <ion-slide *ngFor="let item of bidDetailData.product.images">
+              <img src="{{item}}" class="arvatar-slide">
+            </ion-slide>
+          </ion-slides>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12 class="padding">
+          <h2 class="bid-name">{{bidDetailData.product.name}}</h2>
+          <ion-card>
+            <ion-card-header (click)="toggleAddccoding()">
+              {{ 'VIEW_DETAIL' | translate }}
+              <ion-icon color="success" item-end class="exp" [name]="accordion ? 'ios-arrow-dropdown-outline' : 'ios-arrow-dropright-outline'"></ion-icon>
+            </ion-card-header>
+
+            <ion-card-content #cont>
+              {{bidDetailData.product.detail}}
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
 
       <ion-row class="padding-style" *ngIf="bidDetailData.isBid">
         <ion-col col-6 text-center class="time danger">
@@ -68,35 +93,6 @@
         </ion-col>
       </ion-row>
 
-      <ion-row class="padding-style">
-        <ion-col col-12>
-          <ion-slides pager>
-            <ion-slide *ngFor="let item of bidDetailData.product.images">
-              <img src="{{item}}" class="arvatar-slide">
-            </ion-slide>
-          </ion-slides>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col col-12 class="col-shop">
-          <ion-list mode="ios">
-            <ion-item class="list-shop-name">
-              <ion-avatar item-start>
-                <img src="{{bidDetailData.shop.image}}">
-              </ion-avatar>
-              <h2>
-                {{bidDetailData.shop.name}}
-              </h2>
-            </ion-item>
-          </ion-list>
-        </ion-col>
-        <ion-col col-12 class="padding">
-          <h2 class="bid-name">{{bidDetailData.product.name}}</h2>
-          <p>
-            {{bidDetailData.product.detail}}
-          </p>
-        </ion-col>
-      </ion-row>
     </ion-grid>
   </div>
 </ion-content>

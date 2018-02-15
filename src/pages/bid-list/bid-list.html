@@ -8,20 +8,31 @@
 
 
 <ion-content no-bounce>
-  <ion-grid *ngIf="bidData && bidData.items">
+
+  <div padding>
+    <ion-segment mode="ios" color="app" [(ngModel)]="index">
+      <ion-segment-button value="0">
+        {{ 'BID_NOW' | translate }}
+      </ion-segment-button>
+      <ion-segment-button value="1">
+        {{ 'BIT_COMING' | translate }}
+      </ion-segment-button>
+      <ion-segment-button value="2">
+        {{ 'BIT_ME' | translate }}
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <ion-grid *ngIf="bidData.items && bidData.items[index] && bidData.items[index].items">
     <ion-row>
-      <ion-col col-6 col-md-4 col-lg-4 class="col-grid" *ngFor="let item of bidData.items">
+      <ion-col col-6 col-md-4 col-lg-4 class="col-grid" *ngFor="let item of bidData.items[index].items">
         <ion-card (click)="toBidDetail()">
           <ion-card-content>
-            <!-- <img src="{{item.image}}" alt="imgErr"> -->
             <preload-image class="products-image" [ratio]="{w:1, h:1}" [src]="item.image"></preload-image>
           </ion-card-content>
           <div *ngIf="item.isBid">
             <p text-center>{{ 'TIME_LEFT' | translate }}</p>
-            <ion-row no-padding *ngIf="item.timeleftH">
-              <!-- <ion-col col-12 no-padding text-center>
-                <span class="timer-custom">{{item.timeleftH}} : {{item.timeleftM}} : {{item.timeleftS}}</span>
-              </ion-col> -->
+            <ion-row no-padding *ngIf="item.timeleft">
               <ion-col col-12 no-padding text-center>
                 <b class="col-red">{{item.timeleft}}</b>
               </ion-col>
@@ -51,7 +62,7 @@
             </ion-col>
             <ion-col col-12 text-center>
               <button *ngIf="item.isBid" ion-button block small class="buttun-hammer" color="app">
-                <ion-icon ios="ios-hammer" md="md-hammer"></ion-icon>&nbsp; {{ 'BID_SUB' | translate }}
+                <ion-icon ios="ios-hammer" md="md-hammer"></ion-icon>&nbsp; {{ 'BID_NOW_' | translate }}
               </button>
             </ion-col>
           </ion-row>

@@ -1,10 +1,13 @@
 page-question-answers {
-    .icon-right{
+    .icon-right {
         position: absolute;
         right: 0;
-        top: 0;
+        margin: 2px !important;
     }
-    .answer{
+    .answer {
         color: gray;
+    }
+    ion-icon {
+        font-size: 1.5em;
     }
 }

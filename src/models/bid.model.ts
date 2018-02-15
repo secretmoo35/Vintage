@@ -1,4 +1,9 @@
+export class BidMasterModel {
+    datenow: Date;
+    items: Array<BidModel>;
+}
 export class BidModel {
+    type: string;
     items: Array<ItemBidModel>;
 }
 export class ItemBidModel {
@@ -6,6 +11,6 @@ export class ItemBidModel {
     time: string;
     price: number;
     isBid: boolean;
-    pricestart:number;
-    pricebid:number;
+    pricestart: number;
+    pricebid: number;
 }

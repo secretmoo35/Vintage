@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnInit, Renderer } from '@angular/core';
+import { Component, ViewChild, Renderer } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { BidProvider } from '../../providers/bid/bid';
 import { BidDetailModel } from '../../models/biddetail.model';
@@ -18,12 +18,12 @@ import { LoadingProvider } from '../../providers/loading/loading';
   selector: 'page-bid-detail',
   templateUrl: 'bid-detail.html',
 })
-export class BidDetailPage implements OnInit {
+export class BidDetailPage {
 
   bidDetailData: BidDetailModel = new BidDetailModel();
 
-  accordion = true
-  @ViewChild('cc') cardContent: any;
+  accordion = false
+  @ViewChild('cont') cardContent: any;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -34,17 +34,6 @@ export class BidDetailPage implements OnInit {
   ) {
   }
 
-  ngOnInit() {
-    // if (this.cardContent && this.cardContent.nativeElement !== "undefined") {
-    //   console.log(this.cardContent.nativeElement);
-    //   this.renderer.setElementStyle(this.cardContent.nativeElement, "webkitTransition", "max-height 300ms, padding 300ms");
-    // }
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad BidDetailPage');
-
-  }
   ionViewWillEnter() {
 
     this.auth.authenticated().then((res) => {
@@ -56,14 +45,25 @@ export class BidDetailPage implements OnInit {
     });
   }
 
+  def() {
+    setTimeout(() => {
+      if (this.cardContent && this.cardContent.nativeElement !== "undefined") {
+        this.renderer.setElementStyle(this.cardContent.nativeElement, "display", "none");
+      }
+    }, 0);
+  }
+
   toggleAddccoding() {
     if (this.accordion) {
-      this.renderer.setElementStyle(this.cardContent.nativeElement, "max-height", "0px");
-      this.renderer.setElementStyle(this.cardContent.nativeElement, "padding", "0px 16px");
+      // this.renderer.setElementStyle(this.cardContent.nativeElement, "max-height", "0px");
+      this.renderer.setElementStyle(this.cardContent.nativeElement, "display", "none");
+      // this.renderer.setElementStyle(this.cardContent.nativeElement, "webkitTransition", "display 300ms");
 
     } else {
-      this.renderer.setElementStyle(this.cardContent.nativeElement, "max-height", "500px");
-      this.renderer.setElementStyle(this.cardContent.nativeElement, "padding", "13px 16px");
+      this.renderer.setElementStyle(this.cardContent.nativeElement, "max-height", "100%");
+      this.renderer.setElementStyle(this.cardContent.nativeElement, "padding", "8px");
+      this.renderer.setElementStyle(this.cardContent.nativeElement, "display", "flex");
+      // this.renderer.setElementStyle(this.cardContent.nativeElement, "webkitTransition", "display 300ms");
     }
     this.accordion = !this.accordion;
   }
@@ -75,6 +75,7 @@ export class BidDetailPage implements OnInit {
       this.bidDetailData = res;
       this.bidDetailData.timeleft = '';
       this.startTimer();
+      this.def();
     }, (err) => {
       this.loading.dismiss();
       this.navCtrl.pop();
