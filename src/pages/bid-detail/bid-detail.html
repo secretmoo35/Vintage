@@ -6,7 +6,7 @@
 
 </ion-header>
 
-<ion-content no-bounce>
+<ion-content no-bounce class="{{ (bidDetailData && bidDetailData.isBid) ? 'scroll-margin':''}}">
   <div *ngIf="bidDetailData.product.name">
     <ion-grid no-padding>
       <ion-row no-padding>
@@ -21,7 +21,7 @@
       <ion-row>
         <ion-col col-12 class="padding">
           <h2 class="bid-name">{{bidDetailData.product.name}}</h2>
-          <ion-card>
+          <ion-card *ngIf="bidDetailData.product.detail">
             <ion-card-header (click)="toggleAddccoding()">
               {{ 'VIEW_DETAIL' | translate }}
               <ion-icon color="success" item-end class="exp" [name]="accordion ? 'ios-arrow-dropdown-outline' : 'ios-arrow-dropright-outline'"></ion-icon>
@@ -123,8 +123,9 @@
     </ion-grid>
   </div>
 </ion-content>
-<ion-footer *ngIf="bidDetailData.isBid">
-  <ion-toolbar>
+
+<ion-footer>
+  <ion-toolbar *ngIf="bidDetailData.isBid">
     <button ion-button block color="primary" class="blink" (click)="doBid()">
       <ion-grid>
         <ion-row>
