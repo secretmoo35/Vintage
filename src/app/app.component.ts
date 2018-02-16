@@ -62,6 +62,7 @@ export class MyApp {
 
     this.oneSignal.handleNotificationReceived().subscribe((onReceived) => {
       // do something when notification is received
+      alert('test');
     });
     this.oneSignal.handleNotificationOpened().subscribe(() => {
       // do something when a notification is opened

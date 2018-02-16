@@ -33,6 +33,7 @@ page-bid-detail {
         height: 100% !important;
         div {
             width: 100%;
+            height: 100% !important;
         }
     }
     .time-magin {
@@ -72,6 +73,16 @@ page-bid-detail {
     }
     .discription {
         color: $app !important;
+        font-weight: bold;
+        font-size: 1.5em;
+        margin: 0px;
+    }
+    .title-danger {
+        font-size: 1.2em;
+        margin: 0px;
+    }
+    .discription-danger {
+        color: #f44336 !important;
         font-weight: bold;
         font-size: 1.5em;
         margin: 0px;
