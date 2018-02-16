@@ -363,9 +363,9 @@ export class StepOrderPage {
       this.cart.clearCart();
       let language = this.translate.currentLang;
       if (language === 'th') {
-        this.alert.onAlert('การสั่งซื้อสำเร็จ', 'ขอบคุณที่ใช้บริการ<br>หมายเลขการสั่งซื้อ ' + res._id, 'ตกลง');
+        this.alert.onAlert('การสั่งซื้อสำเร็จ', 'ขอบคุณที่ใช้บริการ<br>หมายเลขการสั่งซื้อ ' + res.docno, 'ตกลง');
       } else if (language === 'en') {
-        this.alert.onAlert('Order success.', 'Thank you.<br>Order no. ' + res._id, 'OK');
+        this.alert.onAlert('Order success.', 'Thank you.<br>Order no. ' + res.docno, 'OK');
       }
     }, (err) => {
       this.loading.dismiss();

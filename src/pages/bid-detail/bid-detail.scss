@@ -30,6 +30,7 @@ page-bid-detail {
         align-items: center;
         justify-content: center;
         padding: 6px;
+        height: 100% !important;
         div {
             width: 100%;
         }
@@ -51,7 +52,13 @@ page-bid-detail {
         .col {
             padding: 0px;
         }
-    } // 
+    }
+    .padding-style-min {
+        padding: 0px 1px 1px 1px;
+        .col {
+            padding: 0px;
+        }
+    }
     .width-100 {
         width: 100%;
     }
@@ -103,9 +110,9 @@ page-bid-detail {
         height: auto;
     }
     .col-cs-bid {
-        margin-left: -2px;
-        border-top: 2px solid #f6f5f5;
-        border-bottom: 2px solid #f6f5f5;
+        margin-left: -1px;
+        border-top: 1px solid #f6f5f5;
+        border-bottom: 1px solid #f6f5f5;
     }
     .bid-title {
         margin: 0px 0px 8px 0px;

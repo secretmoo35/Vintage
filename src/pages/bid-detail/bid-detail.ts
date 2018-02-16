@@ -82,13 +82,11 @@ export class BidDetailPage {
     let leftTime = eventTime - currentTime;
     let duration = moment.duration(leftTime, 'milliseconds');
     let interval = 1000;
-
     let intervalId = setInterval(() => {
       if (duration.asSeconds() <= 0) {
         clearInterval(intervalId);
       }
       duration = moment.duration(duration.asSeconds() - 1, 'seconds');
-      //  duration.days() + ':' + 
       data.timeleft = ((duration.hours() > 9) ? duration.hours() : '0' + duration.hours()) + ':' + ((duration.minutes() > 9) ? duration.minutes() : '0' + duration.minutes()) + ':' + ((duration.seconds() > 9) ? duration.seconds() : '0' + duration.seconds());
     }, interval);
   }
