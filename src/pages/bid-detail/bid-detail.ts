@@ -73,7 +73,7 @@ export class BidDetailPage {
       this.bidDetailData.timeleft = '';
       this.startTimer();
       this.def();
-      this.socketIO();
+      this.socketOn();
     }, (err) => {
       this.loading.dismiss();
       this.navCtrl.pop();
@@ -119,19 +119,24 @@ export class BidDetailPage {
     }
     this.socket.emit('_bid', data);
   }
+  // soket
 
-  socketIO() {
+  onSocketConnect() {
+    this.socket.connect();
+  }
+
+  ionViewWillLeave() {
+    this.socket.disconnect();
+    this.socket.removeAllListeners();
+  }
+
+  socketOn() {
+    this.onSocketConnect();
     this.socket.on(this.bidDetailData._id, (data) => {
       console.log(data);
       this.bidDetailData = data.item;
     });
   }
-
-  // soket
-
-  // ionViewWillLeave() {
-  //   this.socket.disconnect();
-  // }
 
 
 }
