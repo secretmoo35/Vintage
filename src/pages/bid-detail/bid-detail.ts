@@ -133,8 +133,11 @@ export class BidDetailPage {
   socketOn() {
     this.onSocketConnect();
     this.socket.on(this.bidDetailData._id, (data) => {
-      console.log(data);
-      this.bidDetailData = data.item;
+      if (data.status === 200) {
+        this.bidDetailData = data.response.item;
+      }else{
+        alert('fail');
+      }
     });
   }
 
