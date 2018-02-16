@@ -74,7 +74,7 @@ export class BidDetailPage {
     this.bidProvider.getBidDetail(this.navParams.get('_id')).then(res => {
       this.loading.dismiss();
       this.bidDetailData = res;
-      this.bidDetailData.timeleft = '';
+      this.bidDetailData.timeleft = '00:00:00';
       this.startTimer();
       this.def();
       this.socketOn();
@@ -92,7 +92,7 @@ export class BidDetailPage {
     let duration = moment.duration(leftTime, 'milliseconds');
     let interval = 1000;
     let intervalId = setInterval(() => {
-      if (duration.asSeconds() <= 0) {
+      if (duration.asSeconds() < 1) {
         this.bidDetailData.timeleft = '00:00:00';
         clearInterval(intervalId);
       }
@@ -139,7 +139,8 @@ export class BidDetailPage {
     this.onSocketConnect();
     this.socket.on(this.bidDetailData._id, (data) => {
       if (data.status === 200) {
-        this.bidDetailData = data.response.item;
+        this.bidDetailData.currentuser = data.response.item.currentuser;
+        this.bidDetailData.price = data.response.item.price;
       } else {
         let language = this.translate.currentLang;
         if (language === 'th') {
