@@ -8,6 +8,8 @@ import { LoadingProvider } from '../../providers/loading/loading';
 import { Socket } from 'ng-socket-io';
 import { Constants } from '../../app/app.constants';
 import { UserModel } from '../../models/user.model';
+import { AlertProvider } from '../../providers/alert/alert';
+import { TranslateService } from '@ngx-translate/core';
 /**
  * Generated class for the BidDetailPage page.
  *
@@ -33,8 +35,10 @@ export class BidDetailPage {
     private renderer: Renderer,
     private bidProvider: BidProvider,
     private auth: AuthProvider,
+    private socket: Socket,
     private loading: LoadingProvider,
-    private socket: Socket
+    private alert: AlertProvider,
+    private translate: TranslateService,
   ) {
   }
 
@@ -81,18 +85,19 @@ export class BidDetailPage {
   }
 
   startTimer() {
-    let data = this.bidDetailData;
-    let eventTime: any = new Date(data.dateend);
-    let currentTime: any = new Date(data.datenow);
+    // let data = this.bidDetailData;
+    let eventTime: any = new Date(this.bidDetailData.dateend);
+    let currentTime: any = new Date(this.bidDetailData.datenow);
     let leftTime = eventTime - currentTime;
     let duration = moment.duration(leftTime, 'milliseconds');
     let interval = 1000;
     let intervalId = setInterval(() => {
       if (duration.asSeconds() <= 0) {
+        this.bidDetailData.timeleft = '00:00:00';
         clearInterval(intervalId);
       }
       duration = moment.duration(duration.asSeconds() - 1, 'seconds');
-      data.timeleft = ((duration.hours() > 9) ? duration.hours() : '0' + duration.hours()) + ':' + ((duration.minutes() > 9) ? duration.minutes() : '0' + duration.minutes()) + ':' + ((duration.seconds() > 9) ? duration.seconds() : '0' + duration.seconds());
+      this.bidDetailData.timeleft = ((duration.hours() > 9) ? duration.hours() : '0' + duration.hours()) + ':' + ((duration.minutes() > 9) ? duration.minutes() : '0' + duration.minutes()) + ':' + ((duration.seconds() > 9) ? duration.seconds() : '0' + duration.seconds());
     }, interval);
   }
 
@@ -135,8 +140,13 @@ export class BidDetailPage {
     this.socket.on(this.bidDetailData._id, (data) => {
       if (data.status === 200) {
         this.bidDetailData = data.response.item;
-      }else{
-        alert('fail');
+      } else {
+        let language = this.translate.currentLang;
+        if (language === 'th') {
+          this.alert.onAlert('การประมูล', 'เกิดข้อผิดพลาด', 'ตกลง');
+        } else if (language === 'en') {
+          this.alert.onAlert('Bid', 'error', 'OK');
+        }
       }
     });
   }
