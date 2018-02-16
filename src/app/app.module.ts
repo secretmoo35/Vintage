@@ -36,7 +36,9 @@ import { QuestionAnswersProvider } from '../providers/question-answers/question-
 import { OmiseProvider } from '../providers/omise/omise';
 import { NotificationProvider } from '../providers/notification/notification';
 
-const config: SocketIoConfig = { url: 'http://localhost:3000/', options: {} };
+// const config: SocketIoConfig = { url: 'http://localhost:3000/', options: {} };
+const config: SocketIoConfig = { url: 'https://vintage-server.herokuapp.com/', options: {} };
+
 
 @NgModule({
   declarations: [
