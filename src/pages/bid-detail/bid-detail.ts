@@ -5,7 +5,9 @@ import { BidDetailModel } from '../../models/biddetail.model';
 import { AuthProvider } from '../../providers/auth/auth';
 import moment from 'moment';
 import { LoadingProvider } from '../../providers/loading/loading';
-
+import { Socket } from 'ng-socket-io';
+import { Constants } from '../../app/app.constants';
+import { UserModel } from '../../models/user.model';
 /**
  * Generated class for the BidDetailPage page.
  *
@@ -21,8 +23,9 @@ import { LoadingProvider } from '../../providers/loading/loading';
 export class BidDetailPage {
 
   bidDetailData: BidDetailModel = new BidDetailModel();
+  accordion = false;
+  user: UserModel = new UserModel();
 
-  accordion = false
   @ViewChild('cont') cardContent: any;
   constructor(
     public navCtrl: NavController,
@@ -30,7 +33,8 @@ export class BidDetailPage {
     private renderer: Renderer,
     private bidProvider: BidProvider,
     private auth: AuthProvider,
-    private loading: LoadingProvider
+    private loading: LoadingProvider,
+    private socket: Socket
   ) {
   }
 
@@ -69,6 +73,7 @@ export class BidDetailPage {
       this.bidDetailData.timeleft = '';
       this.startTimer();
       this.def();
+      this.socketIO();
     }, (err) => {
       this.loading.dismiss();
       this.navCtrl.pop();
@@ -107,7 +112,26 @@ export class BidDetailPage {
   }
 
   bid() {
-
+    this.user = JSON.parse(window.localStorage.getItem('user@' + Constants.URL));
+    let data = {
+      item: this.bidDetailData,
+      user: this.user
+    }
+    this.socket.emit('_bid', data);
   }
+
+  socketIO() {
+    this.socket.on(this.bidDetailData._id, (data) => {
+      console.log(data);
+      this.bidDetailData = data.item;
+    });
+  }
+
+  // soket
+
+  // ionViewWillLeave() {
+  //   this.socket.disconnect();
+  // }
+
 
 }

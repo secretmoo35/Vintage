@@ -13,6 +13,13 @@ import { ImagePicker } from '@ionic-native/image-picker';
 import { Crop } from '@ionic-native/crop';
 import { Camera } from '@ionic-native/camera';
 import { OneSignal } from '@ionic-native/onesignal';
+import { GoogleMaps } from '@ionic-native/google-maps';
+import { NativeGeocoder } from '@ionic-native/native-geocoder';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+
+import * as ionicGalleryModal from 'ionic-gallery-modal';
+import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
 
 import { AuthProvider } from '../providers/auth/auth';
 import { LoadingProvider } from '../providers/loading/loading';
@@ -21,19 +28,15 @@ import { HomeProvider } from '../providers/home/home';
 import { BidProvider } from '../providers/bid/bid';
 import { AlertProvider } from '../providers/alert/alert';
 import { ShopListProvider } from '../providers/shop-list/shop-list';
-
-import * as ionicGalleryModal from 'ionic-gallery-modal';
-import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { ProductProvider } from '../providers/product/product';
 import { CartProvider } from '../providers/cart/cart';
 import { OrderProvider } from '../providers/order/order';
-import { GoogleMaps } from '@ionic-native/google-maps';
-import { NativeGeocoder } from '@ionic-native/native-geocoder';
 import { AdsProvider } from '../providers/ads/ads';
 import { QuestionAnswersProvider } from '../providers/question-answers/question-answers';
 import { OmiseProvider } from '../providers/omise/omise';
-import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { NotificationProvider } from '../providers/notification/notification';
+
+const config: SocketIoConfig = { url: 'http://localhost:3000/', options: {} };
 
 @NgModule({
   declarations: [
@@ -53,6 +56,7 @@ import { NotificationProvider } from '../providers/notification/notification';
         deps: [HttpClient]
       }
     }),
+    SocketIoModule.forRoot(config)
   ],
   bootstrap: [IonicApp],
   entryComponents: [

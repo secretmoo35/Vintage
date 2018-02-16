@@ -19,7 +19,7 @@ export class MyApp {
     statusBar: StatusBar,
     splashScreen: SplashScreen,
     translate: TranslateService,
-    private oneSignal: OneSignal,
+    private oneSignal: OneSignal
   ) {
     // Config firebase by google
     let config = {
@@ -43,7 +43,6 @@ export class MyApp {
     } else {
       this.rootPage = 'WalkthroughPage';
     }
-
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
