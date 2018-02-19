@@ -27,7 +27,6 @@ export class BidDetailPage {
   bidDetailData: BidDetailModel = new BidDetailModel();
   accordion = false;
   user: UserModel = new UserModel();
-
   @ViewChild('cont') cardContent: any;
   constructor(
     public navCtrl: NavController,
@@ -71,13 +70,14 @@ export class BidDetailPage {
 
   getBiddetail() {
     this.loading.onLoading();
-    this.bidProvider.getBidDetail(this.navParams.get('_id')).then(res => {
+    this.bidDetailData._id = this.navParams.get('_id');
+    this.onSocketConnect();
+    this.bidProvider.getBidDetail(this.bidDetailData._id).then(res => {
       this.loading.dismiss();
       this.bidDetailData = res;
       this.bidDetailData.timeleft = '00:00:00';
       this.startTimer();
       this.def();
-      this.socketOn();
     }, (err) => {
       this.loading.dismiss();
       this.navCtrl.pop();
@@ -122,6 +122,7 @@ export class BidDetailPage {
 
   onSocketConnect() {
     this.socket.connect();
+    this.socketOn();
   }
 
   ionViewWillLeave() {
@@ -135,12 +136,13 @@ export class BidDetailPage {
       item: this.bidDetailData,
       user: this.user
     }
-    this.loading.onLoading();
-    this.socket.emit('_bid', data);
+    if (this.socket.ioSocket.connected) {
+      this.loading.onLoading();
+      this.socket.emit('_bid', data);
+    }
   }
 
   socketOn() {
-    this.onSocketConnect();
     this.socket.on(this.bidDetailData._id, (data) => {
       this.loading.dismiss();
       if (data.status === 200) {
