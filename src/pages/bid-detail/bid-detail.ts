@@ -102,8 +102,10 @@ export class BidDetailPage {
   }
 
   getTimeOnly(date) {
-    let eventTime = new Date(date);
-    return (eventTime.getUTCHours() > 9 ? eventTime.getUTCHours() : '0' + eventTime.getUTCHours()) + ':' + (eventTime.getUTCMinutes() > 9 ? eventTime.getUTCMinutes() : '0' + eventTime.getUTCMinutes());
+    // let dateTime = new Date(date);
+    // let eventTime = new Date(dateTime.setHours(dateTime.getHours() + 7));
+    // return (eventTime.getUTCHours() > 9 ? eventTime.getUTCHours() : '0' + eventTime.getUTCHours()) + ':' + (eventTime.getUTCMinutes() > 9 ? eventTime.getUTCMinutes() : '0' + eventTime.getUTCMinutes());
+    return moment(date).format("HH:mm");
   }
 
   doBid() {

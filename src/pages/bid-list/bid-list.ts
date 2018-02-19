@@ -65,7 +65,8 @@ export class BidListPage {
         let interval = 1000;
 
         let intervalId = setInterval(() => {
-          if (duration.asSeconds() <= 0) {
+          if (duration.asSeconds() < 1) {
+            item.timeleft = '00:00:00';
             clearInterval(intervalId);
           }
           duration = moment.duration(duration.asSeconds() - 1, 'seconds');
@@ -80,8 +81,9 @@ export class BidListPage {
   }
 
   getTimeOnly(date) {
-    let eventTime = new Date(date);
-    return (eventTime.getUTCHours() > 9 ? eventTime.getUTCHours() : '0' + eventTime.getUTCHours()) + ':' + (eventTime.getUTCMinutes() > 9 ? eventTime.getUTCMinutes() : '0' + eventTime.getUTCMinutes());
+    // let eventTime = new Date(date);
+    // return (eventTime.getUTCHours() > 9 ? eventTime.getUTCHours() : '0' + eventTime.getUTCHours()) + ':' + (eventTime.getUTCMinutes() > 9 ? eventTime.getUTCMinutes() : '0' + eventTime.getUTCMinutes());
+    return moment(date).format("HH:mm");
   }
 
   selectTabs(i) {
