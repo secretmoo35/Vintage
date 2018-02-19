@@ -28,6 +28,7 @@ export class StepOrderPage {
   tabs: any = '0';
   // 1
   shippingAddress: any;
+  shippingAddressIndex: number;
   // 2
   isSelectShipping: Boolean = true;
   // 3
@@ -75,11 +76,12 @@ export class StepOrderPage {
   ) {
   }
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
     this.isSelectShipping = true;
     this.loadShippingAddress();
     this.loadItems();
   }
+
   changeWillSlide($event) {
     this.tabs = $event._snapIndex.toString();
   }
@@ -178,6 +180,16 @@ export class StepOrderPage {
   // step 1
   loadShippingAddress() {
     this.shippingAddress = window.localStorage.getItem('native_map_address_obj') ? JSON.parse(window.localStorage.getItem('native_map_address_obj')) : [];
+    this.shippingAddressIndex = window.localStorage.getItem('selectedAddressIndex') ? parseInt(window.localStorage.getItem('selectedAddressIndex')) : null;
+    this.selectedAddress(this.shippingAddressIndex);
+  }
+
+  selectedAddress(index) {
+    if (index !== null) {
+      window.localStorage.setItem('selectedAddressIndex', index.toString());
+      this.order.shippingAddress = this.shippingAddress[index];
+      this.shippingAddressIndex = index;
+    };
   }
 
   openGoogleMap() {
@@ -189,6 +201,7 @@ export class StepOrderPage {
   }
 
   removeItem(index) {
+    window.event.stopPropagation();
     let language = this.translate.currentLang;
     let title = '';
     let message = '';
@@ -214,6 +227,10 @@ export class StepOrderPage {
           text: ok,
           cssClass: 'confirm',
           handler: () => {
+            if (index === (this.shippingAddress.length - 1)) {
+              window.localStorage.removeItem('selectedAddressIndex');
+              this.order.shippingAddress = null;
+            }
             this.shippingAddress.splice(index, 1);
             window.localStorage.setItem('native_map_address_obj', JSON.stringify(this.shippingAddress));
           }

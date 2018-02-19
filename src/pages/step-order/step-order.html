@@ -69,7 +69,7 @@
               </ion-col>
             </ion-row>
           </ion-grid>
-          <ion-list mode="md" radio-group [(ngModel)]="order.shippingAddress" *ngFor="let address of shippingAddress; let i = index;">
+          <ion-list mode="md" radio-group *ngFor="let address of shippingAddress; let i = index;" (tap)="selectedAddress(i)">
             <ion-item>
               <ion-label>
                 <p>{{ address.name }}</p>
@@ -78,12 +78,11 @@
                   }} {{ address.address.postcode }}
                 </p>
                 <p>{{ address.tel }}</p>
-                <!-- <img src="./assets/imgs/logo/sign-check-icon.png" *ngIf="order.shippingAddress === address" class="addresscssClass"> -->
                 <button ion-button clear color="dark" class="btn-del" (tap)="removeItem(i)">
                   <ion-icon name="ios-trash"></ion-icon>
                 </button>
               </ion-label>
-              <ion-radio [value]="address" item-start></ion-radio>
+              <ion-radio [value]="address" [checked]="i === shippingAddressIndex" item-start></ion-radio>
             </ion-item>
           </ion-list>
         </div>
@@ -216,7 +215,7 @@
     <ion-slide>
       <ion-scroll scrollY>
         <div class="checkout-confirm">
-          <div class="address">
+          <div class="address" *ngIf="order.shippingAddress && order.shippingAddress.address">
             <ion-list mode="md">
               <ion-item>
                 <ion-label>
@@ -374,7 +373,7 @@
 
 <ion-footer *ngIf="formWizard._activeIndex === 0">
   <ion-toolbar>
-    <button color="app" ion-button block [disabled]="!order.shippingAddress.name" (click)="slideNext()">{{ 'SHIPPING' | translate }}</button>
+    <button color="app" ion-button block [disabled]="!order.shippingAddress || !order.shippingAddress.name" (click)="slideNext()">{{ 'SHIPPING' | translate }}</button>
   </ion-toolbar>
 </ion-footer>
 

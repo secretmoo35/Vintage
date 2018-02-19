@@ -1,5 +1,5 @@
 page-home {
-    ion-header{
+    ion-header {
         background-color: #ffffff !important;
     }
     .bid {
@@ -31,7 +31,10 @@ page-home {
             width: 25px;
             bottom: 0px;
             right: 4px;
-            padding: 6px 6px 6px 6px;
+            padding: 6px 6px 6px 5px;
+            ion-icon {
+                font-size: 15px;
+            }
         }
         .row-custom {
             flex-wrap: inherit !important;

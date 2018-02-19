@@ -116,14 +116,6 @@ export class BidDetailPage {
     });
   }
 
-  bid() {
-    this.user = JSON.parse(window.localStorage.getItem('user@' + Constants.URL));
-    let data = {
-      item: this.bidDetailData,
-      user: this.user
-    }
-    this.socket.emit('_bid', data);
-  }
   // soket
 
   onSocketConnect() {
@@ -135,18 +127,38 @@ export class BidDetailPage {
     this.socket.removeAllListeners();
   }
 
+  bid() {
+    this.user = JSON.parse(window.localStorage.getItem('user@' + Constants.URL));
+    let data = {
+      item: this.bidDetailData,
+      user: this.user
+    }
+    this.loading.onLoading();
+    this.socket.emit('_bid', data);
+  }
+
   socketOn() {
     this.onSocketConnect();
     this.socket.on(this.bidDetailData._id, (data) => {
+      this.loading.dismiss();
       if (data.status === 200) {
         this.bidDetailData.currentuser = data.response.item.currentuser;
         this.bidDetailData.price = data.response.item.price;
-      } else {
+      } else if (data.status !== 402) {
         let language = this.translate.currentLang;
         if (language === 'th') {
-          this.alert.onAlert('การประมูล', 'เกิดข้อผิดพลาด', 'ตกลง');
+          this.alert.onAlert('การประมูล', 'เกิดข้อผิดพลาด(' + data.status + ')', 'ตกลง');
         } else if (language === 'en') {
           this.alert.onAlert('Bid', 'error', 'OK');
+        }
+      } else {
+        if (this.user._id === data.user_id) {
+          let language = this.translate.currentLang;
+          if (language === 'th') {
+            this.alert.onAlert('การประมูล', 'หมดเวลาประมูลแล้ว', 'ตกลง');
+          } else if (language === 'en') {
+            this.alert.onAlert('Bid', 'Time out.', 'OK');
+          }
         }
       }
     });
