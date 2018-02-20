@@ -72,16 +72,18 @@ export class BidDetailPage {
     this.loading.onLoading();
     this.bidDetailData._id = this.navParams.get('_id');
     this.onSocketConnect();
-    this.bidProvider.getBidDetail(this.bidDetailData._id).then(res => {
-      this.loading.dismiss();
-      this.bidDetailData = res;
-      this.bidDetailData.timeleft = '00:00:00';
-      this.startTimer();
-      this.def();
-    }, (err) => {
-      this.loading.dismiss();
-      this.navCtrl.pop();
-    })
+    setTimeout(() => {
+      this.bidProvider.getBidDetail(this.bidDetailData._id).then(res => {
+        this.loading.dismiss();
+        this.bidDetailData = res;
+        this.bidDetailData.timeleft = '00:00:00';
+        this.startTimer();
+        this.def();
+      }, (err) => {
+        this.loading.dismiss();
+        this.navCtrl.pop();
+      })
+    }, 500);
   }
 
   startTimer() {

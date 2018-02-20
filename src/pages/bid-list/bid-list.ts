@@ -57,7 +57,7 @@ export class BidListPage {
   startTimer() {
     // console.log(this.bidData.length);
     this.bidData.items.forEach(element => {
-      element.items.forEach((item: any) => {
+      element.items.forEach((item: any, index: number) => {
         let eventTime: any = new Date(item.dateend);
         let currentTime: any = new Date(this.bidData.datenow);
         let leftTime = eventTime - currentTime;
@@ -68,6 +68,11 @@ export class BidListPage {
           if (duration.asSeconds() < 1) {
             item.timeleft = '00:00:00';
             clearInterval(intervalId);
+            element.items.forEach((itemloop: any, inx: number) => {
+              if (itemloop.timeleft === '00:00:00') {
+                element.items.splice(inx, 1);
+              }
+            });
           }
           duration = moment.duration(duration.asSeconds() - 1, 'seconds');
 
