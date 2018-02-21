@@ -18,6 +18,9 @@
     <ion-col col-10 no-padding>
       <h2 padding-left text-left>{{productData.name}}
       </h2>
+      <h4 padding-left text-left class="price">
+        {{amount | number:'0.2-2'}} {{ 'THB' | translate}}
+      </h4>
     </ion-col>
     <ion-col col-2>
       <!-- <div class="favorite-btn"> -->
@@ -33,7 +36,7 @@
       <ion-badge color="secondary" *ngIf="productData.isrecommend">{{ 'RECOMMEND' | translate }}</ion-badge>
     </ion-col>
   </ion-row>
-  
+
   <ion-card>
     <ion-card-header (click)="toggleAddccoding()">
       {{ 'VIEW_DETAIL' | translate }}
@@ -52,7 +55,7 @@
     </ion-card-header>
 
     <ion-card-content #ship>
-      <ion-list>
+      <ion-list mode="md">
         <ion-item *ngFor="let item of productData.shippings">
           <h2>{{item.ref.name}}
           </h2>
@@ -88,15 +91,15 @@
     <button ion-button block color="app" class="btn-add-cart" (click)="addToCart()">
       <ion-grid>
         <ion-row>
-          <ion-col col-4>
+          <!-- <ion-col col-4>
             {{numberCount}}
-          </ion-col>
-          <ion-col col-4>
+          </ion-col> -->
+          <ion-col col-12>
             {{ 'ADD_TO_CART' | translate }}
           </ion-col>
-          <ion-col col-4>
+          <!-- <ion-col col-4>
             ({{amount | number:'0.2-2'}} {{ 'THB' | translate}})
-          </ion-col>
+          </ion-col> -->
         </ion-row>
       </ion-grid>
     </button>
