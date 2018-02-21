@@ -91,7 +91,34 @@
     <!-- 2 -->
     <ion-slide>
       <ion-scroll scrollY>
-        <div class="checkout-product-shipping">
+        <!-- bid -->
+        <div class="checkout-product-shipping" *ngIf="channel === 'bid'">
+          <div class="product" *ngFor="let item of order.itemsbid">
+            <ion-list mode="md" class="list-item">
+              <ion-item>
+                <ion-thumbnail item-start>
+                  <preload-image class="products-image" [ratio]="{w:1, h:1}" [src]="item.bid.image[0]"></preload-image>
+                </ion-thumbnail>
+                <ion-label stacked>
+                  <h2 class="product-name">{{item.bid.name}}</h2>
+                  <p>{{item.bid.price | number}} {{ 'THB' | translate }}</p>
+                  <p>{{ 'QTY' | translate }}: {{item.qty}}</p>
+                </ion-label>
+              </ion-item>
+            </ion-list>
+            <ion-list mode="md" class="shipping">
+              <ion-item>
+                <ion-label>{{ 'SHIPPING_TYPE' | translate }}</ion-label>
+                <ion-select interface="popover" placeholder="{{ 'PLEASE_SELECT_SHIPPING_TYPE' | translate }}" okText="{{ 'OK' | translate }}"
+                  cancelText="{{ 'CANCEL' | translate }}" [(ngModel)]="item.shipping" (ionChange)="checkSelectShipping()">
+                  <ion-option *ngFor="let shipping of item.bid.shippings" [value]="shipping">{{shipping.ref.name}} ({{shipping.price}} บาท)</ion-option>
+                </ion-select>
+              </ion-item>
+            </ion-list>
+          </div>
+        </div>
+        <!-- order -->
+        <div class="checkout-product-shipping" *ngIf="channel === 'order'">
           <div class="product" *ngFor="let item of order.items">
             <ion-list mode="md" class="list-item">
               <ion-item>
@@ -243,8 +270,24 @@
                 </ion-label>
               </ion-item>
             </ion-list>
-
-            <ion-list class="item-product" mode="md">
+            <!-- bid -->
+            <ion-list class="item-product" mode="md" *ngIf="channel === 'bid'">
+              <ion-item *ngFor="let item of order.itemsbid">
+                <ion-thumbnail item-start>
+                  <preload-image class="products-image" [ratio]="{w:1, h:1}" [src]="item.bid.image[0]"></preload-image>
+                </ion-thumbnail>
+                <ion-label stacked class="label-margin">
+                  <h2 class="product-name">{{ item.bid.name }}</h2>
+                  <p>{{ item.bid.price }} {{ 'THB' | translate }}</p>
+                  <p>{{ 'QTY' | translate }}: {{ item.qty }}</p>
+                  <p *ngIf="item.shipping">{{ 'SHIPPING_TYPE' | translate }}: {{ item.shipping.ref.name }} ({{ item.shipping.price }} {{ 'THB' | translate
+                    }})
+                  </p>
+                </ion-label>
+              </ion-item>
+            </ion-list>
+            <!-- order -->
+            <ion-list class="item-product" mode="md" *ngIf="channel === 'order'">
               <ion-item *ngFor="let item of order.items">
                 <ion-thumbnail item-start>
                   <preload-image class="products-image" [ratio]="{w:1, h:1}" [src]="item.product.images[0]"></preload-image>

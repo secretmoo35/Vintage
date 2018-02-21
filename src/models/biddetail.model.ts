@@ -1,3 +1,13 @@
+import { ShippingModel } from "./cart.model";
+
+export class BidModel {
+    name: string;
+    detail: string;
+    price: number;
+    image: Array<string>;
+    shippings: ShippingModel = new ShippingModel();
+}
+
 export class BidDetailModel {
     _id: string;
     shop: ShopBidModel = new ShopBidModel();

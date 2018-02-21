@@ -26,6 +26,7 @@ export class StepOrderPage {
   @ViewChild('formWizard') formWizard: Slides;
   order: OrderModel = new OrderModel();
   tabs: any = '0';
+  channel: string = '';
   // 1
   shippingAddress: any;
   shippingAddressIndex: number;
@@ -78,6 +79,8 @@ export class StepOrderPage {
 
   ionViewWillEnter() {
     this.isSelectShipping = true;
+    this.channel = this.navParams.get('channel');
+    console.log(this.channel);
     this.loadShippingAddress();
     this.loadItems();
   }
@@ -94,7 +97,7 @@ export class StepOrderPage {
     this.formWizard.lockSwipes(false);
     this.formWizard.slidePrev();
     this.formWizard.lockSwipes(true);
-    // console.log(this.order);
+    console.log(this.order);
   }
 
   slideNext() {
@@ -250,21 +253,40 @@ export class StepOrderPage {
   // step 1
   // step 2
   loadItems() {
-    this.order.items = this.cart.getCart().items;
+    if (this.channel === 'bid') {
+      this.order.itemsbid = this.navParams.get('data').itemsbid;
+    } else {
+      this.order.items = this.cart.getCart().items;
+    }
   }
 
   checkSelectShipping() {
-    if (this.order.items && this.order.items.length > 0) {
-      for (let i = 0; i < this.order.items.length; i++) {
-        const element = this.order.items[i];
-        if (!element.shipping) {
-          this.isSelectShipping = true;
-          return;
+    if (this.channel === 'bid') {
+      if (this.order.itemsbid && this.order.itemsbid.length > 0) {
+        for (let i = 0; i < this.order.itemsbid.length; i++) {
+          const element = this.order.itemsbid[i];
+          if (!element.shipping) {
+            this.isSelectShipping = true;
+            return;
+          }
         }
+        this.isSelectShipping = false;
+      } else {
+        this.isSelectShipping = true;
       }
-      this.isSelectShipping = false;
     } else {
-      this.isSelectShipping = true;
+      if (this.order.items && this.order.items.length > 0) {
+        for (let i = 0; i < this.order.items.length; i++) {
+          const element = this.order.items[i];
+          if (!element.shipping) {
+            this.isSelectShipping = true;
+            return;
+          }
+        }
+        this.isSelectShipping = false;
+      } else {
+        this.isSelectShipping = true;
+      }
     }
   }
   // step 2
@@ -302,12 +324,19 @@ export class StepOrderPage {
     this.order.shippingamount = 0;
     this.order.discountamount = this.order.coupon.discount ? this.order.coupon.discount : 0;
     this.order.totalamount = 0;
-
-    this.order.items.forEach((item) => {
-      this.order.amount += item.amount;
-      this.order.shippingamount += item.shipping.price;
-      this.order.totalamount = (this.order.amount + this.order.shippingamount) - this.order.discountamount;
-    });
+    if (this.channel === 'bid') {
+      this.order.itemsbid.forEach((item) => {
+        this.order.amount += item.amount;
+        this.order.shippingamount += item.shipping.price;
+        this.order.totalamount = (this.order.amount + this.order.shippingamount) - this.order.discountamount;
+      });
+    } else {
+      this.order.items.forEach((item) => {
+        this.order.amount += item.amount;
+        this.order.shippingamount += item.shipping.price;
+        this.order.totalamount = (this.order.amount + this.order.shippingamount) - this.order.discountamount;
+      });
+    }
   }
   // step 3
   // step 4

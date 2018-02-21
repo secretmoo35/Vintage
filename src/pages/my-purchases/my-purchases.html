@@ -26,11 +26,41 @@
   </ion-refresher> -->
   <ion-slides #SwipedTabsSlider (ionSlideDrag)="animateIndicator($event)" (ionSlideDidChange)="updateIndicatorPosition()" (ionSlideWillChange)="scrollIndicatiorTab()"
     (panend)="updateIndicatorPositionOnTouchEnd()" [pager]="false">
-    <!-- 1 -->
+    <!-- 0 -->
     <ion-slide>
       <ion-scroll scrollY>
         <div class="checkout-product-shipping" *ngIf="orders[0] && orders[0].items">
           <div class="product" *ngFor="let item of orders[0].items">
+            <ion-list mode="md" class="list-item" (click)="selectPurchasesBid(item)">
+              <ion-item>
+                <ion-thumbnail item-start>
+                  <img src="{{ item.image }}">
+                </ion-thumbnail>
+                <ion-label stacked>
+                  <h2 class="product-name">{{ item.name }}</h2>
+                  <p>{{ item.price | number }} {{ 'THB' | translate }}</p>
+                  <p>{{ 'QTY' | translate }}: {{ item.qty }}</p>
+                  <!-- <p>{{ 'SHIPPING_TYPE' | translate }}: {{ item.shippingtype }} ({{item.shippingprice}} {{'THB'|translate}})</p> -->
+                </ion-label>
+              </ion-item>
+            </ion-list>
+            <ion-list mode="md" class="shipping">
+              <ion-item>
+                <ion-label text-right class="price">
+                  <b>{{ 'TOTAL_FEE' | translate }}: {{ (item.amount + item.shippingprice) | number }} {{ 'THB' | translate }}</b>
+                </ion-label>
+              </ion-item>
+            </ion-list>
+            <!-- <button class="btn" full small ion-button item-end color="danger">{{ 'CANCEL' | translate}}</button> -->
+          </div>
+        </div>
+      </ion-scroll>
+    </ion-slide>
+    <!-- 1 -->
+    <ion-slide>
+      <ion-scroll scrollY>
+        <div class="checkout-product-shipping" *ngIf="orders[1] && orders[1].items">
+          <div class="product" *ngFor="let item of orders[1].items">
             <ion-list mode="md" class="list-item" (click)="selectPurchases(item)">
               <ion-item>
                 <ion-thumbnail item-start>
@@ -59,8 +89,8 @@
     <!-- 2 -->
     <ion-slide>
       <ion-scroll scrollY>
-        <div class="checkout-product-shipping" *ngIf="orders[1] && orders[1].items">
-          <div class="product" *ngFor="let item of orders[1].items">
+        <div class="checkout-product-shipping" *ngIf="orders[2] && orders[2].items">
+          <div class="product" *ngFor="let item of orders[2].items">
             <ion-list mode="md" class="list-item" (click)="selectPurchases(item)">
               <ion-item>
                 <ion-thumbnail item-start>
@@ -103,8 +133,8 @@
     <!-- 3 -->
     <ion-slide>
       <ion-scroll scrollY>
-        <div class="checkout-product-shipping" *ngIf="orders[2] && orders[2].items">
-          <div class="product" *ngFor="let item of orders[2].items" (click)="selectPurchases(item)">
+        <div class="checkout-product-shipping" *ngIf="orders[3] && orders[3].items">
+          <div class="product" *ngFor="let item of orders[3].items" (click)="selectPurchases(item)">
             <ion-list mode="md" class="list-item">
               <ion-item>
                 <ion-thumbnail item-start>
@@ -136,8 +166,8 @@
     <ion-slide>
       <ion-slide>
         <ion-scroll scrollY>
-          <div class="checkout-product-shipping" *ngIf="orders[3] && orders[3].items">
-            <div class="product" *ngFor="let item of orders[3].items" (click)="selectPurchases(item)">
+          <div class="checkout-product-shipping" *ngIf="orders[4] && orders[4].items">
+            <div class="product" *ngFor="let item of orders[4].items" (click)="selectPurchases(item)">
               <ion-list mode="md" class="list-item">
                 <ion-item>
                   <ion-thumbnail item-start>

@@ -44,6 +44,14 @@ export class OrderProvider {
       .catch(this.handleError);
   }
 
+  getOrderDetailMaster(_id) {
+    let header = this.auth.setHeader();
+    return this.http.get(this.API_URL + '/api/orders/' + _id, { headers: header })
+      .toPromise()
+      .then(response => response as Array<any>)
+      .catch(this.handleError);
+  }
+
   getOrderDetail(item) {
     let header = this.auth.setHeader();
     return this.http.get(this.API_URL + '/api/getorderdetail/' + item.orderid + '/' + item.itemid, { headers: header })

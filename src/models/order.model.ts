@@ -1,8 +1,10 @@
-import { ItemCartModel } from "./cart.model";
+import { ItemCartModel, ShippingModel } from "./cart.model";
+import { BidModel } from "./biddetail.model";
 
 export class OrderModel {
     _id: string;
     items: Array<ItemCartModel>;
+    itemsbid: Array<ItemBidModel>;
     shippingAddress: ShippingAddressModel = new ShippingAddressModel();
     coupon: CouponModel = new CouponModel();
     payment: PaymentModel = new PaymentModel();
@@ -27,8 +29,8 @@ export class AddressModel {
     address: string;
     district: string;
     subdistrict: string;
-    province:string;
-    postcode:string;
+    province: string;
+    postcode: string;
 }
 
 export class LocationModel {
@@ -47,6 +49,14 @@ export class PaymentModel {
     creditname: string;
     expdate: string;
     creditcvc: string;
+}
+
+export class ItemBidModel {
+    bid: BidModel = new BidModel();
+    shipping: ShippingModel = new ShippingModel();
+    remark: string;
+    qty: number;
+    amount: number;
 }
 
 // export class EstimatePriceModel {

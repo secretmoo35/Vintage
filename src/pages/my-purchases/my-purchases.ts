@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Slides, Platform, Content } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Slides, Platform, Content, App } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 import { OrderProvider } from '../../providers/order/order';
 import { AlertProvider } from '../../providers/alert/alert';
@@ -30,9 +30,10 @@ export class MyPurchasesPage {
     private order: OrderProvider,
     private translate: TranslateService,
     private alert: AlertProvider,
-    private loading: LoadingProvider
+    private loading: LoadingProvider,
+    private app: App
   ) {
-    this.tabs = ["WAIT_SEND", "WAIT_RECEIPT", "COMPLETED", "CANCEL"];
+    this.tabs = ["TO_PAY", "WAIT_SEND", "WAIT_RECEIPT", "COMPLETED", "CANCEL"];
     this.screenWidth_px = platform.width();
   }
 
@@ -157,6 +158,22 @@ export class MyPurchasesPage {
       this.getOrders();
     }, (err) => {
       this.loading.dismiss();
+    });
+  }
+
+  selectPurchasesBid(item) {
+    this.loading.onLoading();
+    this.order.getOrderDetailMaster(item.orderid).then((data) => {
+      this.loading.dismiss();
+      this.app.getRootNav().push('StepOrderPage', { data: data, channel: 'bid' });
+    }, (err) => {
+      this.loading.dismiss();
+      let language = this.translate.currentLang;
+      if (language === 'th') {
+        this.alert.onAlert('รายการสั่งซื้อ', 'โหลดข้อมูลไม่สำเร็จ', 'ตกลง');
+      } else if (language === 'en') {
+        this.alert.onAlert('Order fail.', 'Load order fail.', 'OK');
+      }
     });
   }
 

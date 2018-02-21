@@ -114,7 +114,7 @@ export class CartListPage {
     this.auth.authenticated().then((res) => {
       if (res) {
         // this.navCtrl.push('StepOrderPage');
-        this.app.getRootNav().push('StepOrderPage');
+        this.app.getRootNav().push('StepOrderPage', { channel: 'order' });
       } else {
         this.navCtrl.push('LoginPage');
       }
