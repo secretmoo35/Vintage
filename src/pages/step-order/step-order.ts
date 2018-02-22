@@ -397,7 +397,11 @@ export class StepOrderPage {
         this.alert.onAlert('', JSON.stringify(err), 'OK');
       });
     } else {
-      this.createOrder();
+      if (this.channel === 'bid') {
+        console.log(this.order);
+      } else {
+        this.createOrder();
+      }
     }
   }
 

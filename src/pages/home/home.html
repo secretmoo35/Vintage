@@ -24,7 +24,7 @@
           <preload-image class="{{ item.isBid ? 'preload-image-true' : 'preload-image-false'}}" [ratio]="{w:1, h:1}" [src]="item.image"
             title="bid"></preload-image>
           <ion-badge color="danger" class="ion-badge-status" *ngIf="item.isBid">
-            <ion-icon name="icon-bid-fill"></ion-icon>
+            <ion-icon name="icon-tab-bid"></ion-icon>
           </ion-badge>
           <ion-badge color="primary" class="ion-badge-status" *ngIf="!item.isBid">
             <ion-icon name="icon-time-two" class="alarm"></ion-icon>

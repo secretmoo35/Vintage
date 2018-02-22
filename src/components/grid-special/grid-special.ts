@@ -54,7 +54,7 @@ export class GridSpecialComponent implements OnInit {
     };
 
     this.useItems = subTwo;
-    console.log(this.useItems);
+    // console.log(this.useItems);
 
   }
 
