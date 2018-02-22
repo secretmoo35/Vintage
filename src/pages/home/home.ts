@@ -25,6 +25,7 @@ export class HomePage {
 
   loadData() {
     this.loading.onLoading();
+    this.homeItem = null;
     this.home.getHomeData().then((res) => {
       this.homeItem = res;
       this.loading.dismiss();
@@ -34,8 +35,10 @@ export class HomePage {
   }
 
   doRefresh(refresher) {
-    this.loadData();
-    refresher.complete();
+    setTimeout(() => {
+      this.loadData();
+      refresher.complete();
+    }, 500);
   }
 
   selected(e) {

@@ -44,7 +44,13 @@
     </ion-card-header>
 
     <ion-card-content #cont>
-      {{ productData.detail }}
+      <p>{{ productData.detail }}
+        <br>
+        <br>
+        <b>{{ 'SHOP' | translate }}</b>
+        <br> {{productData.shop.name}}
+      </p>
+
     </ion-card-content>
   </ion-card>
 

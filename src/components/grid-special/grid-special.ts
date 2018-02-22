@@ -12,7 +12,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class GridSpecialComponent implements OnInit {
 
-  @Input('items') items: Array<any>;
+  @Input() items: Array<any>;
   @Output() callbackItem: EventEmitter<any> = new EventEmitter();
   useItems: Array<any> = [];
 
