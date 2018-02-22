@@ -398,7 +398,8 @@ export class StepOrderPage {
       });
     } else {
       if (this.channel === 'bid') {
-        console.log(this.order);
+        // console.log(this.order);
+        this.updateOrder();
       } else {
         this.createOrder();
       }
@@ -410,6 +411,29 @@ export class StepOrderPage {
     this.orderProvider.saveOrder(this.order).then((res) => {
       this.loading.dismiss();
       this.navCtrl.setRoot('NavtabsPage');
+      this.cart.clearCart();
+      let language = this.translate.currentLang;
+      if (language === 'th') {
+        this.alert.onAlert('การสั่งซื้อสำเร็จ', 'ขอบคุณที่ใช้บริการ<br>หมายเลขการสั่งซื้อ ' + res.docno, 'ตกลง');
+      } else if (language === 'en') {
+        this.alert.onAlert('Order success.', 'Thank you.<br>Order no. ' + res.docno, 'OK');
+      }
+    }, (err) => {
+      this.loading.dismiss();
+      let language = this.translate.currentLang;
+      if (language === 'th') {
+        this.alert.onAlert('การสั่งซื้อไม่สำเร็จ', 'เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง', 'ตกลง');
+      } else if (language === 'en') {
+        this.alert.onAlert('Order failed.', 'Order error. Please try again.', 'OK');
+      }
+    });
+  }
+
+  updateOrder() {
+    this.loading.onLoading();
+    this.orderProvider.putOrderDetail(this.order).then((res) => {
+      this.loading.dismiss();
+      this.navCtrl.pop();
       this.cart.clearCart();
       let language = this.translate.currentLang;
       if (language === 'th') {

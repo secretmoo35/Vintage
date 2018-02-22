@@ -32,7 +32,7 @@ export class OrderProvider {
     let header = this.auth.setHeader();
     return this.http.post(this.API_URL + '/api/getcouponbycode', code, { headers: header })
       .toPromise()
-      .then(response => response as Array<any>)
+      .then(response => response as any)
       .catch(this.handleError);
   }
 
@@ -48,7 +48,7 @@ export class OrderProvider {
     let header = this.auth.setHeader();
     return this.http.get(this.API_URL + '/api/orders/' + _id, { headers: header })
       .toPromise()
-      .then(response => response as Array<any>)
+      .then(response => response as any)
       .catch(this.handleError);
   }
 
@@ -57,6 +57,14 @@ export class OrderProvider {
     return this.http.get(this.API_URL + '/api/getorderdetail/' + item.orderid + '/' + item.itemid, { headers: header })
       .toPromise()
       .then(response => response as Array<any>)
+      .catch(this.handleError);
+  }
+
+  putOrderDetail(item) {
+    let header = this.auth.setHeader();
+    return this.http.put(this.API_URL + '/api/getorderdetail/' + item._id, item, { headers: header })
+      .toPromise()
+      .then(response => response as any)
       .catch(this.handleError);
   }
 
