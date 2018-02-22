@@ -40,6 +40,7 @@
                   <h2 class="product-name">{{ item.name }}</h2>
                   <p>{{ item.price | number }} {{ 'THB' | translate }}</p>
                   <p>{{ 'QTY' | translate }}: {{ item.qty }}</p>
+                  <p *ngIf="item.channel === 'bid'" class="bid">{{ 'BID' | translate : ''}}</p>
                   <!-- <p>{{ 'SHIPPING_TYPE' | translate }}: {{ item.shippingtype }} ({{item.shippingprice}} {{'THB'|translate}})</p> -->
                 </ion-label>
               </ion-item>
@@ -71,6 +72,7 @@
                   <p>{{ item.price | number }} {{ 'THB' | translate }}</p>
                   <p>{{ 'QTY' | translate }}: {{ item.qty }}</p>
                   <p>{{ 'SHIPPING_TYPE' | translate }}: {{ item.shippingtype }} ({{item.shippingprice}} {{'THB'|translate}})</p>
+                  <p *ngIf="item.channel === 'bid'" class="bid">{{ 'BID' | translate : ''}}</p>
                 </ion-label>
               </ion-item>
             </ion-list>
@@ -101,6 +103,7 @@
                   <p>{{ item.price | number }} {{ 'THB' | translate }}</p>
                   <p>{{ 'QTY' | translate }}: {{ item.qty }}</p>
                   <p>{{ 'SHIPPING_TYPE' | translate }}: {{ item.shippingtype }} ({{item.shippingprice}} {{'THB'|translate}})</p>
+                  <p *ngIf="item.channel === 'bid'" class="bid">{{ 'BID' | translate : ''}}</p>
                 </ion-label>
               </ion-item>
             </ion-list>
@@ -145,6 +148,7 @@
                   <p>{{ item.price | number }} {{ 'THB' | translate }}</p>
                   <p>{{ 'QTY' | translate }}: {{ item.qty }}</p>
                   <p>{{ 'SHIPPING_TYPE' | translate }}: {{ item.shippingtype }} ({{item.shippingprice}} {{'THB'|translate}})</p>
+                  <p *ngIf="item.channel === 'bid'" class="bid">{{ 'BID' | translate : ''}}</p>
                 </ion-label>
               </ion-item>
             </ion-list>
@@ -181,6 +185,7 @@
                       <b *ngIf="item.status ==='cancel' || item.status ==='reject'">{{ 'CANCEL_RECEIPT_NOT' | translate }}</b>
                       <b *ngIf="item.status ==='cancelrefund' || item.status ==='rejectrefund'">{{ 'CANCEL_RECEIPT' | translate }}</b>
                     </p>
+                    <p *ngIf="item.channel === 'bid'" class="bid">{{ 'BID' | translate : ''}}</p>
                   </ion-label>
                 </ion-item>
               </ion-list>

@@ -47,7 +47,7 @@ page-purchases-detail {
             padding: 0px !important;
         }
     }
-    .log{
+    .log {
         margin-bottom: 56px;
     }
     ion-footer {
@@ -57,6 +57,10 @@ page-purchases-detail {
         .toolbar .button {
             height: 40px !important;
         }
+    }
+    .bid {
+        color: $app;
+        font-weight: bold;
     }
 }
 

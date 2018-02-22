@@ -254,7 +254,9 @@ export class StepOrderPage {
   // step 2
   loadItems() {
     if (this.channel === 'bid') {
+      // console.log(this.navParams.get('data'));
       this.order.itemsbid = this.navParams.get('data').itemsbid;
+      this.order._id = this.navParams.get('data')._id;
     } else {
       this.order.items = this.cart.getCart().items;
     }
@@ -329,12 +331,14 @@ export class StepOrderPage {
         this.order.amount += item.amount;
         this.order.shippingamount += item.shipping.price;
         this.order.totalamount = (this.order.amount + this.order.shippingamount) - this.order.discountamount;
+        this.order.totalamount = this.order.totalamount > 0 ? this.order.totalamount : 0;
       });
     } else {
       this.order.items.forEach((item) => {
         this.order.amount += item.amount;
         this.order.shippingamount += item.shipping.price;
         this.order.totalamount = (this.order.amount + this.order.shippingamount) - this.order.discountamount;
+        this.order.totalamount = this.order.totalamount > 0 ? this.order.totalamount : 0;
       });
     }
   }
@@ -353,7 +357,7 @@ export class StepOrderPage {
         if (language === 'th') {
           if (res.message === "Coupon is invalid!") {
             this.alert.onAlert('คูปอง', 'คูปองไม่ถูกต้อง', 'ตกลง');
-          } else if (res.message === "Coupon is already") {
+          } else if (res.message === "Coupon is already!") {
             this.alert.onAlert('คูปอง', 'คุณใช้คูปองนี้ไปแล้ว', 'ตกลง');
           } else if (res.message === "Coupon is expired!") {
             this.alert.onAlert('คูปอง', 'คูปองหมดอายุ', 'ตกลง');
@@ -432,7 +436,9 @@ export class StepOrderPage {
   updateOrder() {
     this.loading.onLoading();
     this.orderProvider.putOrderDetail(this.order).then((res) => {
+      // console.log(res);
       this.loading.dismiss();
+      this.events.publish('reloadDetails');
       this.navCtrl.pop();
       this.cart.clearCart();
       let language = this.translate.currentLang;

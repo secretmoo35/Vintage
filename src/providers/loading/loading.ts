@@ -22,7 +22,8 @@ export class LoadingProvider {
       <div style="width:100%;height:100%" class="lds-eclipse">
         <img src="./assets/icon/loading/loading.png" class="loading-img"/>
         <div></div>
-      </div>`
+      </div>`,
+      duration: 30000,
     });
     this.loading.present();
     return;

@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Slides, Platform, Content, App } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Slides, Platform, Content, App, Events } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 import { OrderProvider } from '../../providers/order/order';
 import { AlertProvider } from '../../providers/alert/alert';
@@ -31,7 +31,8 @@ export class MyPurchasesPage {
     private translate: TranslateService,
     private alert: AlertProvider,
     private loading: LoadingProvider,
-    private app: App
+    private app: App,
+    private events: Events
   ) {
     this.tabs = ["TO_PAY", "WAIT_SEND", "WAIT_RECEIPT", "COMPLETED", "CANCEL"];
     this.screenWidth_px = platform.width();
@@ -165,6 +166,10 @@ export class MyPurchasesPage {
     this.loading.onLoading();
     this.order.getOrderDetailMaster(item.orderid).then((data) => {
       this.loading.dismiss();
+      this.events.subscribe('reloadDetails', () => {
+        this.ionViewDidEnter();
+        this.events.unsubscribe('reloadDetails');
+      });
       this.app.getRootNav().push('StepOrderPage', { data: data, channel: 'bid' });
     }, (err) => {
       this.loading.dismiss();

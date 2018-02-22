@@ -119,8 +119,12 @@ page-my-purchases {
         display: flex;
         align-items: center;
     }
-    .no-lines{
+    .no-lines {
         border: none !important;
+    }
+    .bid {
+        color: $app;
+        font-weight: bold;
     }
 }
 

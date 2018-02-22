@@ -62,7 +62,7 @@ export class OrderProvider {
 
   putOrderDetail(item) {
     let header = this.auth.setHeader();
-    return this.http.put(this.API_URL + '/api/getorderdetail/' + item._id, item, { headers: header })
+    return this.http.put(this.API_URL + '/api/updateorderbid/' + item._id, item, { headers: header })
       .toPromise()
       .then(response => response as any)
       .catch(this.handleError);

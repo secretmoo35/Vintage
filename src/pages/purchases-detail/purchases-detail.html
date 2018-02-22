@@ -19,6 +19,7 @@
       <ion-list mode="md">
         <ion-item>
           <ion-label *ngIf="orderDetail.status ==='confirm'">
+            <h2 padding-bottom *ngIf="orderDetail.channel === 'bid'" class="bid">{{ 'BID' | translate : ''}}</h2>
             <h2>
               <b>{{ 'CREATE_ORDER_DATE' | translate }}</b>
             </h2>
