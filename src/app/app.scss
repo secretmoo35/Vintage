@@ -72,22 +72,22 @@ ion-app {
     overflow: auto !important;
 }
 
-// ion-footer {
-//     .toolbar-md {
-//         padding: 0px !important;
-//     }
-//     .toolbar-ios {
-//         padding: 0px !important;
-//     }
-//     .toolbar {
-//         min-height: 46px !important;
-//         max-height: 46px !important;
-//         padding-bottom: 4px !important;
-//         .button {
-//             height: 46px !important;
-//         }
-//     }
-// }
+ion-footer {
+    .toolbar-md {
+        padding: 0px !important;
+    }
+    .toolbar-ios {
+        padding: 0px !important;
+    }
+    .toolbar {
+        min-height: 46px !important;
+        max-height: 46px !important;
+        padding-bottom: 4px !important;
+        .button {
+            height: 46px !important;
+        }
+    }
+}
 
 .footer-md::before {
     background-image: none !important;
