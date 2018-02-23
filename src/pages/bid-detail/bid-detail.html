@@ -100,16 +100,14 @@
 </ion-content>
 
 <ion-footer>
-  <ion-toolbar *ngIf="bidDetailData.isBid && bidDetailData.timeleft !== '00:00:00'">
-    <button ion-button block color="primary" class="blink" (click)="doBid()">
-      <ion-grid>
-        <ion-row>
-          <ion-col col-12>
-            <ion-icon name="icon-tab-bid"></ion-icon>
-            <span>{{bidDetailData.price + bidDetailData.pricebid | number}}</span>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </button>
-  </ion-toolbar>
+  <button ion-button block color="primary" class="blink" (click)="doBid()" *ngIf="bidDetailData.isBid && bidDetailData.timeleft !== '00:00:00'">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12>
+          <ion-icon name="icon-tab-bid"></ion-icon>
+          <span>{{bidDetailData.price + bidDetailData.pricebid | number}}</span>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </button>
 </ion-footer>

@@ -165,7 +165,5 @@
 </ion-content>
 
 <ion-footer class="footer-agreement">
-  <ion-toolbar>
-    <button [disabled]="!isShowAgreementBtn" ion-button block (click)="agreement()" color="app">{{ 'ACCEPT' | translate }}</button>
-  </ion-toolbar>
+  <button [disabled]="!isShowAgreementBtn" ion-button block (click)="agreement()" color="app">{{ 'ACCEPT' | translate }}</button>
 </ion-footer>

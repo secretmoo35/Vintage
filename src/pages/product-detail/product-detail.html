@@ -94,21 +94,19 @@
 </ion-content>
 
 <ion-footer *ngIf="productData && productData.name">
-  <ion-toolbar>
-    <button ion-button block color="app" class="btn-add-cart" (click)="addToCart()">
-      <ion-grid>
-        <ion-row>
-          <!-- <ion-col col-4>
+  <button ion-button block color="app" class="btn-add-cart" (click)="addToCart()">
+    <ion-grid>
+      <ion-row>
+        <!-- <ion-col col-4>
             {{numberCount}}
           </ion-col> -->
-          <ion-col col-12>
-            {{ 'ADD_TO_CART' | translate }}
-          </ion-col>
-          <!-- <ion-col col-4>
+        <ion-col col-12>
+          {{ 'ADD_TO_CART' | translate }}
+        </ion-col>
+        <!-- <ion-col col-4>
             ({{amount | number:'0.2-2'}} {{ 'THB' | translate}})
           </ion-col> -->
-        </ion-row>
-      </ion-grid>
-    </button>
-  </ion-toolbar>
+      </ion-row>
+    </ion-grid>
+  </button>
 </ion-footer>

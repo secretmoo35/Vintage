@@ -73,19 +73,11 @@ ion-app {
 }
 
 ion-footer {
-    .toolbar-md {
-        padding: 0px !important;
-    }
-    .toolbar-ios {
-        padding: 0px !important;
-    }
-    .toolbar {
-        min-height: 46px !important;
-        max-height: 46px !important;
-        padding-bottom: 4px !important;
-        .button {
-            height: 46px !important;
-        }
+    height: 50px !important;
+    .button {
+        margin-top: 2px !important;
+        height: 46px !important;
+        border-radius: 0px !important;
     }
 }
 

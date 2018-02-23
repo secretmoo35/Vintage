@@ -13,7 +13,7 @@
 </ion-header>
 
 
-<ion-content  no-bounce>
+<ion-content no-bounce>
   <ion-row>
     <ion-col col-12 text-center>
       <img src="{{ user.profileImageURL }}" class="arvatar">
@@ -106,8 +106,5 @@
 </ion-content>
 
 <ion-footer class="footer-agreement">
-  <ion-toolbar>
-    <!-- <button ion-button no-shadow block color="bite" (click)="onRegister()" [disabled]="!promotioninterestPost || promotioninterestPost.length === 0 || !shopinterestPost || shopinterestPost.length === 0 || !birthday || birthday === '' ||!user.gender || user.gender === '' || !user.firstName || user.firstName === '' || !user.lastName || user.lastName === ''|| !user.email || user.email === ''|| !user.mobile || user.mobile === ''">{{ 'REGISTER' | translate}}</button> -->
-    <button ion-button no-shadow block color="app" (click)="onRegister()" [disabled]="!birthday || birthday === '' ||!user.gender || user.gender === '' || !user.firstName || user.firstName === '' || !user.lastName || user.lastName === ''|| !user.email || user.email === ''|| !user.mobile || user.mobile === ''">{{ 'REGISTER' | translate}}</button>
-  </ion-toolbar>
+  <button ion-button no-shadow block color="app" (click)="onRegister()" [disabled]="!birthday || birthday === '' ||!user.gender || user.gender === '' || !user.firstName || user.firstName === '' || !user.lastName || user.lastName === ''|| !user.email || user.email === ''|| !user.mobile || user.mobile === ''">{{ 'REGISTER' | translate}}</button>
 </ion-footer>

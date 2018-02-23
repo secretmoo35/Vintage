@@ -225,10 +225,6 @@
 </ion-content>
 
 <ion-footer>
-  <ion-toolbar *ngIf="orderDetail.status === 'confirm'">
-    <button color="dark" ion-button block outline (click)="cancelorder()">{{ 'CANCEL_ITEM' | translate }}</button>
-  </ion-toolbar>
-  <ion-toolbar *ngIf="orderDetail.status === 'sent'">
-    <button color="secondary" ion-button block (click)="received()">{{ 'ON_RECEIPT' | translate }}</button>
-  </ion-toolbar>
+  <button *ngIf="orderDetail.status === 'confirm'" color="dark" ion-button block outline (click)="cancelorder()">{{ 'CANCEL_ITEM' | translate }}</button>
+  <button *ngIf="orderDetail.status === 'sent'" color="secondary" ion-button block (click)="received()">{{ 'ON_RECEIPT' | translate }}</button>
 </ion-footer>
