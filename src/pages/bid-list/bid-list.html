@@ -44,8 +44,9 @@
             </ion-row>
           </div>
           <div *ngIf="!item.isBid">
-            <p text-center>{{ 'TIME_BID' | translate }}</p>
-            <ion-row no-padding>
+            <p text-center *ngIf="index !== '2'">{{ 'TIME_BID' | translate }}</p>
+            <p class="col-red" text-center *ngIf="index === '2'">{{ 'TIME_END' | translate }}</p>
+            <ion-row no-padding *ngIf="index !== '2'">
               <ion-col col-12 class="col-green" no-padding text-center>
                 {{ item.datestart | date:'dd/MM/yy'}} {{getTimeOnly(item.datestart)}}
               </ion-col>
