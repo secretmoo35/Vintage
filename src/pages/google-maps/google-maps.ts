@@ -250,8 +250,10 @@ export class GoogleMapsPage {
     };
     let modalAddressDetail = this.modalCtrl.create('AddressDetailPage', { address: addressData });
     modalAddressDetail.present();
-    modalAddressDetail.onDidDismiss(() => {
-      this.navCtrl.pop();
+    modalAddressDetail.onDidDismiss((data) => {
+      if (data) {
+        this.navCtrl.pop();
+      }
     })
   }
 

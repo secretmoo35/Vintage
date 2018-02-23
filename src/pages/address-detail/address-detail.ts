@@ -34,6 +34,10 @@ export class AddressDetailPage {
     window.localStorage.setItem('native_map_address_obj', JSON.stringify(shippingAddress));
     window.localStorage.setItem('selectedAddressIndex',(shippingAddress.length - 1).toString());
     this.events.publish('user:map', this.address);
+    this.viewCtrl.dismiss(this.address);
+  }
+
+  close(){
     this.viewCtrl.dismiss();
   }
 

@@ -23,6 +23,6 @@
     </button>
     <div class="arrow-down" *ngIf="address.province"></div>
   </div>
-  <button ion-button color="danger" class="btn-cf" (click)="doConfirm()" [disabled]="!address.province || address.province ===''">{{ 'CONFIRM_LOCATION' | translate }}</button>
+  <button ion-button color="danger" class="btn-cf" (click)="doConfirm()">{{ 'CONFIRM_LOCATION' | translate }}</button>
 </ion-content>
 <!-- [disabled]="!address.province || address.province ===''" -->
