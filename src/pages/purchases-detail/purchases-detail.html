@@ -76,7 +76,10 @@
               <b>{{ 'SHIPPING_ADDRESS' | translate }}</b>
             </h2>
             <p>{{ orderDetail.shipping.name }}</p>
-            <p>{{ orderDetail.shipping.address }}</p>
+            <p>{{ orderDetail.shipping.address }} {{ orderDetail.shipping.district}} {{ orderDetail.shipping.subdistrict}} {{
+              orderDetail.shipping.province}} {{ orderDetail.shipping.postcode}}
+            </p>
+            <p>{{ orderDetail.shipping.tel }}</p>
           </ion-label>
         </ion-item>
       </ion-list>

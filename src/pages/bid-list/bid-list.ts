@@ -69,7 +69,7 @@ export class BidListPage {
             item.timeleft = '00:00:00';
             clearInterval(intervalId);
             element.items.forEach((itemloop: any, inx: number) => {
-              if (itemloop.timeleft === '00:00:00') {
+              if (itemloop.timeleft === '00:00:00' && itemloop.isBid === true) {
                 element.items.splice(inx, 1);
               }
             });

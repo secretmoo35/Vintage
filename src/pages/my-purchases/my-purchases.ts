@@ -144,7 +144,7 @@ export class MyPurchasesPage {
   }
 
   selectPurchases(item) {
-    console.log(item);
+    // console.log(item);
     this.navCtrl.push('PurchasesDetailPage', item);
   }
 

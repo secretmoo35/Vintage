@@ -44,9 +44,10 @@
     </ion-card-header>
 
     <ion-card-content #cont>
-      <p>{{ productData.detail }}
-        <br>
-        <br>
+      <p>
+        <span>{{ productData.detail }}</span>
+        <br *ngIf="productData.detail">
+        <br *ngIf="productData.detail">
         <b>{{ 'SHOP' | translate }}</b>
         <br> {{productData.shop.name}}
       </p>
