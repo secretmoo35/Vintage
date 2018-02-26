@@ -154,5 +154,7 @@
   "BID_NOW_": "Bid now!",
   "BID_NOW": "Now",
   "BIT_COMING": "Coming soon",
-  "BIT_ME": "Me"
+  "BIT_ME": "Me",
+  "SHOP_NO_RESULT": "Shop not found.",
+  "PRODUCT_NO_RESULT": "Product not found."
 }

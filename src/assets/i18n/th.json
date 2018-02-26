@@ -154,5 +154,7 @@
   "BID_NOW_": "ประมูลเลย",
   "BID_NOW": "ตอนนี้",
   "BIT_COMING": "กำลังจะถึง",
-  "BIT_ME": "ของฉัน"
+  "BIT_ME": "ของฉัน",
+  "SHOP_NO_RESULT": "ไม่พบร้านค้า",
+  "PRODUCT_NO_RESULT": "ไม่พบสินค้า"
 }

@@ -27,13 +27,16 @@
 
   <div [ngSwitch]="type">
     <div *ngSwitchCase="'SHOP'">
-      <div class="shops">
+      <div *ngIf="search.shops && search.shops.length > 0" class="shops">
         <preload-image *ngFor="let item of search.shops" [ratio]="{w:19, h:8}" [src]="item.image" (click)=goToDetail(item)></preload-image>
+      </div>
+      <div *ngIf="search.shops && search.shops.length === 0">
+        <p text-center>{{ 'SHOP_NO_RESULT' | translate }}</p>
       </div>
     </div>
 
     <div *ngSwitchCase="'PRODUCT'">
-      <ion-list class="products">
+      <ion-list class="products" *ngIf="search.products && search.products.length > 0">
         <button ion-item *ngFor="let productitem of search.products" (click)="gotoDetail(productitem)">
           <ion-thumbnail item-start>
             <preload-image class="products-image" [ratio]="{w:1, h:1}" [src]="productitem.image"></preload-image>
@@ -47,6 +50,9 @@
           <!-- </div> -->
         </button>
       </ion-list>
+      <div *ngIf="search.products && search.products.length === 0">
+        <p text-center>{{ 'PRODUCT_NO_RESULT' | translate }}</p>
+      </div>
     </div>
   </div>
 
