@@ -113,6 +113,8 @@
   "ON_RECEIPT": "ได้รับสินค้าแล้ว",
   "QTY": "จำนวน",
   "SHIPPING_TYPE": "วิธีการจัดส่ง",
+  "CREATE_DATE": "วันที่สร้างออเดอร์",
+  "CONFIRM_DATE": "วันที่สั่งซื้อ",
   "SHIPPING_DATE": "วันที่จัดส่ง",
   "CREATE_ORDER_DATE": "วันที่สั่งซื้อ",
   "RECEIPT_DATE": "วันที่รับสินค้า",

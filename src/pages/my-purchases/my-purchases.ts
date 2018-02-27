@@ -38,7 +38,7 @@ export class MyPurchasesPage {
     this.screenWidth_px = platform.width();
   }
 
-  ionViewDidEnter() {
+  ionViewWillEnter() {
     if (!this.SwipedTabsIndicator) {
       this.SwipedTabsIndicator = document.getElementById("indicator");
       for (let i in this.tabs) {
@@ -167,7 +167,7 @@ export class MyPurchasesPage {
     this.order.getOrderDetailMaster(item.orderid).then((data) => {
       this.loading.dismiss();
       this.events.subscribe('reloadDetails', () => {
-        this.ionViewDidEnter();
+        this.ionViewWillEnter();
         this.events.unsubscribe('reloadDetails');
       });
       this.app.getRootNav().push('StepOrderPage', { data: data, channel: 'bid' });

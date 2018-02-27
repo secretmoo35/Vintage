@@ -113,6 +113,8 @@
   "ON_RECEIPT": "Order Receipt",
   "QTY": "Qty",
   "SHIPPING_TYPE": "Shipping type",
+  "CREATE_DATE": "Create date",
+  "CONFIRM_DATE": "Confirmed date",
   "SHIPPING_DATE": "Shipping date",
   "CREATE_ORDER_DATE": "Order time",
   "RECEIPT_DATE": "Ship time",

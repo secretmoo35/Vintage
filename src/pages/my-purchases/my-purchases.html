@@ -47,6 +47,9 @@
             </ion-list>
             <ion-list mode="md" class="shipping">
               <ion-item>
+                <ion-label text-left>
+                  <b>{{ 'CREATE_DATE' | translate }} {{ item.topaydate | date:'dd/MM/yy'}}</b>
+                </ion-label>
                 <ion-label text-right class="price">
                   <b>{{ 'TOTAL_FEE' | translate }}: {{ (item.amount + item.shippingprice) | number }} {{ 'THB' | translate }}</b>
                 </ion-label>
@@ -78,6 +81,9 @@
             </ion-list>
             <ion-list mode="md" class="shipping">
               <ion-item>
+                <ion-label text-left>
+                  <b>{{ 'CONFIRM_DATE' | translate }} {{ item.confirmdate | date:'dd/MM/yy'}}</b>
+                </ion-label>
                 <ion-label text-right class="price">
                   <b>{{ 'TOTAL_FEE' | translate }}: {{ (item.amount + item.shippingprice) | number }} {{ 'THB' | translate }}</b>
                 </ion-label>
@@ -155,7 +161,7 @@
             <ion-list mode="md" class="shipping">
               <ion-item>
                 <ion-label text-left>
-                  <b>{{ 'RECEIPT_DATE' | translate }} {{ item.received | date:'dd/MM/yy'}}</b>
+                  <b>{{ 'RECEIPT_DATE' | translate }} {{ item.receivedate | date:'dd/MM/yy'}}</b>
                 </ion-label>
                 <ion-label text-right class="price">
                   <b>{{ 'TOTAL_FEE' | translate }}: {{ (item.amount + item.shippingprice) | number }} {{ 'THB' | translate }}</b>
