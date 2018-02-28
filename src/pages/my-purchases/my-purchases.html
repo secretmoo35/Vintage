@@ -5,9 +5,6 @@
       {{ 'MY_PURCHASES' | translate }}
     </ion-title>
   </ion-navbar>
-</ion-header>
-
-<ion-content no-bounce>
   <ion-toolbar class="tabsHeight">
     <ion-content #MultiItemsScrollingTabs class="tabsContent">
       <ion-segment class="SwipedTabs-tabs">
@@ -19,6 +16,9 @@
       <div id='indicator' class="SwipedTabs-indicatorSegment"></div>
     </ion-content>
   </ion-toolbar>
+</ion-header>
+
+<ion-content no-bounce>
 
   <!-- <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content pullingIcon="arrow-down" pullingText="{{ 'PULL_TO_REFRESH' | translate }}" refreshingSpinner="dots"
