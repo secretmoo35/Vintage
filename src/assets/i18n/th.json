@@ -159,5 +159,6 @@
   "BIT_COMING": "กำลังจะถึง",
   "BIT_ME": "ของฉัน",
   "SHOP_NO_RESULT": "ไม่พบร้านค้า",
-  "PRODUCT_NO_RESULT": "ไม่พบสินค้า"
+  "PRODUCT_NO_RESULT": "ไม่พบสินค้า",
+  "REMARK_REFID": "หมายเลขพัสดุ: "
 }

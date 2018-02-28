@@ -84,7 +84,7 @@
   "COUPON_APPLY": "Apply",
   "COUPON_CODE": "Coupon code",
   "DELIVERY_FEE": "Delivery fee",
-  "DELIVERY_PRICE": "Delivery price",  
+  "DELIVERY_PRICE": "Delivery price",
   "TOTAL_FEE": "Total fee",
   "PRICE": "Price",
   "TOTAL": "Total",
@@ -159,5 +159,6 @@
   "BIT_COMING": "Coming soon",
   "BIT_ME": "Me",
   "SHOP_NO_RESULT": "Shop not found.",
-  "PRODUCT_NO_RESULT": "Product not found."
+  "PRODUCT_NO_RESULT": "Product not found.",
+  "REMARK_REFID": "Tracking number: "
 }

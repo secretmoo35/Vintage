@@ -37,7 +37,7 @@
             </h2>
             <p>{{ orderDetail.sentdate | date:'dd-MM-yyyy HH:mm'}}</p>
             <p *ngIf="orderDetail.refid">
-              {{'REMARK' | translate}} {{orderDetail.refid}}
+              {{'REMARK_REFID' | translate}} {{orderDetail.refid}}
             </p>
           </ion-label>
           <ion-label *ngIf="orderDetail.status ==='completed'">
@@ -45,6 +45,9 @@
               <b>{{ 'RECEIPT_DATE' | translate }}</b>
             </h2>
             <p>{{ orderDetail.receiveddate | date:'dd-MM-yyyy HH:mm'}}</p>
+            <p *ngIf="orderDetail.refid">
+              {{'REMARK_REFID' | translate}} {{orderDetail.refid}}
+            </p>
           </ion-label>
           <ion-label *ngIf="orderDetail.status ==='cancel' || orderDetail.status ==='reject' || orderDetail.status ==='cancelrefund' || orderDetail.status ==='rejectrefund' ||  orderDetail.status ==='admincancel'">
             <h2>
