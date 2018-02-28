@@ -415,7 +415,7 @@
 </ion-content>
 
 <ion-footer *ngIf="formWizard._activeIndex === 0">
-  <button color="app" ion-button block [disabled]="!order.shippingAddress || !order.shippingAddress.name" (click)="slideNext()">{{ 'SHIPPING' | translate }}</button>
+  <button color="app" ion-button block [disabled]="!order.shippingAddress || !order.shippingAddress.name" (click)="slideNext()">{{ 'NEXT' | translate }}</button>
 </ion-footer>
 
 <ion-footer *ngIf="formWizard._activeIndex === 1">
@@ -424,7 +424,7 @@
       <button ion-button full color="danger" (click)="slidePrev()">{{ 'PREV' | translate }}</button>
     </ion-col>
     <ion-col col-6 no-padding>
-      <button color="app" ion-button block [disabled]="isSelectShipping" (click)="slideNext()">{{ 'PAYMENT' | translate }}</button>
+      <button color="app" ion-button block [disabled]="isSelectShipping" (click)="slideNext()">{{ 'NEXT' | translate }}</button>
     </ion-col>
   </ion-row>
 </ion-footer>
@@ -436,7 +436,7 @@
     </ion-col>
     <ion-col col-6 no-padding>
       <button color="app" ion-button block [disabled]="paymentType === '1' ? paymentDetail.creditno === '' || paymentDetail.creditname === '' || paymentDetail.expdate === '' || paymentDetail.creditcvc === null : bankingType === ''"
-        (click)="slideNext()">{{ 'CONFIRM' | translate}}</button>
+        (click)="slideNext()">{{ 'NEXT' | translate}}</button>
     </ion-col>
   </ion-row>
 </ion-footer>
