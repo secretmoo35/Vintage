@@ -12,7 +12,7 @@ import { QuestionModel } from '../../models/question-answers.model';
 export class QuestionAnswersProvider {
 
   constructor(public http: HttpClient) {
-    console.log('Hello QuestionAnswersProvider Provider');
+    // console.log('Hello QuestionAnswersProvider Provider');
   }
 
   getQuestionAnswers(): Promise<Array<QuestionModel>> {

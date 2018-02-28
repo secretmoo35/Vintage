@@ -29,7 +29,7 @@ export class ShopListPage {
   }
 
   ionViewWillEnter() {
-    console.log('ionViewDidLoad ShopListPage');
+    // console.log('ionViewDidLoad ShopListPage');
     this.getListShop();
   }
 

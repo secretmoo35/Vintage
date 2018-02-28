@@ -21,7 +21,7 @@ export class FavoriteProductPage {
   productFavarite: ItemProductModel = new ItemProductModel();
 
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public navParams: NavParams,
     private productProvider: ProductProvider,
     private modalCtrl: ModalController
@@ -29,9 +29,9 @@ export class FavoriteProductPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad FavoriteProductPage');
+    // console.log('ionViewDidLoad FavoriteProductPage');
   }
-  ionViewWillEnter(){
+  ionViewWillEnter() {
     this.getProductFavarite();
   }
 

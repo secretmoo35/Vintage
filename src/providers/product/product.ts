@@ -15,7 +15,7 @@ export class ProductProvider {
   API_URL: string = Constants.URL;
 
   constructor(public http: HttpClient) {
-    console.log('Hello ProductdetailProvider Provider');
+    // console.log('Hello ProductdetailProvider Provider');
   }
 
   getProductDetail(productId): Promise<ProductDetailModel> {

@@ -17,7 +17,7 @@ export class GridSpecialComponent implements OnInit {
   useItems: Array<any> = [];
 
   constructor() {
-    console.log('Hello GridSpecialComponent Component');
+    // console.log('Hello GridSpecialComponent Component');
   }
 
   ngOnInit() {

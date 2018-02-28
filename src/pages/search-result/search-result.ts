@@ -29,7 +29,7 @@ export class SearchResultPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SearchResultPage');
+    // console.log('ionViewDidLoad SearchResultPage');
   }
 
   selectTabs() {

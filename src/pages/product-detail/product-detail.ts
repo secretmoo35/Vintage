@@ -39,7 +39,7 @@ export class ProductDetailPage {
   }
 
   ionViewWillEnter() {
-    console.log('ionViewDidLoad ProductDetailPage');
+    // console.log('ionViewDidLoad ProductDetailPage');
     this.user = JSON.parse(window.localStorage.getItem('user@' + Constants.URL));
     this.getProductDetail();
   }

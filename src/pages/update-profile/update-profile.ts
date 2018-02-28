@@ -44,12 +44,12 @@ export class UpdateProfilePage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad UpdateProfilePage');
+    // console.log('ionViewDidLoad UpdateProfilePage');
   }
 
   updateProfile(user) {
     let language = this.translate.currentLang;
-    console.log(user);
+    // console.log(user);
 
     this.loading.onLoading();
     this.authProvider.updateUser(user).then(res => {

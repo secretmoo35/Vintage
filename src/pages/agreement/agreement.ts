@@ -26,7 +26,7 @@ export class AgreementPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AgreementPage');
+    // console.log('ionViewDidLoad AgreementPage');
     this.onLanguage();
   }
 

@@ -13,7 +13,7 @@ import { Constants } from '../../app/app.constants';
 export class AdsProvider {
   API_URL: string = Constants.URL;
   constructor(public http: HttpClient) {
-    console.log('Hello AdsProvider Provider');
+    // console.log('Hello AdsProvider Provider');
   }
 
 

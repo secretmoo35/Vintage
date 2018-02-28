@@ -80,7 +80,7 @@ export class StepOrderPage {
   ionViewWillEnter() {
     this.isSelectShipping = true;
     this.channel = this.navParams.get('channel');
-    console.log(this.channel);
+    // console.log(this.channel);
     this.loadShippingAddress();
     this.loadItems();
   }

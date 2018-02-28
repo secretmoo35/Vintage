@@ -31,7 +31,7 @@ export class ChangePasswordPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ChangePasswordPage');
+    // console.log('ionViewDidLoad ChangePasswordPage');
   }
 
   changePassword(e) {

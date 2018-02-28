@@ -19,7 +19,7 @@ export class ForgotPasswordPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ForgotPasswordPage');
+    // console.log('ionViewDidLoad ForgotPasswordPage');
   }
 
 }

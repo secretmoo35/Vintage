@@ -53,11 +53,11 @@ export class ProfilePage {
   }
 
   segmentChanged(e) {
-    console.log(e);
+    // console.log(e);
   }
 
   profileEdit() {
-    console.log(this.user);
+    // console.log(this.user);
     this.navCtrl.push('UpdateProfilePage');
   }
 

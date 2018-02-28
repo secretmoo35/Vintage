@@ -14,7 +14,7 @@ export class HomeProvider {
   API_URL: string = Constants.URL;
 
   constructor(public http: HttpClient) {
-    console.log('Hello HomeProvider Provider');
+    // console.log('Hello HomeProvider Provider');
   }
 
   getHomeData(): Promise<HomeModel> {

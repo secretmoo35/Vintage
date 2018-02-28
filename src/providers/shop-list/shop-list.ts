@@ -15,7 +15,7 @@ import { ShopModel } from '../../models/shop.model';
 export class ShopListProvider {
 
   constructor(public http: HttpClient, public auth: AuthProvider) {
-    console.log('Hello ShopListProvider Provider');
+    // console.log('Hello ShopListProvider Provider');
   }
 
   getShop(): Promise<Array<ShopListModel>> {
