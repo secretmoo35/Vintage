@@ -23,7 +23,7 @@ export class LoadingProvider {
         <img src="./assets/icon/loading/loading.png" class="loading-img"/>
         <div></div>
       </div>`,
-      duration: 30000,
+      duration: 20000,
     });
     this.loading.present();
     return;

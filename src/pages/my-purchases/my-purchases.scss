@@ -47,17 +47,14 @@ page-my-purchases {
     ion-slides {
         display: block;
         width: 100%;
-        height: calc(100vh - 150px) !important;
     }
     ion-slide {
-        height: calc(100vh - 150px) !important;
         background-color: #f7f7f7 !important;
         align-items: flex-start !important;
     }
     ion-scroll {
         position: inherit;
         display: block;
-        height: calc(100vh - 150px) !important;
     }
     .checkout-product-shipping {
         background-color: #f7f7f7 !important;

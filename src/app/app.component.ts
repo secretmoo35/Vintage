@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
+import { Platform, App } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TranslateService } from '@ngx-translate/core';
@@ -15,6 +15,7 @@ export class MyApp {
   rootPage: any = 'WalkthroughPage';
 
   constructor(
+    public app: App,
     platform: Platform,
     statusBar: StatusBar,
     splashScreen: SplashScreen,
@@ -58,14 +59,19 @@ export class MyApp {
     this.oneSignal.startInit('d5d9533c-3ac8-42e6-bc16-a5984bef02ff', '687344947918');
 
     // this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.InAppAlert);
-
+    this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.Notification);
     this.oneSignal.handleNotificationReceived().subscribe((onReceived) => {
       // do something when notification is received
       // alert('test');
     });
     this.oneSignal.handleNotificationOpened().subscribe((opened) => {
       // do something when a notification is opened
-      alert(JSON.stringify(opened));
+      let additionalData = opened.notification.payload.additionalData;
+      if (additionalData.type === 'Order' && additionalData.orderid && additionalData.itemid) {
+        this.app.getRootNav().push('PurchasesDetailPage', opened.notification.payload.additionalData);
+      } else if (additionalData.type === 'Bid') {
+        this.app.getRootNav().push('MyPurchasesPage');
+      }
     });
 
     this.oneSignal.endInit();
