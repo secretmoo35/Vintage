@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Slides, Platform, Content, App, Events } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Slides, Platform, Content, App, Events, AlertController } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 import { OrderProvider } from '../../providers/order/order';
 import { AlertProvider } from '../../providers/alert/alert';
@@ -32,7 +32,8 @@ export class MyPurchasesPage {
     private alert: AlertProvider,
     private loading: LoadingProvider,
     private app: App,
-    private events: Events
+    private events: Events,
+    private alertCtrl: AlertController
   ) {
     this.tabs = ["TO_PAY", "WAIT_SEND", "WAIT_RECEIPT", "COMPLETED", "CANCEL"];
     this.screenWidth_px = platform.width();
@@ -149,17 +150,64 @@ export class MyPurchasesPage {
   }
 
   received(item) {
-    let body = {
-      orderid: item.orderid,
-      itemid: item.itemid
-    };
-    this.loading.onLoading();
-    this.order.receiptOrder(body).then((data) => {
-      this.loading.dismiss();
-      this.getOrders();
-    }, (err) => {
-      this.loading.dismiss();
+
+    let language = this.translate.currentLang;
+    let title = '';
+    let message = '';
+    let cancel = '';
+    let ok = '';
+    if (language === 'th') {
+      title = 'การรับสินค้า';
+      message = 'ยืนยันการรับสินค้า?';
+      cancel = 'ยกเลิก';
+      ok = 'ตกลง';
+    } else if (language === 'en') {
+      title = 'Receive order';
+      message = 'Receive order.?';
+      cancel = 'Cancel';
+      ok = 'OK';
+    }
+    let alert = this.alertCtrl.create({
+      title: title,
+      message: message,
+      mode: 'ios',
+      buttons: [
+        {
+          text: ok,
+          cssClass: 'confirm',
+          handler: () => {
+            let body = {
+              orderid: item.orderid,
+              itemid: item.itemid
+            };
+            this.loading.onLoading();
+            this.order.receiptOrder(body).then((data) => {
+              this.loading.dismiss();
+              this.getOrders();
+            }, (err) => {
+              this.loading.dismiss();
+              let language = this.translate.currentLang;
+              if (language === 'th') {
+                this.alert.onAlert('การรับสินค้า', 'เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง', 'ตกลง');
+              } else if (language === 'en') {
+                this.alert.onAlert('Receive order', 'Order error. Please try again.', 'OK');
+              }
+            });
+          }
+        },
+        {
+          text: cancel,
+          role: 'cancel',
+          cssClass: 'cancel',
+          handler: () => {
+
+          }
+        }
+      ]
     });
+
+    alert.present();
+
   }
 
   selectPurchasesBid(item) {

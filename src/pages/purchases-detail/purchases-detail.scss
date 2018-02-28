@@ -47,16 +47,18 @@ page-purchases-detail {
             padding: 0px !important;
         }
     }
-    .log {
-        margin-bottom: 56px;
-    }
     ion-footer {
+        height: auto !important;
+        max-height: 46px !important;
         .toolbar-background {
             background-color: #f7f7f7 !important;
         }
-        .toolbar .button {
-            height: 40px !important;
+        .button {
+            margin: 0px;
         }
+    }
+    .log {
+        margin-bottom: 54px;
     }
     .bid {
         color: $app;

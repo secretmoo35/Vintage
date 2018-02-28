@@ -16,10 +16,16 @@
 <ion-content no-bounce>
   <div *ngIf="orderDetail.product">
     <div class="address">
+      <ion-list mode="md" *ngIf="orderDetail.channel === 'bid'">
+        <ion-item>
+          <ion-label>
+            <h2 no-padding class="bid">{{ 'BID' | translate : ''}}</h2>
+          </ion-label>
+        </ion-item>
+      </ion-list>
       <ion-list mode="md">
         <ion-item>
           <ion-label *ngIf="orderDetail.status ==='confirm'">
-            <h2 padding-bottom *ngIf="orderDetail.channel === 'bid'" class="bid">{{ 'BID' | translate : ''}}</h2>
             <h2>
               <b>{{ 'CREATE_ORDER_DATE' | translate }}</b>
             </h2>
@@ -40,7 +46,7 @@
             </h2>
             <p>{{ orderDetail.receiveddate | date:'dd-MM-yyyy HH:mm'}}</p>
           </ion-label>
-          <ion-label *ngIf="orderDetail.status ==='cancel' || orderDetail.status ==='reject' || orderDetail.status ==='cancelrefund' || orderDetail.status ==='rejectrefund'">
+          <ion-label *ngIf="orderDetail.status ==='cancel' || orderDetail.status ==='reject' || orderDetail.status ==='cancelrefund' || orderDetail.status ==='rejectrefund' ||  orderDetail.status ==='admincancel'">
             <h2>
               <b>{{ 'CANCEL_DATE' | translate }}</b>
             </h2>
@@ -143,7 +149,7 @@
             <ion-row>
               <ion-col col-6>
                 <h2>
-                  <b>{{ 'DELIVERY_FEE' | translate }}</b>
+                  <b>{{ 'DELIVERY_PRICE' | translate }}</b>
                 </h2>
               </ion-col>
               <ion-col col-6 text-right>
@@ -225,6 +231,6 @@
 </ion-content>
 
 <ion-footer>
-  <button *ngIf="orderDetail.status === 'confirm'" color="dark" ion-button block outline (click)="cancelorder()">{{ 'CANCEL_ITEM' | translate }}</button>
+  <button *ngIf="orderDetail.status === 'confirm'" color="danger" ion-button block (click)="cancelorder()">{{ 'CANCEL_ITEM' | translate }}</button>
   <button *ngIf="orderDetail.status === 'sent'" color="secondary" ion-button block (click)="received()">{{ 'ON_RECEIPT' | translate }}</button>
 </ion-footer>

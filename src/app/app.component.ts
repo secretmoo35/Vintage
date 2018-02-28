@@ -63,8 +63,9 @@ export class MyApp {
       // do something when notification is received
       // alert('test');
     });
-    this.oneSignal.handleNotificationOpened().subscribe(() => {
+    this.oneSignal.handleNotificationOpened().subscribe((opened) => {
       // do something when a notification is opened
+      alert(JSON.stringify(opened));
     });
 
     this.oneSignal.endInit();

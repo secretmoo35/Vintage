@@ -77,12 +77,12 @@ export class PurchasesDetailPage {
             this.order.cancelOrder(body).then((data) => {
               this.loading.dismiss();
               this.getOrderDetail();
-              let language = this.translate.currentLang;
-              if (language === 'th') {
-                this.alert.onAlert('ยกเลิกสินค้า', 'ยกเลิกสินค้าสำเร็จ', 'ตกลง');
-              } else if (language === 'en') {
-                this.alert.onAlert('Cancel order', 'Success.', 'OK');
-              }
+              // let language = this.translate.currentLang;
+              // if (language === 'th') {
+              //   this.alert.onAlert('ยกเลิกสินค้า', 'ยกเลิกสินค้าสำเร็จ', 'ตกลง');
+              // } else if (language === 'en') {
+              //   this.alert.onAlert('Cancel order', 'Success.', 'OK');
+              // }
             }, (err) => {
               this.loading.dismiss();
               let language = this.translate.currentLang;
@@ -108,18 +108,65 @@ export class PurchasesDetailPage {
 
   }
 
-  received() {
-    let body = {
-      orderid: this.orderDetail.orderid,
-      itemid: this.orderDetail.itemid
-    };
-    this.loading.onLoading();
-    this.order.receiptOrder(body).then((data) => {
-      this.loading.dismiss();
-      this.getOrderDetail();
-    }, (err) => {
-      this.loading.dismiss();
+  received(item) {
+
+    let language = this.translate.currentLang;
+    let title = '';
+    let message = '';
+    let cancel = '';
+    let ok = '';
+    if (language === 'th') {
+      title = 'การรับสินค้า';
+      message = 'ยืนยันการรับสินค้า?';
+      cancel = 'ยกเลิก';
+      ok = 'ตกลง';
+    } else if (language === 'en') {
+      title = 'Receive order';
+      message = 'Receive order.?';
+      cancel = 'Cancel';
+      ok = 'OK';
+    }
+    let alert = this.alertCtrl.create({
+      title: title,
+      message: message,
+      mode: 'ios',
+      buttons: [
+        {
+          text: ok,
+          cssClass: 'confirm',
+          handler: () => {
+            let body = {
+              orderid: this.orderDetail.orderid,
+              itemid: this.orderDetail.itemid
+            };
+            this.loading.onLoading();
+            this.order.receiptOrder(body).then((data) => {
+              this.loading.dismiss();
+              this.getOrderDetail();
+            }, (err) => {
+              this.loading.dismiss();
+              let language = this.translate.currentLang;
+              if (language === 'th') {
+                this.alert.onAlert('การรับสินค้า', 'เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง', 'ตกลง');
+              } else if (language === 'en') {
+                this.alert.onAlert('Receive order', 'Order error. Please try again.', 'OK');
+              }
+            });
+          }
+        },
+        {
+          text: cancel,
+          role: 'cancel',
+          cssClass: 'cancel',
+          handler: () => {
+
+          }
+        }
+      ]
     });
+
+    alert.present();
+
   }
 
 }
