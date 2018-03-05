@@ -33,6 +33,9 @@ export class StepOrderPage {
   // 2
   isSelectShipping: Boolean = true;
   // 3
+  startYear: any = '';
+  endYear: any = '';
+  expdate: string = '';
   paymentType: string = '1';
   bankingType: string = '';
   bankData = [
@@ -80,7 +83,9 @@ export class StepOrderPage {
   ionViewWillEnter() {
     this.isSelectShipping = true;
     this.channel = this.navParams.get('channel');
-    // console.log(this.channel);
+    let date = new Date();
+    this.startYear = date.getFullYear().toString();
+    this.endYear = (date.getFullYear() + 20).toString()
     this.loadShippingAddress();
     this.loadItems();
   }
@@ -161,21 +166,22 @@ export class StepOrderPage {
         }, 0);
       }
     }
-
-    if (this.paymentDetail.expdate) {
-      setTimeout(() => {
-        // this.paymentDetail.expdate = pattern.exec(this.paymentDetail.expdate);
-        if (this.paymentDetail.expdate && this.paymentDetail.expdate.length === 4) {
-          if (this.paymentDetail.expdate.indexOf('/') === -1) {
-            this.paymentDetail.expdate = this.paymentDetail.expdate.substr(0, 2) + '/' + this.paymentDetail.expdate.substr(2, 4);
-          }
-          this.paymentDetail.expdate = this.paymentDetail.expdate;
-        } else if (this.paymentDetail.expdate && this.paymentDetail.expdate.length > 5) {
-          setTimeout(() => {
-            this.paymentDetail.expdate = this.paymentDetail.expdate.substr(0, 5);
-          }, 0);
-        }
-      }, 0);
+    if (this.expdate) {
+      let dateSplit = this.expdate.split('-');
+      this.paymentDetail.expdate = dateSplit[1] + '/' + dateSplit[0];
+      // setTimeout(() => {
+      //   // this.paymentDetail.expdate = pattern.exec(this.paymentDetail.expdate);
+      //   if (this.paymentDetail.expdate && this.paymentDetail.expdate.length === 4) {
+      //     if (this.paymentDetail.expdate.indexOf('/') === -1) {
+      //       this.paymentDetail.expdate = this.paymentDetail.expdate.substr(0, 2) + '/' + this.paymentDetail.expdate.substr(2, 4);
+      //     }
+      //     this.paymentDetail.expdate = this.paymentDetail.expdate;
+      //   } else if (this.paymentDetail.expdate && this.paymentDetail.expdate.length > 5) {
+      //     setTimeout(() => {
+      //       this.paymentDetail.expdate = this.paymentDetail.expdate.substr(0, 5);
+      //     }, 0);
+      //   }
+      // }, 0);
     }
   }
 
@@ -306,11 +312,20 @@ export class StepOrderPage {
           resolve(true);
         }, (err) => {
           this.loading.dismiss();
-          let language = this.translate.currentLang;
-          if (language === 'th') {
-            this.alert.onAlert('การชำระเงิน', 'บัตรเครดิตไม่ถูกต้อง', 'ตกลง');
-          } else if (language === 'en') {
-            this.alert.onAlert('Payment', 'Credit Card Error.', 'OK');
+          if (err.message === 'expiration date cannot be in the past') {
+            let language = this.translate.currentLang;
+            if (language === 'th') {
+              this.alert.onAlert('การชำระเงิน', 'บัตรของท่านหมดอายุ', 'ตกลง');
+            } else if (language === 'en') {
+              this.alert.onAlert('Payment', 'Expiration date cannot be in the past', 'OK');
+            }
+          } else {
+            let language = this.translate.currentLang;
+            if (language === 'th') {
+              this.alert.onAlert('การชำระเงิน', 'บัตรเครดิตไม่ถูกต้อง', 'ตกลง');
+            } else if (language === 'en') {
+              this.alert.onAlert('Payment', 'Credit Card Error.', 'OK');
+            }
           }
           resolve(false);
         });
