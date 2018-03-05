@@ -178,7 +178,7 @@
             <ion-label floating>{{ 'CARD_NUMBER' | translate }}
               <span>*</span>
             </ion-label>
-            <ion-input type="number" [(ngModel)]="paymentDetail.creditno" (ionChange)="creditFormat()"></ion-input>
+            <ion-input type="tel" [(ngModel)]="paymentDetail.creditno" (ionChange)="creditFormat()"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label floating>{{ 'CARD_HOLDER' | translate }}
