@@ -19,7 +19,7 @@
         <ion-label stacked>
           <h2 class="product-name">{{item.product.name}}</h2>
           <!-- <p class="price-name"> ({{item.product.price | number:'0.2-2'}} {{ 'THB' | translate}}) </p> -->
-          <p>{{item.product.price | number:'0.2-2'}} {{ 'THB' | translate}}</p>
+          <p>{{item.product.price | number:'0.2-2'}} {{ 'THB' | translate}}</p>       
         </ion-label>
 
         <button ion-button icon-only item-right clear color="dark" class="icon-trash" (click)="removeItem(i)">
@@ -36,6 +36,7 @@
           <button ion-button icon-only clear color="app" class="icon-cart" (tap)="countPlus(item)">
             <ion-icon name="ios-add-circle-outline"></ion-icon>
           </button>
+          <p>{{ 'TOTAL' | translate }} {{item.amount | number:'0.2-2'}} {{ 'THB' | translate}}</p>   
         </div>
 
       </ion-item>

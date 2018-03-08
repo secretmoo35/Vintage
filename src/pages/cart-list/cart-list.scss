@@ -55,12 +55,15 @@ page-cart-list {
         text-align: right;
         position: absolute;
         right: 0px;
-        top: 34px;
+        top: 30px;
         width: 100%;
         z-index: 9999;
     }
     .list-item {
         margin: 0px;
+        .item{
+            height: 110px !important;
+        }
     }
     .label-md[stacked] {
         color: #000;
