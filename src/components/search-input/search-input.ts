@@ -22,7 +22,7 @@ export class SearchInputComponent {
       activeElement && activeElement.blur && activeElement.blur();
       if (this.searchText !== '') {
         this.loading.onLoading();
-        this.loading.dismiss();
+        // this.loading.dismiss();
         this.search.searchKeyword(this.searchText).then((res) => {
           this.app.getRootNav().push('SearchResultPage', { keyword: this.searchText, items: res });
           this.searchText = '';
