@@ -44,7 +44,7 @@
     </ion-grid> -->
     <grid-special [items]="homeItem.items" (callbackItem)="selected($event)"></grid-special>
   </div>
-  <ion-infinite-scroll (ionInfinite)="doInfinite($event)" threshold="5%" *ngIf="isInfinite">
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)" threshold="10%" *ngIf="isInfinite">
     <ion-infinite-scroll-content></ion-infinite-scroll-content>
   </ion-infinite-scroll>
 
