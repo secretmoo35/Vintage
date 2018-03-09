@@ -13,12 +13,17 @@
 </ion-header>
 
 
-<ion-content no-bounce>
+<ion-content no-bounce #content>
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content pullingIcon="arrow-down" pullingText="{{ 'PULL_TO_REFRESH' | translate }}" refreshingSpinner="dots"
       refreshingText="{{ 'REFRESHING' | translate }}"></ion-refresher-content>
   </ion-refresher>
   <div class="content">
-    <preload-image *ngFor="let item of shopData" [ratio]="{w:19, h:8}" [src]="item.coverimage" (click)=shopListId(item)></preload-image>
+    <preload-image *ngFor="let item of shopData.items" [ratio]="{w:19, h:8}" [src]="item.coverimage" (click)=shopListId(item)></preload-image>
   </div>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)" threshold="10%" *ngIf="isInfinite">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
 </ion-content>

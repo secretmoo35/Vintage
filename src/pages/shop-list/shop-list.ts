@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
 import { ShopListProvider } from '../../providers/shop-list/shop-list';
-import { ShopListModel } from '../../models/shop-list.model';
+import { ShopListMasterModel } from '../../models/shop-list.model';
 import { LoadingProvider } from '../../providers/loading/loading';
 
 /**
@@ -17,9 +17,12 @@ import { LoadingProvider } from '../../providers/loading/loading';
   templateUrl: 'shop-list.html',
 })
 export class ShopListPage {
-
-  shopData: Array<ShopListModel>;
-
+  @ViewChild(Content) content: Content;
+  shopData: ShopListMasterModel = new ShopListMasterModel();
+  page: number = 1;
+  maxLimit: number;
+  limitItem: number;
+  isInfinite: Boolean = true;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -29,15 +32,24 @@ export class ShopListPage {
   }
 
   ionViewWillEnter() {
-    // console.log('ionViewDidLoad ShopListPage');
+    setTimeout(() => {
+      this.content.scrollToTop();
+    }, 0);
+    this.isInfinite = true;    
+    this.page = 1;
     this.getListShop();
   }
 
   getListShop() {
     this.loading.onLoading();
-    this.shopList.getShop().then(res => {
-      this.loading.dismiss();
+    this.shopList.getShop(this.page).then(res => {
       this.shopData = res;
+      this.maxLimit = res.maxLimit;
+      this.limitItem = res.limitItem;
+      if (this.limitItem >= this.maxLimit) {
+        this.isInfinite = false;
+      }
+      this.loading.dismiss();
     }, (err) => {
       this.loading.dismiss();
     })
@@ -46,6 +58,15 @@ export class ShopListPage {
   doRefresh(refresher) {
     this.getListShop();
     refresher.complete();
+  }
+
+  doInfinite(infiniteScroll) {
+    this.page++;
+    this.isInfinite = true;
+    setTimeout(() => {
+      this.getListShop();
+      infiniteScroll.complete();
+    }, 1000);
   }
 
   shopListId(item) {

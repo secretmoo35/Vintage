@@ -1,6 +1,8 @@
 export class HomeModel {
     bid: Array<HomeBidModel>;
     items: Array<HomeItemsModel>;
+    maxLimit: number;
+    limitItem: number;
 }
 
 export class HomeBidModel {

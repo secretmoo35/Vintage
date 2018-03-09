@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ShopListModel } from '../../models/shop-list.model';
+import { ShopListModel, ShopListMasterModel } from '../../models/shop-list.model';
 import 'rxjs/add/operator/toPromise';
 import { AuthProvider } from '../auth/auth';
 import { ShopModel } from '../../models/shop.model';
@@ -18,10 +18,10 @@ export class ShopListProvider {
     // console.log('Hello ShopListProvider Provider');
   }
 
-  getShop(): Promise<Array<ShopListModel>> {
-    return this.http.get(this.auth.API_URL + '/api/getshoplist')
+  getShop(page): Promise<ShopListMasterModel> {
+    return this.http.get(this.auth.API_URL + '/api/getshoplist/' + page)
       .toPromise()
-      .then(response => response as Array<ShopListModel>)
+      .then(response => response as ShopListMasterModel)
       .catch(this.handleError);
   }
   

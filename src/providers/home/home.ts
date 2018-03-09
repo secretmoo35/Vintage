@@ -17,9 +17,9 @@ export class HomeProvider {
     // console.log('Hello HomeProvider Provider');
   }
 
-  getHomeData(): Promise<HomeModel> {
+  getHomeData(page): Promise<HomeModel> {
     // return this.http.get('./assets/json/home.json')
-    return this.http.get(this.API_URL + '/api/vintagecustomerhome')
+    return this.http.get(this.API_URL + '/api/vintagecustomerhome/' + page)
       .toPromise()
       .then(response => response as HomeModel)
       .catch(this.handleError);
