@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ShopListModel, ShopListMasterModel } from '../../models/shop-list.model';
+import { ShopListMasterModel } from '../../models/shop-list.model';
 import 'rxjs/add/operator/toPromise';
 import { AuthProvider } from '../auth/auth';
 import { ShopModel } from '../../models/shop.model';
