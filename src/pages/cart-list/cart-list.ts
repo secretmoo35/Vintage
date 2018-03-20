@@ -46,7 +46,7 @@ export class CartListPage {
     let ok = '';
     if (language === 'th') {
       title = 'ลบสินค้า';
-      message = 'คุณต้องลบสินค้านี้ ออกจากตะกร้าสินค้า?';
+      message = 'คุณต้องการลบสินค้านี้ ออกจากตะกร้าสินค้า?';
       cancel = 'ยกเลิก';
       ok = 'ตกลง';
     } else if (language === 'en') {

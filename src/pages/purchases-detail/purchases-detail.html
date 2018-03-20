@@ -29,13 +29,13 @@
             <h2>
               <b>{{ 'CREATE_ORDER_DATE' | translate }}</b>
             </h2>
-            <p>{{ orderDetail.confirmdate | date:'dd-MM-yyyy HH:mm'}}</p>
+            <p>{{ orderDetail.confirmdate | date:'dd/MM/yyyy HH:mm'}}</p>
           </ion-label>
           <ion-label *ngIf="orderDetail.status ==='sent'">
             <h2>
               <b>{{ 'SHIPPING_DATE' | translate }}</b>
             </h2>
-            <p>{{ orderDetail.sentdate | date:'dd-MM-yyyy HH:mm'}}</p>
+            <p>{{ orderDetail.sentdate | date:'dd/MM/yyyy HH:mm'}}</p>
             <p *ngIf="orderDetail.refid">
               {{'REMARK_REFID' | translate}} {{orderDetail.refid}}
             </p>
@@ -44,7 +44,7 @@
             <h2>
               <b>{{ 'RECEIPT_DATE' | translate }}</b>
             </h2>
-            <p>{{ orderDetail.receiveddate | date:'dd-MM-yyyy HH:mm'}}</p>
+            <p>{{ orderDetail.receiveddate | date:'dd/MM/yyyy HH:mm'}}</p>
             <p *ngIf="orderDetail.refid">
               {{'REMARK_REFID' | translate}} {{orderDetail.refid}}
             </p>
@@ -53,7 +53,7 @@
             <h2>
               <b>{{ 'CANCEL_DATE' | translate }}</b>
             </h2>
-            <p>{{ orderDetail.canceldate | date:'dd-MM-yyyy HH:mm'}}</p>
+            <p>{{ orderDetail.canceldate | date:'dd/MM/yyyy HH:mm'}}</p>
             <p *ngIf="orderDetail.rejectreason">
               {{'REMARK' | translate}} {{orderDetail.rejectreason}}
             </p>
