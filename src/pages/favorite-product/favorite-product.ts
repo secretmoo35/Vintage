@@ -39,7 +39,7 @@ export class FavoriteProductPage {
     this.productFavarite = this.productProvider.getFavorite();
   }
   selectProduct(e) {
-    console.log(e);
+    // console.log(e);
     let modal1 = this.modalCtrl.create('ProductDetailPage', { productId: e._id });
     modal1.present();
     modal1.onDidDismiss(() => {
