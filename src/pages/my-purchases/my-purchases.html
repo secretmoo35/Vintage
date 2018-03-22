@@ -174,43 +174,40 @@
     </ion-slide>
     <!-- 4 -->
     <ion-slide>
-      <ion-slide>
-        <ion-scroll scrollY>
-          <div class="checkout-product-shipping" *ngIf="orders[4] && orders[4].items">
-            <div class="product" *ngFor="let item of orders[4].items" (click)="selectPurchases(item)">
-              <ion-list mode="md" class="list-item">
-                <ion-item>
-                  <ion-thumbnail item-start>
-                    <img src="{{ item.image }}">
-                  </ion-thumbnail>
-                  <ion-label stacked>
-                    <h2 class="product-name">{{ item.name }}</h2>
-                    <p>{{ item.price | number }} {{ 'THB' | translate }}</p>
-                    <p>{{ 'QTY' | translate }}: {{ item.qty }}</p>
-                    <p class="danger">
-                      <b *ngIf="item.status ==='cancel' || item.status ==='reject'">{{ 'CANCEL_RECEIPT_NOT' | translate }}</b>
-                      <b *ngIf="item.status ==='cancelrefund' || item.status ==='rejectrefund'">{{ 'CANCEL_RECEIPT' | translate }}</b>
-                    </p>
-                    <p *ngIf="item.channel === 'bid'" class="bid">{{ 'BID' | translate : ''}}</p>
-                  </ion-label>
-                </ion-item>
-              </ion-list>
-              <ion-list mode="md" class="shipping">
-                <ion-item>
-                  <ion-label text-left>
-                    <b>{{ 'CANCEL_DATE' | translate }} {{ item.canceldate | date:'dd/MM/yy'}}</b>
-                  </ion-label>
-                  <ion-label text-right class="price">
-                    <b>{{ 'TOTAL_FEE' | translate }}: {{ (item.amount + item.shippingprice) | number }} {{ 'THB' | translate
-                      }}
-                    </b>
-                  </ion-label>
-                </ion-item>
-              </ion-list>
-            </div>
+      <ion-scroll scrollY>
+        <div class="checkout-product-shipping" *ngIf="orders[4] && orders[4].items">
+          <div class="product" *ngFor="let item of orders[4].items" (click)="selectPurchases(item)">
+            <ion-list mode="md" class="list-item">
+              <ion-item>
+                <ion-thumbnail item-start>
+                  <img src="{{ item.image }}">
+                </ion-thumbnail>
+                <ion-label stacked>
+                  <h2 class="product-name">{{ item.name }}</h2>
+                  <p>{{ item.price | number }} {{ 'THB' | translate }}</p>
+                  <p>{{ 'QTY' | translate }}: {{ item.qty }}</p>
+                  <p class="danger">
+                    <b *ngIf="item.status ==='cancel' || item.status ==='reject'">{{ 'CANCEL_RECEIPT_NOT' | translate }}</b>
+                    <b *ngIf="item.status ==='cancelrefund' || item.status ==='rejectrefund'">{{ 'CANCEL_RECEIPT' | translate }}</b>
+                  </p>
+                  <p *ngIf="item.channel === 'bid'" class="bid">{{ 'BID' | translate : ''}}</p>
+                </ion-label>
+              </ion-item>
+            </ion-list>
+            <ion-list mode="md" class="shipping">
+              <ion-item>
+                <ion-label text-left>
+                  <b>{{ 'CANCEL_DATE' | translate }} {{ item.canceldate | date:'dd/MM/yy'}}</b>
+                </ion-label>
+                <ion-label text-right class="price">
+                  <b>{{ 'TOTAL_FEE' | translate }}: {{ (item.amount + item.shippingprice) | number }} {{ 'THB' | translate }}
+                  </b>
+                </ion-label>
+              </ion-item>
+            </ion-list>
           </div>
-        </ion-scroll>
-      </ion-slide>
+        </div>
+      </ion-scroll>
     </ion-slide>
   </ion-slides>
 </ion-content>
