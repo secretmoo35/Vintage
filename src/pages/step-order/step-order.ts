@@ -130,6 +130,9 @@ export class StepOrderPage {
       this.onCheckCredit().then((res) => {
         if (res) {
           this.formWizard.slideNext();
+          this.order.coupon.code = "";
+          this.order.coupon.discount = null;
+          this.couponCode = "";
           this.orderSummary();
         }
         this.formWizard.lockSwipes(true);
@@ -378,10 +381,12 @@ export class StepOrderPage {
             this.alert.onAlert('คูปอง', 'คูปองหมดอายุ', 'ตกลง');
           }
         } else if (language === 'en') {
-
           this.alert.onAlert('Coupon', res.message, 'OK');
-
         }
+        this.order.coupon.code = "";
+        this.order.coupon.discount = null;
+        this.couponCode = "";
+        this.orderSummary();        
       }
     }, (err) => {
       this.loading.dismiss();

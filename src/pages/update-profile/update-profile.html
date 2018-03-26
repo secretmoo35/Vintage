@@ -27,20 +27,26 @@
       <ion-row>
         <ion-col col-6 no-padding>
           <ion-item>
-            <ion-label floating>{{ 'FIRST_NAME' | translate}}</ion-label>
+            <ion-label floating>{{ 'FIRST_NAME' | translate}}
+              <span class="danger">*</span>
+            </ion-label>
             <ion-input type="text" [(ngModel)]="user.firstName"></ion-input>
           </ion-item>
         </ion-col>
         <ion-col col-6 no-padding>
           <ion-item>
-            <ion-label floating>{{ 'LAST_NAME' | translate}}</ion-label>
+            <ion-label floating>{{ 'LAST_NAME' | translate}}
+              <span class="danger">*</span>
+            </ion-label>
             <ion-input type="text" [(ngModel)]="user.lastName"></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-item>
-          <ion-label floating>{{ 'MOBILE' | translate}}</ion-label>
+          <ion-label floating>{{ 'MOBILE' | translate}}
+            <span class="danger">*</span>
+          </ion-label>
           <ion-input type="tel" [(ngModel)]="user.mobile"></ion-input>
         </ion-item>
       </ion-row>
@@ -50,5 +56,5 @@
 </ion-content>
 
 <ion-footer>
-  <button ion-button block (click)="updateProfile(user)" color="app">{{ 'SAVE' | translate}}</button>
+  <button ion-button block (click)="updateProfile(user)" color="app" [disabled]="!user.firstName || user.firstName ==='' || !user.lastName || user.lastName ==='' || !user.mobile || user.mobile ===''">{{ 'SAVE' | translate}}</button>
 </ion-footer>
