@@ -199,7 +199,7 @@
             <ion-label>CVC
               <span>*</span>
             </ion-label>
-            <ion-input text-right type="password" [(ngModel)]="paymentDetail.creditcvc" (ionChange)="creditFormat()"></ion-input>
+            <ion-input text-right type="tel" [(ngModel)]="paymentDetail.creditcvc" (ionChange)="creditFormat()"></ion-input>
           </ion-item>
           <ion-item no-lines>
           </ion-item>
@@ -337,16 +337,22 @@
                   <h2>
                     <b>{{ 'COUPON' | translate }}</b>
                   </h2>
-                  <ion-row>
+                  <ion-row *ngIf="!order.coupon.code">
                     <ion-col col-9>
                       <ion-item>
-                        <ion-input type="text" placeholder="{{ 'COUPON' | translate }}" [(ngModel)]="couponCode"></ion-input>
+                        <ion-input type="text" placeholder="{{ 'COUPON' | translate }}" [(ngModel)]="couponCode" (ionChange)="limitCoupon()"></ion-input>
                       </ion-item>
                     </ion-col>
                     <ion-col col-3 class="btn-coupon">
                       <button ion-button block (click)="getCoupon()">{{ 'COUPON_APPLY' | translate }}</button>
                     </ion-col>
                   </ion-row>
+                  <ion-list *ngIf="order.coupon.code">
+                    <ion-item no-padding>
+                      <label>{{order.coupon.code}}</label>
+                      <ion-icon name="md-remove-circle" item-end color="danger" (click)="removeCouponCode()"></ion-icon>
+                    </ion-item>
+                  </ion-list>
                 </ion-label>
               </ion-item>
             </ion-list>
@@ -421,7 +427,7 @@
 <ion-footer *ngIf="formWizard._activeIndex === 1">
   <ion-row no-padding>
     <ion-col col-6 no-padding>
-      <button ion-button full color="danger" (click)="slidePrev()">{{ 'PREV' | translate }}</button>
+      <button ion-button block color="danger" (click)="slidePrev()">{{ 'PREV' | translate }}</button>
     </ion-col>
     <ion-col col-6 no-padding>
       <button color="app" ion-button block [disabled]="isSelectShipping" (click)="slideNext()">{{ 'NEXT' | translate }}</button>
@@ -432,7 +438,7 @@
 <ion-footer *ngIf="formWizard._activeIndex === 2">
   <ion-row no-padding>
     <ion-col col-6 no-padding>
-      <button ion-button full color="danger" (click)="slidePrev()">{{ 'PREV' | translate}}</button>
+      <button ion-button block color="danger" (click)="slidePrev()">{{ 'PREV' | translate}}</button>
     </ion-col>
     <ion-col col-6 no-padding>
       <button color="app" ion-button block [disabled]="paymentType === '1' ? paymentDetail.creditno === '' || paymentDetail.creditname === '' || paymentDetail.expdate === '' || paymentDetail.creditcvc === null : bankingType === ''"
@@ -444,7 +450,7 @@
 <ion-footer *ngIf="formWizard._activeIndex === 3">
   <ion-row no-padding>
     <ion-col col-6 no-padding>
-      <button ion-button full color="danger" (click)="slidePrev()">{{ 'PREV' | translate }}</button>
+      <button ion-button block color="danger" (click)="slidePrev()">{{ 'PREV' | translate }}</button>
     </ion-col>
     <ion-col col-6 no-padding>
       <button color="app" ion-button block (click)="clickConfirmed()">{{ 'CONFIRM_ORDER' | translate }}</button>

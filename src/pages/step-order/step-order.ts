@@ -221,7 +221,7 @@ export class StepOrderPage {
     let ok = '';
     if (language === 'th') {
       title = 'ลบที่อยู่จัดส่ง';
-      message = 'คุณต้องลบที่อยู่จัดส่งนี้?';
+      message = 'คุณต้องการลบที่อยู่จัดส่งนี้?';
       cancel = 'ยกเลิก';
       ok = 'ตกลง';
     } else if (language === 'en') {
@@ -386,11 +386,64 @@ export class StepOrderPage {
         this.order.coupon.code = "";
         this.order.coupon.discount = null;
         this.couponCode = "";
-        this.orderSummary();        
+        this.orderSummary();
       }
     }, (err) => {
       this.loading.dismiss();
     });
+  }
+
+  limitCoupon() {
+    if (this.couponCode.length > 16) {
+      setTimeout(() => {
+        this.couponCode = this.couponCode.substr(0, 16);
+      }, 0);
+    }
+  }
+
+  removeCouponCode() {
+    let language = this.translate.currentLang;
+    let title = '';
+    let message = '';
+    let cancel = '';
+    let ok = '';
+    if (language === 'th') {
+      title = 'ลบคูปอง';
+      message = 'คุณต้องการลบคูปอง?';
+      cancel = 'ยกเลิก';
+      ok = 'ตกลง';
+    } else if (language === 'en') {
+      title = 'Remove coupon';
+      message = 'Do you want to remove coupon?';
+      cancel = 'Cancel';
+      ok = 'OK';
+    }
+    let alert = this.alertCtrl.create({
+      title: title,
+      message: message,
+      mode: 'ios',
+      buttons: [
+        {
+          text: ok,
+          cssClass: 'confirm',
+          handler: () => {
+            this.order.coupon.code = "";
+            this.order.coupon.discount = null;
+            this.couponCode = "";
+            this.orderSummary();
+          }
+        },
+        {
+          text: cancel,
+          role: 'cancel',
+          cssClass: 'cancel',
+          handler: () => {
+
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 
   clickConfirmed() {

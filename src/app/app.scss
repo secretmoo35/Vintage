@@ -73,10 +73,15 @@ ion-app {
 }
 
 ion-footer {
-    height: 50px !important;
+    // height: 50px !important;
+    padding: 4px;
     .button {
-        height: 46px !important;
-        border-radius: 0px !important;
+        // height: 46px !important;
+        // border-radius: 0px !important;
+        margin: 0px;
+    }
+    .col {
+        padding: 2px;
     }
 }
 
@@ -88,9 +93,9 @@ ion-footer {
     border-color: transparent !important;
 }
 
-.button-md {
-    border-radius: 0px !important;
-}
+// .button-md {
+//     border-radius: 0px !important;
+// }
 
 .tabs-ios .tab-button {
     -webkit-text-stroke: 0.8px !important;

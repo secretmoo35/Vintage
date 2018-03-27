@@ -88,9 +88,13 @@
             <p class="bid-price">{{ bidDetailData.pricestart | number}} {{ 'THB' | translate }}</p>
           </ion-col>
           <div class="vl"></div>
-          <ion-col no-padding col-6 text-center class="col-cs-bid">
+          <ion-col no-padding col-6 text-center class="col-cs-bid" *ngIf="!bidDetailData.isexpire">
             <p class="bid-title">{{ 'PLACE_BID' | translate }}</p>
             <p class="bid-price">{{ bidDetailData.pricebid | number}} {{ 'THB' | translate }}</p>
+          </ion-col>
+          <ion-col no-padding col-6 text-center class="col-cs-bid" *ngIf="bidDetailData.isexpire">
+            <p class="bid-title">{{ 'PRICE' | translate }}</p>
+            <p class="bid-price">{{ bidDetailData.price | number}} {{ 'THB' | translate }}</p>
           </ion-col>
         </ion-row>
 

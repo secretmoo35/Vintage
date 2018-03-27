@@ -34,6 +34,8 @@
         <ion-card (click)="toBidDetail(item)">
           <ion-card-content>
             <preload-image class="products-image" [ratio]="{w:1, h:1}" [src]="item.image"></preload-image>
+            <!-- <ion-icon *ngIf="item.iswin" name="ios-ribbon" class="icon-win"></ion-icon> -->
+            <img *ngIf="item.iswin" src="./assets/icon/bid/icon-win2.png" class="icon-win">
           </ion-card-content>
           <div *ngIf="item.isBid">
             <p text-center>{{ 'TIME_LEFT' | translate }}</p>
@@ -54,13 +56,13 @@
           </div>
           <ion-row>
             <ion-col col-12 text-left class="price">
-              <p *ngIf="item.isBid" class="current">{{ 'PRICE' | translate }}
-                <span class="price-no-bid">{{ item.price | number }} ฿</span>
-              </p>
-              <p *ngIf="!item.isBid">{{ 'START_PRICE' | translate }}
+              <p *ngIf="!item.isBid || index === '2' ">{{ 'START_PRICE' | translate }}
                 <span class="price-no-bid">{{ item.pricestart | number }} ฿</span>
               </p>
-              <p>
+              <p *ngIf="item.isBid || index === '2'" class="current">{{ 'PRICE' | translate }}
+                <span class="price-no-bid">{{ item.price | number }} ฿</span>
+              </p>
+              <p *ngIf="index !== '2' ">
                 <b>{{ 'PLACE_BID' | translate }}
                   <span class="price-no-bid">{{ item.pricebid | number }} ฿</span>
                 </b>

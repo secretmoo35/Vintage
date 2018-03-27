@@ -1,5 +1,5 @@
 page-bid-list {
-    .padding-seg{
+    .padding-seg {
         padding: 8px 16px 8px 16px;
     }
     ion-card-content {
@@ -42,10 +42,17 @@ page-bid-list {
         margin: 3px;
         color: #ffffff;
     }
-    .buttun-hammer{
+    .buttun-hammer {
         margin: 0px !important;
-        .button-inner{
+        .button-inner {
             margin-left: -10px;
         }
+    }
+    .icon-win {
+        position: absolute;
+        right: 4px;
+        top: 4px;
+        width: 34px;
+        color: #FFEB3B;
     }
 }
