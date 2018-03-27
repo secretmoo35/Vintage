@@ -34,8 +34,7 @@
         <ion-card (click)="toBidDetail(item)">
           <ion-card-content>
             <preload-image class="products-image" [ratio]="{w:1, h:1}" [src]="item.image"></preload-image>
-            <!-- <ion-icon *ngIf="item.iswin" name="ios-ribbon" class="icon-win"></ion-icon> -->
-            <img *ngIf="item.iswin" src="./assets/icon/bid/icon-win2.png" class="icon-win">
+            <img *ngIf="item.iswin" src="./assets/icon/bid/icon-win.png" class="icon-win">
           </ion-card-content>
           <div *ngIf="item.isBid">
             <p text-center>{{ 'TIME_LEFT' | translate }}</p>
