@@ -54,14 +54,34 @@
             </ion-row>
           </div>
           <ion-row>
-            <ion-col col-12 text-left class="price">
-              <p *ngIf="!item.isBid || index === '2' ">{{ 'START_PRICE' | translate }}
-                <span class="price-no-bid">{{ item.pricestart | number }} ฿</span>
-              </p>
-              <p *ngIf="item.isBid || index === '2'" class="current">{{ 'PRICE' | translate }}
+            <ion-col col-12 text-left class="price" *ngIf="index === '0'">
+              <p class="current">{{ 'PRICE_BID' | translate }}
                 <span class="price-no-bid">{{ item.price | number }} ฿</span>
               </p>
-              <p *ngIf="index !== '2' ">
+              <p>
+                <b>{{ 'PLACE_BID' | translate }}
+                  <span class="price-no-bid">{{ item.pricebid | number }} ฿</span>
+                </b>
+              </p>
+            </ion-col>
+            <ion-col col-12 text-left class="price" *ngIf="index === '1'">
+              <p>{{ 'START_PRICE' | translate }}
+                <span class="price-no-bid">{{ item.pricestart | number }} ฿</span>
+              </p>
+              <p>
+                <b>{{ 'PLACE_BID' | translate }}
+                  <span class="price-no-bid">{{ item.pricebid | number }} ฿</span>
+                </b>
+              </p>
+            </ion-col>
+            <ion-col col-12 text-left class="price" *ngIf="index === '2'">
+              <p *ngIf="!item.isBid">{{ 'START_PRICE' | translate }}
+                <span class="price-no-bid">{{ item.pricestart | number }} ฿</span>
+              </p>
+              <p class="current">{{ 'PRICE_BID' | translate }}
+                <span class="price-no-bid">{{ item.price | number }} ฿</span>
+              </p>
+              <p *ngIf="item.isBid">
                 <b>{{ 'PLACE_BID' | translate }}
                   <span class="price-no-bid">{{ item.pricebid | number }} ฿</span>
                 </b>

@@ -64,6 +64,7 @@
   "START_PRICE": "Start price",
   "CURRENT_BID": "Current bid",
   "PLACE_BID": "Place bid",
+  "PRICE_BID": "Bid price",
   "CHECK_OUT": "Check out",
   "CART_NO_ITEM": "Cart empty",
   "FORGOT_TEXT": "Reset your account password by email.",
