@@ -103,6 +103,7 @@
                   <h2 class="product-name">{{item.bid.name}}</h2>
                   <p>{{item.bid.price | number}} {{ 'THB' | translate }}</p>
                   <p>{{ 'QTY' | translate }}: {{item.qty}}</p>
+                  <p>{{ 'TOTAL' | translate }} {{item.amount | number:'0.2-2'}} {{ 'THB' | translate}}</p>                  
                 </ion-label>
               </ion-item>
             </ion-list>
@@ -282,6 +283,7 @@
                   <p *ngIf="item.shipping">{{ 'SHIPPING_TYPE' | translate }}: {{ item.shipping.ref.name }} ({{ item.shipping.price }} {{ 'THB' | translate
                     }})
                   </p>
+                  <p *ngIf="item.shipping">{{ 'TOTAL' | translate }} {{(item.amount + item.shipping.price) | number:'0.2-2'}} {{ 'THB' | translate}}</p>                                
                 </ion-label>
               </ion-item>
             </ion-list>
