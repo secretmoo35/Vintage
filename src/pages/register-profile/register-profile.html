@@ -17,7 +17,10 @@
   <ion-row>
     <ion-col col-12 text-center>
       <img src="{{ user.profileImageURL }}" class="arvatar">
-      <button ion-button icon-only clear round class="btn-upload" (click)="getImage()">
+      <!-- <button ion-button icon-only clear round class="btn-upload" (click)="getImage()">
+        <ion-icon name="md-camera"></ion-icon>
+      </button> -->
+      <button ion-fab color="light" class="btn-upload" (click)="getImage()">
         <ion-icon name="md-camera"></ion-icon>
       </button>
     </ion-col>

@@ -8,11 +8,17 @@ page-register-profile {
         height: 30vw;
         object-fit: cover;
     }
-    .btn-upload{
+    .btn-upload {
         position: absolute;
-        top: -8px;
-        margin-left: -8px;
+        bottom: 10px;
+        margin-left: -34px;
         color: #9E9E9E;
+        display: unset;
+        width: 10vw !important;
+        height: 10vw !important;
+        ion-icon {
+            font-size: 6vw !important;
+        }
     }
     .col-input {
         padding-left: 0px !important;
